@@ -1,0 +1,44 @@
+/***************************************************************************************
+VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
+
+Copyright (C) 2009-2013  Ka.Shrinivaasan
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+mail to: ka.shrinivaasan@gmail.com
+*****************************************************************************************/
+
+
+Version: 1.0
+dt.18 April 2013
+Note: presently completely experimental
+
+Goal of Virgo is to design a module extension with cloud capabilities with cpu and memory pooling i.e the user created threads get executed transparently across machines in the cloud(thus this in a way pools the CPU and memory resources on the cloud). Presently there seems to be no implementation with fine-grained support for thread execution on the cloud though there are coarse grained clustering and SunRPC implementations available.
+
+Memory pooling:
+---------------
+Memory pooling is proposed to be implemented by a new virgo_malloc() system call that transparently allocates a block of virtual memory from memory pooled from virtual memory scattered across individual machines part of the cloud.
+
+CPU pooling or cloud ability in a system call:
+----------------------------------------------
+Clone() system call is linux specific and internally it invokes sys_clone(). All fork(),vfork() and clone() system calls internally invoke do_fork(). A new system call virgo_clone() is proposed to create a thread transparently on any of the available machines on the cloud.This creates a thread on a free or least-loaded machine on the cloud and returns the results.
+
+A possible implementation: virgo_clone() is a wrapper over clone() that looks up a map of machines-to-loadfactor and get the host with least load and invokes clone() on a function on that gets executed on the host. Usual cloud implementations provide userspace API that have something similar to this - call(function,host). Loadfactor can be calculated through any of the prominent loadbalancing algorithm. Any example userspace code that uses clone() can be replaced with virgo_clone() and all such threads will be running in a cloud transparently.Presently Native POSIX threads library(NPTL) and older LinuxThreads thread libraries internally use clone().
+
+Implementation option 1:
+----------------------
+Kernel has support for kernel space sockets with kernel_accept(), kernel_bind(), kernel_connect(), kernel_sendmsg() and kernel_recvmsg() that can be used inside a kernel module. Virgo driver implements virgo_clone() system call that does a kernel_connect() to a remote kernel socket already __sock_create()-d, kernel_bind()-ed and kernel_accept()-ed and does kernel_sendmsg() of the function details and kernel_recvmsg() after function has been executed by clone() in remote machine. After kernel_accept() receives a connection it reads the function and parameter details. Using these clone() is executed in the remote machine and results are written back to the originating machine. This is somewhat similar to SunRPC but adapted and made lightweight to suit virgo_clone() implementation without any external data representation.
+
+
+
