@@ -1,0 +1,1 @@
+cmd_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/virgo_cloudexec.ko := ld -r -m elf_i386 -T /usr/src/linux-headers-3.7.8-030708-generic/scripts/module-common.lds --build-id  -o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/virgo_cloudexec.ko /home/kashrinivaasan/linux-3.7.8/drivers/virgo/virgo_cloudexec.o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/virgo_cloudexec.mod.o
