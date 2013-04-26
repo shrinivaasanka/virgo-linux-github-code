@@ -138,8 +138,8 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	strcpy(iov.iov_base, func_signature);
 	error = sock_create(AF_INET, SOCK_STREAM, 0, &sock);
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
-	kernel_sendmsg(sock, &msg, BUF_SIZE, &iov, nr);
-        len  = kernel_recvmsg(sock, &msg, BUF_SIZE, &iov, nr, msg.msg_flags);
+	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+        len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	
 	return len;
 }
