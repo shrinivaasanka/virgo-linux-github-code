@@ -74,7 +74,7 @@ virgocloudexec_init(void)
 	int error;
 	char buffer[3000];
 	struct net *net;
-	int family=PF_INET;
+	int family=AF_INET;
 	int type=SOCK_STREAM;
 	int protocol=IPPROTO_TCP;
 	struct socket *sock;	
@@ -110,11 +110,11 @@ virgocloudexec_init(void)
 
 	while(1)
 	{
-		error = kernel_accept(sock, clientsock, O_NONBLOCK);
+		error = kernel_accept(sock, &clientsock, O_NONBLOCK);
 		/*	
 			do kernel_recvmsg() to get the function data to be executed on a thread
 		*/
-		len  = kernel_recvmsg(clientsock, &msg, buflen, &iov, nr, msg.msg_flags);
+		len  = kernel_recvmsg(clientsock, &msg, &iov, buflen, nr, msg.msg_flags);
 		/*
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
@@ -127,7 +127,7 @@ virgocloudexec_init(void)
 		strcpy(buffer,"cloudclonethread executed");
 		iov.iov_base=(void*)buffer;
 		iov.iov_len=25;
-		kernel_sendmsg(clientsock, &msg, buflen, &iov, nr);
+		kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
 	}
 
 	/*
