@@ -26,8 +26,8 @@ __attribute__((section("__versions"))) = {
 	{ 0x781ef3c4, "kernel_accept" },
 	{ 0xbb54f3af, "kernel_listen" },
 	{ 0xcb894ad1, "kernel_bind" },
-	{ 0x140b3257, "sock_create" },
-	{ 0x86a4889a, "kmalloc_order_trace" },
+	{ 0x50eedeb8, "printk" },
+	{ 0x320d94e, "sock_create_kern" },
 	{ 0x952664c5, "do_exit" },
 	{ 0xb4390f9a, "mcount" },
 };
@@ -38,4 +38,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "14C355A4A8124E800F8A3CC");
+MODULE_INFO(srcversion, "83CD9FE3AF9E5A4AB4D4527");

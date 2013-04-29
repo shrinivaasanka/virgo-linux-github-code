@@ -55,6 +55,7 @@ mail to: ka.shrinivaasan@gmail.com
 /*#include "netns.h"*/
 
 #define BUF_SIZE 500
+typedef int (*FPTR)(void *args);
 
 int clone_func(void* args)
 {
@@ -62,7 +63,7 @@ int clone_func(void* args)
 }
 
 
-int (*get_function_ptr_from_str(void* args))(char* cloneFunction)
+FPTR get_function_ptr_from_str(char* cloneFunction)
 {
 	return clone_func;
 }
@@ -71,25 +72,28 @@ static int __init
 virgocloudexec_init(void)
 {
 	struct task_struct *task;
+	int (*cloneFunction_ptr)(void*);
+	char* cloneFunction;
 	int error;
-	char buffer[3000];
-	struct net *net;
+	char buffer[BUF_SIZE];
+	/*struct net *net;*/
 	int family=AF_INET;
 	int type=SOCK_STREAM;
 	int protocol=IPPROTO_TCP;
 	struct socket *sock;	
 	struct sockaddr_in sin;
-	int len;
+	int len=0;
 	struct socket *clientsock;
 	struct kvec iov;
 	struct msghdr msg = {
 		.msg_flags = MSG_DONTWAIT,
 	};
-	int buflen;
-	int nr;
+	int buflen=BUF_SIZE;
+	int nr=0;
+	int args=0;
+	/*
 	char* stack;
 
-	/*
 	union {
                 struct cmsghdr  hdr;
                 long            all[3000];
@@ -99,30 +103,32 @@ virgocloudexec_init(void)
 
 	sin.sin_family=AF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
-	sin.sin_port=htons(60000);
+	sin.sin_port=htons(10000);
 
-	stack=kmalloc(65536, GFP_KERNEL);
+	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	iov.iov_base=(void*)buffer;
-	iov.iov_len=3000;	
-	error = sock_create(family, type, protocol, &sock);
-	kernel_bind(sock, (struct sockaddr*)&sin,len);
-	kernel_listen(sock,64);
+	iov.iov_len=BUF_SIZE;	
+	error = sock_create_kern(family, type, protocol, &sock);
+	printk(KERN_INFO "sock_create() returns error code: %d\n",error);
+	kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
+	kernel_listen(sock, 2);
 
 	while(1)
 	{
 		error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+		/*error = kernel_accept(sock, &clientsock, 0);*/
+		printk(KERN_INFO "kernel_accept() returns error code: %d\n",error);
 		/*	
 			do kernel_recvmsg() to get the function data to be executed on a thread
 		*/
 		len  = kernel_recvmsg(clientsock, &msg, &iov, buflen, nr, msg.msg_flags);
+		printk(KERN_INFO "kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		char* cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
-		int (*cloneFunction_ptr)(void*);
+		cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
-		int args=0;
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
 		iov.iov_base=(void*)buffer;
@@ -188,7 +194,8 @@ virgocloudexec_init(void)
 		kernel_sendmsg(clientsock, &msg, buflen, &iov, nr);
            }
 	*/
-
+	
+	return 0;
 }
 
 static void __exit
