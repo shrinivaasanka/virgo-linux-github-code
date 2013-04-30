@@ -77,7 +77,7 @@ virgocloudexec_init(void)
 	int error;
 	char buffer[BUF_SIZE];
 	/*struct net *net;*/
-	int family=AF_INET;
+	int family=PF_INET;
 	int type=SOCK_STREAM;
 	int protocol=IPPROTO_TCP;
 	struct socket *sock;	
@@ -85,9 +85,12 @@ virgocloudexec_init(void)
 	int len=0;
 	struct socket *clientsock;
 	struct kvec iov;
+	/*
 	struct msghdr msg = {
 		.msg_flags = MSG_DONTWAIT,
 	};
+	*/
+	struct msghdr msg;
 	int buflen=BUF_SIZE;
 	int nr=0;
 	int args=0;
@@ -100,23 +103,30 @@ virgocloudexec_init(void)
         } buffer;
         struct cmsghdr *cmh = &buffer.hdr;
 	*/
-
-	sin.sin_family=AF_INET;
+	
+	memset(&sin, 0, sizeof(struct sockaddr_in));
+	sin.sin_family=PF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
 	sin.sin_port=htons(10000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	iov.iov_base=(void*)buffer;
 	iov.iov_len=BUF_SIZE;	
-	error = sock_create_kern(family, type, protocol, &sock);
+	error = sock_create_kern(PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "sock_create() returns error code: %d\n",error);
-	kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
-	kernel_listen(sock, 2);
+
+	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
+	printk(KERN_INFO "kernel_bind() returns error code: %d\n",error);
+
+	error = kernel_listen(sock, 2);
+	printk(KERN_INFO "kernel_listen() returns error code: %d\n", error);
 
 	while(1)
 	{
-		error = kernel_accept(sock, &clientsock, O_NONBLOCK);
-		/*error = kernel_accept(sock, &clientsock, 0);*/
+		/*error = kernel_accept(sock, &clientsock, O_NONBLOCK);*/
+		error = kernel_accept(sock, &clientsock, 0);
+		if(error==-EAGAIN)
+			printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
 		printk(KERN_INFO "kernel_accept() returns error code: %d\n",error);
 		/*	
 			do kernel_recvmsg() to get the function data to be executed on a thread
