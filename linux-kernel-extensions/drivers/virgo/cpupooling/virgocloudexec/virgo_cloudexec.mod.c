@@ -18,17 +18,8 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x36c33dd0, "module_layout" },
-	{ 0xc77614ca, "kernel_sendmsg" },
-	{ 0xe914e41e, "strcpy" },
-	{ 0xfa336f83, "kthread_create_on_node" },
-	{ 0xc499ae1e, "kstrdup" },
-	{ 0xafd83fbb, "kernel_recvmsg" },
-	{ 0x781ef3c4, "kernel_accept" },
-	{ 0xbb54f3af, "kernel_listen" },
-	{ 0xcb894ad1, "kernel_bind" },
-	{ 0x50eedeb8, "printk" },
-	{ 0x320d94e, "sock_create_kern" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 };
 
@@ -38,4 +29,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "E7CCAB6692FDC4831DEC01F");
+MODULE_INFO(srcversion, "02F9244830B030A4AB60EF6");
