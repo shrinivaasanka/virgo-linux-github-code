@@ -64,7 +64,7 @@ struct hostport* get_least_loaded_hostport_from_cloud()
 {
 	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
 	hopo->hostip=kstrdup("127.0.0.1", GFP_KERNEL);
-	hopo->port=60000;
+	hopo->port=10000;
 	return hopo;
 }
 
