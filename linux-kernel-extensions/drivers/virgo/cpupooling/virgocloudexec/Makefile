@@ -1,5 +1,5 @@
 #
-# Makefile for Universal Parallel Bus 
+# Makefile for VIRGO cloudexec driver and cloudexec kernel service
 #
 
 ccflags-y := -DDEBUG
