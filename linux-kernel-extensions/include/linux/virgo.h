@@ -89,8 +89,8 @@ static int virgocloudexec_create(void);
 static int virgocloudexec_recvfrom(void);
 static int virgocloudexec_sendto(void);
 
-void virgo_cloudexec_service(void);
-
+int virgo_cloudexec_service(void* args);
+void do_virgocloudexec_init(void);
 
 /*
 static struct svc_xprt_ops virgo_ops = {
@@ -106,10 +106,11 @@ static struct svc_xprt_class virgo_class = {
 };
 */
 
+
 struct virgo_ops_t {
-	void (*virgo_create)(void);
-	void (*virgo_recvfrom)(void);
-	void (*virgo_sendto)(void);
+	int (*virgo_create)(void);
+	int (*virgo_recvfrom)(void);
+	int (*virgo_sendto)(void);
 };
 
 static struct virgo_ops_t virgo_ops = {
@@ -149,10 +150,19 @@ int args=0;
 /*
  * VIRGO cloudexec service kernel thread initialization
  * - Ka.Shrinivaasan 3May2013
- */
 
-void do_virgocloudexec_init(void);
-void virgo_cloudexec_service(void);
 
+int virgo_cloudexec_service(void* args)
+{
+        try_module_get(virgo_class.m_virgo_owner);
+        while(1)
+        {
+                virgo_ops.virgo_create();
+                virgo_ops.virgo_recvfrom();
+                virgo_ops.virgo_sendto();
+        }
+}
+
+*/
 
 #endif /* _VIRGO_H_ */
