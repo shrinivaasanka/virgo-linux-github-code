@@ -1,0 +1,11 @@
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+
+#virgo_cloudexec module appended to bootup loading of kernel modules
+#Pre-requisite is to run the update-initramfs -uv <kernel-version> and
+#copy virgo_cloudexec.ko to /lib/modules/`uname -r`  and do a test modprobe on virgo_cloudexec.ko
+
+lp
+virgo_cloudexec
