@@ -4,4 +4,5 @@
 
 ccflags-y := -DDEBUG
 
-obj-m               += virgo_clone.o
+#obj-m               += virgo_clone.o
+obj-y               += virgo_clone.o
