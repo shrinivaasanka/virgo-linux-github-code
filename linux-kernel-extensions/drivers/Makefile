@@ -1,6 +1,3 @@
-#Added virgo cloud driver directory to build
-#- Ka.Shrinivaasan (ka.shrinivaasan@gmail.com, Krishna iResearch)
-
 #
 # Makefile for the Linux kernel device drivers.
 #
@@ -149,6 +146,7 @@ obj-$(CONFIG_MEMORY)		+= memory/
 obj-$(CONFIG_IIO)		+= iio/
 obj-$(CONFIG_VME_BUS)		+= vme/
 
-#Build VIRGO cloud driver
+#Build VIRGO cloud driver as built-in module
 #obj-$(CONFIG_VIRGO)		+= virgo/cpupooling/virgocloudexec
-obj-y				+= virgo/cpupooling/virgocloudexec
+#obj-y				+= virgo/cpupooling/virgocloudexec
+
