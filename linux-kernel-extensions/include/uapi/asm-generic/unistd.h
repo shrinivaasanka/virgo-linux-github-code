@@ -857,10 +857,12 @@ __SYSCALL(__NR_fork, sys_fork)
 __SYSCALL(__NR_fork, sys_ni_syscall)
 #endif /* CONFIG_MMU */
 
+/*
 #ifdef VIRGO
 #define __NR_virgo_clone 1080
 __SYSCALL(__NR_virgo_clone, sys_virgo_clone)
 #endif
+*/
 
 #undef __NR_syscalls
 #define __NR_syscalls (__NR_fork+1)
