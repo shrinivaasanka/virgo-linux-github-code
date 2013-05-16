@@ -753,6 +753,7 @@ libs-y		:= $(libs-y1) $(libs-y2)
 
 # Externally visible symbols (used by link-vmlinux.sh)
 export KBUILD_VMLINUX_INIT := $(head-y) $(init-y)
+#export KBUILD_VMLINUX_INIT := $(head-y) $(init-y) /home/kashrinivaasan/linux-3.7.8-build/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o
 export KBUILD_VMLINUX_MAIN := $(core-y) $(libs-y) $(drivers-y) $(net-y)
 export KBUILD_LDS          := arch/$(SRCARCH)/kernel/vmlinux.lds
 export LDFLAGS_vmlinux
