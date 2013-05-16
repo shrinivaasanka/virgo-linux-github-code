@@ -20,6 +20,7 @@ mail to: ka.shrinivaasan@gmail.com
 *****************************************************************************************/
 
 #include <linux/virgo.h>
+#include <linux/virgocloudexecsvc.h>
 
 /*
 #include <linux/kernel.h>
@@ -105,7 +106,6 @@ int nr=0;
 int args=0;
 */
 
-
 int clone_func(void* args)
 {
 	return 1;
@@ -121,8 +121,11 @@ static int __init
 virgocloudexec_init(void)
 {
 	printk(KERN_INFO "doing init() of virgocloudexec kernel module\n");
+	printk(KERN_INFO "starting virgo cloudexec service kernel thread\n");
+	virgo_cloudexec_service(NULL);
 	return 0;
 }
+EXPORT_SYMBOL(virgocloudexec_init);
 
 static int virgocloudexec_create(void)
 {
@@ -150,6 +153,7 @@ static int virgocloudexec_create(void)
 	printk(KERN_INFO "kernel_accept() returns error code: %d\n",error);
 	return 0;
 }
+EXPORT_SYMBOL(virgocloudexec_create);
 
 static int virgocloudexec_recvfrom(void)
 {
@@ -168,6 +172,7 @@ static int virgocloudexec_recvfrom(void)
 	strcpy(buffer,"cloudclonethread executed");
 	return 0;
 }
+EXPORT_SYMBOL(virgocloudexec_recvfrom);
 
 static int virgocloudexec_sendto(void)
 {
@@ -236,6 +241,8 @@ static int virgocloudexec_sendto(void)
 	
 	return 0;
 }
+EXPORT_SYMBOL(virgocloudexec_sendto);
+
 
 static void __exit
 virgocloudexec_exit(void)
@@ -243,6 +250,7 @@ virgocloudexec_exit(void)
 	printk(KERN_INFO "exiting virgocloudexec kernel module \n");
 	do_exit(1);
 }
+EXPORT_SYMBOL(virgocloudexec_exit);
 
 
 MODULE_LICENSE("GPL");

@@ -1,0 +1,5 @@
+0xcb59da6f	virgocloudexec_create	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x493a3dba	virgocloudexec_init	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0xe6f3f5af	virgocloudexec_recvfrom	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x2bbe1dc8	virgocloudexec_exit	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL
+0x42a5a4de	virgocloudexec_sendto	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec	EXPORT_SYMBOL

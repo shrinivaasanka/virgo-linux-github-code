@@ -1,21 +1,10 @@
-cmd_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o := gcc -Wp,-MD,/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/.virgo_cloudexec.o.d  -nostdinc -isystem /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include -I/usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/usr/src/linux-headers-3.7.8-030708-generic/include/uapi -Iinclude/generated/uapi -include /usr/src/linux-headers-3.7.8-030708-generic/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -DDEBUG  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(virgo_cloudexec)"  -D"KBUILD_MODNAME=KBUILD_STR(virgo_cloudexec)" -c -o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/.tmp_virgo_cloudexec.o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c
+cmd_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o := gcc -Wp,-MD,/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/.virgo_cloudexec.o.d  -nostdinc -isystem /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include -I/usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include -Iarch/x86/include/generated  -Iinclude -I/usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/uapi -Iarch/x86/include/generated/uapi -I/usr/src/linux-headers-3.7.8-030708-generic/include/uapi -Iinclude/generated/uapi -include /usr/src/linux-headers-3.7.8-030708-generic/include/linux/kconfig.h -D__KERNEL__ -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -fno-strict-aliasing -fno-common -Werror-implicit-function-declaration -Wno-format-security -fno-delete-null-pointer-checks -O2 -m32 -msoft-float -mregparm=3 -freg-struct-return -fno-pic -mpreferred-stack-boundary=2 -march=i686 -mtune=generic -maccumulate-outgoing-args -Wa,-mtune=generic32 -ffreestanding -fstack-protector -DCONFIG_AS_CFI=1 -DCONFIG_AS_CFI_SIGNAL_FRAME=1 -DCONFIG_AS_CFI_SECTIONS=1 -DCONFIG_AS_AVX=1 -pipe -Wno-sign-compare -fno-asynchronous-unwind-tables -mno-sse -mno-mmx -mno-sse2 -mno-3dnow -mno-avx -Wframe-larger-than=1024 -fno-omit-frame-pointer -fno-optimize-sibling-calls -pg -Wdeclaration-after-statement -Wno-pointer-sign -fno-strict-overflow -fconserve-stack -I/home/kashrinivaasan/linux-3.7.8/include -DDEBUG  -DMODULE  -D"KBUILD_STR(s)=\#s" -D"KBUILD_BASENAME=KBUILD_STR(virgo_cloudexec)"  -D"KBUILD_MODNAME=KBUILD_STR(virgo_cloudexec)" -c -o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/.tmp_virgo_cloudexec.o /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c
 
 source_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o := /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c
 
 deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o := \
-  include/linux/kernel.h \
-    $(wildcard include/config/lbdaf.h) \
-    $(wildcard include/config/preempt/voluntary.h) \
-    $(wildcard include/config/debug/atomic/sleep.h) \
-    $(wildcard include/config/prove/locking.h) \
-    $(wildcard include/config/ring/buffer.h) \
-    $(wildcard include/config/tracing.h) \
-    $(wildcard include/config/numa.h) \
-    $(wildcard include/config/compaction.h) \
-    $(wildcard include/config/symbol/prefix.h) \
-    $(wildcard include/config/ftrace/mcount/record.h) \
-  /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include/stdarg.h \
-  include/linux/linkage.h \
+  /home/kashrinivaasan/linux-3.7.8/include/linux/virgo.h \
+  include/linux/ioport.h \
   include/linux/compiler.h \
     $(wildcard include/config/sparse/rcu/pointer.h) \
     $(wildcard include/config/trace/branch/profiling.h) \
@@ -26,15 +15,9 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/arch/supports/optimized/inlining.h) \
     $(wildcard include/config/optimize/inlining.h) \
   include/linux/compiler-gcc4.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/linkage.h \
-    $(wildcard include/config/x86/32.h) \
-    $(wildcard include/config/x86/64.h) \
-    $(wildcard include/config/x86/alignment/16.h) \
-  include/linux/stringify.h \
-  include/linux/stddef.h \
-  include/uapi/linux/stddef.h \
   include/linux/types.h \
     $(wildcard include/config/uid16.h) \
+    $(wildcard include/config/lbdaf.h) \
     $(wildcard include/config/arch/dma/addr/t/64bit.h) \
     $(wildcard include/config/phys/addr/t/64bit.h) \
     $(wildcard include/config/64bit.h) \
@@ -47,23 +30,110 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/asm-generic/bitsperlong.h \
   include/uapi/asm-generic/bitsperlong.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/posix_types.h \
+  include/linux/stddef.h \
+  include/uapi/linux/stddef.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/posix_types.h \
+    $(wildcard include/config/x86/32.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/posix_types_32.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/posix_types.h \
+  include/linux/kobject.h \
+    $(wildcard include/config/hotplug.h) \
+  include/linux/list.h \
+    $(wildcard include/config/debug/list.h) \
+  include/linux/poison.h \
+    $(wildcard include/config/illegal/pointer/value.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/const.h \
+  include/linux/sysfs.h \
+    $(wildcard include/config/debug/lock/alloc.h) \
+    $(wildcard include/config/sysfs.h) \
+  include/linux/errno.h \
+  include/uapi/linux/errno.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/errno.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/errno.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/errno-base.h \
+  include/linux/lockdep.h \
+    $(wildcard include/config/lockdep.h) \
+    $(wildcard include/config/lock/stat.h) \
+    $(wildcard include/config/trace/irqflags.h) \
+    $(wildcard include/config/prove/locking.h) \
+    $(wildcard include/config/prove/rcu.h) \
+  include/linux/kobject_ns.h \
+  include/linux/atomic.h \
+    $(wildcard include/config/arch/has/atomic/or.h) \
+    $(wildcard include/config/generic/atomic64.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/atomic.h \
+    $(wildcard include/config/m386.h) \
+    $(wildcard include/config/x86/64.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/processor.h \
+    $(wildcard include/config/x86/vsmp.h) \
+    $(wildcard include/config/smp.h) \
+    $(wildcard include/config/cc/stackprotector.h) \
+    $(wildcard include/config/paravirt.h) \
+    $(wildcard include/config/m486.h) \
+    $(wildcard include/config/x86/debugctlmsr.h) \
+    $(wildcard include/config/cpu/sup/amd.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/processor-flags.h \
+    $(wildcard include/config/vm86.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/vm86.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ptrace.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ptrace-abi.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/segment.h \
+    $(wildcard include/config/x86/32/lazy/gs.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page_types.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page_32_types.h \
+    $(wildcard include/config/highmem4g.h) \
+    $(wildcard include/config/highmem64g.h) \
+    $(wildcard include/config/page/offset.h) \
+    $(wildcard include/config/x86/pae.h) \
+  include/linux/init.h \
+    $(wildcard include/config/broken/rodata.h) \
+    $(wildcard include/config/modules.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/paravirt_types.h \
+    $(wildcard include/config/x86/local/apic.h) \
+    $(wildcard include/config/paravirt/debug.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/desc_defs.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/kmap_types.h \
+    $(wildcard include/config/debug/highmem.h) \
+  include/asm-generic/kmap_types.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable_types.h \
+    $(wildcard include/config/kmemcheck.h) \
+    $(wildcard include/config/compat/vdso.h) \
+    $(wildcard include/config/proc/fs.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable_32_types.h \
+    $(wildcard include/config/highmem.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable-3level_types.h \
+  include/asm-generic/pgtable-nopud.h \
+  include/asm-generic/ptrace.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/math_emu.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/sigcontext.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/current.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/percpu.h \
+    $(wildcard include/config/x86/64/smp.h) \
+    $(wildcard include/config/x86/cmpxchg64.h) \
+  include/linux/kernel.h \
+    $(wildcard include/config/preempt/voluntary.h) \
+    $(wildcard include/config/debug/atomic/sleep.h) \
+    $(wildcard include/config/ring/buffer.h) \
+    $(wildcard include/config/tracing.h) \
+    $(wildcard include/config/numa.h) \
+    $(wildcard include/config/compaction.h) \
+    $(wildcard include/config/symbol/prefix.h) \
+    $(wildcard include/config/ftrace/mcount/record.h) \
+  /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include/stdarg.h \
+  include/linux/linkage.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/linkage.h \
+    $(wildcard include/config/x86/alignment/16.h) \
+  include/linux/stringify.h \
   include/linux/bitops.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/alternative.h \
-    $(wildcard include/config/smp.h) \
-    $(wildcard include/config/paravirt.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/asm.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cpufeature.h \
     $(wildcard include/config/x86/invlpg.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/required-features.h \
     $(wildcard include/config/x86/minimum/cpu/family.h) \
     $(wildcard include/config/math/emulation.h) \
-    $(wildcard include/config/x86/pae.h) \
-    $(wildcard include/config/x86/cmpxchg64.h) \
     $(wildcard include/config/x86/use/3dnow.h) \
     $(wildcard include/config/x86/p6/nop.h) \
   include/asm-generic/bitops/fls64.h \
@@ -89,10 +159,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/linux/printk.h \
     $(wildcard include/config/printk.h) \
     $(wildcard include/config/dynamic/debug.h) \
-  include/linux/init.h \
-    $(wildcard include/config/broken/rodata.h) \
-    $(wildcard include/config/modules.h) \
-    $(wildcard include/config/hotplug.h) \
   include/linux/kern_levels.h \
   include/linux/dynamic_debug.h \
   include/linux/string.h \
@@ -100,124 +166,18 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/uapi/linux/string.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/string.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/string_32.h \
-    $(wildcard include/config/kmemcheck.h) \
-  include/linux/errno.h \
-  include/uapi/linux/errno.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/errno.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/errno.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/errno-base.h \
   include/uapi/linux/kernel.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/sysinfo.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/div64.h \
-  include/linux/kthread.h \
-    $(wildcard include/config/lockdep.h) \
-  include/linux/err.h \
-  include/linux/sched.h \
-    $(wildcard include/config/sched/debug.h) \
-    $(wildcard include/config/prove/rcu.h) \
-    $(wildcard include/config/no/hz.h) \
-    $(wildcard include/config/lockup/detector.h) \
-    $(wildcard include/config/detect/hung/task.h) \
-    $(wildcard include/config/mmu.h) \
-    $(wildcard include/config/core/dump/default/elf/headers.h) \
-    $(wildcard include/config/sched/autogroup.h) \
-    $(wildcard include/config/virt/cpu/accounting.h) \
-    $(wildcard include/config/bsd/process/acct.h) \
-    $(wildcard include/config/taskstats.h) \
-    $(wildcard include/config/audit.h) \
-    $(wildcard include/config/cgroups.h) \
-    $(wildcard include/config/inotify/user.h) \
-    $(wildcard include/config/fanotify.h) \
-    $(wildcard include/config/epoll.h) \
-    $(wildcard include/config/posix/mqueue.h) \
-    $(wildcard include/config/keys.h) \
-    $(wildcard include/config/perf/events.h) \
-    $(wildcard include/config/schedstats.h) \
-    $(wildcard include/config/task/delay/acct.h) \
-    $(wildcard include/config/fair/group/sched.h) \
-    $(wildcard include/config/rt/group/sched.h) \
-    $(wildcard include/config/cgroup/sched.h) \
-    $(wildcard include/config/preempt/notifiers.h) \
-    $(wildcard include/config/blk/dev/io/trace.h) \
-    $(wildcard include/config/preempt/rcu.h) \
-    $(wildcard include/config/tree/preempt/rcu.h) \
-    $(wildcard include/config/rcu/boost.h) \
-    $(wildcard include/config/compat/brk.h) \
-    $(wildcard include/config/cc/stackprotector.h) \
-    $(wildcard include/config/sysvipc.h) \
-    $(wildcard include/config/auditsyscall.h) \
-    $(wildcard include/config/rt/mutexes.h) \
-    $(wildcard include/config/debug/mutexes.h) \
-    $(wildcard include/config/trace/irqflags.h) \
-    $(wildcard include/config/block.h) \
-    $(wildcard include/config/task/xacct.h) \
-    $(wildcard include/config/cpusets.h) \
-    $(wildcard include/config/futex.h) \
-    $(wildcard include/config/compat.h) \
-    $(wildcard include/config/fault/injection.h) \
-    $(wildcard include/config/latencytop.h) \
-    $(wildcard include/config/function/graph/tracer.h) \
-    $(wildcard include/config/memcg.h) \
-    $(wildcard include/config/have/hw/breakpoint.h) \
-    $(wildcard include/config/uprobes.h) \
-    $(wildcard include/config/rcu/user/qs.h) \
-    $(wildcard include/config/cpumask/offstack.h) \
-    $(wildcard include/config/have/unstable/sched/clock.h) \
-    $(wildcard include/config/irq/time/accounting.h) \
-    $(wildcard include/config/hotplug/cpu.h) \
-    $(wildcard include/config/proc/fs.h) \
-    $(wildcard include/config/cfs/bandwidth.h) \
-    $(wildcard include/config/stack/growsup.h) \
-    $(wildcard include/config/generic/kernel/thread.h) \
-    $(wildcard include/config/debug/stack/usage.h) \
-    $(wildcard include/config/preempt/count.h) \
-    $(wildcard include/config/preempt.h) \
-    $(wildcard include/config/mm/owner.h) \
-  include/uapi/linux/sched.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/param.h \
-  include/asm-generic/param.h \
-    $(wildcard include/config/hz.h) \
-  include/uapi/asm-generic/param.h \
-  include/linux/capability.h \
-  include/uapi/linux/capability.h \
+  include/asm-generic/percpu.h \
+    $(wildcard include/config/debug/preempt.h) \
+    $(wildcard include/config/have/setup/per/cpu/area.h) \
   include/linux/threads.h \
     $(wildcard include/config/nr/cpus.h) \
     $(wildcard include/config/base/small.h) \
-  include/linux/timex.h \
-  include/uapi/linux/timex.h \
-  include/linux/time.h \
-    $(wildcard include/config/arch/uses/gettimeoffset.h) \
-  include/linux/cache.h \
-    $(wildcard include/config/arch/has/cache/line/size.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cache.h \
-    $(wildcard include/config/x86/l1/cache/shift.h) \
-    $(wildcard include/config/x86/internode/cache/shift.h) \
-    $(wildcard include/config/x86/vsmp.h) \
-  include/linux/seqlock.h \
-  include/linux/spinlock.h \
-    $(wildcard include/config/debug/spinlock.h) \
-    $(wildcard include/config/generic/lockbreak.h) \
-    $(wildcard include/config/debug/lock/alloc.h) \
-  include/linux/preempt.h \
-    $(wildcard include/config/debug/preempt.h) \
-    $(wildcard include/config/preempt/tracer.h) \
-  include/linux/thread_info.h \
-  include/linux/bug.h \
-    $(wildcard include/config/generic/bug.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/bug.h \
-    $(wildcard include/config/bug.h) \
-    $(wildcard include/config/debug/bugverbose.h) \
-  include/asm-generic/bug.h \
-    $(wildcard include/config/generic/bug/relative/pointers.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/thread_info.h \
-    $(wildcard include/config/ia32/emulation.h) \
+  include/linux/percpu-defs.h \
+    $(wildcard include/config/debug/force/weak/per/cpu.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page_types.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/const.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page_32_types.h \
-    $(wildcard include/config/highmem4g.h) \
-    $(wildcard include/config/highmem64g.h) \
-    $(wildcard include/config/page/offset.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/page_32.h \
     $(wildcard include/config/hugetlb/page.h) \
     $(wildcard include/config/debug/virtual.h) \
@@ -228,41 +188,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/sparsemem/vmemmap.h) \
     $(wildcard include/config/sparsemem.h) \
   include/asm-generic/getorder.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/processor.h \
-    $(wildcard include/config/m386.h) \
-    $(wildcard include/config/m486.h) \
-    $(wildcard include/config/x86/debugctlmsr.h) \
-    $(wildcard include/config/cpu/sup/amd.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/processor-flags.h \
-    $(wildcard include/config/vm86.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/vm86.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ptrace.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ptrace-abi.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/segment.h \
-    $(wildcard include/config/x86/32/lazy/gs.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/paravirt_types.h \
-    $(wildcard include/config/x86/local/apic.h) \
-    $(wildcard include/config/paravirt/debug.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/desc_defs.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/kmap_types.h \
-    $(wildcard include/config/debug/highmem.h) \
-  include/asm-generic/kmap_types.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable_types.h \
-    $(wildcard include/config/compat/vdso.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable_32_types.h \
-    $(wildcard include/config/highmem.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/pgtable-3level_types.h \
-  include/asm-generic/pgtable-nopud.h \
-  include/asm-generic/ptrace.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/math_emu.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/sigcontext.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/current.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/percpu.h \
-    $(wildcard include/config/x86/64/smp.h) \
-  include/asm-generic/percpu.h \
-    $(wildcard include/config/have/setup/per/cpu/area.h) \
-  include/linux/percpu-defs.h \
-    $(wildcard include/config/debug/force/weak/per/cpu.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/msr.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/msr-index.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/ioctl.h \
@@ -271,9 +196,18 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/uapi/asm-generic/ioctl.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cpumask.h \
   include/linux/cpumask.h \
+    $(wildcard include/config/cpumask/offstack.h) \
+    $(wildcard include/config/hotplug/cpu.h) \
     $(wildcard include/config/debug/per/cpu/maps.h) \
     $(wildcard include/config/disable/obsolete/cpumask/functions.h) \
   include/linux/bitmap.h \
+  include/linux/bug.h \
+    $(wildcard include/config/generic/bug.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/bug.h \
+    $(wildcard include/config/bug.h) \
+    $(wildcard include/config/debug/bugverbose.h) \
+  include/asm-generic/bug.h \
+    $(wildcard include/config/generic/bug/relative/pointers.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/paravirt.h \
     $(wildcard include/config/transparent/hugepage.h) \
     $(wildcard include/config/paravirt/spinlocks.h) \
@@ -282,27 +216,38 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/special_insns.h \
   include/linux/personality.h \
   include/uapi/linux/personality.h \
+  include/linux/cache.h \
+    $(wildcard include/config/arch/has/cache/line/size.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cache.h \
+    $(wildcard include/config/x86/l1/cache/shift.h) \
+    $(wildcard include/config/x86/internode/cache/shift.h) \
   include/linux/math64.h \
+  include/linux/err.h \
   include/linux/irqflags.h \
     $(wildcard include/config/irqsoff/tracer.h) \
+    $(wildcard include/config/preempt/tracer.h) \
     $(wildcard include/config/trace/irqflags/support.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/irqflags.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ftrace.h \
-    $(wildcard include/config/function/tracer.h) \
-    $(wildcard include/config/dynamic/ftrace.h) \
-  include/linux/atomic.h \
-    $(wildcard include/config/arch/has/atomic/or.h) \
-    $(wildcard include/config/generic/atomic64.h) \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/atomic.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cmpxchg.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cmpxchg_32.h \
     $(wildcard include/config/x86/cmpxchg.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/atomic64_32.h \
   include/asm-generic/atomic-long.h \
-  include/linux/list.h \
-    $(wildcard include/config/debug/list.h) \
-  include/linux/poison.h \
-    $(wildcard include/config/illegal/pointer/value.h) \
+  include/linux/spinlock.h \
+    $(wildcard include/config/debug/spinlock.h) \
+    $(wildcard include/config/generic/lockbreak.h) \
+    $(wildcard include/config/preempt.h) \
+  include/linux/preempt.h \
+    $(wildcard include/config/preempt/count.h) \
+    $(wildcard include/config/preempt/notifiers.h) \
+  include/linux/thread_info.h \
+    $(wildcard include/config/compat.h) \
+    $(wildcard include/config/debug/stack/usage.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/thread_info.h \
+    $(wildcard include/config/ia32/emulation.h) \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ftrace.h \
+    $(wildcard include/config/function/tracer.h) \
+    $(wildcard include/config/dynamic/ftrace.h) \
   include/linux/bottom_half.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/barrier.h \
     $(wildcard include/config/x86/ppro/fence.h) \
@@ -310,8 +255,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/linux/spinlock_types.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/spinlock_types.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/rwlock.h \
-  include/linux/lockdep.h \
-    $(wildcard include/config/lock/stat.h) \
   include/linux/rwlock_types.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/spinlock.h \
   include/linux/rwlock.h \
@@ -345,12 +288,105 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/inline/write/unlock/irq.h) \
     $(wildcard include/config/inline/read/unlock/irqrestore.h) \
     $(wildcard include/config/inline/write/unlock/irqrestore.h) \
+  include/linux/kref.h \
+  include/linux/mutex.h \
+    $(wildcard include/config/debug/mutexes.h) \
+    $(wildcard include/config/have/arch/mutex/cpu/relax.h) \
+  include/linux/wait.h \
+  include/uapi/linux/wait.h \
+  include/linux/klist.h \
+  include/linux/pm.h \
+    $(wildcard include/config/pm.h) \
+    $(wildcard include/config/pm/sleep.h) \
+    $(wildcard include/config/pm/runtime.h) \
+    $(wildcard include/config/pm/clk.h) \
+    $(wildcard include/config/pm/generic/domains.h) \
+  include/linux/workqueue.h \
+    $(wildcard include/config/debug/objects/work.h) \
+    $(wildcard include/config/freezer.h) \
+  include/linux/timer.h \
+    $(wildcard include/config/timer/stats.h) \
+    $(wildcard include/config/debug/objects/timers.h) \
+  include/linux/ktime.h \
+    $(wildcard include/config/ktime/scalar.h) \
+  include/linux/time.h \
+    $(wildcard include/config/arch/uses/gettimeoffset.h) \
+  include/linux/seqlock.h \
   include/uapi/linux/time.h \
+  include/linux/jiffies.h \
+  include/linux/timex.h \
+  include/uapi/linux/timex.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/param.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/param.h \
+  include/asm-generic/param.h \
+    $(wildcard include/config/hz.h) \
+  include/uapi/asm-generic/param.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/timex.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/tsc.h \
     $(wildcard include/config/x86/tsc.h) \
-  include/linux/jiffies.h \
+  include/linux/debugobjects.h \
+    $(wildcard include/config/debug/objects.h) \
+    $(wildcard include/config/debug/objects/free.h) \
+  include/linux/completion.h \
+  include/linux/ratelimit.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/device.h \
+    $(wildcard include/config/acpi.h) \
+    $(wildcard include/config/x86/dev/dma/ops.h) \
+    $(wildcard include/config/intel/iommu.h) \
+    $(wildcard include/config/amd/iommu.h) \
+  include/linux/kthread.h \
+  include/linux/sched.h \
+    $(wildcard include/config/sched/debug.h) \
+    $(wildcard include/config/no/hz.h) \
+    $(wildcard include/config/lockup/detector.h) \
+    $(wildcard include/config/detect/hung/task.h) \
+    $(wildcard include/config/mmu.h) \
+    $(wildcard include/config/core/dump/default/elf/headers.h) \
+    $(wildcard include/config/sched/autogroup.h) \
+    $(wildcard include/config/virt/cpu/accounting.h) \
+    $(wildcard include/config/bsd/process/acct.h) \
+    $(wildcard include/config/taskstats.h) \
+    $(wildcard include/config/audit.h) \
+    $(wildcard include/config/cgroups.h) \
+    $(wildcard include/config/inotify/user.h) \
+    $(wildcard include/config/fanotify.h) \
+    $(wildcard include/config/epoll.h) \
+    $(wildcard include/config/posix/mqueue.h) \
+    $(wildcard include/config/keys.h) \
+    $(wildcard include/config/perf/events.h) \
+    $(wildcard include/config/schedstats.h) \
+    $(wildcard include/config/task/delay/acct.h) \
+    $(wildcard include/config/fair/group/sched.h) \
+    $(wildcard include/config/rt/group/sched.h) \
+    $(wildcard include/config/cgroup/sched.h) \
+    $(wildcard include/config/blk/dev/io/trace.h) \
+    $(wildcard include/config/preempt/rcu.h) \
+    $(wildcard include/config/tree/preempt/rcu.h) \
+    $(wildcard include/config/rcu/boost.h) \
+    $(wildcard include/config/compat/brk.h) \
+    $(wildcard include/config/sysvipc.h) \
+    $(wildcard include/config/auditsyscall.h) \
+    $(wildcard include/config/rt/mutexes.h) \
+    $(wildcard include/config/block.h) \
+    $(wildcard include/config/task/xacct.h) \
+    $(wildcard include/config/cpusets.h) \
+    $(wildcard include/config/futex.h) \
+    $(wildcard include/config/fault/injection.h) \
+    $(wildcard include/config/latencytop.h) \
+    $(wildcard include/config/function/graph/tracer.h) \
+    $(wildcard include/config/memcg.h) \
+    $(wildcard include/config/have/hw/breakpoint.h) \
+    $(wildcard include/config/uprobes.h) \
+    $(wildcard include/config/rcu/user/qs.h) \
+    $(wildcard include/config/have/unstable/sched/clock.h) \
+    $(wildcard include/config/irq/time/accounting.h) \
+    $(wildcard include/config/cfs/bandwidth.h) \
+    $(wildcard include/config/stack/growsup.h) \
+    $(wildcard include/config/generic/kernel/thread.h) \
+    $(wildcard include/config/mm/owner.h) \
+  include/uapi/linux/sched.h \
+  include/linux/capability.h \
+  include/uapi/linux/capability.h \
   include/linux/rbtree.h \
   include/linux/nodemask.h \
   include/linux/numa.h \
@@ -368,9 +404,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/linux/rwsem.h \
     $(wildcard include/config/rwsem/generic/spinlock.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/rwsem.h \
-  include/linux/completion.h \
-  include/linux/wait.h \
-  include/uapi/linux/wait.h \
   include/linux/page-debug-flags.h \
     $(wildcard include/config/page/poisoning.h) \
     $(wildcard include/config/page/guard.h) \
@@ -379,8 +412,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/arch/supports/uprobes.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/uprobes.h \
   include/linux/notifier.h \
-  include/linux/mutex.h \
-    $(wildcard include/config/have/arch/mutex/cpu/relax.h) \
   include/linux/srcu.h \
   include/linux/rcupdate.h \
     $(wildcard include/config/rcu/torture/test.h) \
@@ -390,18 +421,7 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/tiny/preempt/rcu.h) \
     $(wildcard include/config/debug/objects/rcu/head.h) \
     $(wildcard include/config/preempt/rt.h) \
-  include/linux/debugobjects.h \
-    $(wildcard include/config/debug/objects.h) \
-    $(wildcard include/config/debug/objects/free.h) \
   include/linux/rcutree.h \
-  include/linux/workqueue.h \
-    $(wildcard include/config/debug/objects/work.h) \
-    $(wildcard include/config/freezer.h) \
-  include/linux/timer.h \
-    $(wildcard include/config/timer/stats.h) \
-    $(wildcard include/config/debug/objects/timers.h) \
-  include/linux/ktime.h \
-    $(wildcard include/config/ktime/scalar.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/mmu.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/cputime.h \
   include/asm-generic/cputime.h \
@@ -415,7 +435,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/x86/numaq.h) \
     $(wildcard include/config/eisa.h) \
     $(wildcard include/config/x86/mpparse.h) \
-    $(wildcard include/config/acpi.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/mpspec_def.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/x86_init.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/bootparam.h \
@@ -430,19 +449,12 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/intel/txt.h) \
     $(wildcard include/config/hibernation.h) \
     $(wildcard include/config/memtest.h) \
-  include/linux/ioport.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ist.h \
   include/video/edid.h \
     $(wildcard include/config/x86.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/apicdef.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/apic.h \
     $(wildcard include/config/x86/x2apic.h) \
-  include/linux/pm.h \
-    $(wildcard include/config/pm.h) \
-    $(wildcard include/config/pm/sleep.h) \
-    $(wildcard include/config/pm/runtime.h) \
-    $(wildcard include/config/pm/clk.h) \
-    $(wildcard include/config/pm/generic/domains.h) \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/fixmap.h \
     $(wildcard include/config/provide/ohci1394/dma/init.h) \
     $(wildcard include/config/x86/visws/apic.h) \
@@ -579,7 +591,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   include/linux/uio.h \
   include/uapi/linux/uio.h \
   include/linux/module.h \
-    $(wildcard include/config/sysfs.h) \
     $(wildcard include/config/unused/symbols.h) \
     $(wildcard include/config/module/sig.h) \
     $(wildcard include/config/kallsyms.h) \
@@ -604,10 +615,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/ldt.h \
   include/uapi/linux/elf.h \
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/linux/elf-em.h \
-  include/linux/kobject.h \
-  include/linux/sysfs.h \
-  include/linux/kobject_ns.h \
-  include/linux/kref.h \
   include/linux/moduleparam.h \
     $(wildcard include/config/alpha.h) \
     $(wildcard include/config/ia64.h) \
@@ -707,12 +714,6 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
     $(wildcard include/config/debug/devres.h) \
     $(wildcard include/config/devtmpfs.h) \
     $(wildcard include/config/sysfs/deprecated.h) \
-  include/linux/klist.h \
-  include/linux/ratelimit.h \
-  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/device.h \
-    $(wildcard include/config/x86/dev/dma/ops.h) \
-    $(wildcard include/config/intel/iommu.h) \
-    $(wildcard include/config/amd/iommu.h) \
   include/linux/pm_wakeup.h \
   include/linux/delay.h \
   /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/delay.h \
@@ -1028,6 +1029,29 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/vi
   /usr/src/linux-headers-3.7.8-030708-generic/include/uapi/asm-generic/ioctls.h \
   include/trace/events/skb.h \
   include/trace/define_trace.h \
+  include/linux/sunrpc/types.h \
+  include/linux/sunrpc/debug.h \
+    $(wildcard include/config/sunrpc/debug.h) \
+  include/uapi/linux/sunrpc/debug.h \
+  include/linux/sunrpc/clnt.h \
+  include/linux/sunrpc/msg_prot.h \
+  include/linux/sunrpc/sched.h \
+  include/linux/sunrpc/xdr.h \
+  /usr/src/linux-headers-3.7.8-030708-generic/arch/x86/include/asm/unaligned.h \
+  include/linux/unaligned/access_ok.h \
+  include/linux/unaligned/generic.h \
+  include/linux/sunrpc/xprt.h \
+    $(wildcard include/config/sunrpc/backchannel.h) \
+    $(wildcard include/config/sunrpc/backchanel.h) \
+  include/linux/sunrpc/auth.h \
+  include/linux/sunrpc/stats.h \
+  include/linux/sunrpc/timer.h \
+  include/linux/sunrpc/svcsock.h \
+  include/linux/sunrpc/svc.h \
+  include/linux/sunrpc/svcauth.h \
+  include/linux/sunrpc/cache.h \
+  include/linux/sunrpc/svc_xprt.h \
+  /home/kashrinivaasan/linux-3.7.8/include/linux/virgocloudexecsvc.h \
 
 /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o: $(deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o)
 
