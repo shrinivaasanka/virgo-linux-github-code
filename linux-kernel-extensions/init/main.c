@@ -1,11 +1,4 @@
 /*
- * Appended VIRGO kernel service thread initialization after all basic setup has been done.This is presently purely
- * experimental and still a lot of testing remains to be done. If this does not work , might have to move the kernel thread
- * initialization to some other place in init code.
- * - Ka.Shrinivaasan (ka.shrinivaasan@gmail.com, Krishna iResearch)
- */
-
-/*
  *  linux/init/main.c
  *
  *  Copyright (C) 1991, 1992  Linus Torvalds
@@ -78,7 +71,9 @@
 #include <linux/file.h>
 #include <linux/ptrace.h>
 
-#include <linux/virgo.h>
+/*
+#include <linux/virgocloudexecsvc.h>
+*/
 
 #include <asm/io.h>
 #include <asm/bugs.h>
@@ -797,20 +792,21 @@ static void __init do_basic_setup(void)
 	/*
 	* VIRGO cloudexec service kernel thread initialization
 	* - Ka.Shrinivaasan 3May2013
-	*/
+
 	do_virgocloudexec_init();
+	*/
 }
 
 /*
 * VIRGO cloudexec service kernel thread initialization
 * - Ka.Shrinivaasan 3May2013
-*/
 void do_virgocloudexec_init()
 {
 	struct task_struct* task;
 	task=kthread_create(virgo_cloudexec_service, (void*)args, "Virgo Cloudexec Service Kernel Thread");
 }
 
+*/
 
 static void __init do_pre_smp_initcalls(void)
 {
