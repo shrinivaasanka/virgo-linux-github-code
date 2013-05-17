@@ -37,3 +37,18 @@ Experimental Prototype
 -----------------------
 virgo_clone() system call and a kernel module virgocloudexec which implements Sun RPC interface have been implemented.
 
+VIRGO code commits as on 16/05/2013
+-----------------------------------
+1. VIRGO cloudexec driver with a listener kernel thread service has been implemented and it listens on port 10000 on system startup
+through /etc/modules load-on-bootup facility
+
+2. VIRGO cloudexec virgo_clone() system call has been implemented that would kernel_connect() to the VIRGO cloudexec service listening at
+port 10000
+
+3. VIRGO cloudexec driver has been split into virgo.h (VIRGO typedefs), virgocloudexecsvc.h(VIRGO cloudexec service that is invoked by
+module_init() of VIRGO cloudexec driver) and virgo_cloudexec.c (with module ops definitions)
+
+4. VIRGO does not implement SUN RPC interface anymore and now has its own virgo ops.
+
+5. Lot of Kbuild related commits with commented lines for future use have been done viz., to integrate VIRGO to Kbuild, KBUILD_EXTRA_SYMBOLS for cross-module symbol reference.
+
