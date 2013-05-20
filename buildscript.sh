@@ -11,7 +11,8 @@ make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build modules SUBDIRS=drivers/virgo
 make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build modules_install SUBDIRS=drivers/virgo/cpupooling/virgocloudexec
 make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build modules
 make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build
-make O=/home/kashrinivaasan/linux-3.7.8-build modules_install
-make O=/home/kashrinivaasan/linux-3.7.8-build install
+make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build modules_install
+make -j 2 O=/home/kashrinivaasan/linux-3.7.8-build install
+make -j 2 headers_install
 
 
