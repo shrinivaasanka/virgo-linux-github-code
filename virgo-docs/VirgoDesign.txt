@@ -52,3 +52,9 @@ module_init() of VIRGO cloudexec driver) and virgo_cloudexec.c (with module ops 
 
 5. Lot of Kbuild related commits with commented lines for future use have been done viz., to integrate VIRGO to Kbuild, KBUILD_EXTRA_SYMBOLS for cross-module symbol reference.
 
+VIRGO code commits as on 20/05/2013
+----------------------------------
+1. test_virgo_clone.c testcase for sys_virgo_clone() system call works and connections are established to VIRGO cloudexec kernel module.
+
+2. Makefile for test_virgo_clone.c and updated buildscript.sh for headers_install for custom-built linux.
+
