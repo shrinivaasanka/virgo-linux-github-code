@@ -146,8 +146,23 @@ static int virgocloudexec_create(void)
 	error = kernel_listen(sock, 2);
 	printk(KERN_INFO "kernel_listen() returns error code: %d\n", error);
 
-	/*error = kernel_accept(sock, &clientsock, O_NONBLOCK);*/
+	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+	/*
+	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
+	but suddenly it started to block on startup. Reason unknown (could be anything from hardware microcode update to external 
+	causes viz., intrusion. These kind of events recur with high frequency. Needs further investigation). 
+	There seems to be no error in the driver kernel service thread or syscall client.
+
+        Making it temporarily O_NONBLOCK which seems to be quite a cleaner way despite EAGAIN to accept connections as this is always 
+	in a while loop for server.
+
+	Moreover the driver modules_install places it in /lib/modules/`uname -r`/extra which did not occur in previous commit. Origin
+	again mysterious.
+
+	-Ka.Shrinivaasan  
+
 	error = kernel_accept(sock, &clientsock, 0);
+	*/
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
 	printk(KERN_INFO "kernel_accept() returns error code: %d\n",error);
@@ -178,7 +193,8 @@ static int virgocloudexec_sendto(void)
 {
 	iov.iov_base=(void*)buffer;
 	iov.iov_len=25;
-	kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
+	int ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
+	printk(KERN_INFO "kernel_sendmsg() returns ret: %d\n",ret);
 
 	/*
 	   struct task_struct *task;
