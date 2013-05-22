@@ -1,0 +1,496 @@
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.192653] doing init() of virgocloudexec kernel module
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.192659] starting virgo cloudexec service kernel thread
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.192843] Modules linked in: virgo_cloudexec(O+) lp parport snd_hda_codec_idt snd_hda_intel snd_hda_codec joydev snd_hwdep snd_pcm snd_seq_midi snd_rawmidi snd_seq_midi_event uvcvideo snd_seq snd_timer snd_seq_device videobuf2_core psmouse gpio_ich videodev snd soundcore lpc_ich videobuf2_vmalloc serio_raw snd_page_alloc videobuf2_memops dell_wmi coretemp dell_laptop mac_hid sparse_keymap dcdbas microcode i915 ums_realtek usb_storage drm_kms_helper drm wmi i2c_algo_bit ahci sky2 libahci video
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.193694]  [<f87ce179>] virgocloudexec_recvfrom+0x39/0xb0 [virgo_cloudexec]
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.193725]  [<f87ce274>] virgo_cloudexec_service+0x24/0x2c [virgo_cloudexec]
+May 22 21:29:50 kashrinivaasan-Inspiron-1545 kernel: [   15.193756]  [<f8440025>] virgocloudexec_init+0x25/0x1000 [virgo_cloudexec]
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.617375] doing init() of virgocloudexec kernel module
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.617382] starting virgo cloudexec service kernel thread
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.617677] Modules linked in: virgo_cloudexec(O+) lp parport ums_realtek usb_storage i915 drm_kms_helper sky2 ahci drm libahci i2c_algo_bit video wmi
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.618872]  [<f87e6179>] virgocloudexec_recvfrom+0x39/0xb0 [virgo_cloudexec]
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.618948]  [<f87e6274>] virgo_cloudexec_service+0x24/0x2c [virgo_cloudexec]
+May 22 21:32:38 kashrinivaasan-Inspiron-1545 kernel: [    8.619023]  [<f8455025>] virgocloudexec_init+0x25/0x1000 [virgo_cloudexec]
+May 22 21:36:55 kashrinivaasan-Inspiron-1545 kernel: [  271.238638] virgo_clone() syscall: created client kernel socket
+May 22 21:36:55 kashrinivaasan-Inspiron-1545 kernel: [  271.238737] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:36:55 kashrinivaasan-Inspiron-1545 kernel: [  271.238743] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:36:55 kashrinivaasan-Inspiron-1545 kernel: [  271.238749] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:37:05 kashrinivaasan-Inspiron-1545 kernel: [  280.377201] virgo_clone() syscall: created client kernel socket
+May 22 21:37:05 kashrinivaasan-Inspiron-1545 kernel: [  280.377294] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:37:05 kashrinivaasan-Inspiron-1545 kernel: [  280.377300] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:37:05 kashrinivaasan-Inspiron-1545 kernel: [  280.377306] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:37:15 kashrinivaasan-Inspiron-1545 kernel: [  290.862424] virgo_clone() syscall: created client kernel socket
+May 22 21:37:15 kashrinivaasan-Inspiron-1545 kernel: [  290.862506] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:37:15 kashrinivaasan-Inspiron-1545 kernel: [  290.862512] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:37:15 kashrinivaasan-Inspiron-1545 kernel: [  290.862518] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:37:20 kashrinivaasan-Inspiron-1545 kernel: [  295.370316] virgo_clone() syscall: created client kernel socket
+May 22 21:37:20 kashrinivaasan-Inspiron-1545 kernel: [  295.370401] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:37:20 kashrinivaasan-Inspiron-1545 kernel: [  295.370407] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:37:20 kashrinivaasan-Inspiron-1545 kernel: [  295.370413] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:37:25 kashrinivaasan-Inspiron-1545 kernel: [  300.484121] virgo_clone() syscall: created client kernel socket
+May 22 21:37:25 kashrinivaasan-Inspiron-1545 kernel: [  300.484206] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:37:25 kashrinivaasan-Inspiron-1545 kernel: [  300.484213] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:37:25 kashrinivaasan-Inspiron-1545 kernel: [  300.484219] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:10 kashrinivaasan-Inspiron-1545 kernel: [  346.257036] virgo_clone() syscall: created client kernel socket
+May 22 21:38:10 kashrinivaasan-Inspiron-1545 kernel: [  346.257120] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:10 kashrinivaasan-Inspiron-1545 kernel: [  346.257126] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:10 kashrinivaasan-Inspiron-1545 kernel: [  346.257132] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:14 kashrinivaasan-Inspiron-1545 kernel: [  349.343229] virgo_clone() syscall: created client kernel socket
+May 22 21:38:14 kashrinivaasan-Inspiron-1545 kernel: [  349.343311] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:14 kashrinivaasan-Inspiron-1545 kernel: [  349.343318] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:14 kashrinivaasan-Inspiron-1545 kernel: [  349.343324] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:17 kashrinivaasan-Inspiron-1545 kernel: [  353.055953] virgo_clone() syscall: created client kernel socket
+May 22 21:38:17 kashrinivaasan-Inspiron-1545 kernel: [  353.056071] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:17 kashrinivaasan-Inspiron-1545 kernel: [  353.056078] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:17 kashrinivaasan-Inspiron-1545 kernel: [  353.056084] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:20 kashrinivaasan-Inspiron-1545 kernel: [  356.124415] virgo_clone() syscall: created client kernel socket
+May 22 21:38:20 kashrinivaasan-Inspiron-1545 kernel: [  356.124499] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:20 kashrinivaasan-Inspiron-1545 kernel: [  356.124505] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:20 kashrinivaasan-Inspiron-1545 kernel: [  356.124511] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:23 kashrinivaasan-Inspiron-1545 kernel: [  358.562479] virgo_clone() syscall: created client kernel socket
+May 22 21:38:23 kashrinivaasan-Inspiron-1545 kernel: [  358.562563] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:23 kashrinivaasan-Inspiron-1545 kernel: [  358.562569] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:23 kashrinivaasan-Inspiron-1545 kernel: [  358.562575] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:25 kashrinivaasan-Inspiron-1545 kernel: [  360.606639] virgo_clone() syscall: created client kernel socket
+May 22 21:38:25 kashrinivaasan-Inspiron-1545 kernel: [  360.606724] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:25 kashrinivaasan-Inspiron-1545 kernel: [  360.606731] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:25 kashrinivaasan-Inspiron-1545 kernel: [  360.606736] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:27 kashrinivaasan-Inspiron-1545 kernel: [  362.514681] virgo_clone() syscall: created client kernel socket
+May 22 21:38:27 kashrinivaasan-Inspiron-1545 kernel: [  362.514763] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:27 kashrinivaasan-Inspiron-1545 kernel: [  362.514770] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:27 kashrinivaasan-Inspiron-1545 kernel: [  362.514776] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:29 kashrinivaasan-Inspiron-1545 kernel: [  364.336474] virgo_clone() syscall: created client kernel socket
+May 22 21:38:29 kashrinivaasan-Inspiron-1545 kernel: [  364.336558] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:29 kashrinivaasan-Inspiron-1545 kernel: [  364.336565] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:29 kashrinivaasan-Inspiron-1545 kernel: [  364.336571] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:30 kashrinivaasan-Inspiron-1545 kernel: [  366.060541] virgo_clone() syscall: created client kernel socket
+May 22 21:38:30 kashrinivaasan-Inspiron-1545 kernel: [  366.060599] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:30 kashrinivaasan-Inspiron-1545 kernel: [  366.060605] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:30 kashrinivaasan-Inspiron-1545 kernel: [  366.060611] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:32 kashrinivaasan-Inspiron-1545 kernel: [  367.724548] virgo_clone() syscall: created client kernel socket
+May 22 21:38:32 kashrinivaasan-Inspiron-1545 kernel: [  367.724630] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:32 kashrinivaasan-Inspiron-1545 kernel: [  367.724636] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:32 kashrinivaasan-Inspiron-1545 kernel: [  367.724642] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:33 kashrinivaasan-Inspiron-1545 kernel: [  369.317661] virgo_clone() syscall: created client kernel socket
+May 22 21:38:33 kashrinivaasan-Inspiron-1545 kernel: [  369.317745] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:33 kashrinivaasan-Inspiron-1545 kernel: [  369.317752] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:33 kashrinivaasan-Inspiron-1545 kernel: [  369.317758] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:35 kashrinivaasan-Inspiron-1545 kernel: [  370.877795] virgo_clone() syscall: created client kernel socket
+May 22 21:38:35 kashrinivaasan-Inspiron-1545 kernel: [  370.877878] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:35 kashrinivaasan-Inspiron-1545 kernel: [  370.877885] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:35 kashrinivaasan-Inspiron-1545 kernel: [  370.877891] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:37 kashrinivaasan-Inspiron-1545 kernel: [  372.385119] virgo_clone() syscall: created client kernel socket
+May 22 21:38:37 kashrinivaasan-Inspiron-1545 kernel: [  372.385199] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:37 kashrinivaasan-Inspiron-1545 kernel: [  372.385210] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:37 kashrinivaasan-Inspiron-1545 kernel: [  372.385216] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:38 kashrinivaasan-Inspiron-1545 kernel: [  373.909900] virgo_clone() syscall: created client kernel socket
+May 22 21:38:38 kashrinivaasan-Inspiron-1545 kernel: [  373.909984] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:38 kashrinivaasan-Inspiron-1545 kernel: [  373.909991] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:38 kashrinivaasan-Inspiron-1545 kernel: [  373.909997] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:40 kashrinivaasan-Inspiron-1545 kernel: [  375.435321] virgo_clone() syscall: created client kernel socket
+May 22 21:38:40 kashrinivaasan-Inspiron-1545 kernel: [  375.435405] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:40 kashrinivaasan-Inspiron-1545 kernel: [  375.435411] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:40 kashrinivaasan-Inspiron-1545 kernel: [  375.435417] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:38:41 kashrinivaasan-Inspiron-1545 kernel: [  377.168891] virgo_clone() syscall: created client kernel socket
+May 22 21:38:41 kashrinivaasan-Inspiron-1545 kernel: [  377.168975] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:38:41 kashrinivaasan-Inspiron-1545 kernel: [  377.168982] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:38:41 kashrinivaasan-Inspiron-1545 kernel: [  377.168988] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.220044] virgo_clone() syscall: created client kernel socket
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.220133] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.220139] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.220145] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.248286] virgo_clone() syscall: created client kernel socket
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.248368] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.248374] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.248380] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:16 kashrinivaasan-Inspiron-1545 kernel: [  412.277130] virgo_clone() syscall: created client kernel socket
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.276200] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.276210] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.276217] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.298442] virgo_clone() syscall: created client kernel socket
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.298525] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.298532] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.298537] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:17 kashrinivaasan-Inspiron-1545 kernel: [  413.323453] virgo_clone() syscall: created client kernel socket
+May 22 21:39:20 kashrinivaasan-Inspiron-1545 kernel: [  416.324331] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:20 kashrinivaasan-Inspiron-1545 kernel: [  416.324340] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:20 kashrinivaasan-Inspiron-1545 kernel: [  416.324348] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:21 kashrinivaasan-Inspiron-1545 kernel: [  416.346366] virgo_clone() syscall: created client kernel socket
+May 22 21:39:21 kashrinivaasan-Inspiron-1545 kernel: [  416.346447] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:21 kashrinivaasan-Inspiron-1545 kernel: [  416.346454] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:21 kashrinivaasan-Inspiron-1545 kernel: [  416.346460] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:21 kashrinivaasan-Inspiron-1545 kernel: [  416.371560] virgo_clone() syscall: created client kernel socket
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.372209] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.372218] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.372225] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.394227] virgo_clone() syscall: created client kernel socket
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.394310] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.394317] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.394322] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:24 kashrinivaasan-Inspiron-1545 kernel: [  419.424570] virgo_clone() syscall: created client kernel socket
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.428199] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.428214] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.428220] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.452875] virgo_clone() syscall: created client kernel socket
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.452955] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.452961] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.452967] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:27 kashrinivaasan-Inspiron-1545 kernel: [  422.479355] virgo_clone() syscall: created client kernel socket
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.476201] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.476211] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.476217] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.498530] virgo_clone() syscall: created client kernel socket
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.498610] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.498617] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.498623] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:28 kashrinivaasan-Inspiron-1545 kernel: [  423.524941] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.528307] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.528316] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.528322] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.550963] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.551057] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.551063] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.551069] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.577554] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.577674] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.577682] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.577689] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.604961] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.605045] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.605052] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.605058] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.627599] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.627683] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.627690] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.627696] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.651341] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.651436] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.651443] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.651448] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.678989] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.679081] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.679088] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.679094] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.702200] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.702285] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.702292] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.702299] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.728657] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.728750] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.728757] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.728764] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.753407] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.753493] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.753500] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.753506] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.778089] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.778177] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.778185] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.778191] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.803199] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.803289] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.803296] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.803302] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.830453] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.830548] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.830555] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.830561] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.855564] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.855653] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.855660] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.855666] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.883712] virgo_clone() syscall: created client kernel socket
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.883803] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.883810] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.883816] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:31 kashrinivaasan-Inspiron-1545 kernel: [  426.910691] virgo_clone() syscall: created client kernel socket
+May 22 21:39:32 kashrinivaasan-Inspiron-1545 kernel: [  427.908197] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:32 kashrinivaasan-Inspiron-1545 kernel: [  427.908206] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:32 kashrinivaasan-Inspiron-1545 kernel: [  427.908213] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:32 kashrinivaasan-Inspiron-1545 kernel: [  427.931452] virgo_clone() syscall: created client kernel socket
+May 22 21:39:33 kashrinivaasan-Inspiron-1545 kernel: [  428.928294] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:33 kashrinivaasan-Inspiron-1545 kernel: [  428.928303] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:33 kashrinivaasan-Inspiron-1545 kernel: [  428.928309] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:33 kashrinivaasan-Inspiron-1545 kernel: [  428.951247] virgo_clone() syscall: created client kernel socket
+May 22 21:39:34 kashrinivaasan-Inspiron-1545 kernel: [  429.948206] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:34 kashrinivaasan-Inspiron-1545 kernel: [  429.948215] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:34 kashrinivaasan-Inspiron-1545 kernel: [  429.948221] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:34 kashrinivaasan-Inspiron-1545 kernel: [  429.970816] virgo_clone() syscall: created client kernel socket
+May 22 21:39:35 kashrinivaasan-Inspiron-1545 kernel: [  430.968210] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:35 kashrinivaasan-Inspiron-1545 kernel: [  430.968219] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:35 kashrinivaasan-Inspiron-1545 kernel: [  430.968225] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:35 kashrinivaasan-Inspiron-1545 kernel: [  430.991184] virgo_clone() syscall: created client kernel socket
+May 22 21:39:36 kashrinivaasan-Inspiron-1545 kernel: [  431.988218] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:36 kashrinivaasan-Inspiron-1545 kernel: [  431.988229] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:36 kashrinivaasan-Inspiron-1545 kernel: [  431.988235] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:36 kashrinivaasan-Inspiron-1545 kernel: [  432.012772] virgo_clone() syscall: created client kernel socket
+May 22 21:39:37 kashrinivaasan-Inspiron-1545 kernel: [  433.012218] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:37 kashrinivaasan-Inspiron-1545 kernel: [  433.012229] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:37 kashrinivaasan-Inspiron-1545 kernel: [  433.012235] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:37 kashrinivaasan-Inspiron-1545 kernel: [  433.035345] virgo_clone() syscall: created client kernel socket
+May 22 21:39:38 kashrinivaasan-Inspiron-1545 kernel: [  434.032214] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:38 kashrinivaasan-Inspiron-1545 kernel: [  434.032223] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:38 kashrinivaasan-Inspiron-1545 kernel: [  434.032230] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:38 kashrinivaasan-Inspiron-1545 kernel: [  434.057046] virgo_clone() syscall: created client kernel socket
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.056215] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.056224] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.056230] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.079118] virgo_clone() syscall: created client kernel socket
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.079200] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.079207] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.079212] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:39 kashrinivaasan-Inspiron-1545 kernel: [  435.106270] virgo_clone() syscall: created client kernel socket
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.108313] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.108322] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.108328] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.131542] virgo_clone() syscall: created client kernel socket
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.131624] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.131631] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.131638] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:42 kashrinivaasan-Inspiron-1545 kernel: [  438.160835] virgo_clone() syscall: created client kernel socket
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.164210] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.164219] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.164226] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.187376] virgo_clone() syscall: created client kernel socket
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.187459] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.187467] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.187473] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:45 kashrinivaasan-Inspiron-1545 kernel: [  441.216128] virgo_clone() syscall: created client kernel socket
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.220200] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.220214] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.220221] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.243536] virgo_clone() syscall: created client kernel socket
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.243620] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.243627] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.243632] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:48 kashrinivaasan-Inspiron-1545 kernel: [  444.270716] virgo_clone() syscall: created client kernel socket
+May 22 21:39:49 kashrinivaasan-Inspiron-1545 kernel: [  445.268202] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:49 kashrinivaasan-Inspiron-1545 kernel: [  445.268211] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:49 kashrinivaasan-Inspiron-1545 kernel: [  445.268218] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:49 kashrinivaasan-Inspiron-1545 kernel: [  445.291590] virgo_clone() syscall: created client kernel socket
+May 22 21:39:50 kashrinivaasan-Inspiron-1545 kernel: [  446.288302] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:50 kashrinivaasan-Inspiron-1545 kernel: [  446.288311] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:50 kashrinivaasan-Inspiron-1545 kernel: [  446.288317] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:50 kashrinivaasan-Inspiron-1545 kernel: [  446.312203] virgo_clone() syscall: created client kernel socket
+May 22 21:39:51 kashrinivaasan-Inspiron-1545 kernel: [  447.312200] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:51 kashrinivaasan-Inspiron-1545 kernel: [  447.312210] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:51 kashrinivaasan-Inspiron-1545 kernel: [  447.312216] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:52 kashrinivaasan-Inspiron-1545 kernel: [  447.335654] virgo_clone() syscall: created client kernel socket
+May 22 21:39:53 kashrinivaasan-Inspiron-1545 kernel: [  448.332315] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:53 kashrinivaasan-Inspiron-1545 kernel: [  448.332324] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:53 kashrinivaasan-Inspiron-1545 kernel: [  448.332330] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:53 kashrinivaasan-Inspiron-1545 kernel: [  448.355726] virgo_clone() syscall: created client kernel socket
+May 22 21:39:54 kashrinivaasan-Inspiron-1545 kernel: [  449.352217] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:54 kashrinivaasan-Inspiron-1545 kernel: [  449.352227] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:54 kashrinivaasan-Inspiron-1545 kernel: [  449.352234] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:54 kashrinivaasan-Inspiron-1545 kernel: [  449.376127] virgo_clone() syscall: created client kernel socket
+May 22 21:39:55 kashrinivaasan-Inspiron-1545 kernel: [  450.376203] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:55 kashrinivaasan-Inspiron-1545 kernel: [  450.376212] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:55 kashrinivaasan-Inspiron-1545 kernel: [  450.376218] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:55 kashrinivaasan-Inspiron-1545 kernel: [  450.400085] virgo_clone() syscall: created client kernel socket
+May 22 21:39:56 kashrinivaasan-Inspiron-1545 kernel: [  451.400223] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:56 kashrinivaasan-Inspiron-1545 kernel: [  451.400234] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:56 kashrinivaasan-Inspiron-1545 kernel: [  451.400240] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:56 kashrinivaasan-Inspiron-1545 kernel: [  451.423730] virgo_clone() syscall: created client kernel socket
+May 22 21:39:57 kashrinivaasan-Inspiron-1545 kernel: [  452.420200] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:57 kashrinivaasan-Inspiron-1545 kernel: [  452.420210] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:57 kashrinivaasan-Inspiron-1545 kernel: [  452.420217] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:57 kashrinivaasan-Inspiron-1545 kernel: [  452.443989] virgo_clone() syscall: created client kernel socket
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.444222] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.444233] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.444239] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.467969] virgo_clone() syscall: created client kernel socket
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.468091] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.468098] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.468104] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:39:58 kashrinivaasan-Inspiron-1545 kernel: [  453.494890] virgo_clone() syscall: created client kernel socket
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.496132] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.496142] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.496148] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.519799] virgo_clone() syscall: created client kernel socket
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.519884] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.519890] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.519896] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:01 kashrinivaasan-Inspiron-1545 kernel: [  456.548905] virgo_clone() syscall: created client kernel socket
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.552205] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.552214] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.552220] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.575816] virgo_clone() syscall: created client kernel socket
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.575899] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.575905] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.575912] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:04 kashrinivaasan-Inspiron-1545 kernel: [  459.608402] virgo_clone() syscall: created client kernel socket
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.612327] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.612336] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.612342] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.636075] virgo_clone() syscall: created client kernel socket
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.636159] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.636166] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.636172] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:07 kashrinivaasan-Inspiron-1545 kernel: [  462.665544] virgo_clone() syscall: created client kernel socket
+May 22 21:40:08 kashrinivaasan-Inspiron-1545 kernel: [  463.664206] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:08 kashrinivaasan-Inspiron-1545 kernel: [  463.664215] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:08 kashrinivaasan-Inspiron-1545 kernel: [  463.664221] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:08 kashrinivaasan-Inspiron-1545 kernel: [  463.688069] virgo_clone() syscall: created client kernel socket
+May 22 21:40:09 kashrinivaasan-Inspiron-1545 kernel: [  464.688206] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:09 kashrinivaasan-Inspiron-1545 kernel: [  464.688216] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:09 kashrinivaasan-Inspiron-1545 kernel: [  464.688227] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:09 kashrinivaasan-Inspiron-1545 kernel: [  464.711840] virgo_clone() syscall: created client kernel socket
+May 22 21:40:10 kashrinivaasan-Inspiron-1545 kernel: [  465.708160] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:10 kashrinivaasan-Inspiron-1545 kernel: [  465.708170] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:10 kashrinivaasan-Inspiron-1545 kernel: [  465.708176] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:10 kashrinivaasan-Inspiron-1545 kernel: [  465.732148] virgo_clone() syscall: created client kernel socket
+May 22 21:40:11 kashrinivaasan-Inspiron-1545 kernel: [  466.732204] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:11 kashrinivaasan-Inspiron-1545 kernel: [  466.732214] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:11 kashrinivaasan-Inspiron-1545 kernel: [  466.732220] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:11 kashrinivaasan-Inspiron-1545 kernel: [  466.755918] virgo_clone() syscall: created client kernel socket
+May 22 21:40:12 kashrinivaasan-Inspiron-1545 kernel: [  467.752205] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:12 kashrinivaasan-Inspiron-1545 kernel: [  467.752214] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:12 kashrinivaasan-Inspiron-1545 kernel: [  467.752220] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:12 kashrinivaasan-Inspiron-1545 kernel: [  467.775963] virgo_clone() syscall: created client kernel socket
+May 22 21:40:13 kashrinivaasan-Inspiron-1545 kernel: [  468.776215] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:13 kashrinivaasan-Inspiron-1545 kernel: [  468.776225] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:13 kashrinivaasan-Inspiron-1545 kernel: [  468.776231] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:13 kashrinivaasan-Inspiron-1545 kernel: [  468.799988] virgo_clone() syscall: created client kernel socket
+May 22 21:40:14 kashrinivaasan-Inspiron-1545 kernel: [  469.800311] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:14 kashrinivaasan-Inspiron-1545 kernel: [  469.800326] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:14 kashrinivaasan-Inspiron-1545 kernel: [  469.800332] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:14 kashrinivaasan-Inspiron-1545 kernel: [  469.825615] virgo_clone() syscall: created client kernel socket
+May 22 21:40:15 kashrinivaasan-Inspiron-1545 kernel: [  470.824300] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:15 kashrinivaasan-Inspiron-1545 kernel: [  470.824310] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:15 kashrinivaasan-Inspiron-1545 kernel: [  470.824316] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:15 kashrinivaasan-Inspiron-1545 kernel: [  470.847529] virgo_clone() syscall: created client kernel socket
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.844205] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.844215] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.844221] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.869533] virgo_clone() syscall: created client kernel socket
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.869613] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.869619] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.869625] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:16 kashrinivaasan-Inspiron-1545 kernel: [  471.897243] virgo_clone() syscall: created client kernel socket
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.900202] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.900212] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.900218] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.927774] virgo_clone() syscall: created client kernel socket
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.927858] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.927865] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.927870] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:19 kashrinivaasan-Inspiron-1545 kernel: [  474.959309] virgo_clone() syscall: created client kernel socket
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.960206] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.960215] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.960221] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.983960] virgo_clone() syscall: created client kernel socket
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.984071] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.984089] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  477.984101] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:40:22 kashrinivaasan-Inspiron-1545 kernel: [  478.014318] virgo_clone() syscall: created client kernel socket
+May 22 21:40:23 kashrinivaasan-Inspiron-1545 kernel: [  479.194255] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:40:23 kashrinivaasan-Inspiron-1545 kernel: [  479.194264] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:40:23 kashrinivaasan-Inspiron-1545 kernel: [  479.194270] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:29 kashrinivaasan-Inspiron-1545 kernel: [  544.428177] virgo_clone() syscall: created client kernel socket
+May 22 21:41:29 kashrinivaasan-Inspiron-1545 kernel: [  544.428262] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:29 kashrinivaasan-Inspiron-1545 kernel: [  544.428269] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:29 kashrinivaasan-Inspiron-1545 kernel: [  544.428274] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:37 kashrinivaasan-Inspiron-1545 kernel: [  553.232926] virgo_clone() syscall: created client kernel socket
+May 22 21:41:37 kashrinivaasan-Inspiron-1545 kernel: [  553.233005] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:37 kashrinivaasan-Inspiron-1545 kernel: [  553.233011] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:37 kashrinivaasan-Inspiron-1545 kernel: [  553.233017] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:40 kashrinivaasan-Inspiron-1545 kernel: [  555.537468] virgo_clone() syscall: created client kernel socket
+May 22 21:41:40 kashrinivaasan-Inspiron-1545 kernel: [  555.537550] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:40 kashrinivaasan-Inspiron-1545 kernel: [  555.537557] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:40 kashrinivaasan-Inspiron-1545 kernel: [  555.537563] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:42 kashrinivaasan-Inspiron-1545 kernel: [  557.345907] virgo_clone() syscall: created client kernel socket
+May 22 21:41:42 kashrinivaasan-Inspiron-1545 kernel: [  557.345989] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:42 kashrinivaasan-Inspiron-1545 kernel: [  557.345996] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:42 kashrinivaasan-Inspiron-1545 kernel: [  557.346002] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:43 kashrinivaasan-Inspiron-1545 kernel: [  558.931452] virgo_clone() syscall: created client kernel socket
+May 22 21:41:43 kashrinivaasan-Inspiron-1545 kernel: [  558.931537] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:43 kashrinivaasan-Inspiron-1545 kernel: [  558.931544] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:43 kashrinivaasan-Inspiron-1545 kernel: [  558.931550] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:45 kashrinivaasan-Inspiron-1545 kernel: [  560.512165] virgo_clone() syscall: created client kernel socket
+May 22 21:41:45 kashrinivaasan-Inspiron-1545 kernel: [  560.512248] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:45 kashrinivaasan-Inspiron-1545 kernel: [  560.512255] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:45 kashrinivaasan-Inspiron-1545 kernel: [  560.512261] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:46 kashrinivaasan-Inspiron-1545 kernel: [  562.065942] virgo_clone() syscall: created client kernel socket
+May 22 21:41:46 kashrinivaasan-Inspiron-1545 kernel: [  562.066026] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:46 kashrinivaasan-Inspiron-1545 kernel: [  562.066033] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:46 kashrinivaasan-Inspiron-1545 kernel: [  562.066038] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:48 kashrinivaasan-Inspiron-1545 kernel: [  563.629203] virgo_clone() syscall: created client kernel socket
+May 22 21:41:48 kashrinivaasan-Inspiron-1545 kernel: [  563.629283] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:48 kashrinivaasan-Inspiron-1545 kernel: [  563.629290] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:48 kashrinivaasan-Inspiron-1545 kernel: [  563.629296] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:49 kashrinivaasan-Inspiron-1545 kernel: [  565.193232] virgo_clone() syscall: created client kernel socket
+May 22 21:41:49 kashrinivaasan-Inspiron-1545 kernel: [  565.193316] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:49 kashrinivaasan-Inspiron-1545 kernel: [  565.193322] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:49 kashrinivaasan-Inspiron-1545 kernel: [  565.193328] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:51 kashrinivaasan-Inspiron-1545 kernel: [  566.780895] virgo_clone() syscall: created client kernel socket
+May 22 21:41:51 kashrinivaasan-Inspiron-1545 kernel: [  566.780978] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:51 kashrinivaasan-Inspiron-1545 kernel: [  566.780985] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:51 kashrinivaasan-Inspiron-1545 kernel: [  566.780991] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:53 kashrinivaasan-Inspiron-1545 kernel: [  568.342921] virgo_clone() syscall: created client kernel socket
+May 22 21:41:53 kashrinivaasan-Inspiron-1545 kernel: [  568.343006] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:53 kashrinivaasan-Inspiron-1545 kernel: [  568.343013] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:53 kashrinivaasan-Inspiron-1545 kernel: [  568.343018] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:54 kashrinivaasan-Inspiron-1545 kernel: [  569.941166] virgo_clone() syscall: created client kernel socket
+May 22 21:41:54 kashrinivaasan-Inspiron-1545 kernel: [  569.941248] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:54 kashrinivaasan-Inspiron-1545 kernel: [  569.941254] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:54 kashrinivaasan-Inspiron-1545 kernel: [  569.941260] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:56 kashrinivaasan-Inspiron-1545 kernel: [  571.509307] virgo_clone() syscall: created client kernel socket
+May 22 21:41:56 kashrinivaasan-Inspiron-1545 kernel: [  571.509390] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:56 kashrinivaasan-Inspiron-1545 kernel: [  571.509397] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:56 kashrinivaasan-Inspiron-1545 kernel: [  571.509403] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:57 kashrinivaasan-Inspiron-1545 kernel: [  573.102855] virgo_clone() syscall: created client kernel socket
+May 22 21:41:57 kashrinivaasan-Inspiron-1545 kernel: [  573.102938] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:57 kashrinivaasan-Inspiron-1545 kernel: [  573.102944] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:57 kashrinivaasan-Inspiron-1545 kernel: [  573.102950] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:41:59 kashrinivaasan-Inspiron-1545 kernel: [  574.669900] virgo_clone() syscall: created client kernel socket
+May 22 21:41:59 kashrinivaasan-Inspiron-1545 kernel: [  574.669985] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:41:59 kashrinivaasan-Inspiron-1545 kernel: [  574.669992] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:41:59 kashrinivaasan-Inspiron-1545 kernel: [  574.669998] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:00 kashrinivaasan-Inspiron-1545 kernel: [  576.212067] virgo_clone() syscall: created client kernel socket
+May 22 21:42:00 kashrinivaasan-Inspiron-1545 kernel: [  576.212155] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:00 kashrinivaasan-Inspiron-1545 kernel: [  576.212161] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:00 kashrinivaasan-Inspiron-1545 kernel: [  576.212167] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:02 kashrinivaasan-Inspiron-1545 kernel: [  577.802382] virgo_clone() syscall: created client kernel socket
+May 22 21:42:02 kashrinivaasan-Inspiron-1545 kernel: [  577.802465] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:02 kashrinivaasan-Inspiron-1545 kernel: [  577.802471] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:02 kashrinivaasan-Inspiron-1545 kernel: [  577.802477] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:04 kashrinivaasan-Inspiron-1545 kernel: [  579.452340] virgo_clone() syscall: created client kernel socket
+May 22 21:42:04 kashrinivaasan-Inspiron-1545 kernel: [  579.452424] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:04 kashrinivaasan-Inspiron-1545 kernel: [  579.452430] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:04 kashrinivaasan-Inspiron-1545 kernel: [  579.452436] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:08 kashrinivaasan-Inspiron-1545 kernel: [  583.481301] virgo_clone() syscall: created client kernel socket
+May 22 21:42:08 kashrinivaasan-Inspiron-1545 kernel: [  583.481385] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:08 kashrinivaasan-Inspiron-1545 kernel: [  583.481392] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:08 kashrinivaasan-Inspiron-1545 kernel: [  583.481397] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:09 kashrinivaasan-Inspiron-1545 kernel: [  585.120076] virgo_clone() syscall: created client kernel socket
+May 22 21:42:09 kashrinivaasan-Inspiron-1545 kernel: [  585.120160] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:09 kashrinivaasan-Inspiron-1545 kernel: [  585.120166] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:09 kashrinivaasan-Inspiron-1545 kernel: [  585.120172] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:11 kashrinivaasan-Inspiron-1545 kernel: [  586.775787] virgo_clone() syscall: created client kernel socket
+May 22 21:42:11 kashrinivaasan-Inspiron-1545 kernel: [  586.775887] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:11 kashrinivaasan-Inspiron-1545 kernel: [  586.775893] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:11 kashrinivaasan-Inspiron-1545 kernel: [  586.775899] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:13 kashrinivaasan-Inspiron-1545 kernel: [  588.442264] virgo_clone() syscall: created client kernel socket
+May 22 21:42:13 kashrinivaasan-Inspiron-1545 kernel: [  588.442348] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:13 kashrinivaasan-Inspiron-1545 kernel: [  588.442354] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:13 kashrinivaasan-Inspiron-1545 kernel: [  588.442360] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:14 kashrinivaasan-Inspiron-1545 kernel: [  590.063756] virgo_clone() syscall: created client kernel socket
+May 22 21:42:14 kashrinivaasan-Inspiron-1545 kernel: [  590.063841] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:14 kashrinivaasan-Inspiron-1545 kernel: [  590.063848] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:14 kashrinivaasan-Inspiron-1545 kernel: [  590.063854] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:16 kashrinivaasan-Inspiron-1545 kernel: [  591.688421] virgo_clone() syscall: created client kernel socket
+May 22 21:42:16 kashrinivaasan-Inspiron-1545 kernel: [  591.688506] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:16 kashrinivaasan-Inspiron-1545 kernel: [  591.688512] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:16 kashrinivaasan-Inspiron-1545 kernel: [  591.688518] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:18 kashrinivaasan-Inspiron-1545 kernel: [  593.355871] virgo_clone() syscall: created client kernel socket
+May 22 21:42:18 kashrinivaasan-Inspiron-1545 kernel: [  593.355953] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:18 kashrinivaasan-Inspiron-1545 kernel: [  593.355959] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:18 kashrinivaasan-Inspiron-1545 kernel: [  593.355965] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:19 kashrinivaasan-Inspiron-1545 kernel: [  594.931045] virgo_clone() syscall: created client kernel socket
+May 22 21:42:19 kashrinivaasan-Inspiron-1545 kernel: [  594.931124] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:19 kashrinivaasan-Inspiron-1545 kernel: [  594.931131] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:19 kashrinivaasan-Inspiron-1545 kernel: [  594.931137] virgo_clone() syscall: received message int clone_func(void* args) 
+May 22 21:42:21 kashrinivaasan-Inspiron-1545 kernel: [  596.562273] virgo_clone() syscall: created client kernel socket
+May 22 21:42:21 kashrinivaasan-Inspiron-1545 kernel: [  596.562358] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+May 22 21:42:21 kashrinivaasan-Inspiron-1545 kernel: [  596.562364] virgo_clone() syscall: sent message int clone_func(void* args) 
+May 22 21:42:21 kashrinivaasan-Inspiron-1545 kernel: [  596.562370] virgo_clone() syscall: received message int clone_func(void* args) 
