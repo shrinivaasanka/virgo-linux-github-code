@@ -137,9 +137,13 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	iov.iov_len=BUF_SIZE;	
 	strcpy(iov.iov_base, func_signature);
 	error = sock_create(AF_INET, SOCK_STREAM, 0, &sock);
+	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	printk(KERN_INFO "virgo_clone() syscall: sent message %s \n", iov.iov_base);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	printk(KERN_INFO "virgo_clone() syscall: received message %s \n", iov.iov_base);
 	
 	return len;
 }
