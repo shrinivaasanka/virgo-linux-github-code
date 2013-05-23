@@ -120,15 +120,8 @@ FPTR get_function_ptr_from_str(char* cloneFunction)
 static int __init
 virgocloudexec_init(void)
 {
-	printk(KERN_INFO "doing init() of virgocloudexec kernel module\n");
-	printk(KERN_INFO "starting virgo cloudexec service kernel thread\n");
-	virgo_cloudexec_service(NULL);
-	return 0;
-}
-EXPORT_SYMBOL(virgocloudexec_init);
-
-static int virgocloudexec_create(void)
-{
+	printk(KERN_INFO "virgocloudexec_init(): doing init() of virgocloudexec kernel module\n");
+	printk(KERN_INFO "virgocloudexec_init(): starting virgo cloudexec service kernel thread\n");
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=PF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
@@ -138,14 +131,21 @@ static int virgocloudexec_create(void)
 	iov.iov_base=(void*)buffer;
 	iov.iov_len=BUF_SIZE;	
 	error = sock_create_kern(PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	printk(KERN_INFO "sock_create() returns error code: %d\n",error);
+	printk(KERN_INFO "virgocloudexec_init(): sock_create() returns error code: %d\n",error);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
-	printk(KERN_INFO "kernel_bind() returns error code: %d\n",error);
+	printk(KERN_INFO "virgocloudexec_init(): kernel_bind() returns error code: %d\n",error);
 
 	error = kernel_listen(sock, 2);
-	printk(KERN_INFO "kernel_listen() returns error code: %d\n", error);
+	printk(KERN_INFO "virgocloudexec_init(): kernel_listen() returns error code: %d\n", error);
 
+	virgo_cloudexec_service(NULL);
+	return 0;
+}
+EXPORT_SYMBOL(virgocloudexec_init);
+
+static int virgocloudexec_create(void)
+{
 	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
 	/*
 	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
@@ -165,7 +165,7 @@ static int virgocloudexec_create(void)
 	*/
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
-	printk(KERN_INFO "kernel_accept() returns error code: %d\n",error);
+	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() returns error code: %d\n",error);
 	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_create);
@@ -175,26 +175,33 @@ static int virgocloudexec_recvfrom(void)
 	/*	
 		do kernel_recvmsg() to get the function data to be executed on a thread
 	*/
-	len  = kernel_recvmsg(clientsock, &msg, &iov, buflen, nr, msg.msg_flags);
-	printk(KERN_INFO "kernel_recvmsg() returns len: %d\n",len);
-	/*
-		parse the message and invoke kthread_create()
-		do kernel_sendmsg() with the results
-	*/
-	cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
-	cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
-	task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
-	strcpy(buffer,"cloudclonethread executed");
+	if(clientsock)
+	{
+		len  = kernel_recvmsg(clientsock, &msg, &iov, buflen, nr, msg.msg_flags);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
+		/*
+			parse the message and invoke kthread_create()
+			do kernel_sendmsg() with the results
+		*/
+		cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
+		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
+		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
+		strcpy(buffer,"cloudclonethread executed");
+	}
 	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_recvfrom);
 
 static int virgocloudexec_sendto(void)
 {
-	iov.iov_base=(void*)buffer;
-	iov.iov_len=25;
-	int ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
-	printk(KERN_INFO "kernel_sendmsg() returns ret: %d\n",ret);
+	if(clientsock)
+	{
+		iov.iov_base=(void*)buffer;
+		iov.iov_len=25;
+		int ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
+		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
+	}
+	return 0;
 
 	/*
 	   struct task_struct *task;
@@ -255,7 +262,6 @@ static int virgocloudexec_sendto(void)
            }
 	*/
 	
-	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_sendto);
 
