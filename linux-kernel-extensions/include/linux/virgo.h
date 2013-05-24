@@ -136,12 +136,13 @@ int (*cloneFunction_ptr)(void*);
 char* cloneFunction;
 int error;
 char buffer[BUF_SIZE];
-struct socket *sock;	
-struct sockaddr_in sin;
+static struct socket *sock;	
+static struct sockaddr_in sin;
 int len=0;
-struct socket *clientsock;
-struct kvec iov;
-struct msghdr msg;
+
+static struct socket *clientsock;
+static struct kvec iov;
+static struct msghdr msg;
 int buflen=BUF_SIZE;
 int nr=0;
 int args=0;
