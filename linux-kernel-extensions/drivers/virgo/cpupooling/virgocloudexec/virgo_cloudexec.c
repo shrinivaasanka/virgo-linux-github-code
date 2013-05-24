@@ -123,14 +123,14 @@ virgocloudexec_init(void)
 	printk(KERN_INFO "virgocloudexec_init(): doing init() of virgocloudexec kernel module\n");
 	printk(KERN_INFO "virgocloudexec_init(): starting virgo cloudexec service kernel thread\n");
 	memset(&sin, 0, sizeof(struct sockaddr_in));
-	sin.sin_family=PF_INET;
+	sin.sin_family=AF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
 	sin.sin_port=htons(10000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	iov.iov_base=(void*)buffer;
 	iov.iov_len=BUF_SIZE;	
-	error = sock_create_kern(PF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgocloudexec_init(): sock_create() returns error code: %d\n",error);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
@@ -146,7 +146,13 @@ EXPORT_SYMBOL(virgocloudexec_init);
 
 static int virgocloudexec_create(void)
 {
-	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+	/*
+	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
+	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
+	-Ka.Shrinivaasan
+	*/ 
+	clientsock=NULL;
+	error = kernel_accept(sock, &clientsock, 0);
 	/*
 	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
 	but suddenly it started to block on startup. Reason unknown (could be anything from hardware microcode update to external 
@@ -162,10 +168,11 @@ static int virgocloudexec_create(void)
 	-Ka.Shrinivaasan  
 
 	error = kernel_accept(sock, &clientsock, 0);
-	*/
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
+	*/
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() returns error code: %d\n",error);
+	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() clientsock: %u\n",clientsock);
 	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_create);
@@ -175,9 +182,12 @@ static int virgocloudexec_recvfrom(void)
 	/*	
 		do kernel_recvmsg() to get the function data to be executed on a thread
 	*/
-	if(clientsock)
+	printk(KERN_INFO "virgocloudexec_recvfrom(): clientsock: %u\n",clientsock);
+	if(clientsock != NULL )
 	{
-		len  = kernel_recvmsg(clientsock, &msg, &iov, buflen, nr, msg.msg_flags);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
+		/*msg.msg_flags = MSG_DONTWAIT;*/
+		len  = kernel_recvmsg(clientsock, &msg, &iov, BUF_SIZE, nr, msg.msg_flags);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
@@ -194,11 +204,14 @@ EXPORT_SYMBOL(virgocloudexec_recvfrom);
 
 static int virgocloudexec_sendto(void)
 {
-	if(clientsock)
+	printk(KERN_INFO "virgocloudexec_sendto(): clientsock: %u\n",clientsock);
+	if(clientsock != NULL)
 	{
 		iov.iov_base=(void*)buffer;
 		iov.iov_len=25;
-		int ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
+		int ret;
+		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg()\n");
+		ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
 	}
 	return 0;
