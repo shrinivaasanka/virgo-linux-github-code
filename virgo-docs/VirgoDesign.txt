@@ -58,3 +58,7 @@ VIRGO code commits as on 20/05/2013
 
 2. Makefile for test_virgo_clone.c and updated buildscript.sh for headers_install for custom-built linux.
 
+VIRGO code commits as on 6/6/2013
+--------------------------------
+1. Message header related bug fixes
+
