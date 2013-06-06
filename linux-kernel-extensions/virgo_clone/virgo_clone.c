@@ -101,7 +101,7 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	int nr;
 	struct kvec iov;
 	struct msghdr msg = {
-		.msg_flags = MSG_DONTWAIT,
+		.msg_flags = MSG_EOF,
 	};
 	int error;
 	struct socket *sock;
@@ -135,15 +135,23 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 
 	iov.iov_base=(void*)buf;
 	iov.iov_len=BUF_SIZE;	
+	msg.msg_name = (struct sockaddr *) &sin;
+	msg.msg_namelen = sizeof(struct sockaddr);
+	msg.msg_iov = (struct iovec *) &iov;
+	msg.msg_iovlen = 1;
+	msg.msg_control = NULL;
+	nr=1;
+
+
 	strcpy(iov.iov_base, func_signature);
-	error = sock_create(AF_INET, SOCK_STREAM, 0, &sock);
+	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_clone() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_clone() syscall: sent message %s \n", iov.iov_base);
+	printk(KERN_INFO "virgo_clone() syscall: sent message %s \n", msg.msg_iov->iov_base);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_clone() syscall: received message %s \n", iov.iov_base);
+	printk(KERN_INFO "virgo_clone() syscall: received message %s \n", msg.msg_iov->iov_base);
 	
 	return len;
 }
