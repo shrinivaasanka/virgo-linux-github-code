@@ -186,14 +186,24 @@ static int virgocloudexec_recvfrom(void)
 	if(clientsock != NULL )
 	{
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
-		/*msg.msg_flags = MSG_DONTWAIT;*/
-		len  = kernel_recvmsg(clientsock, &msg, &iov, BUF_SIZE, nr, msg.msg_flags);
+		msg.msg_name = (struct sockaddr *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr);
+		msg.msg_iov = (struct iovec *) &iov;
+		msg.msg_iovlen = 1;
+		msg.msg_control = NULL;
+		msg.msg_flags=MSG_EOF;
+		/*
+		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+		*/
+		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, BUF_SIZE, msg.msg_flags);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
+		cloneFunction = kstrdup(msg.msg_iov->iov_base,GFP_KERNEL);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns msg.msg_iov->iov_base: %s \n", msg.msg_iov->iov_base);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kstrdup(msg.msg_iov->iov_base) : %s \n", cloneFunction);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
@@ -208,7 +218,14 @@ static int virgocloudexec_sendto(void)
 	if(clientsock != NULL)
 	{
 		iov.iov_base=(void*)buffer;
-		iov.iov_len=25;
+		iov.iov_len=BUF_SIZE;
+		msg.msg_name = (struct sockaddr *) &sin;
+		msg.msg_namelen = sizeof(struct sockaddr);
+		msg.msg_iov = (struct iovec *) &iov;
+		msg.msg_iovlen = 1;
+		msg.msg_control = NULL;
+		msg.msg_flags=MSG_EOF;
+
 		int ret;
 		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg()\n");
 		ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
