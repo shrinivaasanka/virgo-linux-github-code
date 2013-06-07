@@ -108,6 +108,7 @@ int args=0;
 
 int clone_func(void* args)
 {
+	printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud \n");
 	return 1;
 }
 
@@ -150,9 +151,11 @@ static int virgocloudexec_create(void)
 	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
 	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
 	-Ka.Shrinivaasan
-	*/ 
+	 
 	clientsock=NULL;
 	error = kernel_accept(sock, &clientsock, 0);
+	*/
+	
 	/*
 	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
 	but suddenly it started to block on startup. Reason unknown (could be anything from hardware microcode update to external 
@@ -166,13 +169,14 @@ static int virgocloudexec_create(void)
 	again mysterious.
 
 	-Ka.Shrinivaasan  
-
-	error = kernel_accept(sock, &clientsock, 0);
+	*/
+	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+	/*
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
-	*/
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() returns error code: %d\n",error);
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() clientsock: %u\n",clientsock);
+	*/
 	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_create);
@@ -182,7 +186,9 @@ static int virgocloudexec_recvfrom(void)
 	/*	
 		do kernel_recvmsg() to get the function data to be executed on a thread
 	*/
+	/*
 	printk(KERN_INFO "virgocloudexec_recvfrom(): clientsock: %u\n",clientsock);
+	*/
 	if(clientsock != NULL )
 	{
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
@@ -206,6 +212,9 @@ static int virgocloudexec_recvfrom(void)
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kstrdup(msg.msg_iov->iov_base) : %s \n", cloneFunction);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
+		/*
+		task=kthread_create(clone_func, (void*)args, "cloudclonethread");
+		*/
 		strcpy(buffer,"cloudclonethread executed");
 	}
 	return 0;
@@ -214,7 +223,9 @@ EXPORT_SYMBOL(virgocloudexec_recvfrom);
 
 static int virgocloudexec_sendto(void)
 {
+	/*
 	printk(KERN_INFO "virgocloudexec_sendto(): clientsock: %u\n",clientsock);
+	*/
 	if(clientsock != NULL)
 	{
 		iov.iov_base=(void*)buffer;
@@ -230,6 +241,8 @@ static int virgocloudexec_sendto(void)
 		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg()\n");
 		ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
+		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
+		printk(KERN_INFO "virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
 	}
 	return 0;
 

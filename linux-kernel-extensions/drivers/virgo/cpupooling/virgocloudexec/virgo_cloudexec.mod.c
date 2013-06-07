@@ -25,6 +25,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xfa336f83, "kthread_create_on_node" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
+	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
 	{ 0x952664c5, "do_exit" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
@@ -39,4 +40,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "B7656F553F07868AECB7A5A");
+MODULE_INFO(srcversion, "39AF75D0B4B0EAB4D76861E");
