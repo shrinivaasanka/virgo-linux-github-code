@@ -142,9 +142,9 @@ int len=0;
 
 static struct socket *clientsock;
 static struct kvec iov;
-static struct msghdr msg;
+static struct msghdr msg = { NULL, };
 int buflen=BUF_SIZE;
-int nr=0;
+int nr=1;
 int args=0;
 
 
