@@ -129,8 +129,6 @@ virgocloudexec_init(void)
 	sin.sin_port=htons(10000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
-	iov.iov_base=(void*)buffer;
-	iov.iov_len=BUF_SIZE;	
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgocloudexec_init(): sock_create() returns error code: %d\n",error);
 
@@ -192,12 +190,18 @@ static int virgocloudexec_recvfrom(void)
 	if(clientsock != NULL )
 	{
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
+		memset(buffer, 0, sizeof(buffer));
+		iov.iov_base=(void*)buffer;
+		iov.iov_len=sizeof(buffer);	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
 		msg.msg_iovlen = 1;
 		msg.msg_control = NULL;
-		msg.msg_flags=MSG_EOF;
+		msg.msg_controllen = 0;
+		msg.msg_flags=0;
+		/*msg.msg_flags = MSG_DONTWAIT;*/
+
 		/*
 		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		*/
@@ -207,15 +211,15 @@ static int virgocloudexec_recvfrom(void)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = kstrdup(msg.msg_iov->iov_base,GFP_KERNEL);
-		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns msg.msg_iov->iov_base: %s \n", msg.msg_iov->iov_base);
-		printk(KERN_INFO "virgocloudexec_recvfrom(): kstrdup(msg.msg_iov->iov_base) : %s \n", cloneFunction);
+		cloneFunction = kstrdup((char*)msg.msg_iov->iov_base,GFP_KERNEL);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns msg.msg_iov[0]->iov_base, iov.iov_base: %s %s\n", (char*)msg.msg_iov->iov_base, (char*)iov.iov_base);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kstrdup(msg.msg_iov[0]->iov_base) : %s \n", cloneFunction);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
 		/*
 		task=kthread_create(clone_func, (void*)args, "cloudclonethread");
-		*/
 		strcpy(buffer,"cloudclonethread executed");
+		*/
 	}
 	return 0;
 }
@@ -228,18 +232,25 @@ static int virgocloudexec_sendto(void)
 	*/
 	if(clientsock != NULL)
 	{
-		iov.iov_base=(void*)buffer;
-		iov.iov_len=BUF_SIZE;
+		/*iov.iov_base=(void*)buffer;*/	
+		/*memset(buffer, 0, sizeof(buffer));*/
+		strcpy(buffer,"virgocloudexec_sendto(): cloudclonethread executed, sending message to virgo_clone() remote client\n");
+		iov.iov_base=buffer;	
+		/*iov.iov_len=BUF_SIZE;*/
+		iov.iov_len=sizeof(buffer);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
 		msg.msg_iovlen = 1;
 		msg.msg_control = NULL;
-		msg.msg_flags=MSG_EOF;
+		msg.msg_controllen = 0;
+		msg.msg_flags=0;
+		/*msg.msg_flags=MSG_DONTWAIT;*/
 
 		int ret;
-		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg()\n");
-		ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);
+		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg() for msg.msg_iov[0]->iov_base, iov.iov_base: %s %s\n", (char*)msg.msg_iov->iov_base, (char*)iov.iov_base);
+		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
+		/*ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);*/
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
 		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
 		printk(KERN_INFO "virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
