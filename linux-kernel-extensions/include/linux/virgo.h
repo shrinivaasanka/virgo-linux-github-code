@@ -147,6 +147,8 @@ int buflen=BUF_SIZE;
 int nr=1;
 int args=0;
 
+void print_buffer(char*);
+
 
 /*
  * VIRGO cloudexec service kernel thread initialization
