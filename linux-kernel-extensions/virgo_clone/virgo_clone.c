@@ -100,9 +100,12 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	
 	int nr;
 	struct kvec iov;
+	/*
 	struct msghdr msg = {
 		.msg_flags = MSG_EOF,
 	};
+	*/
+	struct msghdr msg;
 	int error;
 	struct socket *sock;
 	struct sockaddr_in sin;
@@ -133,13 +136,15 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
         sin.sin_port=htons(leastloadedhostport->port);
 
-	iov.iov_base=(void*)buf;
-	iov.iov_len=BUF_SIZE;	
+	iov.iov_base=buf;
+	iov.iov_len=sizeof(buf);	
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
 	msg.msg_iovlen = 1;
 	msg.msg_control = NULL;
+	msg.msg_controllen = 0;
+	msg.msg_flags = 0;
 	nr=1;
 
 
@@ -152,6 +157,10 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	printk(KERN_INFO "virgo_clone() syscall: sent message %s \n", msg.msg_iov->iov_base);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 	printk(KERN_INFO "virgo_clone() syscall: received message %s \n", msg.msg_iov->iov_base);
+        le32_to_cpus((char*)msg.msg_iov->iov_base);
+	printk(KERN_INFO "virgo_clone() syscall: le32_to_cpus %s \n", (char*)msg.msg_iov->iov_base);
+	sock_release(sock);
+	printk(KERN_INFO "virgo_clone() syscall: virgo_clone() client socket_release() invoked\n");
 	
 	return len;
 }
