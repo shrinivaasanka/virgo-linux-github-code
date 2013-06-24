@@ -1,0 +1,8 @@
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/virgo_clone/test$ telnet 0 10000
+Trying 0.0.0.0...
+Connected to 0.
+Escape character is '^]'.
+int clone_func(void *args)
+virgocloudexec_sendto(): cloudclonethread executed, sending message to virgo_clone() remote client
+Connection closed by foreign host.
+
