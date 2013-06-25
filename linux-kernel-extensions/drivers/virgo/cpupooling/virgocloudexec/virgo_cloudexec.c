@@ -21,6 +21,7 @@ mail to: ka.shrinivaasan@gmail.com
 
 #include <linux/virgo.h>
 #include <linux/virgocloudexecsvc.h>
+#include <linux/string.h>
 
 /*
 #include <linux/kernel.h>
@@ -205,13 +206,13 @@ static int virgocloudexec_recvfrom(void)
 		/*
 		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		*/
-		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, BUF_SIZE, msg.msg_flags);
+		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
 		/*
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = kstrdup(msg.msg_iov->iov_base,GFP_KERNEL);
+		cloneFunction = kstrdup(msg.msg_iov->iov_base,GFP_ATOMIC);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns msg.msg_iov[0]->iov_base, iov.iov_base: %s %s\n", (char*)msg.msg_iov->iov_base, (char*)iov.iov_base);
 		print_buffer((char*)iov.iov_base);
 		le32_to_cpus((char*)msg.msg_iov->iov_base);
