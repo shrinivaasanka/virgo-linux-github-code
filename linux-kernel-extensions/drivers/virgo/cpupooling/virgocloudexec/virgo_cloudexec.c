@@ -110,6 +110,11 @@ int args=0;
 int clone_func(void* args)
 {
 	printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud \n");
+	/*
+	Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
+	virgo_clone() remote syscall
+	*/
+	strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client\n");
 	return 1;
 }
 
@@ -151,9 +156,9 @@ static int virgocloudexec_create(void)
 	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
 	-Ka.Shrinivaasan
 	 
+	*/
 	clientsock=NULL;
 	error = kernel_accept(sock, &clientsock, 0);
-	*/
 	
 	/*
 	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
@@ -168,8 +173,8 @@ static int virgocloudexec_create(void)
 	again mysterious.
 
 	-Ka.Shrinivaasan  
-	*/
 	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+	*/
 	/*
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
@@ -200,8 +205,8 @@ static int virgocloudexec_recvfrom(void)
 		msg.msg_iovlen = 1;
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		msg.msg_flags=0;
-		/*msg.msg_flags = MSG_DONTWAIT;*/
+		/*msg.msg_flags=0;*/
+		msg.msg_flags=MSG_NOSIGNAL;
 
 		/*
 		len  = kernel_recvmsg(clientsock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
@@ -212,12 +217,12 @@ static int virgocloudexec_recvfrom(void)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = kstrdup(msg.msg_iov->iov_base,GFP_ATOMIC);
-		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns msg.msg_iov[0]->iov_base, iov.iov_base: %s %s\n", (char*)msg.msg_iov->iov_base, (char*)iov.iov_base);
-		print_buffer((char*)iov.iov_base);
-		le32_to_cpus((char*)msg.msg_iov->iov_base);
-		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", (char*)msg.msg_iov->iov_base);
-		printk(KERN_INFO "virgocloudexec_recvfrom(): kstrdup(msg.msg_iov[0]->iov_base) : %s \n", cloneFunction);
+		cloneFunction = kstrdup(buffer,GFP_ATOMIC);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
+		print_buffer(buffer);
+		le32_to_cpus(buffer);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): cloneFunction : %s \n", cloneFunction);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
 		/*
@@ -245,9 +250,9 @@ static int virgocloudexec_sendto(void)
 	*/
 	if(clientsock != NULL)
 	{
+		strcpy(buffer,"virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client\n");
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
-		strcpy(buffer,"virgocloudexec_sendto(): cloudclonethread executed, sending message to virgo_clone() remote client\n");
 		iov.iov_base=buffer;	
 		/*iov.iov_len=BUF_SIZE;*/
 		iov.iov_len=sizeof(buffer);
@@ -258,13 +263,17 @@ static int virgocloudexec_sendto(void)
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=0;
-		/*msg.msg_flags=MSG_DONTWAIT;*/
 
 		int ret;
-		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg() for msg.msg_iov[0]->iov_base, iov.iov_base: %s %s\n", (char*)msg.msg_iov->iov_base, (char*)iov.iov_base);
+		printk(KERN_INFO "virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: %s\n", buffer);
 		ret = kernel_sendmsg(clientsock, &msg, &iov, 1, buflen);
+		/*len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);*/
 		/*ret = kernel_sendmsg(clientsock, &msg, &iov, nr, buflen);*/
 		printk(KERN_INFO "virgocloudexec_sendto(): kernel_sendmsg() returns ret: %d\n",ret);
+		/*
+		printk(KERN_INFO "virgocloudexec_sendto(): kernel_recvmsg() returns len: %d\n",len);
+		printk(KERN_INFO "virgocloudexec_sendto(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
+		*/
 		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
 		printk(KERN_INFO "virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
 		sock_release(clientsock);

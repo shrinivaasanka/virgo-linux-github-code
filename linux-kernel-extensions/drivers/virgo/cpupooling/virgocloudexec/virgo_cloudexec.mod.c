@@ -19,6 +19,7 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
+	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x794f5965, "sock_create_kern" },
 	{ 0xe72a3ab3, "kernel_listen" },
 	{ 0xc499ae1e, "kstrdup" },
@@ -40,4 +41,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "15EF6A53EF0DFDCCCEC8FD6");
+MODULE_INFO(srcversion, "02F6E59DF531C252F267529");
