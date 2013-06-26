@@ -1,0 +1,22 @@
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847444] virgo_clone() syscall: created client kernel socket
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847603] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847613] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847618] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: int clone_func(void* args)
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847576] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847576]  
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847620] virgo_clone() syscall: sent message int clone_func(void* args) 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847625] print_buffer(): 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847627] in
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847632] t 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847636] 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847639] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu int clone_func(void* args)
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847642] virgocloudexec_recvfrom(): cloneFunction : int clone_func(void* args) 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847684] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847684] 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847720] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847724] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847747] virgocloudexec_sendto(): sock_release invoked on client socket 
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847767] virgo_clone() syscall: received message  
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847771] virgo_clone() syscall: le32_to_cpus  
+Jun 26 18:41:40 kashrinivaasan-Inspiron-1545 kernel: [ 1246.847779] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+
