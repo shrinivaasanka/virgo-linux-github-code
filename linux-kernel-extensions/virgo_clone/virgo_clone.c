@@ -154,11 +154,11 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_clone() syscall: sent message %s \n", msg.msg_iov->iov_base);
+	printk(KERN_INFO "virgo_clone() syscall: sent message: %s \n", buf);
         len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_clone() syscall: received message %s \n", msg.msg_iov->iov_base);
-        le32_to_cpus((char*)msg.msg_iov->iov_base);
-	printk(KERN_INFO "virgo_clone() syscall: le32_to_cpus %s \n", (char*)msg.msg_iov->iov_base);
+	printk(KERN_INFO "virgo_clone() syscall: received message: %s \n", buf);
+        le32_to_cpus(buf);
+	printk(KERN_INFO "virgo_clone() syscall: le32_to_cpus(buf): %s \n", buf);
 	sock_release(sock);
 	printk(KERN_INFO "virgo_clone() syscall: virgo_clone() client socket_release() invoked\n");
 	
