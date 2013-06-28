@@ -1,0 +1,5 @@
+Probable kernel socket bug found during VIRGO cloudexec driver development:
+Non-blocking and blocking sockets work erratically and virgo kernel service on startup hangs with blocking socket sometimes and works sometimes. This is reproducible with very high probability. 
+
+Ka.Shrinivaasan
+
