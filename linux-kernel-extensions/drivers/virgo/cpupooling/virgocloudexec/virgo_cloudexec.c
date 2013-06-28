@@ -155,8 +155,8 @@ static int virgocloudexec_create(void)
 	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
 	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
 	-Ka.Shrinivaasan
-	 
 	*/
+	 
 	clientsock=NULL;
 	error = kernel_accept(sock, &clientsock, 0);
 	
@@ -224,7 +224,10 @@ static int virgocloudexec_recvfrom(void)
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): cloneFunction : %s \n", cloneFunction);
 		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
+		/*task=kthread_run(cloneFunction_ptr, (void*)args, "cloudclonethread");*/
 		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
+		int woken_up=wake_up_process(task);
+		printk(KERN_INFO "virgocloudexec_recvfrom(): clone thread woken_up : %d\n",woken_up);
 		/*
 		task=kthread_create(clone_func, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
