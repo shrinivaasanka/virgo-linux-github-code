@@ -72,3 +72,9 @@ VIRGO code commits as on 1/7/2013
 1. Instead of printing iovec, printing buffer correctly prints the messages
 2. wake_up_process() added and function received from virgo_clone() syscall is executed with kernel_thread and results returned to
 virgo_clone() syscall client.
+
+VIRGO - loadbalancer to get the host:ip of the least loaded node
+----------------------------------------------------------------
+Virgo_clone() system call needs to lookup a registry or map of host-to-load and get the least loaded host:ip from it. This requires a  load monitoring code to run periodically and update the map. If this registry is located on a single machine then simultaneous virgo_clone() calls from many machines on the cloud could choke the registry. Due to this, loadbalancer registry needs to run on a high-end machine. Alternatively,each machine can have its own view of the load and multiple copies of load-to-host registries can be stored in individual machines. Synchronization of the copies becomes a separate task in itself(Cache coherency). Either way gives a tradeoff between accuracy, latency and efficiency. 
+
+Many application level userspace load monitoring tools are available but as virgo_clone() is in kernel space, it needs to be investigated if kernel-to-kernel loadmonitoring can be done without userspace data transport.Most Cloud API explicitly invoke a function on a host. If this functionality is needed, virgo_clone() needs to take host:ip address as extra argument,but it reduces transparent execution.
