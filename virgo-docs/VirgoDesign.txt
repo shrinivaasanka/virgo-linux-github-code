@@ -67,3 +67,8 @@ VIRGO code commits as on 25/6/2013
 1.telnet to kernel service was tested and found working
 2.GFP_KERNEL changed to GFP_ATOMIC in VIRGO cloudexec kernel service
 
+VIRGO code commits as on 1/7/2013
+----------------------------------
+1. Instead of printing iovec, printing buffer correctly prints the messages
+2. wake_up_process() added and function received from virgo_clone() syscall is executed with kernel_thread and results returned to
+virgo_clone() syscall client.
