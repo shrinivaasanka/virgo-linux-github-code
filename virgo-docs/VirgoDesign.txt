@@ -75,6 +75,25 @@ virgo_clone() syscall client.
 
 VIRGO - loadbalancer to get the host:ip of the least loaded node
 ----------------------------------------------------------------
+Loadbalancer option 1 - Centralized loadbalancer registry that tracks load:
+---------------------------------------------------------------------------
+
 Virgo_clone() system call needs to lookup a registry or map of host-to-load and get the least loaded host:ip from it. This requires a  load monitoring code to run periodically and update the map. If this registry is located on a single machine then simultaneous virgo_clone() calls from many machines on the cloud could choke the registry. Due to this, loadbalancer registry needs to run on a high-end machine. Alternatively,each machine can have its own view of the load and multiple copies of load-to-host registries can be stored in individual machines. Synchronization of the copies becomes a separate task in itself(Cache coherency). Either way gives a tradeoff between accuracy, latency and efficiency. 
 
 Many application level userspace load monitoring tools are available but as virgo_clone() is in kernel space, it needs to be investigated if kernel-to-kernel loadmonitoring can be done without userspace data transport.Most Cloud API explicitly invoke a function on a host. If this functionality is needed, virgo_clone() needs to take host:ip address as extra argument,but it reduces transparent execution.
+
+Loadbalancer option 2 - Linux Psuedorandom number generator based load balancer(experimental) instead of centralized registry that tracks load:
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+Each virgo_clone() client has a PRG which is queried (/dev/random or /dev/urandom) to get the id of the host to send the next virgo_clone() function to be executed 
+Expected number of requests per node is derived as:
+
+expected number of requests per node = summation(each_value_for_the_random_variable_for_number_of_requests * probability_for_each_value) where random variable ranges from 1 to k where N is number of processors and k is the number of requests to be distributed on N nodes
+
+=expected number of requests per node = (math.pow(N, k+2) - k*math.pow(N,2) + k*math.pow(N,1) - 1) / (math.pow(N, k+3) - 2*math.pow(N,k+2) + math.pow(N,k+1))
+
+This loadbalancer is dependent on efficacy of the PRG and since each request is uniformly, identically, independently distributed use of PRG
+would distribute requests evenly. This obviates the need for loadtracking and coherency of the load-to-host table.
+
+(python script in virgo-python-src/)
+
