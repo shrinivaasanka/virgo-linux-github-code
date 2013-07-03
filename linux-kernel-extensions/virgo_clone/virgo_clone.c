@@ -77,8 +77,8 @@ struct hostport* get_least_loaded_hostport_from_cloud()
 	get the host ip for next virgo_clone() function kernel thread execution
 	*/
 
-	/*char *LBalgorithm = "Loadtrack";*/
-	char *LBalgorithm = "PRG";
+	/*char *LBAlgorithm = "Loadtrack";*/
+	char *LBAlgorithm = "PRG";
 	if(strcmp(LBAlgorithm, "Loadtrack")
 	{
 		char* cloud_host = get_host_from_cloud_Loadtrack();
