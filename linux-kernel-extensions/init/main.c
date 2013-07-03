@@ -102,7 +102,7 @@ extern void tc_init(void);
 #endif
 
 #define NUM_CLOUD_NODES 2
-char node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
+char* node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
 
 
 /*
