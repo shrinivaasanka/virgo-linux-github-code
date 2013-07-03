@@ -97,3 +97,8 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 
 (python script in virgo-python-src/)
 
+commit as on 03/07/2013
+-----------------------
+PRG loadbalancer preliminary code implemented. More work to be done
+
+

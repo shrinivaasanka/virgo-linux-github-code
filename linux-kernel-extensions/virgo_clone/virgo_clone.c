@@ -52,6 +52,8 @@ mail to: ka.shrinivaasan@gmail.com
 #include <linux/uio.h>
 #include <linux/unistd.h>
 #include <linux/init.h>
+
+#include <linux/random.h>
 /*#include "netns.h"*/
 
 struct hostport
@@ -60,15 +62,61 @@ struct hostport
 	int port;
 };
 
+#define NUM_CLOUD_NODES 2
+#define BUF_SIZE 3000
+
+extern char* node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
+
+char* get_host_from_cloud_Loadtrack();
+char* get_host_from_cloud_PRG();
+
 struct hostport* get_least_loaded_hostport_from_cloud()
 {
-	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
-	hopo->hostip=kstrdup("127.0.0.1", GFP_KERNEL);
-	hopo->port=10000;
+	/*
+	Either a loadtracking algorithm or a pseudorandom generator based loadbalancing algorithm is invoked to
+	get the host ip for next virgo_clone() function kernel thread execution
+	*/
+
+	/*char *LBalgorithm = "Loadtrack";*/
+	char *LBalgorithm = "PRG";
+	if(strcmp(LBAlgorithm, "Loadtrack")
+	{
+		char* cloud_host = get_host_from_cloud_Loadtrack();
+		struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->port=10000;
+	}
+	else if(strcmp(LBAlgorithm, "PRG")==0)
+	{
+		char* cloud_host = get_host_from_cloud_PRG();
+		struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->port=10000;
+	}
 	return hopo;
 }
 
-#define BUF_SIZE 3000
+/* 
+ Loadtracking algorithm for  nodes in the cloud
+*/
+
+char* get_host_from_cloud_Loadtrack()
+{
+	return NULL;
+}
+
+/*
+Pseudorandom number generator based algorithm to distribute virgo_clone() requests amongst cloud nodes
+*/
+
+char* get_host_from_cloud_PRG()
+{
+	/* maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes */
+	unsigned int rand_host_id = (num_of_cloud_nodes - 1) * get_random_int() / (65536-1);
+	return node_ip_addrs_in_cloud[rand_host_id];	
+	
+}
+
 
 asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int flags, void *arg)
 {

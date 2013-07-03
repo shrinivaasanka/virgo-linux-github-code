@@ -69,7 +69,7 @@ mail to: ka.shrinivaasan@gmail.com
 #include <linux/types.h>
 #include <linux/uio.h>
 #include <linux/unistd.h>
-#include <linux/init.h>
+/*#include <linux/init.h>*/
 
 #include <linux/sunrpc/types.h>
 #include <linux/sunrpc/clnt.h>

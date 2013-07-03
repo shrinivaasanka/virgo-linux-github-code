@@ -71,6 +71,7 @@
 #include <linux/file.h>
 #include <linux/ptrace.h>
 
+
 /*
 #include <linux/virgocloudexecsvc.h>
 */
@@ -99,6 +100,10 @@ static inline void mark_rodata_ro(void) { }
 #ifdef CONFIG_TC
 extern void tc_init(void);
 #endif
+
+#define NUM_CLOUD_NODES 2
+char node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
+
 
 /*
  * Debug helper: via this flag we know that we are in 'early bootup code'
@@ -795,6 +800,33 @@ static void __init do_basic_setup(void)
 
 	do_virgocloudexec_init();
 	*/
+
+	/*
+	 VIRGO cloudexec - cloud initialization from virgo_cloud.conf file
+	  - Ka.Shrinivaasan 3 July 2013
+	*/
+	do_virgo_cloud_init();
+}
+
+/*
+ VIRGO cloudexec - cloud initialization from virgo_cloud.conf file
+  - Ka.Shrinivaasan 3 July 2013
+*/
+void do_virgo_cloud_init()
+{
+	FILE* fp=fopen("/etc/virgo_cloud.conf", "r");
+	char buf[256];
+	int i=0;
+	memset(buf,0,sizeof(buf));
+	if(fp !=NULL)
+	{
+		while(buf != NULL)
+		{
+			bytes_read=fread(buf, 1, sizeof(buf) - 1, fp);
+			strcpy(node_ip_addrs_in_cloud[i], buf);
+			i++;
+		}
+	}	
 }
 
 /*
