@@ -62,10 +62,13 @@ struct hostport
 	int port;
 };
 
-#define NUM_CLOUD_NODES 2
 #define BUF_SIZE 3000
 
-extern char* node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
+extern int num_cloud_nodes;
+
+extern char* node_ip_addrs_in_cloud[3000];
+
+
 
 char* get_host_from_cloud_Loadtrack();
 char* get_host_from_cloud_PRG();
@@ -79,18 +82,19 @@ struct hostport* get_least_loaded_hostport_from_cloud()
 
 	/*char *LBAlgorithm = "Loadtrack";*/
 	char *LBAlgorithm = "PRG";
-	if(strcmp(LBAlgorithm, "Loadtrack")
+	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
+	if(strcmp(LBAlgorithm, "Loadtrack")==0)
 	{
 		char* cloud_host = get_host_from_cloud_Loadtrack();
-		struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack() returns host ip: %s \n",hopo->hostip);
 		hopo->port=10000;
 	}
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
 		char* cloud_host = get_host_from_cloud_PRG();
-		struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: %s \n",hopo->hostip);
 		hopo->port=10000;
 	}
 	return hopo;
@@ -112,7 +116,7 @@ Pseudorandom number generator based algorithm to distribute virgo_clone() reques
 char* get_host_from_cloud_PRG()
 {
 	/* maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes */
-	unsigned int rand_host_id = (num_of_cloud_nodes - 1) * get_random_int() / (65536-1);
+	unsigned int rand_host_id = (num_cloud_nodes - 1) * get_random_int() / (65536-1);
 	return node_ip_addrs_in_cloud[rand_host_id];	
 	
 }
