@@ -82,9 +82,19 @@
 #include <asm/sections.h>
 #include <asm/cacheflush.h>
 
+int num_cloud_nodes;
+EXPORT_SYMBOL(num_cloud_nodes);
+
+char* node_ip_addrs_in_cloud[3000];
+EXPORT_SYMBOL(node_ip_addrs_in_cloud);
+
+
+
 #ifdef CONFIG_X86_LOCAL_APIC
 #include <asm/smp.h>
 #endif
+
+void do_virgo_cloud_init(void);
 
 static int kernel_init(void *);
 
@@ -100,10 +110,6 @@ static inline void mark_rodata_ro(void) { }
 #ifdef CONFIG_TC
 extern void tc_init(void);
 #endif
-
-#define NUM_CLOUD_NODES 2
-char* node_ip_addrs_in_cloud[NUM_CLOUD_NODES];
-
 
 /*
  * Debug helper: via this flag we know that we are in 'early bootup code'
@@ -814,19 +820,27 @@ static void __init do_basic_setup(void)
 */
 void do_virgo_cloud_init()
 {
-	FILE* fp=fopen("/etc/virgo_cloud.conf", "r");
+	mm_segment_t fs;
+	struct file* f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
 	char buf[256];
 	int i=0;
 	memset(buf,0,sizeof(buf));
-	if(fp !=NULL)
+	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
+	fs=get_fs();
+	set_fs(get_ds());
+	if(f !=NULL)
 	{
 		while(buf != NULL)
 		{
-			bytes_read=fread(buf, 1, sizeof(buf) - 1, fp);
+			f->f_op->read(f, buf, sizeof(buf), &f->f_pos);
 			strcpy(node_ip_addrs_in_cloud[i], buf);
+			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,buf);
 			i++;
 		}
-	}	
+	}
+	set_fs(fs);
+	filp_close(f,NULL);	
+	num_cloud_nodes=i;
 }
 
 /*
