@@ -820,25 +820,41 @@ static void __init do_basic_setup(void)
 */
 void do_virgo_cloud_init()
 {
+	int bytesread=0;
+	loff_t pos=0;
 	mm_segment_t fs;
+	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being filp_open()-ed \n");
 	struct file* f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
 	char buf[256];
 	int i=0;
 	memset(buf,0,sizeof(buf));
 	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
-	fs=get_fs();
-	set_fs(get_ds());
+
+	char* emptystr="";
+	int n;
+
+	for(n=0; n <3000; n++)
+	{
+		node_ip_addrs_in_cloud[n]=emptystr;
+	}
+
 	if(f !=NULL)
 	{
 		while(buf != NULL)
 		{
-			f->f_op->read(f, buf, sizeof(buf), &f->f_pos);
-			strcpy(node_ip_addrs_in_cloud[i], buf);
-			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,buf);
+			memset(buf,0,sizeof(buf));
+			fs=get_fs();
+			set_fs(get_ds());
+			/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
+			bytesread=vfs_read(f,buf,sizeof(buf), &pos);
+			set_fs(fs);
+			strcpy(node_ip_addrs_in_cloud[i],buf);
+			/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);*/
+			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);
 			i++;
+			pos=pos+bytesread;
 		}
 	}
-	set_fs(fs);
 	filp_close(f,NULL);	
 	num_cloud_nodes=i;
 }
