@@ -82,10 +82,10 @@
 #include <asm/sections.h>
 #include <asm/cacheflush.h>
 
-int num_cloud_nodes;
+int num_cloud_nodes=2;
 EXPORT_SYMBOL(num_cloud_nodes);
 
-char* node_ip_addrs_in_cloud[3000];
+char* node_ip_addrs_in_cloud[3000]={"127.0.0.1","127.0.0.1",NULL,};
 EXPORT_SYMBOL(node_ip_addrs_in_cloud);
 
 
@@ -810,8 +810,8 @@ static void __init do_basic_setup(void)
 	/*
 	 VIRGO cloudexec - cloud initialization from virgo_cloud.conf file
 	  - Ka.Shrinivaasan 3 July 2013
-	*/
 	do_virgo_cloud_init();
+	*/
 }
 
 /*
@@ -820,37 +820,40 @@ static void __init do_basic_setup(void)
 */
 void do_virgo_cloud_init()
 {
-	int bytesread=0;
+	loff_t bytesread=0;
 	loff_t pos=0;
 	mm_segment_t fs;
+
 	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being filp_open()-ed \n");
-	struct file* f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
+	fs=get_fs();
+	set_fs(get_ds());
+	struct file* f=NULL;
+	f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
+	set_fs(fs);
+
 	char buf[256];
 	int i=0;
-	memset(buf,0,sizeof(buf));
+
+	int k=0;
+	for(k=0;k<256;k++)
+		buf[k]=0;
+
 	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
 
-	char* emptystr="";
 	int n;
-
-	for(n=0; n <3000; n++)
-	{
-		node_ip_addrs_in_cloud[n]=emptystr;
-	}
 
 	if(f !=NULL)
 	{
-		while(buf != NULL)
+		while(buf != NULL || i < 50)
 		{
-			memset(buf,0,sizeof(buf));
 			fs=get_fs();
 			set_fs(get_ds());
 			/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
 			bytesread=vfs_read(f,buf,sizeof(buf), &pos);
 			set_fs(fs);
 			strcpy(node_ip_addrs_in_cloud[i],buf);
-			/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);*/
-			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);
+			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);
+			/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);*/
 			i++;
 			pos=pos+bytesread;
 		}
