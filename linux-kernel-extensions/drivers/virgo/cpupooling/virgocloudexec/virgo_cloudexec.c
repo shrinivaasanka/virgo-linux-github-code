@@ -107,6 +107,9 @@ int nr=0;
 int args=0;
 */
 
+extern char* node_ip_addrs_in_cloud[3000];
+extern int num_cloud_nodes;
+
 int clone_func(void* args)
 {
 	printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud \n");
@@ -116,6 +119,51 @@ int clone_func(void* args)
 	*/
 	strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client\n");
 	return 1;
+}
+
+void read_virgo_config()
+{
+	loff_t bytesread=0;
+	loff_t pos=0;
+	mm_segment_t fs;
+
+	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being filp_open()-ed \n");
+	fs=get_fs();
+	set_fs(get_ds());
+	struct file* f=NULL;
+	f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
+	set_fs(fs);
+
+	char buf[256];
+	int i=0;
+
+	int k=0;
+	for(k=0;k<256;k++)
+		buf[k]=0;
+
+	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
+
+	char* emptystr="";
+	int n;
+
+	if(f !=NULL)
+	{
+		while(buf != NULL)
+		{
+			fs=get_fs();
+			set_fs(get_ds());
+			/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
+			bytesread=vfs_read(f,buf,sizeof(buf), &pos);
+			set_fs(fs);
+			strcpy(node_ip_addrs_in_cloud[i],buf);
+			/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);*/
+			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);
+			i++;
+			pos=pos+bytesread;
+		}
+	}
+	filp_close(f,NULL);	
+	num_cloud_nodes=i;
 }
 
 
@@ -195,6 +243,9 @@ static int virgocloudexec_recvfrom(void)
 	*/
 	if(clientsock != NULL )
 	{
+		printk(KERN_INFO "invoking read_virgo_config()\n");
+		read_virgo_config();
+
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, sizeof(buffer));
 		iov.iov_base=(void*)buffer;
