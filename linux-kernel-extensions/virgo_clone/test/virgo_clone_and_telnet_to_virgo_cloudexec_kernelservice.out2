@@ -1,0 +1,50 @@
+Jul 10 17:21:24 kashrinivaasan-Inspiron-1545 kernel: [  117.018885] invoking read_virgo_config()
+Jul 10 17:21:24 kashrinivaasan-Inspiron-1545 kernel: [  117.018916] virgo kernel service: read_virgo_config(): virgo_cloud ip address - 1: 127.0.0.1
+Jul 10 17:21:24 kashrinivaasan-Inspiron-1545 kernel: [  117.018921] virgo kernel service: read_virgo_config(): virgo_cloud ip address - 2: 127.0.0.1
+Jul 10 17:21:24 kashrinivaasan-Inspiron-1545 kernel: [  117.018924] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503030] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 28
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503038] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: int clone_func(void *args)
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503038] 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503042] print_buffer(): 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503045] in
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503049] t 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503053] 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503057] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu int clone_func(void *args)
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503057] 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503061] virgocloudexec_recvfrom(): cloneFunction : int clone_func(void *args)
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503061]  
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503111] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503116] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503116] 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503153] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503157] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503182] virgocloudexec_sendto(): sock_release invoked on client socket 
+Jul 10 17:21:39 kashrinivaasan-Inspiron-1545 kernel: [  131.503645] clone_func(): executing the virgo_clone() syscall function parameter in cloud 
+Jul 10 17:21:51 kashrinivaasan-Inspiron-1545 kernel: [  143.810699] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=18405 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:21:59 kashrinivaasan-Inspiron-1545 kernel: [  152.065677] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=119.160.119.131 DST=14.96.112.191 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=26389 DF PROTO=TCP SPT=22447 DPT=14760 WINDOW=5840 RES=0x00 SYN URGP=0 
+Jul 10 17:22:05 kashrinivaasan-Inspiron-1545 kernel: [  158.233376] sd 7:0:0:0: [sdc] Test WP failed, assume Write Enabled
+Jul 10 17:22:05 kashrinivaasan-Inspiron-1545 kernel: [  158.235868] sd 7:0:0:0: [sdc] Asking for cache data failed
+Jul 10 17:22:05 kashrinivaasan-Inspiron-1545 kernel: [  158.235877] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+Jul 10 17:22:09 kashrinivaasan-Inspiron-1545 kernel: [  162.070570] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=119.160.119.131 DST=14.96.112.191 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=668 DF PROTO=TCP SPT=22448 DPT=14760 WINDOW=5840 RES=0x00 SYN URGP=0 
+Jul 10 17:22:09 kashrinivaasan-Inspiron-1545 kernel: [  162.070594] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=119.160.119.131 DST=14.96.112.191 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=26390 DF PROTO=TCP SPT=22447 DPT=14760 WINDOW=5840 RES=0x00 SYN URGP=0 
+Jul 10 17:22:09 kashrinivaasan-Inspiron-1545 kernel: [  162.151548] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=119.160.119.131 DST=14.96.112.191 LEN=60 TOS=0x00 PREC=0x00 TTL=49 ID=669 DF PROTO=TCP SPT=22448 DPT=14760 WINDOW=5840 RES=0x00 SYN URGP=0 
+Jul 10 17:22:20 kashrinivaasan-Inspiron-1545 kernel: [  172.955226] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=23969 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:22:49 kashrinivaasan-Inspiron-1545 kernel: [  202.140538] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=29752 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:22:57 kashrinivaasan-Inspiron-1545 kernel: [  209.945046] sd 7:0:0:0: [sdc] Test WP failed, assume Write Enabled
+Jul 10 17:22:57 kashrinivaasan-Inspiron-1545 kernel: [  209.947383] sd 7:0:0:0: [sdc] Asking for cache data failed
+Jul 10 17:22:57 kashrinivaasan-Inspiron-1545 kernel: [  209.947392] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+Jul 10 17:23:19 kashrinivaasan-Inspiron-1545 kernel: [  231.366016] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=1379 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:23:30 kashrinivaasan-Inspiron-1545 kernel: [  242.769447] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: sys_inotify_rm_watch 
+Jul 10 17:23:30 kashrinivaasan-Inspiron-1545 kernel: [  242.769463] virgo_clone() syscall: created client kernel socket
+Jul 10 17:23:48 kashrinivaasan-Inspiron-1545 kernel: [  260.551417] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=6860 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:23:49 kashrinivaasan-Inspiron-1545 kernel: [  261.657279] sd 7:0:0:0: [sdc] Test WP failed, assume Write Enabled
+Jul 10 17:23:49 kashrinivaasan-Inspiron-1545 kernel: [  261.659428] sd 7:0:0:0: [sdc] Asking for cache data failed
+Jul 10 17:23:49 kashrinivaasan-Inspiron-1545 kernel: [  261.659435] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+Jul 10 17:24:17 kashrinivaasan-Inspiron-1545 kernel: [  289.835777] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=82.46.16.129 DST=14.96.112.191 LEN=48 TOS=0x00 PREC=0x00 TTL=114 ID=12556 PROTO=UDP SPT=44172 DPT=53651 LEN=28 
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564351] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564351]  
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564360] virgo_clone() syscall: sent message: int clone_func(void* args) 
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564366] virgo_clone() syscall: received message: int clone_func(void* args) 
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564370] virgo_clone() syscall: le32_to_cpus(buf): int clone_func(void* args) 
+Jul 10 17:24:26 kashrinivaasan-Inspiron-1545 kernel: [  298.564386] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Jul 10 17:24:31 kashrinivaasan-Inspiron-1545 kernel: [  304.269485] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=205.174.165.38 DST=14.96.112.191 LEN=44 TOS=0x00 PREC=0x00 TTL=233 ID=9344 PROTO=UDP SPT=64328
