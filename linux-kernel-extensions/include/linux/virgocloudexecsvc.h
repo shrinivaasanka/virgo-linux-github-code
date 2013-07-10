@@ -19,6 +19,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 mail to: ka.shrinivaasan@gmail.com
 *****************************************************************************************/
 
+#ifndef _LINUX_VIRGOCLOUDEXECSVC_H
+#define _LINUX_VIRGOCLOUDEXECSVC_H
+
 #include <linux/virgo.h>
 
 
@@ -34,3 +37,5 @@ int virgo_cloudexec_service(void* args)
 	}
 
 }
+
+#endif
