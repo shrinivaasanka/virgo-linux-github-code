@@ -54,7 +54,11 @@ mail to: ka.shrinivaasan@gmail.com
 #include <linux/init.h>
 
 #include <linux/random.h>
-/*#include "netns.h"*/
+
+#include <linux/virgo_config.h>
+/*
+#include "netns.h"
+*/
 
 struct hostport
 {
@@ -64,10 +68,11 @@ struct hostport
 
 #define BUF_SIZE 3000
 
+/*
 extern int num_cloud_nodes;
 
 extern char* node_ip_addrs_in_cloud[3000];
-
+*/
 
 
 char* get_host_from_cloud_Loadtrack();
