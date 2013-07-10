@@ -27,13 +27,16 @@ __attribute__((section("__versions"))) = {
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
+	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
+	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
 	{ 0x281056ca, "wake_up_process" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
 	{ 0xaa099fde, "kernel_bind" },
 	{ 0x1616a37c, "try_module_get" },
 	{ 0xe914e41e, "strcpy" },
+	{ 0x95a608a3, "filp_open" },
 };
 
 static const char __module_depends[]
@@ -42,4 +45,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "00D4608CC682B2809ACB4DE");
+MODULE_INFO(srcversion, "00EF462599D3D289C2FBAFA");

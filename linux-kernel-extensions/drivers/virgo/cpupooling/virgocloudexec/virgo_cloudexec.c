@@ -21,7 +21,11 @@ mail to: ka.shrinivaasan@gmail.com
 
 #include <linux/virgo.h>
 #include <linux/virgocloudexecsvc.h>
+#include <linux/virgo_config.h>
+
 #include <linux/string.h>
+#include <linux/kallsyms.h>
+
 
 /*
 #include <linux/kernel.h>
@@ -105,10 +109,10 @@ struct msghdr msg;
 int buflen=BUF_SIZE;
 int nr=0;
 int args=0;
-*/
 
-extern char* node_ip_addrs_in_cloud[3000];
-extern int num_cloud_nodes;
+char** node_ip_addrs_in_cloud;
+int num_cloud_nodes;
+*/
 
 int clone_func(void* args)
 {
@@ -127,7 +131,20 @@ void read_virgo_config()
 	loff_t pos=0;
 	mm_segment_t fs;
 
-	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being filp_open()-ed \n");
+	/*
+	 * It is redundant to use kallsyms_lookup for exported symbols for virgo cloud initialization. 
+	 * kallsyms_lookup is for non-exported symbols.
+	 * 
+	 * - Ka.Shrinivaasan 10 July 2013
+	 *
+
+	node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("node_ip_addrs_in_cloud");
+	num_cloud_nodes=kallsyms_lookup_name("num_cloud_nodes");
+
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud config being read... \n");
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): num_cloud_nodes=%d #### node_ip_addrs_in_cloud=%s\n", num_cloud_nodes,node_ip_addrs_in_cloud);
+	*/
+
 	fs=get_fs();
 	set_fs(get_ds());
 	struct file* f=NULL;
@@ -141,6 +158,10 @@ void read_virgo_config()
 	for(k=0;k<256;k++)
 		buf[k]=0;
 
+	for(k=0; k < num_cloud_nodes; k++)	
+		printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
+
+	/*
 	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
 
 	char* emptystr="";
@@ -152,11 +173,11 @@ void read_virgo_config()
 		{
 			fs=get_fs();
 			set_fs(get_ds());
-			/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
-			bytesread=vfs_read(f,buf,sizeof(buf), &pos);
+			/f->f_op->read(f, buf, sizeof(buf), &f->f_pos);/
+			/bytesread=vfs_read(f,buf,sizeof(buf), &pos);/
 			set_fs(fs);
-			strcpy(node_ip_addrs_in_cloud[i],buf);
-			/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);*/
+			/strcpy(node_ip_addrs_in_cloud[i],buf);/
+			/printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);/
 			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);
 			i++;
 			pos=pos+bytesread;
@@ -164,6 +185,7 @@ void read_virgo_config()
 	}
 	filp_close(f,NULL);	
 	num_cloud_nodes=i;
+	*/
 }
 
 
