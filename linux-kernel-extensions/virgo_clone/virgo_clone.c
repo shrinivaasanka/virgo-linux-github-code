@@ -98,6 +98,7 @@ struct hostport* get_least_loaded_hostport_from_cloud()
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
 		char* cloud_host = get_host_from_cloud_PRG();
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): %s \n",cloud_host);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: %s \n",hopo->hostip);
 		hopo->port=10000;
@@ -121,7 +122,10 @@ Pseudorandom number generator based algorithm to distribute virgo_clone() reques
 char* get_host_from_cloud_PRG()
 {
 	/* maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes */
-	unsigned int rand_host_id = (num_cloud_nodes - 1) * get_random_int() / (65536-1);
+	unsigned int rand_int = get_random_int();
+	unsigned int rand_host_id = (num_cloud_nodes) * rand_int / (65536-1);
+	printk(KERN_INFO "get_host_from_cloud_PRG() - get_random_int() returned %u \n",rand_int);
+	printk(KERN_INFO "get_host_from_cloud_PRG() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
 	return node_ip_addrs_in_cloud[rand_host_id];	
 	
 }
