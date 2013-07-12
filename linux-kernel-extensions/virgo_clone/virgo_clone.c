@@ -121,9 +121,20 @@ Pseudorandom number generator based algorithm to distribute virgo_clone() reques
 
 char* get_host_from_cloud_PRG()
 {
-	/* maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes */
 	unsigned int rand_int = get_random_int();
+	/* 
+	maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes 
+	- Ka.Shrinivaasan 12 July 2013
+
 	unsigned int rand_host_id = (num_cloud_nodes) * rand_int / (65536-1);
+	*/
+
+	/*
+	Instead of range mapping, rand_int (mod) num_cloud_nodes is also sufficient
+	- Ka.Shrinivaasan 12 July 2013
+	*/
+	unsigned int rand_host_id = rand_int % num_cloud_nodes;
+
 	printk(KERN_INFO "get_host_from_cloud_PRG() - get_random_int() returned %u \n",rand_int);
 	printk(KERN_INFO "get_host_from_cloud_PRG() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
 	return node_ip_addrs_in_cloud[rand_host_id];	
