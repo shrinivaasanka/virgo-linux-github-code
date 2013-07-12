@@ -105,3 +105,7 @@ commit as on 10/07/2013
 -----------------------
 Tested PRG loadbalancer read config code through telnet and virgo_clone. VFS code to read from virgo_cloud.conf commented for testing
 
+commits as on 12/07/2013
+------------------------
+PRG loadbalancer prototype has been completed and tested with test_virgo_clone and telnet and symbol export errors and PRG errors have been fixed
+
