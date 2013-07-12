@@ -1,0 +1,125 @@
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/
+arch/          Documentation/ fs/            ipc/           mm/            scripts/       source/        virgo_clone/   
+block/         drivers/       include/       kernel/        net/           security/      tools/         virt/          
+crypto/        firmware/      init/          lib/           samples/       sound/         usr/           
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/
+arch/          Documentation/ fs/            ipc/           mm/            scripts/       source/        virgo_clone/   
+block/         drivers/       include/       kernel/        net/           security/      tools/         virt/          
+crypto/        firmware/      init/          lib/           samples/       sound/         usr/           
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/drivers/
+Display all 107 possibilities? (y or n)
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/drivers/virgo
+virgo/          virgo.loadable/ 
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/drivers/virgo/
+cpupooling/    .tmp_versions/ 
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~$ cd linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls
+built-in.o  Makefile       Module.symvers     virgo_cloudexec.ko     virgo_cloudexec.mod.o  virgocloudexecsvc.c
+Kconfig     modules.order  virgo_cloudexec.c  virgo_cloudexec.mod.c  virgo_cloudexec.o
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ sudo make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+[sudo] password for kashrinivaasan: 
+make: Entering directory `/home/kashrinivaasan/linux-3.7.8-build-3'
+  CLEAN   /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/.tmp_versions
+  CLEAN   /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/Module.symvers
+make: Leaving directory `/home/kashrinivaasan/linux-3.7.8-build-3'
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ sudo make -C /lib/modules/`uname -r`/build/ M=`pwd` 
+make: Entering directory `/home/kashrinivaasan/linux-3.7.8-build-3'
+  LD      /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/built-in.o
+  CC [M]  /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.o
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:129: warning: function declaration isn’t a prototype
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c: In function ‘read_virgo_config’:
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:150: warning: ISO C90 forbids mixed declarations and code
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:154: warning: ISO C90 forbids mixed declarations and code
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:155: warning: unused variable ‘i’
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:131: warning: unused variable ‘pos’
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:130: warning: unused variable ‘bytesread’
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c: In function ‘virgocloudexec_recvfrom’:
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:302: warning: ISO C90 forbids mixed declarations and code
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c: In function ‘print_buffer’:
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:316: warning: ISO C90 forbids mixed declarations and code
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c: In function ‘virgocloudexec_sendto’:
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.c:343: warning: ISO C90 forbids mixed declarations and code
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.mod.o
+  LD [M]  /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec.ko
+make: Leaving directory `/home/kashrinivaasan/linux-3.7.8-build-3'
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls -lrt
+total 160
+-rw-r--r-- 1 root           root            1169 May 23 22:52 virgocloudexecsvc.c
+-rwxr-xr-x 1 kashrinivaasan kashrinivaasan   376 May 23 22:52 Makefile
+-rwxr-xr-x 1 kashrinivaasan kashrinivaasan   306 May 23 22:52 Kconfig
+-rw-rw-r-- 1 kashrinivaasan kashrinivaasan 13584 Jul 10 17:04 virgo_cloudexec.c
+-rw-r--r-- 1 root           root               8 Jul 12 13:00 built-in.o
+-rw-r--r-- 1 root           root           11616 Jul 12 13:00 virgo_cloudexec.o
+-rw-r--r-- 1 root           root            2904 Jul 12 13:00 virgo_cloudexec.mod.o
+-rw-r--r-- 1 root           root            1275 Jul 12 13:00 virgo_cloudexec.mod.c
+-rw-r--r-- 1 root           root           10700 Jul 12 13:00 virgo_cloudexec.ko
+-rw-r--r-- 1 root           root             678 Jul 12 13:00 Module.symvers
+-rw-r--r-- 1 root           root              99 Jul 12 13:00 modules.order
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls /lib/modules/3.7.8
+3.7.8/                3.7.8-030708-generic/ 
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls /lib/modules/3.7.8/
+build/               modules.alias.bin    modules.dep          modules.inputmap     modules.pcimap       modules.symbols.bin
+extra/               modules.builtin      modules.dep.bin      modules.isapnpmap    modules.seriomap     modules.usbmap
+kernel/              modules.builtin.bin  modules.devname      modules.ofmap        modules.softdep      source/
+modules.alias        modules.ccwmap       modules.ieee1394map  modules.order        modules.symbols      
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls /lib/modules/3.7.8/extra/
+virgo_cloudexec.ko  virgo_cloudexec.ko.bigger
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ls -l /lib/modules/3.7.8/extra/
+total 24
+-rw-r--r-- 1 root root 10700 Jul 12 12:48 virgo_cloudexec.ko
+-rw-r--r-- 1 root root 11304 Jul 12 12:45 virgo_cloudexec.ko.bigger
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ diff virgo_cloudexec.ko /lib/modules/3.7.8/extra/virgo_cloudexec.ko
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ pwd
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ diff virgo_cloudexec.ko /lib/modules/3.7.8/extra/virgo_cloudexec.ko.bigger 
+Binary files virgo_cloudexec.ko and /lib/modules/3.7.8/extra/virgo_cloudexec.ko.bigger differ
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ tail -f /var/log/kern.log
+Jul 12 13:01:00 kashrinivaasan-Inspiron-1545 kernel: [  416.795925] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 12 13:01:52 kashrinivaasan-Inspiron-1545 kernel: [  468.505677] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 12 13:01:52 kashrinivaasan-Inspiron-1545 kernel: [  468.508081] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 12 13:01:52 kashrinivaasan-Inspiron-1545 kernel: [  468.508089] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 12 13:02:44 kashrinivaasan-Inspiron-1545 kernel: [  520.217316] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 12 13:02:44 kashrinivaasan-Inspiron-1545 kernel: [  520.219676] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 12 13:02:44 kashrinivaasan-Inspiron-1545 kernel: [  520.219686] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 12 13:03:36 kashrinivaasan-Inspiron-1545 kernel: [  571.929335] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 12 13:03:36 kashrinivaasan-Inspiron-1545 kernel: [  571.931828] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 12 13:03:36 kashrinivaasan-Inspiron-1545 kernel: [  571.931836] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 12 13:04:27 kashrinivaasan-Inspiron-1545 kernel: [  623.641355] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 12 13:04:27 kashrinivaasan-Inspiron-1545 kernel: [  623.643714] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 12 13:04:27 kashrinivaasan-Inspiron-1545 kernel: [  623.643723] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763450] get_host_from_cloud_PRG() - get_random_int() returned 1346868477 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763457] get_host_from_cloud_PRG() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763461] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): 127.0.0.1 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763465] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: 127.0.0.1 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763478] virgo_clone() syscall: created client kernel socket
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763634] invoking read_virgo_config()
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763614] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763614]  
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763655] virgo_clone() syscall: sent message: int clone_func(void* args) 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763669] virgo kernel service: read_virgo_config(): virgo_cloud ip address - 1: 127.0.0.1
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763672] virgo kernel service: read_virgo_config(): virgo_cloud ip address - 2: 127.0.0.1
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763675] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763681] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763685] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: int clone_func(void* args)
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763688] print_buffer(): 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763690] in
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763695] t 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763699] 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763702] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu int clone_func(void* args)
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763705] virgocloudexec_recvfrom(): cloneFunction : int clone_func(void* args) 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763778] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763783] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763783] 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763794] clone_func(): executing the virgo_clone() syscall function parameter in cloud 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763815] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763819] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763847] virgocloudexec_sendto(): sock_release invoked on client socket 
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763887] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763887]  
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763893] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763893]  
+Jul 12 13:04:34 kashrinivaasan-Inspiron-1545 kernel: [  630.763902] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+
+
