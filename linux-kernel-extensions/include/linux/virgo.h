@@ -148,6 +148,8 @@ int nr=1;
 int args=0;
 
 void print_buffer(char*);
+int tokenize_list_of_ip_addrs(char* buf);
+void read_virgo_config();
 
 
 /*
