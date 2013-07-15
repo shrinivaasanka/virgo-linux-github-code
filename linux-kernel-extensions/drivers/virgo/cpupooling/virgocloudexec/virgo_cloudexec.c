@@ -127,6 +127,8 @@ int clone_func(void* args)
 
 void read_virgo_config()
 {
+	/* virgo_cloud.conf contains a string of comma separated list of IP addresses in the virgo cloud .Read and strtok() it. */
+
 	loff_t bytesread=0;
 	loff_t pos=0;
 	mm_segment_t fs;
@@ -149,7 +151,6 @@ void read_virgo_config()
 	set_fs(get_ds());
 	struct file* f=NULL;
 	f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
-	set_fs(fs);
 
 	char buf[256];
 	int i=0;
@@ -159,35 +160,57 @@ void read_virgo_config()
 		buf[k]=0;
 
 	for(k=0; k < num_cloud_nodes; k++)	
-		printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
+		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
 
-	/*
-	printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file being read \n");
+	printk(KERN_INFO "read_virgo_config(): virgo_cloud config file being read \n");
 
-	char* emptystr="";
-	int n;
 
 	if(f !=NULL)
 	{
-		while(buf != NULL)
-		{
-			fs=get_fs();
-			set_fs(get_ds());
-			/f->f_op->read(f, buf, sizeof(buf), &f->f_pos);/
-			/bytesread=vfs_read(f,buf,sizeof(buf), &pos);/
-			set_fs(fs);
-			/strcpy(node_ip_addrs_in_cloud[i],buf);/
-			/printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d: %s \n",i ,node_ip_addrs_in_cloud[i]);/
-			printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);
-			i++;
-			pos=pos+bytesread;
-		}
+		/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
+		bytesread=vfs_read(f, buf, 256, &pos);
+		/*strcpy(node_ip_addrs_in_cloud[i],buf);*/
+		printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : %s \n",buf);
+		/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);*/
+		pos=pos+bytesread;
 	}
-	filp_close(f,NULL);	
+	/*num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
+	char* delim=",";
+	char* token=NULL;
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	while(bufdup != NULL)
+	{
+		token=strsep(&bufdup, delim);	
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
+		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_ATOMIC);
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);
+		i++;
+	}
 	num_cloud_nodes=i;
-	*/
+	set_fs(fs);
+	filp_close(f,NULL);	
 }
 
+/* 
+Above tokenization made into a function - if needed can be used as multipurpose exported function
+*/
+int tokenize_list_of_ip_addrs(char* buf)
+{
+	char* delim=",";
+	char* token=NULL;
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO, "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	int i=0;
+	while(bufdup != NULL)
+	{
+		token=strsep(&bufdup, delim);	
+		printk(KERN_INFO, "tokenize_list_of_ip_addrs(): %s\n",token);
+		/*strcpy(node_ip_addrs_in_cloud[i],  token);*/
+		i++;
+	}
+	return i;
+}
 
 FPTR get_function_ptr_from_str(char* cloneFunction)
 {

@@ -20,16 +20,20 @@ __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
 	{ 0xd3fc9f1a, "sock_release" },
+	{ 0x143054c, "filp_close" },
 	{ 0x794f5965, "sock_create_kern" },
+	{ 0x85df9b6c, "strsep" },
 	{ 0xe72a3ab3, "kernel_listen" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0xfa336f83, "kthread_create_on_node" },
+	{ 0xbdb1002f, "vfs_read" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
 	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
 	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
+	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x281056ca, "wake_up_process" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
@@ -45,4 +49,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "00EF462599D3D289C2FBAFA");
+MODULE_INFO(srcversion, "6467F8E6CB274423EF7F3EB");
