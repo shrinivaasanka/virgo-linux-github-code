@@ -288,8 +288,10 @@ static int virgocloudexec_recvfrom(void)
 	*/
 	if(clientsock != NULL )
 	{
+		/*
 		printk(KERN_INFO "invoking read_virgo_config()\n");
 		read_virgo_config();
+		*/
 
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, sizeof(buffer));
