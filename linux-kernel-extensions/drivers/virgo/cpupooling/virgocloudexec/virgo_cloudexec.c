@@ -222,6 +222,10 @@ virgocloudexec_init(void)
 {
 	printk(KERN_INFO "virgocloudexec_init(): doing init() of virgocloudexec kernel module\n");
 	printk(KERN_INFO "virgocloudexec_init(): starting virgo cloudexec service kernel thread\n");
+	
+	printk(KERN_INFO "virgocloudexec_init(): invoking read_virgo_config()\n");
+	read_virgo_config();
+
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
@@ -288,11 +292,6 @@ static int virgocloudexec_recvfrom(void)
 	*/
 	if(clientsock != NULL )
 	{
-		/*
-		printk(KERN_INFO "invoking read_virgo_config()\n");
-		read_virgo_config();
-		*/
-
 		printk(KERN_INFO "virgocloudexec_recvfrom(): before kernel_recvmsg()\n");
 		memset(buffer, 0, sizeof(buffer));
 		iov.iov_base=(void*)buffer;
