@@ -814,8 +814,8 @@ static void __init do_basic_setup(void)
 	/*
 	 VIRGO cloudexec - cloud initialization from virgo_cloud.conf file
 	  - Ka.Shrinivaasan 3 July 2013
-	*/
 	do_virgo_cloud_init();
+	*/
 }
 
 /*
@@ -856,29 +856,32 @@ void read_virgo_clone_config()
 	*/
 
 	fs=get_fs();
-	set_fs(get_ds());
+	/*set_fs(get_ds());*/
+	set_fs(KERNEL_DS);
 	struct file* f=NULL;
 	f=filp_open("/etc/virgo_cloud.conf", O_RDONLY, 0);
 
-	char buf[3000];
+	char buf[256];
 	int i=0;
 
 	int k=0;
-	for(k=0;k<3000;k++)
+	for(k=0;k<256;k++)
 		buf[k]=0;
 
+	/*
 	for(k=0; k < num_cloud_nodes; k++)	
 		printk(KERN_INFO "read_virgo_clone_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
 
 	printk(KERN_INFO "read_virgo_clone_config(): virgo_cloud config file being read \n");
+	*/
 
 
 	if(f !=NULL)
 	{
 		/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
-		bytesread=vfs_read(f, buf, 3000, &pos);
+		bytesread=vfs_read(f, buf, 256, &pos);
 		/*strcpy(node_ip_addrs_in_cloud[i],buf);*/
-		printk(KERN_INFO "read_virgo_clone_config(): virgo_cloud config file string of comma separated IPs : %s \n",buf);
+		/*printk(KERN_INFO "read_virgo_clone_config(): virgo_cloud config file string of comma separated IPs : %s \n",buf);*/
 		/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);*/
 		pos=pos+bytesread;
 	}
@@ -886,13 +889,13 @@ void read_virgo_clone_config()
 	char* delim=",";
 	char* token=NULL;
 	char* bufdup=kstrdup(buf,GFP_ATOMIC);
-	printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	/*printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);*/
 	while(bufdup != NULL)
 	{
 		token=strsep(&bufdup, delim);	
-		printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): %s\n",token);
+		/*printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): %s\n",token);*/
 		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_ATOMIC);
-		printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);
+		/*printk(KERN_INFO "read_virgo_clone_config(): tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);*/
 		i++;
 	}
 	num_cloud_nodes=i;
