@@ -113,3 +113,8 @@ commits as on 16/07/2013
 -----------------------
 read_virgo_config() and read_virgo_clone_config()(replica of read_virgo_config()) have been implemented and tested to read the virgo_cloud.conf config parameters(at present the virgo_cloud.conf has comma separated list of ip addresses. Port is hardcoded to 10000 for uniformity across
 all nodes). Thus minimal cloud functionality with config file  support is in place. Todo things include function pointer lookup in kernel service, more parameters to cloud config file if needed, individual configs for virgo_clone() and virgo kernel service, kernel-to-userspace upcall and execution instead of kernel space, performance tuning etc.,
+
+commits as on 17/07/2013
+------------------------
+moved read_virgo_config() to VIRGOcloudexec's module_init so that config is read at boot time and exported symbols are set beforehand.
+Also commented read_virgo_clone_config() as it is redundant
