@@ -116,12 +116,43 @@ int num_cloud_nodes;
 
 int clone_func(void* args)
 {
-	printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud \n");
 	/*
-	Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
-	virgo_clone() remote syscall
+	* If parameterIsExecutable is set to 1 the data received from virgo_clone() is not a function but name of executable
+	* This executable is then run on usermode using call_usermodehelper() which internally takes care of queueing the workstruct
+	* and executes the binary as child of keventd and reaps silently. Thus workqueue component of kernel is indirectly made use of.
+	* This is sometimes more flexible alternative that executes a binary itself on cloud and 
+	* is preferable to clone()ing a function on cloud. Virgo_clone() syscall client or telnet needs to send the message with name of binary.
+	* If parameterIsExecutable is set to 0 then data received from virgo_clone() is name of a function.
+	* - Ka.Shrinivaasan
 	*/
-	strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client\n");
+	int parameterIsExecutable=1;
+	int ret=0;
+	char *argv[2];
+	char *envp[3];
+	argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
+	argv[0][strlen(argv[0])-2]='\0';
+	argv[1]=NULL;
+	envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+	envp[1]="HOME=/home/kashrinivaasan";
+	envp[2]=NULL;
+
+	if(parameterIsExecutable)
+	{
+		/* call_usermodehelper() Kernel upcall to usermode */
+		printk("clone_func(): executing call_usermodehelper for data from virgo_clone: %s - parameterIsExecutable=%d\n",cloneFunction, parameterIsExecutable);	
+		/*ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);*/
+		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_PROC);
+		printk("clone_func(): call_usermodehelper() returns ret=%d\n", ret);
+	}
+	else
+	{
+		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
+		/*
+		Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
+		virgo_clone() remote syscall
+		*/
+		strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client");
+	}
 	return 1;
 }
 
@@ -315,6 +346,7 @@ static int virgocloudexec_recvfrom(void)
 			do kernel_sendmsg() with the results
 		*/
 		cloneFunction = kstrdup(buffer,GFP_ATOMIC);
+		cloneFunction[strlen(cloneFunction)-2]='\0';
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
