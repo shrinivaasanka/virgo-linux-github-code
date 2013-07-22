@@ -1,0 +1,22 @@
+Jul 22 18:18:24 kashrinivaasan-Inspiron-1545 kernel: [ 1348.123658] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 22 18:18:31 kashrinivaasan-Inspiron-1545 kernel: [ 1355.075636] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=116.255.199.146 DST=14.96.4.65 LEN=40 TOS=0x00 PREC=0x00 TTL=96 ID=256 PROTO=TCP SPT=6000 DPT=1433 WINDOW=16384 RES=0x00 SYN URGP=0
+Jul 22 18:18:39 kashrinivaasan-Inspiron-1545 kernel: [ 1363.158055] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060427] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 9
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060435] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: /bin/ls^M
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060435]
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060440] print_buffer():
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060442] /b
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060447] in
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060451]
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060454] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu /bin/ls^M
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060454]
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060458] virgocloudexec_recvfrom(): cloneFunction : /bin/ls
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060507] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060511] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060511]
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060547] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060551] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.060576] virgocloudexec_sendto(): sock_release invoked on client socket
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.061022] clone_func(): executing call_usermodehelper for data from virgo_clone: /bin/ls - parameterIsExecutable=1
+Jul 22 18:18:43 kashrinivaasan-Inspiron-1545 kernel: [ 1367.063311] clone_func(): call_usermodehelper() returns ret=512
+
