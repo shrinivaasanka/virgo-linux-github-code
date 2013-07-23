@@ -19,6 +19,7 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
+	{ 0xd0d8621b, "strlen" },
 	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x143054c, "filp_close" },
 	{ 0x794f5965, "sock_create_kern" },
@@ -34,6 +35,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x952664c5, "do_exit" },
 	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
 	{ 0xf0fdf6cb, "__stack_chk_fail" },
+	{ 0x68d4fad5, "call_usermodehelper_fns" },
 	{ 0x281056ca, "wake_up_process" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
@@ -49,4 +51,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "6467F8E6CB274423EF7F3EB");
+MODULE_INFO(srcversion, "64EA8533FAD86153A3704AE");

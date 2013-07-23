@@ -117,36 +117,69 @@ int num_cloud_nodes;
 int clone_func(void* args)
 {
 	/*
+	 * Lack of reflection kind of facilities requires map of function_names to pointers_to_functions to be executed
+	 * on cloud has to be lookedup in the map to get pointer to function. This map is not scalable if number of functions are
+	 * in millions and size of the map increases linearly. Also having it in memory is both CPU and memory intensive.
+	 * Moreover this map has to be synchronized in all nodes for coherency and consistency which is another intensive task.
+	 * Thus name to pointer function table is at present not implemented. Suitable way to call a function by name of the function
+	 * is yet to be found out and references in this topic are scarce.
+	 * - Ka.Shrinivaasan
+	*/
+ 
+	/*
 	* If parameterIsExecutable is set to 1 the data received from virgo_clone() is not a function but name of executable
 	* This executable is then run on usermode using call_usermodehelper() which internally takes care of queueing the workstruct
 	* and executes the binary as child of keventd and reaps silently. Thus workqueue component of kernel is indirectly made use of.
 	* This is sometimes more flexible alternative that executes a binary itself on cloud and 
 	* is preferable to clone()ing a function on cloud. Virgo_clone() syscall client or telnet needs to send the message with name of binary.
-	* If parameterIsExecutable is set to 0 then data received from virgo_clone() is name of a function.
+	*
+	*
+	* If parameterIsExecutable is set to 0 then data received from virgo_clone() is name of a function and is executed in else clause
+	* using dlsym() lookup and pthread_create() in user space. This unifies both call_usermodehelper() and creating a userspace thread
+	* with a fixed binary which is same for any function. The dlsym lookup requires mangled function names which need to be sent by 
+	* virgo_clone or telnet. This is far more efficient than a function pointer table. 
+	*	 
+	* call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the cloneFunction in userspace
+	* by spawning a pthread. cloneFunction is name of the function and not binary. This clone function will be dlsym()ed 
+	* and a pthread will be created by the fixed binary. Name of the fixed binary is hardcoded herein as 
+	* "virgo_kernelupcall_plugin". This fixed binary takes clone function as argument. For testing libvirgo.so has been created from
+	* virgo_cloud_test.c and separate build script to build the cloud function binaries has been added.
+	*
 	* - Ka.Shrinivaasan
 	*/
-	int parameterIsExecutable=1;
+
+	int parameterIsExecutable=0;
 	int ret=0;
-	char *argv[2];
+	char *argv[3];
 	char *envp[3];
-	argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
-	argv[0][strlen(argv[0])-2]='\0';
-	argv[1]=NULL;
-	envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
-	envp[1]="HOME=/home/kashrinivaasan";
-	envp[2]=NULL;
 
 	if(parameterIsExecutable)
 	{
+		argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[0][strlen(argv[0])-2]='\0';
+		argv[1]=NULL;
+		argv[2]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+		envp[1]="HOME=/home/kashrinivaasan";
+		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
+		/* cloneFunction contains name of the binary and not the name of the function */
 		printk("clone_func(): executing call_usermodehelper for data from virgo_clone: %s - parameterIsExecutable=%d\n",cloneFunction, parameterIsExecutable);	
 		/*ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);*/
 		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_PROC);
 		printk("clone_func(): call_usermodehelper() returns ret=%d\n", ret);
 	}
 	else
+
 	{
+		argv[0]=kstrdup("virgo_kernelupcall_plugin",GFP_ATOMIC);
+		argv[1]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[2]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+		envp[1]="HOME=/home/kashrinivaasan";
+		envp[2]=NULL;
 		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
+		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_PROC);
 		/*
 		Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
 		virgo_clone() remote syscall
