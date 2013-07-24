@@ -118,8 +118,10 @@ int clone_func(void* args)
 {
 	/*
 	 * Lack of reflection kind of facilities requires map of function_names to pointers_to_functions to be executed
-	 * on cloud has to be lookedup in the map to get pointer to function. This map is not scalable if number of functions are
-	 * in millions and size of the map increases linearly. Also having it in memory is both CPU and memory intensive.
+	 * on cloud. Function name has to be lookedup in the map to get pointer to function. This map is not scalable 
+	 * if number of functions are in millions and size of the map increases linearly. Also having it in memory is 
+	 * both CPU and memory intensive.
+	 *
 	 * Moreover this map has to be synchronized in all nodes for coherency and consistency which is another intensive task.
 	 * Thus name to pointer function table is at present not implemented. Suitable way to call a function by name of the function
 	 * is yet to be found out and references in this topic are scarce.
