@@ -1,0 +1,73 @@
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454779] get_host_from_cloud_PRG() - get_random_int() returned 3382222758 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454787] get_host_from_cloud_PRG() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454790] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): 127.0.0.1 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454794] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: 127.0.0.1 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454806] virgo_clone() syscall: created client kernel socket
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454959] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454971] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454975] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: _Z16virgo_cloud_testPv  
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454936] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454936]  
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454976] virgo_clone() syscall: sent message: _Z16virgo_cloud_testPv   
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454983] print_buffer(): 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454985] _Z
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454990] 16
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454993] 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.454997] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu _Z16virgo_cloud_testPv  
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455000] virgocloudexec_recvfrom(): cloneFunction : _Z16virgo_cloud_testPv 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455043] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455048] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455048] 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455085] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455089] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455118] virgocloudexec_sendto(): sock_release invoked on client socket 
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455127] clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=0
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455178] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455178]  
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455184] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455184]  
+Jul 24 10:53:45 kashrinivaasan-Inspiron-1545 kernel: [ 2992.455194] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Jul 24 10:53:55 kashrinivaasan-Inspiron-1545 kernel: [ 3002.393451] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 24 10:53:55 kashrinivaasan-Inspiron-1545 kernel: [ 3002.395625] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 24 10:53:55 kashrinivaasan-Inspiron-1545 kernel: [ 3002.395633] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 24 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [ 3054.104863] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 24 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [ 3054.106961] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 24 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [ 3054.106968] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Jul 24 10:54:53 kashrinivaasan-Inspiron-1545 kernel: [ 3060.118893] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=113.108.21.16 DST=14.99.94.192 LEN=40 TOS=0x00 PREC=0x00 TTL=43 ID=0 DF PROTO=TCP SPT=22201 DPT=1723 WINDOW=8192 RES=0x00 SYN URGP=0 
+
+==================
+
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442286] get_host_from_cloud_PRG() - get_random_int() returned 4063848068 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442294] get_host_from_cloud_PRG() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442298] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): 127.0.0.1 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442302] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: 127.0.0.1 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442314] virgo_clone() syscall: created client kernel socket
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442461] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442453] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442453]  
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442487] virgo_clone() syscall: sent message: _Z16virgo_cloud_testPv   
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442515] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442519] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: _Z16virgo_cloud_testPv  
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442522] print_buffer(): 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442524] _Z
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442528] 16
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442532] 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442535] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu _Z16virgo_cloud_testPv  
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442538] virgocloudexec_recvfrom(): cloneFunction : _Z16virgo_cloud_testPv 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442603] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442608] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442608] 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442631] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442634] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442657] virgocloudexec_sendto(): sock_release invoked on client socket 
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442667] clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=0
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442727] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442727]  
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442734] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442734]  
+Jul 24 11:03:30 kashrinivaasan-Inspiron-1545 kernel: [ 3577.442741] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Jul 24 11:04:16 kashrinivaasan-Inspiron-1545 kernel: [ 3622.937205] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Jul 24 11:04:16 kashrinivaasan-Inspiron-1545 kernel: [ 3622.939474] sd 6:0:0:0: [sdb] Asking for cache data failed
+Jul 24 11:04:16 kashrinivaasan-Inspiron-1545 kernel: [ 3622.939483] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+
+
