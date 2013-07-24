@@ -149,4 +149,13 @@ virgo_cloud_test.c and separate build script to build the cloud function binarie
  - Ka.Shrinivaasan (alias) Shrinivas Kannan (alias) Srinivasan Kannan
    (https://sites.google.com/site/kuja27)
 
+commits as on 24/07/2013
+------------------------
+
+test_virgo_clone unit test case updated with mangled function name to be sent to remote cloud node. Tested with test_virgo_clone
+end-to-end and all features are working. But sometimes kernel_connect hangs randomly (this was observed only today and looks similar
+to blocking vs non-blocking problem. Origin unknown).
+
+- Ka.Shrinivaasan (alias) Shrinivas Kannan (alias) Srinivasan Kannan
+  (https://sites.google.com/site/kuja27)
 
