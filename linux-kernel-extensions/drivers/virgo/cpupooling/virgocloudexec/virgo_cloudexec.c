@@ -114,6 +114,13 @@ char** node_ip_addrs_in_cloud;
 int num_cloud_nodes;
 */
 
+
+/*
+* The wrapper function that based on switch parameterIsExecutable (values 0,1,2) executes the binary or function data from virgo_clone
+* system call in either kernel or user address-spaces
+* - Ka.Shrinivaasan
+*/
+ 
 int clone_func(void* args)
 {
 	/*
@@ -129,33 +136,41 @@ int clone_func(void* args)
 	*/
  
 	/*
-	* If parameterIsExecutable is set to 1 the data received from virgo_clone() is not a function but name of executable
-	* This executable is then run on usermode using call_usermodehelper() which internally takes care of queueing the workstruct
-	* and executes the binary as child of keventd and reaps silently. Thus workqueue component of kernel is indirectly made use of.
-	* This is sometimes more flexible alternative that executes a binary itself on cloud and 
-	* is preferable to clone()ing a function on cloud. Virgo_clone() syscall client or telnet needs to send the message with name of binary.
+	*If parameterIsExecutable is set to 2, the data from virgo_clone() is a function and is executed within kernel address-space itself
+	*Presently just an example function is invoked. Intermodule function invocation functionality through this is a to-do.
 	*
+	*If parameterIsExecutable is set to 1 the data received from virgo_clone() is not a function but name of executable
+	*This executable is then run on usermode using call_usermodehelper() which internally takes care of queueing the workstruct
+	*and executes the binary as child of keventd and reaps silently. Thus workqueue component of kernel is indirectly made use of.
+	*This is sometimes more flexible alternative that executes a binary itself on cloud and 
+	*is preferable to clone()ing a function on cloud. Virgo_clone() syscall client or telnet needs to send the message with name of binary.
 	*
-	* If parameterIsExecutable is set to 0 then data received from virgo_clone() is name of a function and is executed in else clause
-	* using dlsym() lookup and pthread_create() in user space. This unifies both call_usermodehelper() and creating a userspace thread
-	* with a fixed binary which is same for any function. The dlsym lookup requires mangled function names which need to be sent by 
-	* virgo_clone or telnet. This is far more efficient than a function pointer table. 
-	*	 
-	* call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the cloneFunction in userspace
-	* by spawning a pthread. cloneFunction is name of the function and not binary. This clone function will be dlsym()ed 
-	* and a pthread will be created by the fixed binary. Name of the fixed binary is hardcoded herein as 
-	* "virgo_kernelupcall_plugin". This fixed binary takes clone function as argument. For testing libvirgo.so has been created from
-	* virgo_cloud_test.c and separate build script to build the cloud function binaries has been added.
+	*If parameterIsExecutable is set to 0 then data received from virgo_clone() is name of a function and is executed in else clause
+	*using dlsym() lookup and pthread_create() in user space. This unifies both call_usermodehelper() and creating a userspace thread
+	*with a fixed binary which is same for any function. The dlsym lookup requires mangled function names which need to be sent by 
+	*virgo_clone or telnet. This is far more efficient than a function pointer table. 
+	*call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the cloneFunction in userspace
+	*by spawning a pthread. cloneFunction is name of the function and not binary. This clone function will be dlsym()ed 
+	*and a pthread will be created by the fixed binary. Name of the fixed binary is hardcoded herein as 
+	*"virgo_kernelupcall_plugin". This fixed binary takes clone function as argument. For testing libvirgo.so has been created from
+	*virgo_cloud_test.c and separate build script to build the cloud function binaries has been added.
 	*
-	* - Ka.Shrinivaasan
+	*- Ka.Shrinivaasan
 	*/
 
-	int parameterIsExecutable=0;
 	int ret=0;
 	char *argv[3];
 	char *envp[3];
 
-	if(parameterIsExecutable)
+	if (parameterIsExecutable==2)
+	{
+		struct task_struct *task;
+		int woken_up_2=0;
+		printk("clone_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
+		task=kthread_create(kernel_space_func, (void*)args, "cloneFunction thread");
+		woken_up_2=wake_up_process(task);
+	}
+	else if(parameterIsExecutable==1)
 	{
 		argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
 		argv[0][strlen(argv[0])-2]='\0';
@@ -171,8 +186,7 @@ int clone_func(void* args)
 		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_PROC);
 		printk("clone_func(): call_usermodehelper() returns ret=%d\n", ret);
 	}
-	else
-
+	else if (parameterIsExecutable==0)
 	{
 		argv[0]=kstrdup("virgo_kernelupcall_plugin",GFP_ATOMIC);
 		argv[1]=kstrdup(cloneFunction,GFP_ATOMIC);
@@ -182,6 +196,7 @@ int clone_func(void* args)
 		envp[2]=NULL;
 		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
 		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_PROC);
+		printk("clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
 		/*
 		Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
 		virgo_clone() remote syscall
@@ -189,6 +204,12 @@ int clone_func(void* args)
 		strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client");
 	}
 	return 1;
+}
+
+int kernel_space_func(void* args)
+{
+	printk(KERN_INFO "kernel_space_func(): parameterIsExecutable=2; executing function in kernel address space\n");
+	return 0;
 }
 
 void read_virgo_config()
@@ -278,10 +299,12 @@ int tokenize_list_of_ip_addrs(char* buf)
 	return i;
 }
 
+/*
 FPTR get_function_ptr_from_str(char* cloneFunction)
 {
 	return clone_func;
 }
+*/
 
 static int __init
 virgocloudexec_init(void)
@@ -387,9 +410,9 @@ static int virgocloudexec_recvfrom(void)
 		le32_to_cpus(buffer);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): cloneFunction : %s \n", cloneFunction);
-		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
+		/*cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);*/
 		/*task=kthread_run(cloneFunction_ptr, (void*)args, "cloudclonethread");*/
-		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
+		task=kthread_create(clone_func, (void*)args, "clone_func thread");
 		int woken_up=wake_up_process(task);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): clone thread woken_up : %d\n",woken_up);
 		/*
