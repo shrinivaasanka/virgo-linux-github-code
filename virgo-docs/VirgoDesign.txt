@@ -159,3 +159,9 @@ to blocking vs non-blocking problem. Origin unknown).
 - Ka.Shrinivaasan (alias) Shrinivas Kannan (alias) Srinivasan Kannan
   (https://sites.google.com/site/kuja27)
 
+commits as on 29/07/2013
+------------------------
+
+Added kernel mode execution in the clone_func and created a sample kernel_thread for a cloud function. Some File IO logging added to upcall
+binaries and parameterIsExecutable has been moved to virgo.h
+
