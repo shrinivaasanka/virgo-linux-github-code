@@ -92,6 +92,9 @@ static int virgocloudexec_sendto(void);
 int virgo_cloudexec_service(void* args);
 void do_virgocloudexec_init(void);
 
+extern int virgo_cloud_test_kernelspace(void* args);
+
+
 /*
 static struct svc_xprt_ops virgo_ops = {
 	.xpo_create = virgocloudexec_create,
