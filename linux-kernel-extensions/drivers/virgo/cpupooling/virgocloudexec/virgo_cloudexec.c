@@ -167,7 +167,11 @@ int clone_func(void* args)
 		struct task_struct *task;
 		int woken_up_2=0;
 		printk("clone_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		task=kthread_create(kernel_space_func, (void*)args, "cloneFunction thread");
+		/*
+		int (*virgo_cloud_test_kernelspace)(void*);
+		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
+		*/
+		task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
 		woken_up_2=wake_up_process(task);
 	}
 	else if(parameterIsExecutable==1)
