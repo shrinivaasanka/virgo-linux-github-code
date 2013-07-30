@@ -39,6 +39,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x281056ca, "wake_up_process" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
+	{ 0x5cbdbccf, "virgo_cloud_test_kernelspace" },
 	{ 0xaa099fde, "kernel_bind" },
 	{ 0x1616a37c, "try_module_get" },
 	{ 0xe914e41e, "strcpy" },
@@ -48,7 +49,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=";
+"depends=virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "9BD4EB604BCCF5EC73B1952");
+MODULE_INFO(srcversion, "E97408627AD297AB3992C53");
