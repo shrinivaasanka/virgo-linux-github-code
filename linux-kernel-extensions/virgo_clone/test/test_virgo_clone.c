@@ -3,7 +3,7 @@
 #include <sys/syscall.h>
 #include <unistd.h>
 
-int main()
+int main(int argc, char* argv[])
 {
 	/*
 	long int ret=syscall(350,"int clone_func(void* args)",NULL,0,NULL);
@@ -17,6 +17,7 @@ int main()
 	Padded right with 2 whitespaces for ^M removal code in kernel module side.
 	- Ka.Shrinivaasan
 	*/
-	long int ret=syscall(350,"_Z16virgo_cloud_testPv  ",NULL,0,NULL);
+	/*long int ret=syscall(350,"_Z16virgo_cloud_testPv  ",NULL,0,NULL);*/
+	long int ret=syscall(350,argv[1],NULL,0,NULL);
 	return 0;
 }
