@@ -165,3 +165,12 @@ commits as on 29/07/2013
 Added kernel mode execution in the clone_func and created a sample kernel_thread for a cloud function. Some File IO logging added to upcall
 binaries and parameterIsExecutable has been moved to virgo.h
 
+commits as on 30/07/2013
+------------------------
+New usecase virgo_cloud_test_kernelspace.ko kernel module has been added. This exports a function virgo_cloud_test_kernelspace() and is 
+accessed by virgo_cloudexec kernel service to spawn a kernel thread that is executed in kernel addresspace. This Kernel mode execution
+on cloud adds a unique ability to VIRGO cloud platform to seamlessly integrate hardware devices on to cloud and transparently send commands
+to them from a remote cloud node through virgo_clone().
+
+Thus above feature adds power to VIRGO cloud to make it act as a single "logical device driver" though devices are in geographically in a remote server.
+
