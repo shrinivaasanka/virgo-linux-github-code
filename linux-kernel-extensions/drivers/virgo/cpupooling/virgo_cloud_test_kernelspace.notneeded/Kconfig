@@ -1,0 +1,10 @@
+#
+# VIRGO Kconfig file
+#
+config VIRGO_CLOUD_TEST_KERNELSPACE_DEBUG
+	bool "VIRGO clodu test kernel space verbose debug messages"
+	help
+	  Say Y here if you want the VIRGO cloud  test drivers to produce a bunch
+	  of debug messages to the system log. Select this if you are having a
+	  problem with VIRGO support and want to see more of what is going on.
+

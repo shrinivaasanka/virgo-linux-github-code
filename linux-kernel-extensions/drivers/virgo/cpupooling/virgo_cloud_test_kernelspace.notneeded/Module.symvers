@@ -1,0 +1,3 @@
+0x05e84970	virgo_cloud_test_kernelspace_init	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgo_cloud_test_kernelspace/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
+0x01ac0c2f	virgo_cloud_test_kernelspace_exit	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgo_cloud_test_kernelspace/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
+0x5cbdbccf	virgo_cloud_test_kernelspace	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgo_cloud_test_kernelspace/virgo_cloud_test_kernelspace	EXPORT_SYMBOL
