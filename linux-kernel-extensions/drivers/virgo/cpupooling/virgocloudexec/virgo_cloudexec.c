@@ -159,7 +159,7 @@ int clone_func(void* args)
 	*/
 
 	int ret=0;
-	char *argv[3];
+	char *argv[8];
 	char *envp[3];
 
 	if (parameterIsExecutable==2)
@@ -176,30 +176,49 @@ int clone_func(void* args)
 	}
 	else if(parameterIsExecutable==1)
 	{
-		argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
-		argv[0][strlen(argv[0])-2]='\0';
-		argv[1]=NULL;
-		argv[2]=NULL;
+		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
+		argv[1]=kstrdup("-c",GFP_ATOMIC);
+		argv[2]=kstrdup(cloneFunction,GFP_ATOMIC);
+		/*
+		argv[2]=kstrdup(strcat(argv[2], " >> /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin_userspace_exec.log"),GFP_ATOMIC);
+		*/
+		argv[3]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
 		/* cloneFunction contains name of the binary and not the name of the function */
+		printk("clone_func(): argv[2] = %s \n", argv[2]);
 		printk("clone_func(): executing call_usermodehelper for data from virgo_clone: %s - parameterIsExecutable=%d\n",cloneFunction, parameterIsExecutable);	
 		/*ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);*/
-		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_PROC);
-		printk("clone_func(): call_usermodehelper() returns ret=%d\n", ret);
+		ret=call_usermodehelper("/bin/bash", argv, envp, UMH_WAIT_PROC);
+		printk("clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
 	}
 	else if (parameterIsExecutable==0)
 	{
-		argv[0]=kstrdup("virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[1]=kstrdup(cloneFunction,GFP_ATOMIC);
-		argv[2]=NULL;
+		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
+		argv[1]=kstrdup("-v",GFP_ATOMIC);
+		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",GFP_ATOMIC);
+		argv[3]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[4]=kstrdup(" 2>&1 > /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin_userspace_exec.log",GFP_ATOMIC);
+		argv[5]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
 		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
-		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_PROC);
+		ret=call_usermodehelper("/bin/bash",argv,envp,UMH_WAIT_PROC);
+		/*
+		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
+		argv[1]=kstrdup("-c",GFP_ATOMIC);
+		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",GFP_ATOMIC);
+		argv[3]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[4]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+		envp[1]="HOME=/home/kashrinivaasan";
+		envp[2]=NULL;
+		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
+		ret=call_usermodehelper("/bin/bash",argv,envp,UMH_WAIT_PROC);
+		*/
 		printk("clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
 		/*
 		Depending on scheduling priority either this or other message in virgocloudexec_sendto() will be sent to
