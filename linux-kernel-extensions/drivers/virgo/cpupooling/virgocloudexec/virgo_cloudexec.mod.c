@@ -52,4 +52,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "E97408627AD297AB3992C53");
+MODULE_INFO(srcversion, "BA13D7D0EB084382CF30F04");
