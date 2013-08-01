@@ -29,6 +29,7 @@ void* virgo_cloud_test(void*);
 
 void* virgo_cloud_test(void* args)
 {
+	/*
  	int fd=open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt",O_RDWR | O_APPEND);
 	char buf[500];
         sprintf(buf,"virgo_cloud_test: executing userspace thread for virgo_cloud_test on virgo cloud\n");
@@ -36,6 +37,7 @@ void* virgo_cloud_test(void* args)
 
         fsync(fd);
         close(fd);
+	*/
 	printf("Executing virgo_cloud_test on cloud\n");
 	fflush(stdout);
 	return NULL;
