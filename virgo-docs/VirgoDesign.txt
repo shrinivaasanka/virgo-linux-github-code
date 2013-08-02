@@ -174,3 +174,22 @@ to them from a remote cloud node through virgo_clone().
 
 Thus above feature adds power to VIRGO cloud to make it act as a single "logical device driver" though devices are in geographically in a remote server.
 
+commits as on 01/08/2013 and 02/08/2013
+---------------------------------------
+Added Bash shell commandline with -c option for call_usermodehelper upcall clauses to pass in remote virgo_clone command message as
+arguments to it. Also tried output redirection but it works some times that too with a fatal kernel panic.
+
+Ideal solutions are :
+1. either to do a copy_from_user() for message buffer from user address space (or)
+2. somehow rebuild the kernel with fd_install() pointing stdout to a VFS file* struct. In older kernels like 2.6.x, there is an fd_install code
+with in kmod.c (___call_usermodehelper()) which has been redesigned in kernel 3.x versions and fd_install has been removed in kmod.c .
+3. Create a Netlink socket listener in userspace and send message up from kernel Netlink socket.
+
+All the above are quite intensive and time consuming to implement.Moreover doing FileIO in usermode helper is strongly discouraged in kernel docs
+
+Since Objective of VIRGO is to virtualize the cloud as single execution "machine", doing an upcall (which would run with root abilities) is
+redundant often and kernel mode execution is sufficient. Kernel mode execution with intermodule function invocation can literally take over
+the entire board in remote machine (since it can access PCI bus, RAM and all other device cards)
+
+As a longterm design goal, VIRGO can be implemented as a separate protocol itself and sk_buff packet payload from remote machine
+can be parsed by kernel service and kernel_thread can be created for the message.
