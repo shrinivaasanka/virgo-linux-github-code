@@ -149,7 +149,7 @@ static struct msghdr msg = { NULL, };
 int buflen=BUF_SIZE;
 int nr=1;
 int args=0;
-int parameterIsExecutable=2;
+int parameterIsExecutable=1;
 
 void print_buffer(char*);
 int tokenize_list_of_ip_addrs(char* buf);
