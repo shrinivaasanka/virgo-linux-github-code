@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #/***************************************************************************************
 #VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
 #
@@ -19,7 +21,6 @@
 #mail to: ka.shrinivaasan@gmail.com
 #*****************************************************************************************/
 
-#!/bin/bash
 #make -j 6 O=/home/kashrinivaasan/linux-3.7.8-build clean 
 #make mrproper
 #make -j 6 O=/home/kashrinivaasan/linux-3.7.8-build oldconfig
