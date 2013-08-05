@@ -19,7 +19,6 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
-	{ 0xd0d8621b, "strlen" },
 	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x143054c, "filp_close" },
 	{ 0x794f5965, "sock_create_kern" },
@@ -40,6 +39,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
 	{ 0x5cbdbccf, "virgo_cloud_test_kernelspace" },
+	{ 0x8286aacc, "fd_install" },
 	{ 0xaa099fde, "kernel_bind" },
 	{ 0x1616a37c, "try_module_get" },
 	{ 0xe914e41e, "strcpy" },
@@ -52,4 +52,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "BA13D7D0EB084382CF30F04");
+MODULE_INFO(srcversion, "0A44194E3FC2B9C61CC18D6");
