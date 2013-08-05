@@ -23,6 +23,7 @@
 #!/bin/bash
 
 g++ -c virgo_cloud_test.c 
+g++ -o virgo_cloud_test_main virgo_cloud_test_main.c
 g++ -shared -o libvirgo.so virgo_cloud_test.o
 g++ -c virgo_kernelupcall_plugin.c 
 g++ -o virgo_kernelupcall_plugin virgo_kernelupcall_plugin.o -ldl -lpthread
