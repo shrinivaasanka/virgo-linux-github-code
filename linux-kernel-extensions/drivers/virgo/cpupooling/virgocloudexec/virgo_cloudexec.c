@@ -176,37 +176,39 @@ int clone_func(void* args)
 	}
 	else if(parameterIsExecutable==1)
 	{
-		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
-		argv[1]=kstrdup("-c",GFP_ATOMIC);
-		argv[2]=kstrdup(cloneFunction,GFP_ATOMIC);
+	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+		fd_install(1,file_stdout);
+		fd_install(2,file_stdout);
+		argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
 		/*
 		argv[2]=kstrdup(strcat(argv[2], " >> /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin_userspace_exec.log"),GFP_ATOMIC);
 		*/
-		argv[3]=NULL;
-		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+		argv[1]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
 		/* cloneFunction contains name of the binary and not the name of the function */
-		printk("clone_func(): argv[2] = %s \n", argv[2]);
 		printk("clone_func(): executing call_usermodehelper for data from virgo_clone: %s - parameterIsExecutable=%d\n",cloneFunction, parameterIsExecutable);	
-		/*ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);*/
-		ret=call_usermodehelper("/bin/bash", argv, envp, UMH_WAIT_PROC);
-		printk("clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
+		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);
+		/*ret=call_usermodehelper("/bin/bash", argv, envp, UMH_WAIT_PROC);*/
+		printk("clone_func(): call_usermodehelper() for binary %s returns ret=%d\n", cloneFunction, ret);
+		filp_close(file_stdout,NULL);
 	}
 	else if (parameterIsExecutable==0)
 	{
-		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
-		argv[1]=kstrdup("-v",GFP_ATOMIC);
-		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[3]=kstrdup(cloneFunction,GFP_ATOMIC);
-		argv[4]=kstrdup(" 2>&1 > /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin_userspace_exec.log",GFP_ATOMIC);
-		argv[5]=NULL;
-		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
+	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+		fd_install(1,file_stdout);
+		fd_install(2,file_stdout);
+		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",GFP_ATOMIC);
+		argv[1]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[2]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
-		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
-		ret=call_usermodehelper("/bin/bash",argv,envp,UMH_WAIT_PROC);
+		printk(KERN_INFO "clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=%d, cloneFunction=%s\n",parameterIsExecutable,cloneFunction);
+		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
+
 		/*
 		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
 		argv[1]=kstrdup("-c",GFP_ATOMIC);
@@ -225,8 +227,16 @@ int clone_func(void* args)
 		virgo_clone() remote syscall
 		*/
 		strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client");
+		filp_close(file_stdout,NULL);
 	}
 	return 1;
+}
+
+char* strip_control_M(char* str)
+{
+	char* dupstr=kstrdup(str, GFP_ATOMIC);
+	char* newstr=strsep(&dupstr, "\r\n ");
+	return newstr;
 }
 
 int kernel_space_func(void* args)
@@ -354,6 +364,12 @@ virgocloudexec_init(void)
 	printk(KERN_INFO "virgocloudexec_init(): kernel_listen() returns error code: %d\n", error);
 
 	virgo_cloudexec_service(NULL);
+
+	/*
+	file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+	fd_install(1,file_stdout);
+	fd_install(2,file_stdout);
+	*/
 	return 0;
 }
 EXPORT_SYMBOL(virgocloudexec_init);
@@ -426,8 +442,9 @@ static int virgocloudexec_recvfrom(void)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = kstrdup(buffer,GFP_ATOMIC);
-		cloneFunction[strlen(cloneFunction)-2]='\0';
+		cloneFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
+		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
+		
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
@@ -561,6 +578,7 @@ static void __exit
 virgocloudexec_exit(void)
 {
 	printk(KERN_INFO "exiting virgocloudexec kernel module \n");
+	/*filp_close(file_stdout,NULL);*/
 	do_exit(1);
 }
 EXPORT_SYMBOL(virgocloudexec_exit);
