@@ -1,0 +1,4 @@
+Parent process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works
+Child process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works
+Parent process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works
+Child process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works

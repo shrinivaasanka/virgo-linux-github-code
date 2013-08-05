@@ -1,0 +1,109 @@
+Aug  5 11:04:22 kashrinivaasan-Inspiron-1545 kernel: [    3.664784] virgo_cloudexec: no symbol version for node_ip_addrs_in_cloud
+Aug  5 11:04:22 kashrinivaasan-Inspiron-1545 kernel: [    3.664785] virgo_cloudexec: Unknown symbol node_ip_addrs_in_cloud (err -22)
+Aug  5 11:04:22 kashrinivaasan-Inspiron-1545 kernel: [    3.664790] virgo_cloudexec: no symbol version for num_cloud_nodes
+Aug  5 11:04:22 kashrinivaasan-Inspiron-1545 kernel: [    3.664791] virgo_cloudexec: Unknown symbol num_cloud_nodes (err -22)
+Aug  5 11:04:23 kashrinivaasan-Inspiron-1545 kernel: [   28.766186] virgo_cloud_test_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883829] virgocloudexec_init(): doing init() of virgocloudexec kernel module
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883833] virgocloudexec_init(): starting virgo cloudexec service kernel thread
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883835] virgocloudexec_init(): invoking read_virgo_config()
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883852] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 1: 127.0.0.1
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883854] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 2: 127.0.0.1
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.883856] read_virgo_config(): virgo_cloud config file being read 
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.977191] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.977242] virgocloudexec_init(): sock_create() returns error code: 0
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.977252] virgocloudexec_init(): kernel_bind() returns error code: 0
+Aug  5 11:04:24 kashrinivaasan-Inspiron-1545 kernel: [   28.977266] virgocloudexec_init(): kernel_listen() returns error code: 0
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841958] virgo_clone() syscall: created client kernel socket
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841965] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841974] virgo_clone() syscall: sent message: ./virgo_cloud_test_main  
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841979] virgo_clone() syscall: received message: ./virgo_cloud_test_main  
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841982] virgo_clone() syscall: le32_to_cpus(buf): ./virgo_cloud_test_main  
+Aug  5 11:06:48 kashrinivaasan-Inspiron-1545 kernel: [  173.841993] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867189] virgo_clone() syscall: created client kernel socket
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867195] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867201] virgo_clone() syscall: sent message: ./virgo_cloud_test_main  
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867205] virgo_clone() syscall: received message: ./virgo_cloud_test_main  
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867207] virgo_clone() syscall: le32_to_cpus(buf): ./virgo_cloud_test_main  
+Aug  5 11:07:08 kashrinivaasan-Inspiron-1545 kernel: [  192.867214] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339018] virgo_clone() syscall: created client kernel socket
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339024] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339033] virgo_clone() syscall: sent message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339039] virgo_clone() syscall: received message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339043] virgo_clone() syscall: le32_to_cpus(buf): /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:09:10 kashrinivaasan-Inspiron-1545 kernel: [  315.339053] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559711] virgo_clone() syscall: created client kernel socket
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559859] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559871] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559837] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559875] virgo_clone() syscall: sent message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559879] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559897] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.559900] virgocloudexec_recvfrom(): cloneFunction : /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560845] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560850] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560885] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560889] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560917] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560923] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.560946] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.561081] clone_func(): executing call_usermodehelper for data from virgo_clone: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main - parameterIsExecutable=1
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.561346] clone_func(): call_usermodehelper() for binary /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main returns ret=0
+Aug  5 11:09:11 kashrinivaasan-Inspiron-1545 kernel: [  316.563756] virgocloudexec_sendto(): sock_release invoked on client socket 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706645] virgo_clone() syscall: created client kernel socket
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706793] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706825] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706825] virgo_clone() syscall: sent message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706859] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706866] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706884] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706888] virgocloudexec_recvfrom(): cloneFunction : /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706953] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706958] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706986] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.706989] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.707015] virgocloudexec_sendto(): sock_release invoked on client socket 
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.710784] Modules linked in: dm_crypt xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype snd_hda_codec_idt snd_hda_intel snd_hda_codec nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hwdep snd_pcm snd_seq_midi ip6table_filter ip6_tables snd_rawmidi snd_seq_midi_event joydev snd_seq nfs snd_timer nf_conntrack_netbios_ns snd_seq_device nf_conntrack_broadcast fscache coretemp nfsd parport_pc virgo_cloudexec(O+) snd ppdev virgo_cloud_test_kernelspace(O) lp nfs_acl soundcore uvcvideo auth_rpcgss option nf_nat_ftp lockd psmouse nf_nat nf_conntrack_ftp nf_conntrack bnep rfcomm bluetooth serio_raw dell_laptop dell_wmi usb_wwan parport iptable_filter gpio_ich dcdbas snd_page_alloc ip_tables sunrpc mac_hid sparse_keymap lpc_ich videobuf2_core videodev microcode x_tables videobuf2_vmalloc usbserial binfmt_misc videobuf2_memops ums_realtek usb_storage i915 drm_kms_helper ahci drm i2c_algo_bit libahci wmi sky2 video
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.776069]  [<f88fa763>] clone_func+0x183/0x240 [virgo_cloudexec]
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.776069]  [<f88fa5e0>] ? read_virgo_config+0x1e0/0x1e0 [virgo_cloudexec]
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.776979] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.776981] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:09:12 kashrinivaasan-Inspiron-1545 kernel: [  317.776992] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [    3.720750] virgo_cloudexec: no symbol version for node_ip_addrs_in_cloud
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [    3.720752] virgo_cloudexec: Unknown symbol node_ip_addrs_in_cloud (err -22)
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [    3.720757] virgo_cloudexec: no symbol version for num_cloud_nodes
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [    3.720758] virgo_cloudexec: Unknown symbol num_cloud_nodes (err -22)
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.247466] virgo_cloud_test_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631799] virgocloudexec_init(): doing init() of virgocloudexec kernel module
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631802] virgocloudexec_init(): starting virgo cloudexec service kernel thread
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631804] virgocloudexec_init(): invoking read_virgo_config()
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631822] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 1: 127.0.0.1
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631824] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 2: 127.0.0.1
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.631826] read_virgo_config(): virgo_cloud config file being read 
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.758653] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.758691] virgocloudexec_init(): sock_create() returns error code: 0
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.758702] virgocloudexec_init(): kernel_bind() returns error code: 0
+Aug  5 11:09:59 kashrinivaasan-Inspiron-1545 kernel: [   23.758713] virgocloudexec_init(): kernel_listen() returns error code: 0
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611352] virgo_clone() syscall: created client kernel socket
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611359] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611368] virgo_clone() syscall: sent message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611374] virgo_clone() syscall: received message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611377] virgo_clone() syscall: le32_to_cpus(buf): /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:11:49 kashrinivaasan-Inspiron-1545 kernel: [  133.611387] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426411] virgo_clone() syscall: created client kernel socket
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426552] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426541] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426577] virgo_clone() syscall: sent message: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main  
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426605] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426612] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426629] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426632] virgocloudexec_recvfrom(): cloneFunction : /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main 
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426689] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426693] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426717] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426720] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426725] clone_func(): executing call_usermodehelper for data from virgo_clone: /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main - parameterIsExecutable=1
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426748] virgocloudexec_sendto(): sock_release invoked on client socket 
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426788] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426793] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.426802] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug  5 11:13:06 kashrinivaasan-Inspiron-1545 kernel: [  210.428341] clone_func(): call_usermodehelper() for binary /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main returns ret=0

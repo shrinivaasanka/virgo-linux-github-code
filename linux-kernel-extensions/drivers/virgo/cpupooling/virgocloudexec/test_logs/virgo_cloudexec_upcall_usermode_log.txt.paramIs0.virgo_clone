@@ -1,0 +1,14 @@
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so: undefined symbol: _Z16virgo_cloud_testPv\r
+dlsym lookup for cloud function: _Z16virgo_cloud_testPv\r
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so: undefined symbol: _Z16virgo_cloud_testPv\r
+dlsym lookup for cloud function: _Z16virgo_cloud_testPv\r
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so: undefined symbol: _Z16vi
+dlsym lookup for cloud function: _Z16vi
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so: undefined symbol: _Z16virgo_cloud_testPv\r
+dlsym lookup for cloud function: _Z16virgo_cloud_testPv\r
+dlsym lookup for cloud function: _Z16virgo_cloud_testPv
+virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud clone function pointer: b77114cc
+virgo_cloud_test.c:Executing virgo_cloud_test on cloud, Writing to file opened by Kernel, Kernel Space to User space communication works
+dlsym lookup for cloud function: _Z16virgo_cloud_testPv
+virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud clone function pointer: b76eb4cc
+virgo_cloud_test.c:Executing virgo_cloud_test on cloud, Writing to file opened by Kernel, Kernel Space to User space communication works

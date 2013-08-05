@@ -1,0 +1,3 @@
+/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so: undefined symbol: _Z16virgo_cloud_test
+dlsym lookup for cloud function: _Z16virgo_cloud_test
+_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works
