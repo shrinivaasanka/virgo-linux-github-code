@@ -193,3 +193,7 @@ the entire board in remote machine (since it can access PCI bus, RAM and all oth
 
 As a longterm design goal, VIRGO can be implemented as a separate protocol itself and sk_buff packet payload from remote machine
 can be parsed by kernel service and kernel_thread can be created for the message.
+
+commits as on 05/08/2013:
+-------------------------
+Major commits done for kernel upcall usermode output logging with fd_install redirection to a VFS file. With this it has become easy for user space to communicate runtime data to Kernel space. Also a new strip_control_M() function has been added to strip \r\n or " ". 
