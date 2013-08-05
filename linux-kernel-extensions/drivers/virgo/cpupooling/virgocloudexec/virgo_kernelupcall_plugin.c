@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 
        int s=0;
 
-       handle = dlopen("./libvirgo.so", RTLD_LAZY);
+       handle = dlopen("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/libvirgo.so", RTLD_LAZY);
        if (!handle) {
              fprintf(stderr, "%s\n", dlerror());
              exit(EXIT_FAILURE);
@@ -54,12 +54,7 @@ int main(int argc, char **argv)
                fprintf(stderr, "%s\n", error);
                exit(EXIT_FAILURE);
        }
-       int fd=open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt",O_RDWR| O_APPEND);
-       char buf[500];
-       sprintf(buf,"virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud clone function pointer: %x\n",cloud_function);
-       write(fd,buf,sizeof(buf));
-       fsync(fd);
-       close(fd);
+       printf("virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud clone function pointer: %x\n",cloud_function);
        s=pthread_create(&tid, NULL, cloud_function, NULL); 
        pthread_join(tid, &x);
        fflush(stdout);
