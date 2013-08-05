@@ -38,7 +38,7 @@ void* virgo_cloud_test(void* args)
         fsync(fd);
         close(fd);
 	*/
-	printf("Executing virgo_cloud_test on cloud\n");
+	printf("virgo_cloud_test.c:Executing virgo_cloud_test on cloud, Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	fflush(stdout);
 	return NULL;
 }
