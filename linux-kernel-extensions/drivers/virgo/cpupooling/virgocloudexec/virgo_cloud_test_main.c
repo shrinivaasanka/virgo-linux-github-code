@@ -25,6 +25,9 @@ mail to: ka.shrinivaasan@gmail.com
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 
 int main(int argc, char* argv[])
 {
@@ -37,7 +40,33 @@ int main(int argc, char* argv[])
         fsync(fd);
         close(fd);
 	*/
-	printf("virgo_cloud_test_main.c: Executing virgo_cloud_test on cloud\n");
-	fflush(stdout);
+	int pid;
+	int x=100;
+	int status;
+	x=x*x;
+	pid=fork();
+	if(pid==0)
+	{
+		/*
+		int fd=open("./virgo_cloud_test_print_to_stdout.out", O_CREAT|O_RDWR, S_IRUSR|S_IWUSR);
+		dup2(fd,1);
+		dup2(fd,2);
+		*/
+		printf("Child process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works\n");
+		fflush(stdout);
+		x=x*x;
+	}
+	else
+	{
+		/*
+		int fd=open("./virgo_cloud_test_print_to_stdout.out", O_CREAT|O_RDWR, S_IRUSR|S_IWUSR);
+		dup2(fd,1);
+		dup2(fd,2);
+		*/
+		printf("Parent process of fork: virgo_cloud_test_main.c: User space has written to a VFS file opened by Kernel, Kernel To User space communication works\n");
+		fflush(stdout);
+		x=x*x;
+		waitpid(pid,&status,WCONTINUED);
+	}
 	return NULL;
 }
