@@ -137,7 +137,8 @@ int clone_func(void* args)
  
 	/*
 	*If parameterIsExecutable is set to 2, the data from virgo_clone() is a function and is executed within kernel address-space itself
-	*Presently just an example function is invoked. Intermodule function invocation functionality through this is a to-do.
+	*Presently just an example function is invoked. Intermodule function invocation functionality which enables complete takeover
+	*of lowlevel system cards, PCI, RAM etc., has been implemented and testcase kern.logs are under ./test_logs/
 	*
 	*If parameterIsExecutable is set to 1 the data received from virgo_clone() is not a function but name of executable
 	*This executable is then run on usermode using call_usermodehelper() which internally takes care of queueing the workstruct
