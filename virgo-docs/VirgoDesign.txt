@@ -200,5 +200,16 @@ Major commits done for kernel upcall usermode output logging with fd_install red
 
 11 August 2013:
 ---------------
-Open Source Design and Academic Research Notes uploaded to https://sourceforge.net/projects/acadpdrafts/
+Open Source Design and Academic Research Notes uploaded to http://sourceforge.net/projects/acadpdrafts/files/MiscellaneousOpenSourceDesignAndAcademicResearchNotes_2013-08-11.pdf/download
+
+VIRGO ToDo and NiceToHave Features:
+----------------------------------
+1. More Sophisticated VIRGO config file
+2. Object Marshalling and Unmarshalling (Serialization) Features
+3. Virgo_malloc() syscall that virtualizes the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
+5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
+6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
+7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO. 
+"VirgoDesign.txt" 213L, 16302C written                    
 
