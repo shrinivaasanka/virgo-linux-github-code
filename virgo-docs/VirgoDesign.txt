@@ -197,3 +197,8 @@ can be parsed by kernel service and kernel_thread can be created for the message
 commits as on 05/08/2013:
 -------------------------
 Major commits done for kernel upcall usermode output logging with fd_install redirection to a VFS file. With this it has become easy for user space to communicate runtime data to Kernel space. Also a new strip_control_M() function has been added to strip \r\n or " ". 
+
+11 August 2013:
+---------------
+Open Source Design and Academic Research Notes uploaded to https://sourceforge.net/projects/acadpdrafts/
+
