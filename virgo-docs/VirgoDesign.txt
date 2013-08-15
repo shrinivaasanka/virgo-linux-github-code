@@ -211,5 +211,7 @@ VIRGO ToDo and NiceToHave Features:
 5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
 6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO. 
+8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer
+into a scheduler with priority queues)
 "VirgoDesign.txt" 213L, 16302C written                    
 
