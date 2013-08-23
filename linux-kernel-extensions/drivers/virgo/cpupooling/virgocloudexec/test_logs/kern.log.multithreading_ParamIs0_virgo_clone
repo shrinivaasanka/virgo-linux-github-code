@@ -1,0 +1,100 @@
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.225124] virgocloudexec_init(): kernel_listen() returns error code: 0
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.225127] virgo_cloudexec_service(): virgo_ops.virgo_create() 
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.315892] uvcvideo: Found UVC 1.00 device Integrated_Webcam_1.3M (0c45:63ee)
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.324167] input: Integrated_Webcam_1.3M as /devices/pci0000:00/0000:00:1a.7/usb1/1-6/1-6:1.0/input/input6
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.324349] usbcore: registered new interface driver uvcvideo
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.324351] USB Video Class driver (1.1.1)
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.460731] ip_tables: (C) 2000-2006 Netfilter Core Team
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.548712] EXT3-fs (sda5): using internal journal
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.641593] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.670481] type=1400 audit(1377238646.798:8): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=891 comm="apparmor_parser"
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.670998] type=1400 audit(1377238646.798:9): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=891 comm="apparmor_parser"
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.671288] type=1400 audit(1377238646.798:10): apparmor="STATUS" operation="profile_replace" name="/usr/lib/connman/scripts/dhclient-script" pid=891 comm="apparmor_parser"
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.724655] type=1400 audit(1377238646.854:11): apparmor="STATUS" operation="profile_load" name="/usr/lib/lightdm/lightdm/lightdm-guest-session-wrapper" pid=890 comm="apparmor_parser"
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.735912] RPC: Registered named UNIX socket transport module.
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.735916] RPC: Registered udp transport module.
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.735918] RPC: Registered tcp transport module.
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.735919] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   23.987611] ppdev: user-space parallel port driver
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.034740] ip6_tables: (C) 2000-2006 Netfilter Core Team
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.044238] input: PS/2 Mouse as /devices/platform/i8042/serio2/input/input7
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.075252] input: AlpsPS/2 ALPS GlidePoint as /devices/platform/i8042/serio2/input/input8
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091433] Bluetooth: Core ver 2.16
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091480] NET: Registered protocol family 31
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091482] Bluetooth: HCI device and connection manager initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091491] Bluetooth: HCI socket layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091495] Bluetooth: L2CAP socket layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.091502] Bluetooth: SCO socket layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.291406] sky2 0000:09:00.0 eth0: enabling interface
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.291504] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.314093] Bluetooth: RFCOMM TTY layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.314107] Bluetooth: RFCOMM socket layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.314109] Bluetooth: RFCOMM ver 1.11
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.318951] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.318954] Bluetooth: BNEP filters: protocol multicast
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.318960] Bluetooth: BNEP socket layer initialized
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.747664] FS-Cache: Loaded
+Aug 23 11:47:27 kashrinivaasan-Inspiron-1545 kernel: [   24.852334] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   24.901572] snd_hda_intel 0000:00:1b.0: irq 47 for MSI/MSI-X
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   24.955841] FS-Cache: Netfs 'nfs' registered for caching
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   24.958921] input: HDA Intel Mic as /devices/pci0000:00/0000:00:1b.0/sound/card0/input9
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   24.959096] input: HDA Intel Headphone as /devices/pci0000:00/0000:00:1b.0/sound/card0/input10
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   25.169395] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+Aug 23 11:47:28 kashrinivaasan-Inspiron-1545 kernel: [   25.238598] NFSD: starting 90-second grace period
+Aug 23 11:47:33 kashrinivaasan-Inspiron-1545 kernel: [   30.452803] bio: create slab <bio-1> at 1
+Aug 23 11:47:33 kashrinivaasan-Inspiron-1545 kernel: [   30.843549] Adding 4490132k swap on /dev/mapper/cryptswap1.  Priority:-1 extents:1 across:4490132k 
+Aug 23 11:47:57 kashrinivaasan-Inspiron-1545 kernel: [   54.804779] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:47:57 kashrinivaasan-Inspiron-1545 kernel: [   54.807015] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:47:57 kashrinivaasan-Inspiron-1545 kernel: [   54.807021] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:48:49 kashrinivaasan-Inspiron-1545 kernel: [  106.521414] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:48:49 kashrinivaasan-Inspiron-1545 kernel: [  106.523825] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:48:49 kashrinivaasan-Inspiron-1545 kernel: [  106.523833] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755455] get_host_from_cloud_PRG() - get_random_int() returned 3694423994 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755464] get_host_from_cloud_PRG() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755467] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): 127.0.0.1 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755471] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: 127.0.0.1 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755483] virgo_clone() syscall: created client kernel socket
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755638] virgo_cloudexec_service(): virgo client thread per request 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755611] virgo_clone() syscall: connected kernel client to virgo cloudexec kernel service
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755611]  
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755652] virgo_clone() syscall: sent message: _Z16virgo_cloud_testPv  
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755682] virgo_cloudexec_service(): virgo_ops.virgo_create() 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755692] virgo_client_thread(): virgo_ops.virgo_recvfrom()
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755695] virgocloudexec_recvfrom(): before kernel_recvmsg()
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755701] virgocloudexec_recvfrom(): kernel_recvmsg() returns len: 500
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755706] virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: _Z16virgo_cloud_testPv 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755709] print_buffer(): 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755711] _Z
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755716] 16
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755720] 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755723] virgocloudexec_recvfrom(): kernel_recvmsg() le32 to cpu _Z16virgo_cloud_testPv 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755726] virgocloudexec_recvfrom(): cloneFunction : _Z16virgo_cloud_testPv 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755799] virgocloudexec_recvfrom(): clone thread woken_up : 1
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755802] virgo_client_thread(): virgo_ops.virgo_sendto()
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755806] virgocloudexec_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755806] 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755839] virgocloudexec_sendto(): kernel_sendmsg() returns ret: 500
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755843] virgocloudexec_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755870] virgo_clone() syscall: received message: virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755870]  
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755876] virgo_clone() syscall: le32_to_cpus(buf): virgo_cloudexec_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_clone() remote syscall client
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755876]  
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.755900] virgo_clone() syscall: virgo_clone() client socket_release() invoked
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.758520] virgocloudexec_sendto(): sock_release invoked on client socket 
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.827524] clone_func(): executing the virgo_clone() syscall function parameter in cloud - parameterIsExecutable=0, cloneFunction=_Z16virgo_cloud_testPv
+Aug 23 11:49:36 kashrinivaasan-Inspiron-1545 kernel: [  153.851396] clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=0
+Aug 23 11:49:41 kashrinivaasan-Inspiron-1545 kernel: [  158.233547] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:49:41 kashrinivaasan-Inspiron-1545 kernel: [  158.235713] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:49:41 kashrinivaasan-Inspiron-1545 kernel: [  158.235721] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:50:33 kashrinivaasan-Inspiron-1545 kernel: [  209.945329] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:50:33 kashrinivaasan-Inspiron-1545 kernel: [  209.947453] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:50:33 kashrinivaasan-Inspiron-1545 kernel: [  209.947461] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:51:24 kashrinivaasan-Inspiron-1545 kernel: [  261.656830] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:51:24 kashrinivaasan-Inspiron-1545 kernel: [  261.658951] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:51:24 kashrinivaasan-Inspiron-1545 kernel: [  261.658958] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:52:16 kashrinivaasan-Inspiron-1545 kernel: [  313.369325] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:52:16 kashrinivaasan-Inspiron-1545 kernel: [  313.371825] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:52:16 kashrinivaasan-Inspiron-1545 kernel: [  313.371835] sd 6:0:0:0: [sdb] Assuming drive cache: write through
+Aug 23 11:53:08 kashrinivaasan-Inspiron-1545 kernel: [  365.081463] sd 6:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Aug 23 11:53:08 kashrinivaasan-Inspiron-1545 kernel: [  365.083752] sd 6:0:0:0: [sdb] Asking for cache data failed
+Aug 23 11:53:08 kashrinivaasan-Inspiron-1545 kernel: [  365.083762] sd 6:0:0:0: [sdb] Assuming drive cache: write through
