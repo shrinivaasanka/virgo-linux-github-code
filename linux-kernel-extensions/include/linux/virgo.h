@@ -16,7 +16,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-mail to: ka.shrinivaasan@gmail.com
+--------------------------------------------------------------------------------------------------
+Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+Independent Open Source Developer, Researcher and Consultant
+Ph: 9003082186, 9791165980
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Personal website(research): https://sites.google.com/site/kuja27/
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+--------------------------------------------------------------------------------------------------
+
 *****************************************************************************************/
 
 #ifndef _VIRGO_H_
@@ -85,9 +93,9 @@ mail to: ka.shrinivaasan@gmail.com
 #define BUF_SIZE 500
 typedef int (*FPTR)(void *args);
 
-static int virgocloudexec_create(void);
-static int virgocloudexec_recvfrom(void);
-static int virgocloudexec_sendto(void);
+int virgocloudexec_create(void);
+int virgocloudexec_recvfrom(struct socket*);
+int virgocloudexec_sendto(struct socket*);
 
 int virgo_cloudexec_service(void* args);
 void do_virgocloudexec_init(void);
@@ -112,8 +120,8 @@ static struct svc_xprt_class virgo_class = {
 
 struct virgo_ops_t {
 	int (*virgo_create)(void);
-	int (*virgo_recvfrom)(void);
-	int (*virgo_sendto)(void);
+	int (*virgo_recvfrom)(struct socket*);
+	int (*virgo_sendto)(struct socket*);
 };
 
 static struct virgo_ops_t virgo_ops = {
@@ -143,13 +151,18 @@ static struct socket *sock;
 static struct sockaddr_in sin;
 int len=0;
 
+/*
+Multithreaded VIRGO Kernel Service - commented global declarations and moved to xxxsendto() and xxxrecvfrom() with in module 
+----------------------------------------------------------------------------------------------------------------------------
 static struct socket *clientsock;
 static struct kvec iov;
 static struct msghdr msg = { NULL, };
 int buflen=BUF_SIZE;
 int nr=1;
 int args=0;
-int parameterIsExecutable=1;
+*/
+
+int parameterIsExecutable=2;
 struct file* file_stdout;
 
 void print_buffer(char*);
@@ -157,6 +170,8 @@ int tokenize_list_of_ip_addrs(char* buf);
 void read_virgo_config();
 int kernel_space_func(void* args);
 char* strip_control_M(char*);
+
+int virgo_client_thread(void* args);
 
 
 /*
