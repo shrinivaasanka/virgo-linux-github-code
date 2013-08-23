@@ -16,7 +16,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-mail to: ka.shrinivaasan@gmail.com
+--------------------------------------------------------------------------------------------------
+Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+Independent Open Source Developer, Researcher and Consultant
+Ph: 9003082186, 9791165980
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Personal website(research): https://sites.google.com/site/kuja27/
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+--------------------------------------------------------------------------------------------------
+
 *****************************************************************************************/
 
 #include <stdio.h>
@@ -42,8 +50,10 @@ int main(int argc, char* argv[])
 	- Ka.Shrinivaasan
 	*/
 
+
+	long int ret=syscall(350,"virgo_cloud_test_kernelspace ",NULL,0,NULL);
 	/*long int ret=syscall(350,"_Z16virgo_cloud_testPv ",NULL,0,NULL);*/
-	long int ret=syscall(350,"/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main ",NULL,0,NULL);
+	/*long int ret=syscall(350,"/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main ",NULL,0,NULL);*/
 	/*long int ret=syscall(350,argv[1],NULL,0,NULL);*/
 	return 0;
 }
