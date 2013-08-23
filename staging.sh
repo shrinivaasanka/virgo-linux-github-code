@@ -18,7 +18,15 @@
 #You should have received a copy of the GNU General Public License
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#mail to: ka.shrinivaasan@gmail.com
+#--------------------------------------------------------------------------------------------------
+#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+#Independent Open Source Developer, Researcher and Consultant
+#Ph: 9003082186, 9791165980
+#Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+#Personal website(research): https://sites.google.com/site/kuja27/
+#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+#--------------------------------------------------------------------------------------------------
+
 #*****************************************************************************************/
 
 cp -r /home/kashrinivaasan/linux-3.7.8/virgo_clone /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
