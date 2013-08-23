@@ -1,6 +1,0 @@
-kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ ./virgo_kernelupcall_binaries_build.sh 
-dlsym lookup for cloud function: _Z16virgo_cloud_testPv
-spawning userspace thread for virgo cloud clone function pointer: b77c04cc
-Executing virgo_cloud_test on cloud
-kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec$ 
-
