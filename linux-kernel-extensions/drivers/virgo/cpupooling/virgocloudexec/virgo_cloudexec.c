@@ -16,7 +16,15 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-mail to: ka.shrinivaasan@gmail.com
+--------------------------------------------------------------------------------------------------
+Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+Independent Open Source Developer, Researcher and Consultant
+Ph: 9003082186, 9791165980
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Personal website(research): https://sites.google.com/site/kuja27/
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+--------------------------------------------------------------------------------------------------
+
 *****************************************************************************************/
 
 #include <linux/virgo.h>
@@ -375,14 +383,20 @@ virgocloudexec_init(void)
 }
 EXPORT_SYMBOL(virgocloudexec_init);
 
-static int virgocloudexec_create(void)
+int virgocloudexec_create(void)
 {
 	/*
 	Blocking mode works in this commit again. No changes were made in virgo_clone() or driver code. 
 	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
 	-Ka.Shrinivaasan
 	*/
-	 
+	
+	/* 
+	Multithreaded VIRGO Kernel Service
+	----------------------------------
+	*/
+	struct socket *clientsock;
+
 	clientsock=NULL;
 	error = kernel_accept(sock, &clientsock, 0);
 	
@@ -407,12 +421,28 @@ static int virgocloudexec_create(void)
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() returns error code: %d\n",error);
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() clientsock: %u\n",clientsock);
 	*/
-	return 0;
+	return clientsock;
 }
 EXPORT_SYMBOL(virgocloudexec_create);
 
-static int virgocloudexec_recvfrom(void)
+int virgocloudexec_recvfrom(struct socket* clsock)
 {
+	/*
+	Multithreaded VIRGO Kernel Service
+	----------------------------------
+	*/
+	struct socket *clientsock=clsock;
+	struct kvec iov;
+	struct msghdr msg = { NULL, };
+	int buflen=BUF_SIZE;
+	void *args=NULL;
+	int nr=1;
+
+	struct task_struct *task;
+	int error;
+	char buffer[BUF_SIZE];
+	int len=0;
+
 	/*	
 		do kernel_recvmsg() to get the function data to be executed on a thread
 	*/
@@ -474,8 +504,25 @@ void print_buffer(char* buffer)
 	printk(KERN_INFO "\n");
 }
 
-static int virgocloudexec_sendto(void)
+int virgocloudexec_sendto(struct socket* clsock)
 {
+	/*
+	Multithreaded VIRGO Kernel Service
+	----------------------------------
+	*/
+
+	struct socket *clientsock=clsock;
+	struct kvec iov;
+	struct msghdr msg = { NULL, };
+	int buflen=BUF_SIZE;
+	void *args=NULL;
+	int nr=1;
+
+	struct task_struct *task;
+	int error;
+	char buffer[BUF_SIZE];
+	int len=0;
+
 	/*
 	printk(KERN_INFO "virgocloudexec_sendto(): clientsock: %u\n",clientsock);
 	*/
