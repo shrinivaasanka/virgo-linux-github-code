@@ -215,6 +215,8 @@ VIRGO ToDo and NiceToHave Features:
 1. More Sophisticated VIRGO config file
 2. Object Marshalling and Unmarshalling (Serialization) Features
 3. Virgo_malloc() syscall that virtualizes the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
+
 4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
 (DONE)5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
 6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
