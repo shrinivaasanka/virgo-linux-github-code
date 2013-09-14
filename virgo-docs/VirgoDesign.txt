@@ -239,6 +239,10 @@ commits as on 1 September 2013
 ------------------------------
 GNU Copyright license and Product Owner Profile (for identity of license issuer) have been committed. Also Virgo Memory Pooling - virgo_malloc() related initial design notes (handwritten scanned) have been committed
 
+commits as on 14 September 2013
+-------------------------------
+Updated virgo malloc design handwritten nodes on kmalloc() and malloc() usage in kernelspace and userspace execution mode of virgo_cloudexec service
+
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
