@@ -237,12 +237,22 @@ New Multithreading Feature added for VIRGO Kernel Service - action item 5 in ToD
 
 commits as on 1 September 2013
 ------------------------------
-GNU Copyright license and Product Owner Profile (for identity of license issuer) have been committed. Also Virgo Memory Pooling - virgo_malloc() related initial design notes (handwritten scanned) have been committed
+GNU Copyright license and Product Owner Profile (for identity of license issuer) have been committed. Also Virgo Memory Pooling - virgo_malloc() related initial design notes (handwritten scanned) have been committed(http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf)
 
 commits as on 14 September 2013
 -------------------------------
-Updated virgo malloc design handwritten nodes on kmalloc() and malloc() usage in kernelspace and userspace execution mode of virgo_cloudexec service
+Updated virgo malloc design handwritten nodes on kmalloc() and malloc() usage in kernelspace and userspace execution mode of virgo_cloudexec service (http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_design_notes_2_14September2013.pdf). As described in handwritten notes, virgo_malloc() and related system calls might be needed when a large scale allocation of kernel memory is needed when in kernel space execution mode and large scale userspace memory when in user modes (function and executable modes). Thus a cloud memory pool both in user and kernel space is possible. 
 
+---------------------------------------
+VIRGO virtual addressing
+---------------------------------------
+VIRGO virtual address is defined with the following datatype:
+
+struct virgo_address
+{
+	int node_id;
+	void* p;
+};
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
