@@ -251,9 +251,16 @@ VIRGO virtual address is defined with the following datatype:
 struct virgo_address
 {
 	int node_id;
-	void* p;
+	void* addr;
 };
 
+------------------------------------------------
+VIRGO memory pooling prototypical implementation
+------------------------------------------------
+VIRGO memory pooling implementation as per the design notes committed as above is to be implemented as a prototype under separate directory
+under drivers/virgo/memorypooling and $LINUX_SRC_ROOT/virgo_malloc. But the underlying code is more or less similar to drivers/virgo/cpupooling and $LINUX_SRC_ROOT/virgo_clone. 
+
+virgo_malloc() and related syscalls and virgo mempool driver connect to and listen on port different from cpupooling driver. Though all these code can be within cpupooling itself, mempooling is implemented as separate driver and co-exists with cpupooling on bootup (/etc/modules). This enables clear demarcation of functionalities for CPU and Memory virtualization.
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
