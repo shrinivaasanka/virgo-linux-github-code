@@ -3,7 +3,6 @@
 #/***************************************************************************************
 #VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
 #
-#Copyright (C) 2009-2013  Ka.Shrinivaasan
 #
 #This program is free software: you can redistribute it and/or modify
 #it under the terms of the GNU General Public License as published by
@@ -19,6 +18,8 @@
 #along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 #--------------------------------------------------------------------------------------------------
+#Copyright (C):
+# 
 #Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 #Independent Open Source Developer, Researcher and Consultant
 #Ph: 9003082186, 9791165980
@@ -30,5 +31,7 @@
 #*****************************************************************************************/
 
 cp -r /home/kashrinivaasan/linux-3.7.8/virgo_clone /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
+cp -r /home/kashrinivaasan/linux-3.7.8/virgo_malloc /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
 cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/cpupooling
+cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/memorypooling
 cp -r /home/kashrinivaasan/linux-3.7.8/include/linux/virgo*h /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/include/linux
