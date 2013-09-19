@@ -157,6 +157,7 @@ static struct virgo_class_t virgo_class = {
 struct task_struct *task;
 int (*cloneFunction_ptr)(void*);
 char* cloneFunction;
+char* mempoolFunction;
 int error;
 char buffer[BUF_SIZE];
 static struct socket *sock;	
