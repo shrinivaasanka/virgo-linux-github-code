@@ -1,5 +1,5 @@
 #
-#Makefile for VIRGO cloudexec driver and cloudexec kernel service
+#Makefile for VIRGO mempool cloudexec driver and cloudexec kernel service
 #
 
 ccflags-y := -I/home/kashrinivaasan/linux-3.7.8/include -DDEBUG
