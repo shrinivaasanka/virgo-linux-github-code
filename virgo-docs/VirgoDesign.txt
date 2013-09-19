@@ -274,5 +274,10 @@ Commits as on 17 September 2013
 -------------------------------
 Initial untested prototype code - virgo_malloc and virgo mempool driver - for VIRGO Memory Pooling has been committed - copied and modified from virgo_clone client and kernel driver service. 
 
+Commits as on 19 September 2013
+-------------------------------
+3.7.8 Kernel full build done and compilation errors in VIRGO malloc and mempool driver code and more functions code added
+
+
 "VirgoDesign.txt" 213L, 16302C written                    
 
