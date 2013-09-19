@@ -1,7 +1,6 @@
 /***************************************************************************************
 VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
 
-Copyright (C) 2009-2013  Ka.Shrinivaasan
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,6 +16,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --------------------------------------------------------------------------------------------------
+Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
 Ph: 9003082186, 9791165980
@@ -34,6 +34,9 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/string.h>
 #include <linux/kallsyms.h>
 
+/*
+	VIRGO Memory Pooling Driver for virgo_malloc(), virgo_free(),virgo_set(),virgo_get()
+*/
 
 /*
 #include <linux/kernel.h>
@@ -104,8 +107,8 @@ static struct svc_xprt_class virgo_class = {
 
 
 struct task_struct *task;
-int (*cloneFunction_ptr)(void*);
-char* cloneFunction;
+int (*mempoolFunction_ptr)(void*);
+char* mempoolFunction;
 int error;
 char buffer[BUF_SIZE];
 struct socket *sock;	
@@ -158,8 +161,8 @@ int clone_func(void* args)
 	*using dlsym() lookup and pthread_create() in user space. This unifies both call_usermodehelper() and creating a userspace thread
 	*with a fixed binary which is same for any function. The dlsym lookup requires mangled function names which need to be sent by 
 	*virgo_malloc or telnet. This is far more efficient than a function pointer table. 
-	*call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the cloneFunction in userspace
-	*by spawning a pthread. cloneFunction is name of the function and not binary. This clone function will be dlsym()ed 
+	*call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the mempoolFunction in userspace
+	*by spawning a pthread. mempoolFunction is name of the function and not binary. This clone function will be dlsym()ed 
 	*and a pthread will be created by the fixed binary. Name of the fixed binary is hardcoded herein as 
 	*"virgo_kernelupcall_plugin". This fixed binary takes clone function as argument. For testing libvirgo_mempool.so has been created from
 	*virgo_cloud_test.c and separate build script to build the cloud function binaries has been added.
@@ -178,9 +181,9 @@ int clone_func(void* args)
 		printk("clone_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
 		/*
 		int (*virgo_cloud_test_kernelspace)(void*);
-		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
+		virgo_cloud_test_kernelspace=kallsyms_lookup_name(mempoolFunction);
 		*/
-		task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
+		task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "mempoolFunction thread");
 		woken_up_2=wake_up_process(task);
 	}
 	else if(parameterIsExecutable==1)
@@ -188,7 +191,7 @@ int clone_func(void* args)
 	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_cloudexec_mempool_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
-		argv[0]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[0]=kstrdup(mempoolFunction,GFP_ATOMIC);
 		/*
 		argv[2]=kstrdup(strcat(argv[2], " >> /home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin_userspace_exec.log"),GFP_ATOMIC);
 		*/
@@ -197,11 +200,11 @@ int clone_func(void* args)
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
-		/* cloneFunction contains name of the binary and not the name of the function */
-		printk("clone_func(): executing call_usermodehelper for data from virgo_malloc: %s - parameterIsExecutable=%d\n",cloneFunction, parameterIsExecutable);	
-		ret=call_usermodehelper(cloneFunction, argv, envp, UMH_WAIT_EXEC);
+		/* mempoolFunction contains name of the binary and not the name of the function */
+		printk("clone_func(): executing call_usermodehelper for data from virgo_malloc: %s - parameterIsExecutable=%d\n",mempoolFunction, parameterIsExecutable);	
+		ret=call_usermodehelper(mempoolFunction, argv, envp, UMH_WAIT_EXEC);
 		/*ret=call_usermodehelper("/bin/bash", argv, envp, UMH_WAIT_PROC);*/
-		printk("clone_func(): call_usermodehelper() for binary %s returns ret=%d\n", cloneFunction, ret);
+		printk("clone_func(): call_usermodehelper() for binary %s returns ret=%d\n", mempoolFunction, ret);
 		filp_close(file_stdout,NULL);
 	}
 	else if (parameterIsExecutable==0)
@@ -210,19 +213,19 @@ int clone_func(void* args)
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
 		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[1]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[1]=kstrdup(mempoolFunction,GFP_ATOMIC);
 		argv[2]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
-		printk(KERN_INFO "clone_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d, cloneFunction=%s\n",parameterIsExecutable,cloneFunction);
+		printk(KERN_INFO "clone_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d, mempoolFunction=%s\n",parameterIsExecutable,mempoolFunction);
 		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
 
 		/*
 		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
 		argv[1]=kstrdup("-c",GFP_ATOMIC);
 		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[3]=kstrdup(cloneFunction,GFP_ATOMIC);
+		argv[3]=kstrdup(mempoolFunction,GFP_ATOMIC);
 		argv[4]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
 		envp[1]="HOME=/home/kashrinivaasan";
@@ -342,7 +345,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 }
 
 /*
-FPTR get_function_ptr_from_str(char* cloneFunction)
+FPTR get_function_ptr_from_str(char* mempoolFunction)
 {
 	return clone_func;
 }
@@ -473,16 +476,16 @@ int virgocloudexec_mempool_recvfrom(struct socket* clsock)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		cloneFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
-		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
+		mempoolFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
+		/*mempoolFunction[strlen(mempoolFunction)-2]='\0';*/
 		
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
-		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): cloneFunction : %s \n", cloneFunction);
-		/*cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);*/
-		/*task=kthread_run(cloneFunction_ptr, (void*)args, "cloudclonethread");*/
+		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): mempoolFunction : %s \n", mempoolFunction);
+		/*mempoolFunction_ptr = get_function_ptr_from_str(mempoolFunction);*/
+		/*task=kthread_run(mempoolFunction_ptr, (void*)args, "cloudclonethread");*/
 		task=kthread_create(clone_func, (void*)args, "clone_func thread");
 		int woken_up=wake_up_process(task);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): clone thread woken_up : %d\n",woken_up);
@@ -605,12 +608,12 @@ int virgocloudexec_mempool_sendto(struct socket* clsock)
            for (;;) {
 		nread  = kernel_recvmsg(clientsock, &msg, buflen, &iov, nr, msg.msg_flags);
 
-		char* cloneFunction = kstrdup(iov.iov_base,GFP_KERNEL);
+		char* mempoolFunction = kstrdup(iov.iov_base,GFP_KERNEL);
 
-		int ((*cloneFunction_ptr)(void*));
-		cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);
+		int ((*mempoolFunction_ptr)(void*));
+		mempoolFunction_ptr = get_function_ptr_from_str(mempoolFunction);
 		int *args=0;
-		task=kthread_create(cloneFunction_ptr, (void*)args, "cloudclonethread");
+		task=kthread_create(mempoolFunction_ptr, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
 		iov.iov_base=(void*)buf;
 		iov.iov_len=BUF_SIZE;
