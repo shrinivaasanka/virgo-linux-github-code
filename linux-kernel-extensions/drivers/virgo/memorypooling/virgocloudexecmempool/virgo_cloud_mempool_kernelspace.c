@@ -24,6 +24,13 @@ mail to: ka.shrinivaasan@gmail.com
 #include <linux/module.h>
 #include <linux/virgo.h>
 
+struct virgo_set_args
+{
+        char* addr;
+        char* data;
+};
+
+
 static int __init
 virgo_cloud_mempool_kernelspace_init(void)
 {
@@ -32,15 +39,41 @@ virgo_cloud_mempool_kernelspace_init(void)
 }
 EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_init);
 
-void* virgo_cloud_mempool_kernelspace(void* args)
+void* virgo_cloud_malloc_kernelspace(void* args)
 {
-	printk(KERN_INFO "virgo_cloud_mempool_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service\n");
+	printk(KERN_INFO "virgo_cloud_malloc_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service\n");
 	int size=*((int*)(args));
 	void* ptr=kmalloc(size, GFP_ATOMIC);
 	return ptr;
 }
-EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace);
+EXPORT_SYMBOL(virgo_cloud_malloc_kernelspace);
 
+void* virgo_cloud_free_kernelspace(void* args)
+{
+	printk(KERN_INFO "virgo_cloud_malloc_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service\n");
+	char* ptr=(char*)(args);
+	kfree(ptr);
+	return NULL;
+}
+EXPORT_SYMBOL(virgo_cloud_free_kernelspace);
+
+void* virgo_cloud_set_kernelspace(void* args)
+{
+	printk(KERN_INFO "virgo_cloud_malloc_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service\n");
+	struct virgo_set_args* vsetargs=(struct virgo_set_args*)args;
+	vsetargs->addr=kstrdup(vsetargs->data,GFP_ATOMIC);
+	return NULL;
+}
+EXPORT_SYMBOL(virgo_cloud_set_kernelspace);
+
+
+void* virgo_cloud_get_kernelspace(void* args)
+{
+	printk(KERN_INFO "virgo_cloud_malloc_kernelspace(): virgo cloud kernel space test function invoked in this module by virgo_cloudexec kernel service\n");
+	char* data=kstrdup((char*)args,GFP_ATOMIC);
+	return data;
+}
+EXPORT_SYMBOL(virgo_cloud_get_kernelspace);
 
 static void __exit
 virgo_cloud_mempool_kernelspace_exit(void)
