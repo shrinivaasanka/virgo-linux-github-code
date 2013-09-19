@@ -1,5 +1,6 @@
 0x0405addf	virgo_cloud_mempool_kernelspace_init	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloud_mempool_kernelspace	EXPORT_SYMBOL
 0x81e32d9e	virgo_cloud_mempool_kernelspace_exit	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloud_mempool_kernelspace	EXPORT_SYMBOL
+0x72d25688	virgo_cloud_malloc_kernelspace	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloud_mempool_kernelspace	EXPORT_SYMBOL
 0x1a2ad9ea	virgocloudexec_mempool_recvfrom	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloudexec_mempool	EXPORT_SYMBOL
 0x80a9b0cf	virgo_cloud_mempool_kernelspace	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloud_mempool_kernelspace	EXPORT_SYMBOL
 0x847c2d2a	virgocloudexec_mempool_init	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloudexec_mempool	EXPORT_SYMBOL
