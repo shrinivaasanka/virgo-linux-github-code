@@ -19,9 +19,11 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x12da5bb2, "__kmalloc" },
+	{ 0xc499ae1e, "kstrdup" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x37a0cba, "kfree" },
 };
 
 static const char __module_depends[]
@@ -30,4 +32,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "786106EED94515F2A740E07");
+MODULE_INFO(srcversion, "8282B9A0446E0A966D37911");
