@@ -278,6 +278,11 @@ Commits as on 19 September 2013
 -------------------------------
 3.7.8 Kernel full build done and compilation errors in VIRGO malloc and mempool driver code and more functions code added
 
+Commits as on 23 September 2013
+-------------------------------
+Updated virgo_malloc.c with two functions, int_to_str() and addr_to_str(), using kmalloc() with full kernel re-build.
+(Rather a re-re-build because some source file updates in previous build got deleted somehow mysteriously. This could be related to Cybercrime issues mentioned in https://sourceforge.net/p/usb-md/code-0/HEAD/tree/USBmd_notes.txt )
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
