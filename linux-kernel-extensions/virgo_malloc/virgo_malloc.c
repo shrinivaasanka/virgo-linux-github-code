@@ -102,6 +102,8 @@ struct virgo_addr_transtable vtable[3000];
 
 char* get_host_from_cloud_Loadtrack();
 char* get_host_from_cloud_PRG();
+char* int_to_str(int);
+char* addr_to_str(char*);
 
 struct hostport* get_least_loaded_hostport_from_cloud()
 {
@@ -188,7 +190,7 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_get_cmd;
-	virgo_get_cmd=strcat("virgo_cloud_get(",vaddr->addr);
+	virgo_get_cmd=strcat("virgo_cloud_get(",addr_to_str(vaddr->addr));
 	virgo_get_cmd=strcat(virgo_get_cmd, ")");
 	buf=kstrdup(virgo_get_cmd, GFP_ATOMIC);			
 
@@ -243,7 +245,7 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_set_cmd;
-	virgo_set_cmd=strcat("virgo_cloud_set(",vaddr->addr);
+	virgo_set_cmd=strcat("virgo_cloud_set(",addr_to_str(vaddr->addr));
 	virgo_set_cmd=strcat(virgo_set_cmd,",");
 	virgo_set_cmd=strcat(virgo_set_cmd, (char*)data);
 	virgo_set_cmd=strcat(virgo_set_cmd, ")");
@@ -360,7 +362,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		else
 		{
 			chunk_size=size-sum_alloc_size;
-			malloc_cmd=strcat("virgo_cloud_malloc(",chunk_size);
+			malloc_cmd=strcat("virgo_cloud_malloc(",int_to_str(chunk_size));
 			malloc_cmd=strcat(malloc_cmd, ")");
 			buf=kstrdup(malloc_cmd,GFP_ATOMIC);
 		}
@@ -426,7 +428,7 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
 	
-	free_cmd=strcat("virgo_cloud_free(",vaddr->addr);
+	free_cmd=strcat("virgo_cloud_free(",addr_to_str(vaddr->addr));
 	free_cmd=strcat(free_cmd, ")");
 	buf=kstrdup(free_cmd,GFP_ATOMIC);
 
@@ -456,4 +458,18 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	sock_release(sock);
 	printk(KERN_INFO "virgo_free() syscall: virgo_free() client socket_release() invoked\n");
 	return buf;
+}
+
+char* int_to_str(int n)
+{
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
+	sprintf(ret,"%d",n);
+	return ret;
+}
+
+char* addr_to_str(char* addr)
+{
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
+	sprintf(ret,"%p",addr);
+	return ret;
 }
