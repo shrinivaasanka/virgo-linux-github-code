@@ -64,10 +64,13 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/random.h>
 
 #include <linux/virgo_config.h>
+#include <linux/virgo_mempool.h>
+
 /*
 #include "netns.h"
 */
 
+/*
 struct hostport
 {
 	char* hostip;
@@ -87,6 +90,7 @@ struct virgo_addr_transtable
 	struct hostport* hstprt;
 	void* addr;
 };
+*/
 
 #define BUF_SIZE 3000
 
