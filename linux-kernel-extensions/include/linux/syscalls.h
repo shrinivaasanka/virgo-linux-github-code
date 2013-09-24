@@ -871,3 +871,8 @@ asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type,
 			 unsigned long idx1, unsigned long idx2);
 
 asmlinkage long sys_virgo_clone(char* func, void *child_stack, int flags, void *arg);
+asmlinkage struct virgo_address* sys_virgo_malloc(int size);
+asmlinkage char* sys_virgo_set(struct virgo_address* addr, void *data);
+asmlinkage char* sys_virgo_get(struct virgo_address* addr);
+asmlinkage char* sys_virgo_free(struct virgo_address* addr);
+
