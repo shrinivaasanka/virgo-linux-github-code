@@ -357,3 +357,7 @@
 348	i386	process_vm_writev	sys_process_vm_writev		compat_sys_process_vm_writev
 349	i386	kcmp			sys_kcmp
 350	i386	virgo_clone		sys_virgo_clone
+351	i386	virgo_malloc		sys_virgo_malloc
+352	i386	virgo_set		sys_virgo_set
+353	i386	virgo_get		sys_virgo_get
+354	i386	virgo_free		sys_virgo_free
