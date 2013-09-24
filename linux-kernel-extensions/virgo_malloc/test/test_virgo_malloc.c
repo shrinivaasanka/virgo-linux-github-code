@@ -32,28 +32,45 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <sys/syscall.h>
 #include <unistd.h>
 
+struct virgo_address
+{
+        int node_id;
+        struct hostport* hstprt;
+        void* addr;
+};
+
+struct hostport
+{
+        char* hostip;
+        int port;
+};
+
+
 int main(int argc, char* argv[])
 {
-	/*
-	long int ret=syscall(350,"int clone_func(void* args)",NULL,0,NULL);
-	*/
 
 	/*
-	Mangled name for function prototype "void* virgo_cloud_test(void*)" is sent to virgo_cloudexec kernel service which does
-	upcall to userspace to invoke the function (within libvirgo.so) in remote cloud node. Kernel upcall usermode helper 
-	requires mangled names for dlsym(). This also is a unique id for a function. Library libvirgo.so needs to be prebuilt
-	with all functions that need to be on cloud and should be replicated in all cloud nodes.
-	For executable parameter, complete path to binary is passed in.
-	\r\n or " " padded is stripped off by kernel recv code in virgo_cloudexec by strsep tokenizer. It is intriguing that telnet 
-	connection works without any padding.
-
+	virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls called by syscall numbers
 	- Ka.Shrinivaasan
 	*/
 
+	struct virgo_address* vaddr;
+	/* virgo_malloc*/
+	vaddr=(struct virgo_address*)syscall(351,10000,NULL,0,NULL);
 
-	long int ret=syscall(350,"virgo_cloud_test_kernelspace ",NULL,0,NULL);
-	/*long int ret=syscall(350,"_Z16virgo_cloud_testPv ",NULL,0,NULL);*/
-	/*long int ret=syscall(350,"/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main ",NULL,0,NULL);*/
-	/*long int ret=syscall(350,argv[1],NULL,0,NULL);*/
+	/*virgo_set*/
+	char* set_ret=(char*)syscall(352,vaddr,"test_virgo_malloc_data",NULL,0,NULL);
+	if(set_ret)
+		printf("set_ret = %s\n",set_ret);
+
+	/*virgo_get*/
+	char* get_ret=(char*)syscall(353,vaddr,NULL,0,NULL);
+	if(get_ret)
+		printf("get_ret = %s\n",get_ret);
+
+	/*virgo_free*/
+	char* free_ret=(char*)syscall(354,vaddr,NULL,0,NULL);
+	if(free_ret)
+		printf("free_ret = %s\n",free_ret);
 	return 0;
 }
