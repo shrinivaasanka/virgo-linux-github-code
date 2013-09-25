@@ -1,0 +1,89 @@
+ CC      drivers/net/wireless/ti/wlcore/wl12xx_platform_data.o
+  LD      drivers/net/wireless/ti/wlcore/built-in.o
+  LD      drivers/net/wireless/ti/built-in.o
+  LD      drivers/net/wireless/built-in.o
+  LD      drivers/net/built-in.o
+  LD      drivers/built-in.o
+  LINK    vmlinux
+  LD      vmlinux.o
+link_vmlinux: modpost_link()
+virgo_malloc/built-in.o: In function `get_host_from_cloud_PRG':
+(.text+0x600): multiple definition of `get_host_from_cloud_PRG'
+virgo_clone/built-in.o:(.text+0x10): first defined here
+virgo_malloc/built-in.o: In function `get_least_loaded_hostport_from_cloud':
+(.text+0x660): multiple definition of `get_least_loaded_hostport_from_cloud'
+virgo_clone/built-in.o:(.text+0x70): first defined here
+virgo_malloc/built-in.o: In function `get_host_from_cloud_Loadtrack':
+(.text+0x0): multiple definition of `get_host_from_cloud_Loadtrack'
+virgo_clone/built-in.o:(.text+0x0): first defined here
+make[1]: *** [vmlinux] Error 1
+make: *** [sub-make] Error 2
+  INSTALL arch/x86/crypto/ablk_helper.ko
+  INSTALL arch/x86/crypto/aes-i586.ko
+  INSTALL arch/x86/crypto/aesni-intel.ko
+  INSTALL arch/x86/crypto/glue_helper.ko
+  INSTALL arch/x86/crypto/salsa20-i586.ko
+  INSTALL arch/x86/crypto/serpent-sse2-i586.ko
+  INSTALL arch/x86/crypto/twofish-i586.ko
+  INSTALL arch/x86/kernel/apm.ko
+  INSTALL arch/x86/kernel/cpu/mcheck/mce-inject.ko
+==================
+link_vmlinux: vmlinux_link()
+link_vmlinux: vmlinux_link(), in if clause
+ld -m elf_i386 --emit-relocs --build-id -o .tmp_vmlinux1                                          -T /home/kashrinivaasan/linux-3.7.8-build-virgomempool/arch/x86/kernel/vmlinux.lds arch/x86/kernel/head_32.o arch/x86/kernel/head32.o arch/x86/kernel/head.o  init/built-in.o                                             --start-group  usr/built-in.o  arch/x86/built-in.o  kernel/built-in.o  mm/built-in.o  fs/built-in.o  ipc/built-in.o  security/built-in.o  crypto/built-in.o  block/built-in.o  virgo_clone/built-in.o  virgo_malloc/built-in.o  lib/lib.a  arch/x86/lib/lib.a  lib/built-in.o  arch/x86/lib/built-in.o  drivers/built-in.o  sound/built-in.o  firmware/built-in.o  arch/x86/pci/built-in.o  arch/x86/power/built-in.o  arch/x86/video/built-in.o  net/built-in.o --end-group 
+virgo_malloc/built-in.o: In function `get_least_loaded_hostport_from_cloud_mempool':
+(.text+0x6b9): undefined reference to `get_host_from_cloud_Loadtrack_mempool'
+virgo_malloc/built-in.o: In function `get_least_loaded_hostport_from_cloud_mempool':
+(.text+0x6e3): undefined reference to `get_host_from_cloud_PRG_mempool'
+make[1]: *** [vmlinux] Error 1
+make: *** [sub-make] Error 2
+=================================
+  DEPMOD  3.7.8
+WARNING: Loop detected: /lib/modules/3.7.8/extra.1/virgo_cloudexec_mempool.ko needs virgo_cloudexec.ko which needs virgo_cloudexec_mempool.ko again!
+WARNING: Module /lib/modules/3.7.8/extra.1/virgo_cloudexec_mempool.ko ignored, due to loop
+WARNING: Module /lib/modules/3.7.8/extra/virgo_cloudexec.ko ignored, due to loop
+sh /home/kashrinivaasan/linux-3.7.8/arch/x86/boot/install.sh 3.7.8 arch/x86/boot/bzImage \
+		System.map "/boot"
+run-parts: executing /etc/kernel/postinst.d/dkms 3.7.8 /boot/vmlinuz-3.7.8
+
+=============================
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.614634] vgaarb: device changed decodes: PCI:0000:00:02.0,olddecodes=io+mem,decodes=io+mem:owns=io+mem
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.628038] usb 1-5: new high-speed USB device number 2 using ehci-pci
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.753665] fbcon: inteldrmfb (fb0) is primary device
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.753716] i915: fixme: max PWM is zero
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.771218] usb 1-5: New USB device found, idVendor=0bda, idProduct=0158
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.771221] usb 1-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.771224] usb 1-5: Product: USB2.0-CRW
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.771227] usb 1-5: Manufacturer: Generic
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.771229] usb 1-5: SerialNumber: 20071114173400000
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.786549] Initializing USB Mass Storage driver...
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.786630] usbcore: registered new interface driver usb-storage
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.786630] USB Mass Storage support registered.
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.794523] scsi0 : usb-storage 1-5:1.0
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.794660] usbcore: registered new interface driver ums-realtek
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    1.888233] usb 1-6: new high-speed USB device number 3 using ehci-pci
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.095834] usb 1-6: New USB device found, idVendor=0c45, idProduct=63ee
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.095838] usb 1-6: New USB device strings: Mfr=2, Product=1, SerialNumber=0
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.095841] usb 1-6: Product: Integrated_Webcam_1.3M
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.095843] usb 1-6: Manufacturer: ^P
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.596226] usb 7-1: new full-speed USB device number 2 using uhci_hcd
+[
+	initramfs bootup error here for not able to lookup /dev/sda5 by UUID ("check root-delay; check root")
+]
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.648250] Console: switching to colour frame buffer device 170x48
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.653004] i915 0000:00:02.0: fb0: inteldrmfb frame buffer device
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.653006] i915 0000:00:02.0: registered panic notifier
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.667560] acpi device:3b: registered as cooling_device2
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668094] ACPI: Video Device [VID1] (multi-head: yes  rom: no  post: no)
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668155] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/LNXVIDEO:01/input/input4
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668223] [Firmware Bug]: Duplicate ACPI video bus devices for the same VGA controller, please try module parameter "video.allow_duplicates=1"if the current driver doesn't work.
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668241] [drm] Initialized i915 1.6.0 20080730 for 0000:00:02.0 on minor 0
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668273] ahci 0000:00:1f.2: version 3.0
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668508] ahci 0000:00:1f.2: irq 46 for MSI/MSI-X
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668567] ahci: SSS flag set, parallel bus scan disabled
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668609] ahci 0000:00:1f.2: AHCI 0001.0200 32 slots 4 ports 3 Gbps 0x33 impl SATA mode
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668614] ahci 0000:00:1f.2: flags: 64bit ncq sntf stag pm led clo pio slum part ccc ems
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.668620] ahci 0000:00:1f.2: setting latency timer to 64
+Sep 25 16:04:20 kashrinivaasan-Inspiron-1545 kernel: [    2.692877] scsi1 : ahci
+                                                                                                                              23052,69      99%
+
