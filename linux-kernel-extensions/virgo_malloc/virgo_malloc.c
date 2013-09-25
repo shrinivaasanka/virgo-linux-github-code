@@ -102,14 +102,16 @@ extern int num_cloud_nodes;
 extern char* node_ip_addrs_in_cloud[3000];
 */
 
+/*
 struct virgo_addr_transtable vtable[3000];
 
-char* get_host_from_cloud_Loadtrack();
-char* get_host_from_cloud_PRG();
+char* get_host_from_cloud_Loadtrack_mempool();
+char* get_host_from_cloud_PRG_mempool();
 char* int_to_str(int);
 char* addr_to_str(char*);
+*/
 
-struct hostport* get_least_loaded_hostport_from_cloud()
+struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 {
 	/*
 	Either a loadtracking algorithm or a pseudorandom generator based loadbalancing algorithm is invoked to
@@ -121,17 +123,17 @@ struct hostport* get_least_loaded_hostport_from_cloud()
 	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
 	if(strcmp(LBAlgorithm, "Loadtrack")==0)
 	{
-		char* cloud_host = get_host_from_cloud_Loadtrack();
+		char* cloud_host = get_host_from_cloud_Loadtrack_mempool();
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack() returns host ip: %s \n",hopo->hostip);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_mempool() returns host ip: %s \n",hopo->hostip);
 		hopo->port=10000;
 	}
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
-		char* cloud_host = get_host_from_cloud_PRG();
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() - cloud_host(before kstrdup): %s \n",cloud_host);
+		char* cloud_host = get_host_from_cloud_PRG_mempool();
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): %s \n",cloud_host);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG() returns host ip: %s \n",hopo->hostip);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: %s \n",hopo->hostip);
 		hopo->port=10000;
 	}
 	return hopo;
@@ -141,7 +143,7 @@ struct hostport* get_least_loaded_hostport_from_cloud()
  Loadtracking algorithm for  nodes in the cloud
 */
 
-char* get_host_from_cloud_Loadtrack()
+char* get_host_from_cloud_Loadtrack_mempool()
 {
 	return NULL;
 }
@@ -150,7 +152,7 @@ char* get_host_from_cloud_Loadtrack()
 Pseudorandom number generator based algorithm to distribute virgo_malloc() requests amongst cloud nodes
 */
 
-char* get_host_from_cloud_PRG()
+char* get_host_from_cloud_PRG_mempool()
 {
 	unsigned int rand_int = get_random_int();
 	/* 
@@ -166,8 +168,8 @@ char* get_host_from_cloud_PRG()
 	*/
 	unsigned int rand_host_id = rand_int % num_cloud_nodes;
 
-	printk(KERN_INFO "get_host_from_cloud_PRG() - get_random_int() returned %u \n",rand_int);
-	printk(KERN_INFO "get_host_from_cloud_PRG() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
+	printk(KERN_INFO "get_host_from_cloud_PRG_mempool() - get_random_int() returned %u \n",rand_int);
+	printk(KERN_INFO "get_host_from_cloud_PRG_mempool() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
 	return node_ip_addrs_in_cloud[rand_host_id];	
 	
 }
@@ -353,7 +355,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 	int i=0;
 	while(true)	
 	{
-		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud();
+		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
 		sin.sin_family=AF_INET;
 		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        		sin.sin_port=htons(leastloadedhostport->port);
