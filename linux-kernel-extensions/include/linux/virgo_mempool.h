@@ -49,3 +49,11 @@ struct virgo_addr_transtable
         struct hostport* hstprt;
         void* addr;
 };
+
+struct virgo_addr_transtable vtable[3000];
+
+struct hostport* get_least_loaded_hostport_from_cloud_mempool();
+char* get_host_from_cloud_Loadtrack_mempool();
+char* get_host_from_cloud_PRG_mempool();
+char* int_to_str(int);
+char* addr_to_str(char*);
