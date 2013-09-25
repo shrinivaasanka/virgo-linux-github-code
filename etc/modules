@@ -1,11 +1,47 @@
+#***************************************************************************************/
+#VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
+#
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+#--------------------------------------------------------------------------------------------------
+#Copyright (C):
+# 
+#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+#Independent Open Source Developer, Researcher and Consultant
+#Ph: 9003082186, 9791165980
+#Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+#Personal website(research): https://sites.google.com/site/kuja27/
+#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+#--------------------------------------------------------------------------------------------------
+
+#*****************************************************************************************/
+
+
+
 # /etc/modules: kernel modules to load at boot time.
 #
 # This file contains the names of kernel modules that should be loaded
 # at boot time, one per line. Lines beginning with "#" are ignored.
 
-#virgo_cloudexec module appended to bootup loading of kernel modules
+#virgo_cloudexec, virgo_cloud_test_kernelspace, virgo_cloud_mempool_kernelspace and virgo_cloudexec_mempool 
+#modules for VIRGO cpupooling and mempooling appended to bootup loading of kernel modules
 #Pre-requisite is to run the update-initramfs -uv <kernel-version> and
-#copy virgo_cloudexec.ko to /lib/modules/`uname -r`  and do a test modprobe on virgo_cloudexec.ko
+#copy virgo_cloud*.ko files to /lib/modules/`uname -r`  and do a test modprobe on virgo_cloud*.ko
+#- Ka.Shrinivaasan 25September2013
 
 lp
 virgo_cloudexec
+virgo_cloud_test_kernelspace
+virgo_cloud_mempool_kernelspace
+virgo_cloudexec_mempool
