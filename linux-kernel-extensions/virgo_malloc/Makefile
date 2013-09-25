@@ -1,5 +1,5 @@
 #
-# Makefile for Virgo virgo_clone() cloud client system call 
+# Makefile for Virgo virgo_malloc() cloud client system call 
 #
 
 ccflags-y := -DDEBUG
