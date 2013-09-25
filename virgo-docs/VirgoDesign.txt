@@ -287,5 +287,11 @@ Commits as on 24 September 2013
 -------------------------------
 Updated syscall*.tbl files, staging.sh, Makefiles for virgo_malloc(),virgo_set(),virgo_get() and virgo_free() memory pooling syscalls. New testcase test_virgo_malloc for virgo_malloc(), virgo_set(), virgo_get(), virgo_free() has been added to repository. This testcase might have to be updated if return type and args to virgo_malloc+ syscalls are to be changed.
 
+Commits as on 25 September 2013
+-------------------------------
+All build related errors fixed after kernel rebuild some changes made to function names to reflect their
+names specific to memory pooling. Updated /etc/modules also has been committed to repository.
+
+
 "VirgoDesign.txt" 213L, 16302C written                    
 
