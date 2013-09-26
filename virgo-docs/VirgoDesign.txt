@@ -292,6 +292,13 @@ Commits as on 25 September 2013
 All build related errors fixed after kernel rebuild some changes made to function names to reflect their
 names specific to memory pooling. Updated /etc/modules also has been committed to repository.
 
+Commits as on 26 September 2013
+-------------------------------
+Circular dependency error in standalone build of cpu pooling and memory pooling drivers fixed and
+datatypes and declarations for CPU pooling and Memory Pooling drivers have been segregated into respective header files (virgo.h and
+virgo_mempool.h with corresponding service header files) to avoid any dependency error.
+
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
