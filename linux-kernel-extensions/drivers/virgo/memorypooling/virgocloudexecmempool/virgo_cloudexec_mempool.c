@@ -27,7 +27,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 *****************************************************************************************/
 
-#include <linux/virgo.h>
+#include <linux/virgo_mempool.h>
 #include <linux/virgocloudexecmempoolsvc.h>
 #include <linux/virgo_config.h>
 
@@ -132,7 +132,7 @@ int num_cloud_nodes;
 * - Ka.Shrinivaasan
 */
  
-int clone_func(void* args)
+int mempool_func(void* args)
 {
 	/*
 	 * Lack of reflection kind of facilities requires map of function_names to pointers_to_functions to be executed
@@ -148,7 +148,7 @@ int clone_func(void* args)
  
 	/*
 	*If parameterIsExecutable is set to 2, the data from virgo_malloc() is a function and is executed within kernel address-space itself
-	*Presently just an example function is invoked. Intermodule function invocation functionality which enables complete takeover
+	*This invokes kmalloc() to allocate kernel memory. Intermodule function invocation functionality which enables complete takeover
 	*of lowlevel system cards, PCI, RAM etc., has been implemented and testcase kern.logs are under ./test_logs/
 	*
 	*If parameterIsExecutable is set to 1 the data received from virgo_malloc() is not a function but name of executable
@@ -178,12 +178,8 @@ int clone_func(void* args)
 	{
 		struct task_struct *task;
 		int woken_up_2=0;
-		printk("clone_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		/*
-		int (*virgo_cloud_test_kernelspace)(void*);
-		virgo_cloud_test_kernelspace=kallsyms_lookup_name(mempoolFunction);
-		*/
-		task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "mempoolFunction thread");
+		printk("mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
+		task=kthread_create(kstrdup(strcat(mempoolFunction,"_kernelspace"),GFP_ATOMIC), (void*)args, "mempoolFunction kernelspace thread");
 		woken_up_2=wake_up_process(task);
 	}
 	else if(parameterIsExecutable==1)
@@ -201,10 +197,10 @@ int clone_func(void* args)
 		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
 		/* mempoolFunction contains name of the binary and not the name of the function */
-		printk("clone_func(): executing call_usermodehelper for data from virgo_malloc: %s - parameterIsExecutable=%d\n",mempoolFunction, parameterIsExecutable);	
+		printk("mempool_func(): executing call_usermodehelper for data from virgo_malloc: %s - parameterIsExecutable=%d\n",mempoolFunction, parameterIsExecutable);	
 		ret=call_usermodehelper(mempoolFunction, argv, envp, UMH_WAIT_EXEC);
 		/*ret=call_usermodehelper("/bin/bash", argv, envp, UMH_WAIT_PROC);*/
-		printk("clone_func(): call_usermodehelper() for binary %s returns ret=%d\n", mempoolFunction, ret);
+		printk("mempool_func(): call_usermodehelper() for binary %s returns ret=%d\n", mempoolFunction, ret);
 		filp_close(file_stdout,NULL);
 	}
 	else if (parameterIsExecutable==0)
@@ -218,7 +214,7 @@ int clone_func(void* args)
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
-		printk(KERN_INFO "clone_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d, mempoolFunction=%s\n",parameterIsExecutable,mempoolFunction);
+		printk(KERN_INFO "mempool_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d, mempoolFunction=%s\n",parameterIsExecutable,mempoolFunction);
 		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
 
 		/*
@@ -230,15 +226,15 @@ int clone_func(void* args)
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
-		printk(KERN_INFO "clone_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
+		printk(KERN_INFO "mempool_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d\n",parameterIsExecutable);
 		ret=call_usermodehelper("/bin/bash",argv,envp,UMH_WAIT_PROC);
 		*/
-		printk("clone_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
+		printk("mempool_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
 		/*
 		Depending on scheduling priority either this or other message in virgocloudexec_mempool_sendto() will be sent to
 		virgo_malloc() remote syscall
 		*/
-		strcpy(buffer,"clone_func(): cloudclonethread executed for clone_func(), sending message to virgo_malloc() remote syscall client");
+		strcpy(buffer,"mempool_func(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client");
 		filp_close(file_stdout,NULL);
 	}
 	return 1;
@@ -347,7 +343,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 /*
 FPTR get_function_ptr_from_str(char* mempoolFunction)
 {
-	return clone_func;
+	return mempool_func;
 }
 */
 
@@ -486,11 +482,11 @@ int virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): mempoolFunction : %s \n", mempoolFunction);
 		/*mempoolFunction_ptr = get_function_ptr_from_str(mempoolFunction);*/
 		/*task=kthread_run(mempoolFunction_ptr, (void*)args, "cloudclonethread");*/
-		task=kthread_create(clone_func, (void*)args, "clone_func thread");
+		task=kthread_create(mempool_func, (void*)args, "mempool_func thread");
 		int woken_up=wake_up_process(task);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): clone thread woken_up : %d\n",woken_up);
 		/*
-		task=kthread_create(clone_func, (void*)args, "cloudclonethread");
+		task=kthread_create(mempool_func, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
 		*/
 	}
@@ -531,7 +527,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock)
 	*/
 	if(clientsock != NULL)
 	{
-		strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for clone_func(), sending message to virgo_malloc() remote syscall client\n");
+		strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
 		iov.iov_base=buffer;	
