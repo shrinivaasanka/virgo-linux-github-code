@@ -99,11 +99,6 @@ int virgocloudexec_sendto(struct socket*);
 
 int virgo_cloudexec_service(void* args);
 
-int virgocloudexec_mempool_create(void);
-int virgocloudexec_mempool_recvfrom(struct socket*);
-int virgocloudexec_mempool_sendto(struct socket*);
-
-int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
 
 extern int virgo_cloud_test_kernelspace(void* args);
@@ -128,18 +123,12 @@ struct virgo_ops_t {
 	int (*virgo_create)(void);
 	int (*virgo_recvfrom)(struct socket*);
 	int (*virgo_sendto)(struct socket*);
-	int (*virgo_mempool_create)(void);
-	int (*virgo_mempool_recvfrom)(struct socket*);
-	int (*virgo_mempool_sendto)(struct socket*);
 };
 
 static struct virgo_ops_t virgo_ops = {
 	.virgo_create = virgocloudexec_create,
 	.virgo_recvfrom = virgocloudexec_recvfrom,
 	.virgo_sendto = virgocloudexec_sendto,
-	.virgo_mempool_create = virgocloudexec_mempool_create,
-	.virgo_mempool_recvfrom = virgocloudexec_mempool_recvfrom,
-	.virgo_mempool_sendto = virgocloudexec_mempool_sendto
 };
 
 struct virgo_class_t {
@@ -157,7 +146,6 @@ static struct virgo_class_t virgo_class = {
 struct task_struct *task;
 int (*cloneFunction_ptr)(void*);
 char* cloneFunction;
-char* mempoolFunction;
 int error;
 char buffer[BUF_SIZE];
 static struct socket *sock;	
@@ -185,7 +173,6 @@ int kernel_space_func(void* args);
 char* strip_control_M(char*);
 
 int virgo_client_thread(void* args);
-int virgo_mempool_client_thread(void* args);
 
 
 /*
