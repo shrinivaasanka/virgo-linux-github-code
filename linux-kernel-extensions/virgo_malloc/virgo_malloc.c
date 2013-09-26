@@ -66,50 +66,10 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/virgo_config.h>
 #include <linux/virgo_mempool.h>
 
-/*
-#include "netns.h"
-*/
-
-/*
-struct hostport
-{
-	char* hostip;
-	int port;
-};
-
-struct virgo_address
-{
-	int node_id;
-	struct hostport* hstprt;
-	void* addr;
-};
-
-struct virgo_addr_transtable
-{
-	int node_id;
-	struct hostport* hstprt;
-	void* addr;
-};
-*/
-
 #define BUF_SIZE 3000
 
 #define PER_NODE_MALLOC_CHUNK_SIZE 1000
 
-/*
-extern int num_cloud_nodes;
-
-extern char* node_ip_addrs_in_cloud[3000];
-*/
-
-/*
-struct virgo_addr_transtable vtable[3000];
-
-char* get_host_from_cloud_Loadtrack_mempool();
-char* get_host_from_cloud_PRG_mempool();
-char* int_to_str(int);
-char* addr_to_str(char*);
-*/
 
 struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 {
