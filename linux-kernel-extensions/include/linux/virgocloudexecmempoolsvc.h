@@ -27,21 +27,21 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 *****************************************************************************************/
 
-#ifndef _LINUX_VIRGOCLOUDEXECSVC_H
-#define _LINUX_VIRGOCLOUDEXECSVC_H
+#ifndef _LINUX_VIRGOCLOUDEXECMEMPOOLSVC_H
+#define _LINUX_VIRGOCLOUDEXECMEMPOOLSVC_H
 
-#include <linux/virgo.h>
+#include <linux/virgo_mempool.h>
 #include <linux/socket.h>
 
 
 int virgo_cloudexec_mempool_service(void* args)
 {
 
-	try_module_get(virgo_class.m_virgo_owner);
+	try_module_get(virgo_mempool_class.m_virgo_owner);
 	while(1)
 	{
-		printk(KERN_INFO "virgo_cloudexec_mempool_service(): virgo_ops.virgo_create() \n");
-		struct socket* clsock = virgo_ops.virgo_mempool_create();
+		printk(KERN_INFO "virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() \n");
+		struct socket* clsock = virgo_mempool_ops.virgo_mempool_create();
 
 		/*
 		Multithreaded VIRGO Memory Pooling Kernel Service
@@ -52,7 +52,7 @@ int virgo_cloudexec_mempool_service(void* args)
 		struct task_struct *task;
 		void* args=clsock;
 		int woken_up=0;
-		printk(KERN_INFO "virgo_cloudexec_mempool_service(): virgo client thread per request \n");
+		printk(KERN_INFO "virgo_cloudexec_mempool_service(): virgo mempool client thread per request \n");
                 task=kthread_create(virgo_mempool_client_thread, (void*)args, "virgo memorypool client thread per virgo_clone request");
 		woken_up=wake_up_process(task);
 
@@ -72,10 +72,10 @@ Multithreaded VIRGO Memory Pooling Kernel Service
 int virgo_mempool_client_thread(void* args)
 {
 		struct socket* clientsock=(struct socket*)args;
-		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_ops.virgo_mempool_recvfrom()\n");
-		virgo_ops.virgo_mempool_recvfrom(clientsock);
-		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_ops.virgo_mempool_sendto()\n");
-		virgo_ops.virgo_mempool_sendto(clientsock);
+		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()\n");
+		virgo_mempool_ops.virgo_mempool_recvfrom(clientsock);
+		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()\n");
+		virgo_mempool_ops.virgo_mempool_sendto(clientsock);
 }
 
 #endif
