@@ -17,7 +17,7 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0x8a9dc593, "module_layout" },
+	{ 0xd320a490, "module_layout" },
 	{ 0x12da5bb2, "__kmalloc" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0x50eedeb8, "printk" },
