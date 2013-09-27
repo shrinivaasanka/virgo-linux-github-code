@@ -113,6 +113,12 @@ struct virgo_addr_transtable
         void* addr;
 };
 
+struct virgo_mempool_args
+{
+	char* mempool_cmd;
+	char* mempool_args[3];
+};
+
 struct virgo_addr_transtable vtable[3000];
 
 struct hostport* get_least_loaded_hostport_from_cloud_mempool();
@@ -122,6 +128,7 @@ char* int_to_str(int);
 char* addr_to_str(char*);
 typedef int (*FPTR)(void *args);
 
+struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
 
 int virgocloudexec_mempool_create(void);
 int virgocloudexec_mempool_recvfrom(struct socket*);
