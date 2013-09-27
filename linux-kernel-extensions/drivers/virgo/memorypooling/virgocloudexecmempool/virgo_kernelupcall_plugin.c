@@ -46,7 +46,7 @@ int main(int argc, char **argv)
 
        dlerror();    /* Clear any existing error */
 
-       printf("dlsym lookup for cloud function: %s\n", argv[1]);
+       printf("dlsym lookup for cloud mempool function: %s\n", argv[1]);
        *(void **) (&cloud_function) = dlsym(handle, argv[1]);
        /* *(void **) (&cloud_function) = dlsym(handle, "_Z16virgo_cloud_testPv");*/
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
                fprintf(stderr, "%s\n", error);
                exit(EXIT_FAILURE);
        }
-       printf("virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud clone function pointer: %x\n",cloud_function);
+       printf("virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud mempool function pointer: %x\n",cloud_function);
        int args=1000;
        s=pthread_create(&tid, NULL, cloud_function, &args); 
        pthread_join(tid, &x);
