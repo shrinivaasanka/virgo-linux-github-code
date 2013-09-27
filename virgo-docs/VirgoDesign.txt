@@ -298,6 +298,11 @@ Circular dependency error in standalone build of cpu pooling and memory pooling 
 datatypes and declarations for CPU pooling and Memory Pooling drivers have been segregated into respective header files (virgo.h and
 virgo_mempool.h with corresponding service header files) to avoid any dependency error.
 
+Commits as on 27 September 2013
+-------------------------------
+Major commits for Memory Pooling Driver listen port change and parsing VIRGO memory pooling commands have been done.
+
+
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
