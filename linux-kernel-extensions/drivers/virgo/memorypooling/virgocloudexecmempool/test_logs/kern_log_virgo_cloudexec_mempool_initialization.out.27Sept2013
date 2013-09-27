@@ -1,0 +1,23 @@
+ep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.796514] Request for unknown module key 'Magrathea: Glacier signing key: d75d910c0d2a11928dbc9bed4861276cee46fdb2' err -11
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.796787] virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.809983] Request for unknown module key 'Magrathea: Glacier signing key: d75d910c0d2a11928dbc9bed4861276cee46fdb2' err -11
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810303] virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810306] virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810307] virgocloudexec_mempool_init(): invoking read_virgo_config()
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810331] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 1: 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810334] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 2: 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.810336] read_virgo_config(): virgo_cloud config file being read
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832065] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832065]
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832071] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832071]
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832074] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832076] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[0] = 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832078] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832078]
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832081] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[1] = 127.0.0.1
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832081]
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832100] virgocloudexec_mempool_init(): sock_create() returns error code: 0
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832104] virgocloudexec_mempool_init(): kernel_bind() returns error code: 0
+Sep 27 10:54:47 kashrinivaasan-Inspiron-1545 kernel: [   17.832111] virgocloudexec_mempool_init(): kernel_listen() returns error code: 0           
+
