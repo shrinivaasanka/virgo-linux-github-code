@@ -27,21 +27,24 @@ mail to: ka.shrinivaasan@gmail.com
 #include <unistd.h>
 #include <string.h>
 
-struct virgo_set_args
+struct virgo_mempool_args
 {
-	char* addr;
-	char* data;
+	char* mempool_cmd;
+	char* mempool_args[3];
 };
 
+char* toAddress(char*);
 void* virgo_cloud_malloc(void*);
 void* virgo_cloud_free(void*);
 void* virgo_cloud_get(void*);
 void* virgo_cloud_set(void*);
+struct virgo_mempool_args* parse_virgomempool_command_userspace(char* mempoolFunction);
 
 void* virgo_cloud_malloc(void* args)
 {
 	printf("virgo_cloud_mempool.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	int size=*((int*)(args));
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command_userspace((char*)args);
+	int size=atoi(vmargs->mempool_args[0]);
 	void* ptr=malloc(size);
 	printf("virgo_cloud_mempool.c:virgo_cloud_malloc(): ptr=%p\n",ptr);
 	fflush(stdout);
@@ -51,26 +54,59 @@ void* virgo_cloud_malloc(void* args)
 void* virgo_cloud_get(void* args)
 {
 	printf("virgo_cloud_mempool.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_get(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	char* ret=strdup((char*)args);	
-	printf("virgo_cloud_mempool.c: virgo_cloud_get(): address=%p, data=%s\n",(char*)args,ret);
-	return ret;
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command_userspace((char*)args);
+	char* ptr=toAddress((char*)vmargs->mempool_args[0]);	
+	printf("virgo_cloud_mempool.c: virgo_cloud_get(): address=%p, data=%s\n",ptr,ptr);
+	return ptr;
 }
 
 void* virgo_cloud_set(void* args)
 {
 	printf("virgo_cloud_mempool.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	struct virgo_set_args *vsetargs=(struct virgo_set_args*)args;
-	vsetargs->addr=strdup(vsetargs->data);
-	printf("virgo_cloud_mempool.c: virgo_cloud_set(): address=%p, data=%s\n",vsetargs->addr,vsetargs->data);
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command_userspace((char*)args);
+	char* ptr=toAddress(vmargs->mempool_args[0]);
+	strcpy(ptr,strdup(vmargs->mempool_args[1]));
+	printf("virgo_cloud_mempool.c: virgo_cloud_set(): address=%p, data=%s\n",ptr,vmargs->mempool_args[1]);
 	return 0;
 }
 
 void* virgo_cloud_free(void* args)
 {
 	printf("virgo_cloud_mempool.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_free(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	char* ptr=(char*)args;
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command_userspace((char*)args);
+	char* ptr=toAddress(vmargs->mempool_args[0]);
 	printf("virgo_cloud_mempool.c: virgo_cloud_free(): address=%p\n",ptr);
-	return 0;
 	free(ptr);
 	return 0;
+}
+
+struct virgo_mempool_args* parse_virgomempool_command_userspace(char* mempoolFunction)
+{
+        struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)malloc(sizeof(struct virgo_mempool_args));
+        vmargs->mempool_cmd=strdup(strsep(&mempoolFunction, "("));
+        if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
+        {
+                vmargs->mempool_args[0]=strdup(strsep(&mempoolFunction,")"));
+                vmargs->mempool_args[1]=NULL;
+        }
+        else
+        {
+
+                vmargs->mempool_args[0]=strdup(strsep(&mempoolFunction,","));
+                vmargs->mempool_args[1]=strdup(strsep(&mempoolFunction,")"));
+                vmargs->mempool_args[2]=NULL;
+        }
+        return vmargs;
+}
+
+/*
+This function parses the address within the string strAddress and returns as the address
+Example: "0x0000ffff" to 0x0000ffff
+*/
+
+char* toAddress(char* strAddress)
+{
+	char *ptr=NULL;
+	sscanf(strAddress,"%p",ptr);	
+	return ptr;
 }
