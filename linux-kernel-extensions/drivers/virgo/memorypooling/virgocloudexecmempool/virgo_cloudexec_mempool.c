@@ -164,7 +164,7 @@ int mempool_func(void* args)
 	*call_usermodehelper() Kernel upcall to usermode to exec a fixed binary that would inturn execute the mempoolFunction in userspace
 	*by spawning a pthread. mempoolFunction is name of the function and not binary. This clone function will be dlsym()ed 
 	*and a pthread will be created by the fixed binary. Name of the fixed binary is hardcoded herein as 
-	*"virgo_kernelupcall_plugin". This fixed binary takes clone function as argument. For testing libvirgo_mempool.so has been created from
+	*"virgo_kernelupcall_plugin". This fixed binary takes malloc function as argument. For testing libvirgo_mempool.so has been created from
 	*virgo_cloud_test.c and separate build script to build the cloud function binaries has been added.
 	*
 	*- Ka.Shrinivaasan
@@ -173,13 +173,14 @@ int mempool_func(void* args)
 	int ret=0;
 	char *argv[8];
 	char *envp[3];
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command(kstrdup(mempoolFunction,GFP_ATOMIC));
 
 	if (parameterIsExecutable==2)
 	{
 		struct task_struct *task;
 		int woken_up_2=0;
 		printk("mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		task=kthread_create(kstrdup(strcat(mempoolFunction,"_kernelspace"),GFP_ATOMIC), (void*)args, "mempoolFunction kernelspace thread");
+		task=kthread_create(kstrdup(vmargs->mempool_cmd,GFP_ATOMIC), (void*)vmargs, "mempoolFunction kernelspace thread");
 		woken_up_2=wake_up_process(task);
 	}
 	else if(parameterIsExecutable==1)
@@ -255,7 +256,7 @@ int kernel_space_func(void* args)
 
 void read_virgo_config()
 {
-	/* virgo_cloud.conf contains a string of comma separated list of IP addresses in the virgo cloud .Read and strtok() it. */
+	/* virgo_cloud.conf contains a string of comma separated list of IP addresses in the virgo cloud .Read and strsep() it. */
 
 	loff_t bytesread=0;
 	loff_t pos=0;
@@ -359,7 +360,7 @@ virgocloudexec_mempool_init(void)
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
-	sin.sin_port=htons(20000);
+	sin.sin_port=htons(30000);
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
@@ -630,6 +631,29 @@ virgocloudexec_mempool_exit(void)
 }
 EXPORT_SYMBOL(virgocloudexec_mempool_exit);
 
+/*
+Arguments Parser for VIRGO memory pooling commands-virgo_cloud_malloc,virgo_cloud_free
+virgo_cloud_set,virgo_cloud_get- sent from virgo_malloc syscall
+*/
+
+struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
+{
+	struct virgo_mempool_args* vmargs=kmalloc(sizeof(struct virgo_mempool_args),GFP_ATOMIC);
+	vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_ATOMIC);
+	if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
+	{
+		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+		vmargs->mempool_args[1]=NULL;
+	}
+	else
+	{
+
+		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_ATOMIC);
+		vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+		vmargs->mempool_args[2]=NULL;
+	}	
+	return vmargs;
+}
 
 MODULE_LICENSE("GPL");
 module_init(virgocloudexec_mempool_init);
