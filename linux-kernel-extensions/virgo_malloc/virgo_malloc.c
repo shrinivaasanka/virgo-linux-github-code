@@ -86,7 +86,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 		char* cloud_host = get_host_from_cloud_Loadtrack_mempool();
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_mempool() returns host ip: %s \n",hopo->hostip);
-		hopo->port=10000;
+		hopo->port=30000;
 	}
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
@@ -94,7 +94,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): %s \n",cloud_host);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: %s \n",hopo->hostip);
-		hopo->port=10000;
+		hopo->port=30000;
 	}
 	return hopo;
 }
