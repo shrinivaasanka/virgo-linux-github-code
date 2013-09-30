@@ -1,7 +1,6 @@
 /***************************************************************************************
 VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
 
-Copyright (C) 2009-2013  Ka.Shrinivaasan
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -16,7 +15,16 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-mail to: ka.shrinivaasan@gmail.com
+--------------------------------------------------------------------------------------------------
+Copyright (C):
+Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+Independent Open Source Developer, Researcher and Consultant
+Ph: 9003082186, 9791165980
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Personal website(research): https://sites.google.com/site/kuja27/
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+--------------------------------------------------------------------------------------------------
+
 *****************************************************************************************/
 
 #include <sys/types.h>

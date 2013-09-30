@@ -180,7 +180,9 @@ int mempool_func(void* args)
 		struct task_struct *task;
 		int woken_up_2=0;
 		printk("mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		task=kthread_create(kstrdup(vmargs->mempool_cmd,GFP_ATOMIC), (void*)vmargs, "mempoolFunction kernelspace thread");
+		printk("Creating Kernel Thread for %s in virgo_cloud_mempool_kernelspace mempool driver module\n",vmargs->mempool_cmd);
+		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
+		task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)mempoolFunction, "mempoolFunction kernelspace thread");
 		woken_up_2=wake_up_process(task);
 	}
 	else if(parameterIsExecutable==1)
@@ -640,9 +642,13 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
 {
 	struct virgo_mempool_args* vmargs=kmalloc(sizeof(struct virgo_mempool_args),GFP_ATOMIC);
 	vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_ATOMIC);
+        printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_cmd: %s\n", vmargs->mempool_cmd);
+
 	if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
 	{
 		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+        	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[0]: %s\n", vmargs->mempool_args[0]);
+
 		vmargs->mempool_args[1]=NULL;
 	}
 	else
@@ -650,10 +656,26 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
 
 		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_ATOMIC);
 		vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+        	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[0]: %s\n", vmargs->mempool_args[0]);
+        	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[1]: %s\n", vmargs->mempool_args[1]);
 		vmargs->mempool_args[2]=NULL;
 	}	
 	return vmargs;
 }
+
+FPTR toFuncPtr(char* functionName)
+{
+        if(strcmp(functionName, "virgo_cloud_malloc_kernelspace")==0)
+                return virgo_cloud_malloc_kernelspace;
+        if(strcmp(functionName, "virgo_cloud_free_kernelspace")==0)
+                return virgo_cloud_free_kernelspace;
+        if(strcmp(functionName, "virgo_cloud_set_kernelspace")==0)
+                return virgo_cloud_set_kernelspace;
+        if(strcmp(functionName, "virgo_cloud_get_kernelspace")==0)
+                return virgo_cloud_get_kernelspace;
+}
+
+
 
 MODULE_LICENSE("GPL");
 module_init(virgocloudexec_mempool_init);

@@ -126,8 +126,10 @@ char* get_host_from_cloud_Loadtrack_mempool();
 char* get_host_from_cloud_PRG_mempool();
 char* int_to_str(int);
 char* addr_to_str(char*);
-typedef int (*FPTR)(void *args);
 
+typedef void* (*FPTR)(void *args);
+
+FPTR toFuncPtr(char*);
 struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
 
 int virgocloudexec_mempool_create(void);
@@ -137,7 +139,10 @@ int virgocloudexec_mempool_sendto(struct socket*);
 int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
 
-int virgo_cloud_mempool_kernelspace(void* args);
+extern void* virgo_cloud_malloc_kernelspace(void* args);
+extern void* virgo_cloud_free_kernelspace(void* args);
+extern void* virgo_cloud_get_kernelspace(void* args);
+extern void* virgo_cloud_set_kernelspace(void* args);
 
 struct virgo_mempool_ops_t {
 	int (*virgo_mempool_create)(void);

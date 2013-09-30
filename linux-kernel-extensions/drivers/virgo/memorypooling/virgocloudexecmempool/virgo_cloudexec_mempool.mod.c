@@ -17,39 +17,46 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xd320a490, "module_layout" },
-	{ 0xa4724ca8, "kmalloc_caches" },
-	{ 0xca14320f, "kernel_sendmsg" },
-	{ 0xefbb6582, "sock_release" },
-	{ 0xfed565f7, "filp_close" },
-	{ 0x737cd06c, "sock_create_kern" },
+	{ 0x8a9dc593, "module_layout" },
+	{ 0xb1278c61, "kmalloc_caches" },
+	{ 0x4f84ad10, "kernel_sendmsg" },
+	{ 0x1cc508a5, "virgo_cloud_set_kernelspace" },
+	{ 0xd3fc9f1a, "sock_release" },
+	{ 0x143054c, "filp_close" },
+	{ 0x794f5965, "sock_create_kern" },
 	{ 0x85df9b6c, "strsep" },
-	{ 0xa8513611, "kernel_listen" },
+	{ 0xe72a3ab3, "kernel_listen" },
 	{ 0xc499ae1e, "kstrdup" },
-	{ 0x174b19cf, "kthread_create_on_node" },
+	{ 0xfa336f83, "kthread_create_on_node" },
+	{ 0x23f0c8b5, "virgo_cloud_get_kernelspace" },
 	{ 0xe2d5255a, "strcmp" },
-	{ 0xc1cb6e28, "vfs_read" },
+	{ 0x72d25688, "virgo_cloud_malloc_kernelspace" },
+	{ 0xbdb1002f, "vfs_read" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
-	{ 0x9a4e72a4, "kernel_sock_shutdown" },
+	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
+	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x61651be, "strcat" },
+	{ 0x6c5513f2, "virgo_cloud_free_kernelspace" },
+	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
 	{ 0xf0fdf6cb, "__stack_chk_fail" },
-	{ 0x4926b83d, "call_usermodehelper_fns" },
-	{ 0xa05cd1bc, "wake_up_process" },
-	{ 0xb3e96422, "kmem_cache_alloc_trace" },
-	{ 0xeac115ce, "kernel_recvmsg" },
-	{ 0x5065bcee, "kernel_accept" },
-	{ 0x8195e7e2, "fd_install" },
-	{ 0xe22acb2a, "kernel_bind" },
-	{ 0xc89fbff6, "try_module_get" },
+	{ 0x68d4fad5, "call_usermodehelper_fns" },
+	{ 0x281056ca, "wake_up_process" },
+	{ 0xac518073, "kmem_cache_alloc_trace" },
+	{ 0xd206e501, "kernel_recvmsg" },
+	{ 0x40b508a5, "kernel_accept" },
+	{ 0x8286aacc, "fd_install" },
+	{ 0xaa099fde, "kernel_bind" },
+	{ 0x1616a37c, "try_module_get" },
 	{ 0xe914e41e, "strcpy" },
-	{ 0xa21f5994, "filp_open" },
+	{ 0x95a608a3, "filp_open" },
 };
 
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=";
+"depends=virgo_cloud_mempool_kernelspace";
 
 
-MODULE_INFO(srcversion, "B6700ABE59100BB496680F9");
+MODULE_INFO(srcversion, "65E975671D1FEFA5232FE58");
