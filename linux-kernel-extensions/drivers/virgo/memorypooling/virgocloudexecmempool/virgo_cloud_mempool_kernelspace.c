@@ -51,7 +51,7 @@ struct virgo_mempool_args* parse_virgomempool_command_kernelspace(char* mempoolF
 static int __init
 virgo_cloud_mempool_kernelspace_init(void)
 {
-	printk(KERN_INFO KERN_INFO "virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module\n");
+	printk(KERN_INFO "virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module\n");
 	return 0;
 }
 EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_init);
@@ -60,7 +60,7 @@ EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_init);
 static void __exit
 virgo_cloud_mempool_kernelspace_exit(void)
 {
-	printk(KERN_INFO KERN_INFO "virgo_cloud_mempool_kernelspace_exit(): exiting virgo cloud test kernel space module \n");
+	printk(KERN_INFO "virgo_cloud_mempool_kernelspace_exit(): exiting virgo cloud test kernel space module \n");
 	do_exit(1);
 }
 EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_exit);

@@ -3,7 +3,7 @@ cmd_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecm
 source_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloudexec_mempool.o := /home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloudexec_mempool.c
 
 deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/virgo_cloudexec_mempool.o := \
-  /home/kashrinivaasan/linux-3.7.8/include/linux/virgo.h \
+  /home/kashrinivaasan/linux-3.7.8/include/linux/virgo_mempool.h \
   /home/kashrinivaasan/linux-3.7.8/include/linux/ioport.h \
   /home/kashrinivaasan/linux-3.7.8/include/linux/compiler.h \
     $(wildcard include/config/sparse/rcu/pointer.h) \
