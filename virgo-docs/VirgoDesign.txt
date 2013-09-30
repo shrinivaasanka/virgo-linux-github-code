@@ -302,7 +302,9 @@ Commits as on 27 September 2013
 -------------------------------
 Major commits for Memory Pooling Driver listen port change and parsing VIRGO memory pooling commands have been done.
 
-
+Commits as on 30 September 2013
+-------------------------------
+New parser functions added for parameter parsing and initial testing on virgo_malloc() works with telnet client with logs in test_logs/
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
