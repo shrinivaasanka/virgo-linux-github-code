@@ -1,0 +1,38 @@
+Sep 30 18:37:10 kashrinivaasan-Inspiron-1545 kernel: [  106.011711] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+Sep 30 18:37:16 kashrinivaasan-Inspiron-1545 kernel: [  112.572654] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 30 18:37:16 kashrinivaasan-Inspiron-1545 kernel: [  112.573074] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 30 18:37:16 kashrinivaasan-Inspiron-1545 kernel: [  112.573080] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 30 18:37:16 kashrinivaasan-Inspiron-1545 kernel: [  112.573083] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453576] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 27
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453583] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virgo_cloud_malloc(30000)
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453583] 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453586] print_buffer(): 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453588] vi
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453590] rg
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453593] 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453595] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_malloc(30000)
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453595] 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.453597] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_malloc(30000) 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454563] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454567] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454570] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454570] 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454613] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454615] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.454632] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455217] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_malloc
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455222] parse_virgomempool_command: vmargs->mempool_args[0]: 30000
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455224] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455226] Creating Kernel Thread for virgo_cloud_malloc in virgo_cloud_mempool_kernelspace mempool driver module
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455264] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455268] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size str=30000
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455271] toInteger(): strInt=[30000], integer=30000
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455272] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=30000
+Sep 30 18:37:33 kashrinivaasan-Inspiron-1545 kernel: [  129.455276] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=eea10000
+Sep 30 18:38:01 kashrinivaasan-Inspiron-1545 kernel: [  157.721355] sd 7:0:0:0: [sdc] Test WP failed, assume Write Enabled
+Sep 30 18:38:01 kashrinivaasan-Inspiron-1545 kernel: [  157.723717] sd 7:0:0:0: [sdc] Asking for cache data failed
+Sep 30 18:38:01 kashrinivaasan-Inspiron-1545 kernel: [  157.723725] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+Sep 30 18:38:53 kashrinivaasan-Inspiron-1545 kernel: [  209.433116] sd 7:0:0:0: [sdc] Test WP failed, assume Write Enabled
+Sep 30 18:38:53 kashrinivaasan-Inspiron-1545 kernel: [  209.435406] sd 7:0:0:0: [sdc] Asking for cache data failed
+Sep 30 18:38:53 kashrinivaasan-Inspiron-1545 kernel: [  209.435414] sd 7:0:0:0: [sdc] Assuming drive cache: write through
+
