@@ -1,0 +1,25 @@
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860870] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860873] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860812] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860812]
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860879] virgo_malloc() syscall: sent message: virgo_cloud_malloc(1000)
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860882] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860886] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860891] print_buffer():
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860893] v
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860896] i
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860898] r
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860900] g
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860901]
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860903] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860906] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860942] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860946] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860950] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860950]
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860958] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860962] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Sep 30 14:03:36 kashrinivaasan-Inspiron-1545 kernel: [  185.860965] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+@                                                                                                        
+                                                                                       13142,1       90%
+
