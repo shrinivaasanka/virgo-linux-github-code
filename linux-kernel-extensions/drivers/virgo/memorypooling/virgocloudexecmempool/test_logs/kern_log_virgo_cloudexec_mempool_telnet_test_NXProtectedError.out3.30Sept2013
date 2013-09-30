@@ -1,0 +1,62 @@
+Sep 30 14:41:17 kashrinivaasan-Inspiron-1545 kernel: [ 2226.715784] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Sep 30 14:41:52 kashrinivaasan-Inspiron-1545 kernel: [ 2261.369787] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Sep 30 14:41:52 kashrinivaasan-Inspiron-1545 kernel: [ 2261.370020] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Sep 30 14:41:52 kashrinivaasan-Inspiron-1545 kernel: [ 2261.370030] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Sep 30 14:41:52 kashrinivaasan-Inspiron-1545 kernel: [ 2261.370033] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638183] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 27
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638194] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virgo_cloud_malloc(10000)
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638194] 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638198] print_buffer(): 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638201] vi
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638205] rg
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638210] 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638213] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_malloc(10000)
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638213] 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638217] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_malloc(10000) 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638348] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638352] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638357] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638357] 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638397] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638401] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638425] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638974] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_malloc
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638979] parse_virgomempool_command: vmargs->mempool_args[0]: 10000
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638982] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.638985] Creating Kernel Thread for virgo_cloud_malloc in virgo_cloud_mempool_kernelspace mempool driver module
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639062] kernel tried to execute NX-protected page - exploit attempt? (uid: 0)
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639066] BUG: unable to handle kernel paging request at ec2a52e0
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639072] IP: [<ec2a52e0>] 0xec2a52df
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639084] *pdpt = 00000000019aa001 *pde = 800000002c2001e3 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639090] Oops: 0011 [#1] SMP 
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639096] Modules linked in: nfsd nfs_acl bnep rfcomm auth_rpcgss nfs fscache bluetooth lockd binfmt_misc parport_pc ppdev sunrpc dm_crypt virgo_cloudexec_mempool(O+) virgo_cloud_mempool_kernelspace(O) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state joydev snd_hda_codec_idt snd_hda_intel ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hda_codec nf_conntrack_broadcast nf_nat_ftp uvcvideo nf_nat nf_conntrack_ftp snd_hwdep dell_laptop dell_wmi snd_pcm psmouse gpio_ich coretemp dcdbas nf_conntrack option snd_seq_midi mac_hid videobuf2_core usb_wwan iptable_filter snd_rawmidi videodev lpc_ich snd_seq_midi_event videobuf2_vmalloc ip_tables usbserial snd_seq videobuf2_memops serio_raw sparse_keymap snd_timer snd_seq_device microcode x_tables snd soundcore snd_page_alloc virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage i915 drm_kms_helper drm ahci wmi libahci i2c_algo_bi
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: t sky2 video
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639216] Pid: 3720, comm: mempoolFunction Tainted: GF          O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639221] EIP: 0060:[<ec2a52e0>] EFLAGS: 00010246 CPU: 1
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639227] EIP is at 0xec2a52e0
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639231] EAX: ec310380 EBX: ec3adef8 ECX: f7be5100 EDX: 00000000
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639235] ESI: ec310380 EDI: ec2ddf74 EBP: ec2ddfac ESP: ec2ddf6c
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639239]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639243] CR0: 8005003b CR2: ec2a52e0 CR3: 2c28e000 CR4: 000407f0
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639247] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639251] DR6: ffff0ff0 DR7: 00000400
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639255] Process mempoolFunction (pid: 3720, ti=ec2dc000 task=f6d90cb0 task.ti=ec2dc000)
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639258] Stack:
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639261]  c106da54 ec2a52e0 00000000 ec2ddf74 ec310380 00000000 ec2d0000 ec2ddf88
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639274]  ec2ddf88 00000000 00000000 ec2ddf98 ec2ddf98 81a08517 ee804fc0 00000000
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639286]  ec2dc000 c15f4877 c106d9b0 00000000 00000000 00000000 00000000 ec3adef8
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639298] Call Trace:
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639308]  [<c106da54>] ? kthread+0xa4/0xb0
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639317]  [<c15f4877>] ret_from_kernel_thread+0x1b/0x28
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639323]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639327] Code: 5e 2a ec 50 5d 2a ec 03 00 00 00 01 00 00 00 d0 22 95 ee 00 00 10 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 1d 00 00 00 <76> 69 72 67 6f 5f 63 6c 6f 75 64 5f 6d 61 6c 6c 6f 63 00 00 00
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639402] EIP: [<ec2a52e0>] 0xec2a52e0 SS:ESP 0068:ec2ddf6c
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639411] CR2: 00000000ec2a52e0
+Sep 30 14:42:04 kashrinivaasan-Inspiron-1545 kernel: [ 2273.639416] ---[ end trace 3143999781dd06d8 ]---
+Sep 30 14:42:09 kashrinivaasan-Inspiron-1545 kernel: [ 2278.425548] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Sep 30 14:42:09 kashrinivaasan-Inspiron-1545 kernel: [ 2278.427835] sd 7:0:0:0: [sdb] Asking for cache data failed
+Sep 30 14:42:09 kashrinivaasan-Inspiron-1545 kernel: [ 2278.427842] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Sep 30 14:43:01 kashrinivaasan-Inspiron-1545 kernel: [ 2330.137338] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Sep 30 14:43:01 kashrinivaasan-Inspiron-1545 kernel: [ 2330.139442] sd 7:0:0:0: [sdb] Asking for cache data failed
+Sep 30 14:43:01 kashrinivaasan-Inspiron-1545 kernel: [ 2330.139449] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+
