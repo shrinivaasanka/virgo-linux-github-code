@@ -31,6 +31,7 @@
 #*****************************************************************************************/
 
 cp /home/kashrinivaasan/linux-3.7.8/arch/arm/tools/mach-types /home/kashrinivaasan/KrishnaiResearch_OpenSource/virgo-linux-code-0/linux-kernel-extensions/arch/arm/tools
+
 cp /home/kashrinivaasan/linux-3.7.8/arch/x86/syscalls/Makefile /home/kashrinivaasan/KrishnaiResearch_OpenSource/virgo-linux-code-0/linux-kernel-extensions/arch/x86/syscalls/
 cp /home/kashrinivaasan/linux-3.7.8/arch/x86/syscalls/syscall_32.tbl /home/kashrinivaasan/KrishnaiResearch_OpenSource/virgo-linux-code-0/linux-kernel-extensions/arch/x86/syscalls/
 cp /home/kashrinivaasan/linux-3.7.8/arch/x86/syscalls/syscall_64.tbl /home/kashrinivaasan/KrishnaiResearch_OpenSource/virgo-linux-code-0/linux-kernel-extensions/arch/x86/syscalls/
@@ -39,9 +40,18 @@ cp /home/kashrinivaasan/linux-3.7.8/arch/x86/syscalls/syscall_64.tbl /home/kashr
 cp /home/kashrinivaasan/linux-3.7.8/Makefile /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
 
 
-cp -r /home/kashrinivaasan/linux-3.7.8/virgo_clone /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
-cp -r /home/kashrinivaasan/linux-3.7.8/virgo_malloc /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
-cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/cpupooling
-cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/memorypooling
+cp -r /home/kashrinivaasan/linux-3.7.8/virgo_clone/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/virgo_clone/*
+cp -r /home/kashrinivaasan/linux-3.7.8/virgo_clone/test/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/virgo_clone/test/*
+
+cp -r /home/kashrinivaasan/linux-3.7.8/virgo_malloc/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/
+cp -r /home/kashrinivaasan/linux-3.7.8/virgo_malloc/test/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/test/*
+
+cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/cpupooling/virgocloudexec/
+cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/test_logs/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/cpupooling/virgocloudexec/test_logs/
+
+cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/memorypooling/virgocloudexecmempool/
+cp -r /home/kashrinivaasan/linux-3.7.8/drivers/virgo/memorypooling/virgocloudexecmempool/test_logs/* /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/drivers/virgo/memorypooling/virgocloudexecmempool/test_logs/
+
+
 cp /home/kashrinivaasan/linux-3.7.8/include/linux/syscalls.h /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/include/linux
 cp -r /home/kashrinivaasan/linux-3.7.8/include/linux/virgo*h /home/kashrinivaasan/KrishnaiResearch_OpenSource//virgo-linux-code-0/linux-kernel-extensions/include/linux
