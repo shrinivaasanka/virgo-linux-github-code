@@ -306,6 +306,11 @@ Commits as on 30 September 2013
 -------------------------------
 New parser functions added for parameter parsing and initial testing on virgo_malloc() works with telnet client with logs in test_logs/
 
+Commits as on 1 October 2013
+-----------------------------
+Removed strcpy in virgo_malloc as ongoing bugfix for buffer truncation in syscall path.
+
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
