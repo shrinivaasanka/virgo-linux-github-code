@@ -1,7 +1,5 @@
 /***************************************************************************************
-VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
-
-Copyright (C) 2009-2013  Ka.Shrinivaasan
+VIRGO - VIRtual Generic Os - linux kernel extensions for cloud 
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -17,6 +15,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 --------------------------------------------------------------------------------------------------
+Copyright(C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
 Ph: 9003082186, 9791165980
@@ -57,6 +56,7 @@ int main(int argc, char* argv[])
 	struct virgo_address* vaddr;
 	/* virgo_malloc*/
 	vaddr=(struct virgo_address*)syscall(351,10000,NULL,0,NULL);
+	printf("test_virgo_malloc: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d, vaddr->node_id = %d, vaddr->addr = %p \n", vaddr->hstprt->hostip, vaddr->hstprt->port, vaddr->node_id, vaddr->addr);
 
 	/*virgo_set*/
 	char* set_ret=(char*)syscall(352,vaddr,"test_virgo_malloc_data",NULL,0,NULL);
