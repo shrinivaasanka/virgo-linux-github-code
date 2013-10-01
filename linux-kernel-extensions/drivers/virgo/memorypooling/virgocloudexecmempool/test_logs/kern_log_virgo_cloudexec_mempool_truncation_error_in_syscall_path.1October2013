@@ -1,0 +1,493 @@
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991699] get_host_from_cloud_PRG_mempool() - get_random_int() returned 630361467 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991706] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991706]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991711] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991711]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991716] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991716]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991730] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991736] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991736]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991745] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991751] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991754] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991759] virgo_malloc() syscall: i=0, vtable[i].node_id=0, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991759] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991763] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991772] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991776] get_host_from_cloud_PRG_mempool() - get_random_int() returned 1022277893 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991780] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991780]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991784] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991784]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991789] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991789]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991795] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991798] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991798]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991802] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991807] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991809] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991814] virgo_malloc() syscall: i=1, vtable[i].node_id=1, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991814] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991818] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991823] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991827] get_host_from_cloud_PRG_mempool() - get_random_int() returned 4046199079 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991830] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991830]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991835] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991835]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991839] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991839]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991845] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991849] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991849]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991852] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991856] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991859] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991863] virgo_malloc() syscall: i=2, vtable[i].node_id=2, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991863] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991868] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991872] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991876] get_host_from_cloud_PRG_mempool() - get_random_int() returned 2978152591 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991880] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991880]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991884] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991884]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991889] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991889]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991895] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991898] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991898]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991902] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991905] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991908] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991913] virgo_malloc() syscall: i=3, vtable[i].node_id=3, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991913] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991917] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991922] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991925] get_host_from_cloud_PRG_mempool() - get_random_int() returned 1696953563 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991929] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991929]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991933] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991933]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991938] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991938]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991944] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991947] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991947]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991951] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991954] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991957] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991962] virgo_malloc() syscall: i=4, vtable[i].node_id=4, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991962] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991966] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991971] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991974] get_host_from_cloud_PRG_mempool() - get_random_int() returned 132223092 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991978] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991982] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991985] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.991990] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.992219] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.992950] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.992950]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.992997] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993003] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993006] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993011] virgo_malloc() syscall: i=5, vtable[i].node_id=5, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1, vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993014] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993035] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993040] get_host_from_cloud_PRG_mempool() - get_random_int() returned 3754524832 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993044] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993048] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993051] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993058] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993128] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993128]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993177] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993182] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993185] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993190] virgo_malloc() syscall: i=6, vtable[i].node_id=6, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1, vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993193] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993212] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993217] get_host_from_cloud_PRG_mempool() - get_random_int() returned 1232856931 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993221] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993221]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993225] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993225]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993230] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993230]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993238] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993299] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993299]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993326] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993331] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993334] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993339] virgo_malloc() syscall: i=7, vtable[i].node_id=7, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993339] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993343] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993360] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993365] get_host_from_cloud_PRG_mempool() - get_random_int() returned 959367351 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993368] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993368]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993373] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993373]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993377] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993377]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993385] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993444] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993444]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993471] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993476] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993479] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993483] virgo_malloc() syscall: i=8, vtable[i].node_id=8, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993483] , vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993488] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993504] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993509] get_host_from_cloud_PRG_mempool() - get_random_int() returned 2720854032 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993512] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993516] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993520] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993526] virgo_malloc() syscall: created client kernel socket
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993576] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993576]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993592] virgo_malloc() syscall: iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993596] virgo_malloc() syscall: received message: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993599] virgo_malloc() syscall: received iov.iov_base: virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993604] virgo_malloc() syscall: i=9, vtable[i].node_id=9, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1, vtable[i].hstprt->port=30000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993607] virgo_malloc() syscall: le32_to_cpus(buf): virgo_cloud_malloc(1000) 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993623] virgo_malloc() syscall: virgo_malloc() client socket_release() invoked
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993627] get_host_from_cloud_PRG_mempool() - get_random_int() returned 2321133893 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993631] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993631]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993636] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993636]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993640] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993640]  
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993668] BUG: unable to handle kernel paging request at c17ce4a6
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993674] IP: [<c12e70b7>] strcat+0x27/0x40
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993684] *pdpt = 00000000019aa001 *pde = 80000000016001e1 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993691] Oops: 0003 [#1] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993697] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993820] Pid: 3181, comm: test_virgo_mall Tainted: GF          O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993825] EIP: 0060:[<c12e70b7>] EFLAGS: 00010286 CPU: 0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993830] EIP is at strcat+0x27/0x40
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993834] EAX: 00000030 EBX: c17ce493 ECX: ffffffeb EDX: ebeb2e00
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993838] ESI: ebeb2e01 EDI: c17ce4a6 EBP: ef7f3f30 ESP: ef7f3f24
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993842]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993846] CR0: 8005003b CR2: c17ce4a6 CR3: 2bedd000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993851] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993854] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993859] Process test_virgo_mall (pid: 3181, ti=ef7f2000 task=ee83a610 task.ti=ef7f2000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993862] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993865]  ee8521b8 ee8a3dc0 c1a729f8 ef7f3fac c12dba48 00000000 00000000 00000009
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993878]  00000000 ebdf0d10 00007530 00000000 00000000 00002710 00002af8 0000000a
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993890]  ef7f3f8c 00000010 ef7f3f80 00000001 00000000 00000000 00000000 ee8a3dc0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993902] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993911]  [<c12dba48>] sys_virgo_malloc+0x248/0x290
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993921]  [<c10128fd>] ? math_state_restore+0x8d/0x140
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993928]  [<c15f494d>] sysenter_do_call+0x12/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.993932] Code: 00 00 00 00 55 89 e5 83 ec 0c 89 1c 24 89 74 24 04 89 7c 24 08 66 66 66 66 90 b9 ff ff ff ff 89 c3 89 c7 89 d6 31 c0 f2 ae 4f ac <aa> 84 c0 75 fa 89 d8 8b 74 24 04 8b 1c 24 8b 7c 24 08 89 ec 5d
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994008] EIP: [<c12e70b7>] strcat+0x27/0x40 SS:ESP 0068:ef7f3f24
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994016] CR2: 00000000c17ce4a6
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994022] ---[ end trace aa718b1cc37de404 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994825] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994833] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994838] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994841] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994847] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994853] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994857] print_buffer(): 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994859] vi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994864] rg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994868] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994871] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994874] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994892] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994898] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994905] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994908] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994914] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994918] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994921] print_buffer(): 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994923] vi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994927] rg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994932] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994935] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994938] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994950] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994956] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994963] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994966] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994971] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994975] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994978] print_buffer(): 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994980] vi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994985] rg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994989] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994992] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.994995] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995007] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995010] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995015] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995015] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995068] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995072] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995080] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995105] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995114] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995118] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995121] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995124] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995127] Creating Kernel Thread for virg in virgo_cloud_mempool_kernelspace mempool driver module
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995135] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995138] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995144] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995148] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995151] print_buffer(): 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995153] vi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995158] rg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995162] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995165] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995169] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995209] BUG: unable to handle kernel paging request at ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995215] IP: [<ffffffff>] 0xfffffffe
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995224] *pdpt = 00000000019aa001 *pde = 00000000019af067 *pte = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995232] Oops: 0010 [#2] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995237] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995355] Pid: 3189, comm: mempoolFunction Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995360] EIP: 0060:[<ffffffff>] EFLAGS: 00010246 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995366] EIP is at 0xffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995370] EAX: ee8961f0 EBX: ebefdef4 ECX: f7be5100 EDX: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995374] ESI: ee8961f0 EDI: ebf03f74 EBP: ebf03fac ESP: ebf03f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995378]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995382] CR0: 8005003b CR2: ffffffff CR3: 33a8e000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995386] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995389] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995394] Process mempoolFunction (pid: 3189, ti=ebf02000 task=f3ba32c0 task.ti=ebf02000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995397] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995400]  c106da54 ffffffff 00000000 00000000 ee8961f0 00000000 ebf00000 ebf03f88
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995413]  ebf03f88 00000000 00000000 ebf03f98 ebf03f98 51e85a7a f6ace8c0 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995424]  ebf02000 c15f48b7 c106d9b0 00000000 00000000 00000000 00000000 ebefdef4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995436] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995445]  [<c106da54>] ? kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995453]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995459]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995463] Code:  Bad EIP value.
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995471] EIP: [<ffffffff>] 0xffffffff SS:ESP 0068:ebf03f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995479] CR2: 00000000ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995484] ---[ end trace aa718b1cc37de405 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995505] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995508] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995512] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995512] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995552] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995556] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995562] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995578] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995581] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995584] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995588] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995591] Creating Kernel Thread for virg in virgo_cloud_mempool_kernelspace mempool driver module
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995636] BUG: unable to handle kernel paging request at ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995641] IP: [<ffffffff>] 0xfffffffe
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995649] *pdpt = 00000000019aa001 *pde = 00000000019af067 *pte = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995656] Oops: 0010 [#3] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995661] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995776] Pid: 3191, comm: mempoolFunction Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995781] EIP: 0060:[<ffffffff>] EFLAGS: 00010246 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995786] EIP is at 0xffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995790] EAX: ee8960b8 EBX: ebf05ef4 ECX: f7be5100 EDX: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995794] ESI: ee8960b8 EDI: ebf07f74 EBP: ebf07fac ESP: ebf07f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995798]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995802] CR0: 8005003b CR2: ffffffff CR3: 33a8e000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995806] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995810] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995814] Process mempoolFunction (pid: 3191, ti=ebf06000 task=ee9058d0 task.ti=ebf06000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995817] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995820]  c106da54 ffffffff 00000000 00000000 ee8960b8 00000000 ebf00000 ebf07f88
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995832]  ebf07f88 00000000 00000000 ebf07f98 ebf07f98 ef987e39 f6ace8c0 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995844]  ebf06000 c15f48b7 c106d9b0 00000000 00000000 00000000 00000000 ebf05ef4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995856] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995863]  [<c106da54>] ? kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995870]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995877]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995880] Code:  Bad EIP value.
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995887] EIP: [<ffffffff>] 0xffffffff SS:ESP 0068:ebf07f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995896] CR2: 00000000ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995900] ---[ end trace aa718b1cc37de406 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995928] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995931] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995936] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995936] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995974] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995977] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995984] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.995999] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996029] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996033] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996036] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996039] Creating Kernel Thread for virg in virgo_cloud_mempool_kernelspace mempool driver module
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996083] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996087] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996091] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996091] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996129] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996132] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996139] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996180] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996183] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996186] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996190] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996193] Creating Kernel Thread for virg in virgo_cloud_mempool_kernelspace mempool driver module
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996234] BUG: unable to handle kernel paging request at ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996240] IP: [<ffffffff>] 0xfffffffe
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996247] *pdpt = 00000000019aa001 *pde = 00000000019af067 *pte = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996261] Oops: 0010 [#4] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996264] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996333] Pid: 3193, comm: mempoolFunction Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996336] EIP: 0060:[<ffffffff>] EFLAGS: 00010246 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996340] EIP is at 0xffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996342] EAX: ee8960b8 EBX: ebef9ef4 ECX: f7be5100 EDX: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996344] ESI: ee8960b8 EDI: ebf0bf74 EBP: ebf0bfac ESP: ebf0bf6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996347]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996349] CR0: 8005003b CR2: ffffffff CR3: 33a8e000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996352] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996354] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996356] Process mempoolFunction (pid: 3193, ti=ebf0a000 task=ee9032c0 task.ti=ebf0a000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996358] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996360]  c106da54 ffffffff 00000000 00000000 ee8960b8 00000000 ebf00000 ebf0bf88
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996367]  ebf0bf88 00000000 00000000 ebf0bf98 ebf0bf98 474e0d12 f6ace8c0 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996374]  ebf0a000 c15f48b7 c106d9b0 00000000 00000000 00000000 00000000 ebef9ef4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996381] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996386]  [<c106da54>] ? kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996390]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996394]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996396] Code:  Bad EIP value.
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996400] EIP: [<ffffffff>] 0xffffffff SS:ESP 0068:ebf0bf6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996405] CR2: 00000000ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996408] ---[ end trace aa718b1cc37de407 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996435] BUG: unable to handle kernel paging request at ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996438] IP: [<ffffffff>] 0xfffffffe
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996442] *pdpt = 00000000019aa001 *pde = 00000000019af067 *pte = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996446] Oops: 0010 [#5] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996449] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996518] Pid: 3192, comm: mempoolFunction Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996521] EIP: 0060:[<ffffffff>] EFLAGS: 00010246 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996524] EIP is at 0xffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996527] EAX: ee8960b8 EBX: ebf01ef4 ECX: f7be5100 EDX: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996529] ESI: ee8960b8 EDI: ebf09f74 EBP: ebf09fac ESP: ebf09f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996532]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996534] CR0: 8005003b CR2: ffffffff CR3: 33a8e000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996536] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996539] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996541] Process mempoolFunction (pid: 3192, ti=ebf08000 task=ee903f70 task.ti=ebf08000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996543] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996545]  c106da54 ffffffff 00000000 ee9032c0 ee8960b8 00000000 ebf00000 ebf09f88
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996552]  ebf09f88 00000000 00000000 ebf09f98 ebf09f98 afb48c7c f6ace8c0 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996559]  ebf08000 c15f48b7 c106d9b0 00000000 00000000 00000000 00000000 ebf01ef4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996566] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996570]  [<c106da54>] ? kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996574]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996578]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996580] Code:  Bad EIP value.
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996584] EIP: [<ffffffff>] 0xffffffff SS:ESP 0068:ebf09f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996589] CR2: 00000000ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.996592] ---[ end trace aa718b1cc37de408 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997618] BUG: unable to handle kernel paging request at 736c656e
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997622] IP: [<c145148c>] usb_free_urb+0xc/0x30
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997627] *pdpt = 0000000036128001 *pde = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997631] Oops: 0002 [#6] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997634] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997752] Pid: 329, comm: usb-storage Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997755] EIP: 0060:[<c145148c>] EFLAGS: 00010202 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997757] EIP is at usb_free_urb+0xc/0x30
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997760] EAX: 736c656e EBX: f696fc60 ECX: 00000001 EDX: ee896428
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997762] ESI: 00000001 EDI: f696fc80 EBP: f68c1ddc ESP: f68c1ddc
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997765]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997767] CR0: 8005003b CR2: 736c656e CR3: 2fe09000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997770] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997772] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997774] Process usb-storage (pid: 329, ti=f68c0000 task=f38cd8d0 task.ti=f68c0000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997776] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997778]  f68c1de8 c1451ec3 f696fc60 f68c1e0c c1453ac3 00000001 00000001 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997786]  f696fc68 f696fbd4 f696fbf8 c0038380 f68c1e38 f843f866 00000000 f68c1ee8
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997793]  00000001 00000012 00000010 f696fc60 ef2e7000 00000001 ef2e7000 f68c1e58
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997800] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997805]  [<c1451ec3>] sg_clean+0x23/0x50
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997808]  [<c1453ac3>] usb_sg_wait+0x103/0x150
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997817]  [<f843f866>] usb_stor_bulk_transfer_sglist+0x86/0xe0 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997824]  [<f843f8ef>] usb_stor_bulk_srb+0x2f/0x50 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997831]  [<f843fa92>] usb_stor_Bulk_transport+0xf2/0x2e0 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997836]  [<c13f9be3>] ? scsi_eh_prep_cmnd+0x1b3/0x1e0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997844]  [<f843f3fb>] usb_stor_invoke_transport+0x17b/0x460 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997849]  [<c107ecae>] ? try_to_wake_up+0x1ce/0x230
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997856]  [<f843ed3d>] usb_stor_transparent_scsi_command+0xd/0x10 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997863]  [<f8440f3e>] usb_stor_control_thread+0x14e/0x220 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997868]  [<c107bc5e>] ? complete+0x4e/0x60
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997872]  [<c106da54>] kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997879]  [<f8440df0>] ? fill_inquiry_response+0x130/0x130 [usb_storage]
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997883]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997887]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997889] Code: 8b 40 40 e8 a7 a1 cf ff 89 d8 e8 a0 a1 cf ff 5b 5d c3 8d b6 00 00 00 00 8d bc 27 00 00 00 00 55 89 e5 66 66 66 66 90 85 c0 74 0b <f0> 83 28 01 0f 94 c2 84 d2 75 09 5d c3 8d b4 26 00 00 00 00 e8
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997976] EIP: [<c145148c>] usb_free_urb+0xc/0x30 SS:ESP 0068:f68c1ddc
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997981] CR2: 00000000736c656e
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  384.997984] ---[ end trace aa718b1cc37de409 ]---
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196222] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196323] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196340] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196344] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196353] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196358] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196361] print_buffer(): 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196364] vi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196369] rg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196373] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196376] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196379] virgocloudexec_mempool_recvfrom(): mempoolFunction : virg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196458] virgocloudexec_mempool_recvfrom(): clone thread woken_up : 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196462] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196467] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196467] 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196477] parse_virgomempool_command: vmargs->mempool_cmd: virg
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196481] parse_virgomempool_command: vmargs->mempool_args[0]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196484] parse_virgomempool_command: vmargs->mempool_args[1]: (null)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196488] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196491] Creating Kernel Thread for virg in virgo_cloud_mempool_kernelspace mempool driver module
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196570] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196574] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196586] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196621] BUG: unable to handle kernel paging request at ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196629] IP: [<ffffffff>] 0xfffffffe
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196639] *pdpt = 00000000019aa001 *pde = 00000000019af067 *pte = 0000000000000000 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196648] Oops: 0010 [#7] SMP 
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196654] Modules linked in: nfsd nfs_acl auth_rpcgss nfs fscache parport_pc bnep ppdev rfcomm lockd bluetooth binfmt_misc sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt joydev snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns snd_hwdep nf_conntrack_broadcast nf_nat_ftp nf_nat nf_conntrack_ftp snd_pcm snd_seq_midi nf_conntrack snd_rawmidi snd_seq_midi_event snd_seq snd_timer iptable_filter ip_tables gpio_ich uvcvideo snd_seq_device dell_laptop psmouse coretemp dell_wmi option snd lpc_ich videobuf2_core videodev videobuf2_vmalloc x_tables soundcore usb_wwan dcdbas serio_raw usbserial snd_page_alloc sparse_keymap mac_hid videobuf2_memops microcode virgo_cloud_test_kernelspace(OF) ums_realtek usb_storage ahci i915 libahci sky2 drm_kms_helper drm i2c_algo
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: _bit video wmi
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196774] Pid: 3196, comm: mempoolFunction Tainted: GF     D    O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196779] EIP: 0060:[<ffffffff>] EFLAGS: 00010246 CPU: 1
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196785] EIP is at 0xffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196789] EAX: ee8965a8 EBX: ef7f3ef4 ECX: f7be5100 EDX: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196793] ESI: ee8965a8 EDI: ebef5f74 EBP: ebef5fac ESP: ebef5f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196797]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196801] CR0: 8005003b CR2: ffffffff CR3: 019ad000 CR4: 000407f0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196805] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196809] DR6: ffff0ff0 DR7: 00000400
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196813] Process mempoolFunction (pid: 3196, ti=ebef4000 task=f38c8000 task.ti=ebef4000)
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196816] Stack:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196819]  c106da54 ffffffff 00000000 ebef5f74 ee8965a8 00000000 ebef0000 ebef5f88
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196832]  ebef5f88 00000000 00000000 ebef5f98 ebef5f98 e5adb17d f6ace8c0 00000000
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196844]  ebef4000 c15f48b7 c106d9b0 00000000 00000000 00000000 00000000 ef7f3ef4
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196856] Call Trace:
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196866]  [<c106da54>] ? kthread+0xa4/0xb0
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196875]  [<c15f48b7>] ret_from_kernel_thread+0x1b/0x28
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196881]  [<c106d9b0>] ? kthread_worker_fn+0x130/0x130
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196885] Code:  Bad EIP value.
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196893] EIP: [<ffffffff>] 0xffffffff SS:ESP 0068:ebef5f6c
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196901] CR2: 00000000ffffffff
+Oct  1 17:27:57 kashrinivaasan-Inspiron-1545 kernel: [  385.196907] ---[ end trace aa718b1cc37de40a ]---
