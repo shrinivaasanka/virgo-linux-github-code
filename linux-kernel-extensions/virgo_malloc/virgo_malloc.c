@@ -161,6 +161,8 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	buf=kstrdup(virgo_get_cmd, GFP_ATOMIC);			
 
 	iov.iov_base=buf;
+	/*strcpy(iov.iov_base, buf);*/
+	/*iov.iov_base=buf;*/
 	iov.iov_len=sizeof(buf);	
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
@@ -171,7 +173,6 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	msg.msg_flags = 0;
 	nr=1;
 	
-	strcpy(iov.iov_base, buf);
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_get() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -228,7 +229,7 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 	msg.msg_flags = 0;
 	nr=1;
 	
-	strcpy(iov.iov_base, buf);
+	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_set() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
@@ -344,15 +345,16 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		msg.msg_flags = 0;
 		nr=1;
 	
-		strcpy(iov.iov_base, buf);
+		/*strcpy(iov.iov_base, buf);*/
 		error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
 		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 		printk(KERN_INFO "virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 		kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-		printk(KERN_INFO "virgo_malloc() syscall: sent message: %s \n", buf);
+		printk(KERN_INFO "virgo_malloc() syscall: iov.iov_base=%s, sent message: %s \n", iov.iov_base, buf);
        		len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		printk(KERN_INFO "virgo_malloc() syscall: received message: %s \n", buf);
+		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
 		struct virgo_address v_addr;
 		sscanf(buf,"%p",v_addr.addr);
@@ -362,6 +364,8 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		vtable[i].node_id=v_addr.node_id;
 		vtable[i].addr=v_addr.addr;
 		vtable[i].hstprt=leastloadedhostport;
+	
+		printk(KERN_INFO "virgo_malloc() syscall: i=%d, vtable[i].node_id=%d, vtable[i].addr=%p, vtable[i].hstprt->hostip=%s, vtable[i].hstprt->port=%d \n",i, vtable[i].node_id, vtable[i].addr, vtable[i].hstprt->hostip, vtable[i].hstprt->port);
        
 		le32_to_cpus(buf);
 		printk(KERN_INFO "virgo_malloc() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -409,7 +413,7 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	msg.msg_flags = 0;
 	nr=1;
 	
-	strcpy(iov.iov_base, buf);
+	/*strcpy(iov.iov_base, buf);*/
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_free() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
