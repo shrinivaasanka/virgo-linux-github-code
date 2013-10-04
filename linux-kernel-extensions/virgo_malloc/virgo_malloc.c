@@ -350,10 +350,10 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
 		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 		printk(KERN_INFO "virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service\n ");
-		kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-		printk(KERN_INFO "virgo_malloc() syscall: iov.iov_base=%s, sent message: %s \n", iov.iov_base, buf);
-       		len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		printk(KERN_INFO "virgo_malloc() syscall: received message: %s \n", buf);
+		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+       		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message: %s \n", len, buf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
 		struct virgo_address v_addr;
