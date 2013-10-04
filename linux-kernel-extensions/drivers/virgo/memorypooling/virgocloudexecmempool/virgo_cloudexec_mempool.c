@@ -245,9 +245,11 @@ int mempool_func(void* args)
 
 char* strip_control_M(char* str)
 {
-	char* dupstr=kstrdup(str, GFP_ATOMIC);
-	char* newstr=strsep(&dupstr, "\r\n ");
-	return newstr;
+        printk("strip_control_M(): str=%s before strsep\n",str);
+        char* dupstr=kstrdup(str, GFP_ATOMIC);
+        char* newstr=strsep(&dupstr, "\r\n ");
+        printk("strip_control_M(): newstr=%s after carriage return newline strsep\n",newstr);
+        return newstr;
 }
 
 int kernel_space_func(void* args)
