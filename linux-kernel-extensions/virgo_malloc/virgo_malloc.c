@@ -163,7 +163,8 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	iov.iov_base=buf;
 	/*strcpy(iov.iov_base, buf);*/
 	/*iov.iov_base=buf;*/
-	iov.iov_len=sizeof(buf);	
+	/*iov.iov_len=sizeof(buf);*/
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
@@ -219,7 +220,8 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 	buf=kstrdup(virgo_set_cmd, GFP_ATOMIC);			
 
 	iov.iov_base=buf;
-	iov.iov_len=sizeof(buf);	
+	/*iov.iov_len=sizeof(buf);*/
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
@@ -249,31 +251,6 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 
 asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 {
-	/*
-	int error;
-	char buffer[3000];
-	int family=PF_INET;
-	int type=SOCK_STREAM;
-	int protocol=IPPROTO_TCP;
-	struct socket *sock;	
-	struct sockaddr_in server;
-	int len;
-	struct kvec iov;
-	struct msghdr msg = {
-		.msg_flags = MSG_DONTWAIT,
-	};
-	int buflen;
-	int nr;
-
-	char* leastloadedhost = get_least_loaded_host_from_cloud();
-	struct hostent* remotehost=gethostbyname(leastloadedhost);
-	server.sin_family=PF_INET;
-	server.sin_addr.s_addr=htonl(INADDR_ANY);
-	server.sin_port=htons(60000);
-	iov.iov_base=(void*)buffer;
-	iov.iov_len=3000;	
-	strcpy(iov.iov_base, func_signature);
-	*/	
 
 	int no_of_chunks=1;	
 	int nr;
@@ -335,7 +312,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		}
 
 		iov.iov_base=buf;
-		iov.iov_len=sizeof(buf);	
+		iov.iov_len=BUF_SIZE;	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
@@ -403,7 +380,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	buf=kstrdup(free_cmd,GFP_ATOMIC);
 
 	iov.iov_base=buf;
-	iov.iov_len=sizeof(buf);	
+	/*iov.iov_len=sizeof(buf);*/
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
