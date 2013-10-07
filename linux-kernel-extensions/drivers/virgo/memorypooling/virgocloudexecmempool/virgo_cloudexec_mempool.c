@@ -456,9 +456,10 @@ int virgocloudexec_mempool_recvfrom(struct socket* clsock)
 	if(clientsock != NULL )
 	{
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()\n");
-		memset(buffer, 0, sizeof(buffer));
+		memset(buffer, 0, BUF_SIZE);
 		iov.iov_base=(void*)buffer;
-		iov.iov_len=sizeof(buffer);	
+		//iov.iov_len=sizeof(buffer);	
+		iov.iov_len=BUF_SIZE;	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
@@ -480,7 +481,7 @@ int virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		mempoolFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
 		/*mempoolFunction[strlen(mempoolFunction)-2]='\0';*/
 		
-		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
+		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=%s, buffer: %s\n", iov.iov_base, buffer);
 		print_buffer(buffer);
 		le32_to_cpus(buffer);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu %s\n", buffer);
@@ -501,9 +502,9 @@ EXPORT_SYMBOL(virgocloudexec_mempool_recvfrom);
 
 void print_buffer(char* buffer)
 {
-	printk(KERN_INFO "print_buffer(): ");
+	printk(KERN_INFO "virgo_cloudexec_mempool: print_buffer(): ");
 	int i=0;
-	for(i=0; i < sizeof(buffer); i++)
+	for(i=0; i < BUF_SIZE; i++)
 		printk(KERN_INFO "%c", buffer[i]);
 	printk(KERN_INFO "\n");
 }
@@ -536,8 +537,8 @@ int virgocloudexec_mempool_sendto(struct socket* clsock)
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
 		iov.iov_base=buffer;	
-		/*iov.iov_len=BUF_SIZE;*/
-		iov.iov_len=sizeof(buffer);
+		iov.iov_len=BUF_SIZE;
+		/*iov.iov_len=sizeof(buffer);*/
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
