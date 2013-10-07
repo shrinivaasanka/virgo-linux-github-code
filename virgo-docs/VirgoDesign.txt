@@ -310,6 +310,12 @@ Commits as on 1 October 2013
 -----------------------------
 Removed strcpy in virgo_malloc as ongoing bugfix for buffer truncation in syscall path.
 
+Commits as on 7 October 2013
+----------------------------
+Fixed the buffer truncation error from virgo_malloc syscall to mempool driver service which was caused by
+sizeof() for a char*. BUF_SIZE is now used for size in both syscall client and mempool kernel service.
+
+
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
