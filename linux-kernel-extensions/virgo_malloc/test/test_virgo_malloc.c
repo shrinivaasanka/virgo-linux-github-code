@@ -58,19 +58,22 @@ int main(int argc, char* argv[])
 	vaddr=(struct virgo_address*)syscall(351,10000,NULL,0,NULL);
 	printf("test_virgo_malloc: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d, vaddr->node_id = %d, vaddr->addr = %p \n", vaddr->hstprt->hostip, vaddr->hstprt->port, vaddr->node_id, vaddr->addr);
 
-	/*virgo_set*/
+	/*
+	/virgo_set/
 	char* set_ret=(char*)syscall(352,vaddr,"test_virgo_malloc_data",NULL,0,NULL);
 	if(set_ret)
 		printf("set_ret = %s\n",set_ret);
 
-	/*virgo_get*/
+	/virgo_get/
 	char* get_ret=(char*)syscall(353,vaddr,NULL,0,NULL);
 	if(get_ret)
 		printf("get_ret = %s\n",get_ret);
 
-	/*virgo_free*/
+	/virgo_free/
 	char* free_ret=(char*)syscall(354,vaddr,NULL,0,NULL);
 	if(free_ret)
 		printf("free_ret = %s\n",free_ret);
+	*/
+
 	return 0;
 }

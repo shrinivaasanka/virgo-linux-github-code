@@ -26,6 +26,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x794f5965, "sock_create_kern" },
 	{ 0x85df9b6c, "strsep" },
 	{ 0xe72a3ab3, "kernel_listen" },
+	{ 0x91715312, "sprintf" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0xfa336f83, "kthread_create_on_node" },
 	{ 0x23f0c8b5, "virgo_cloud_get_kernelspace" },
@@ -59,4 +60,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace";
 
 
-MODULE_INFO(srcversion, "65E975671D1FEFA5232FE58");
+MODULE_INFO(srcversion, "276AB48FDDD47F85C397D4C");

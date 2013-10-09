@@ -71,11 +71,13 @@ Multithreaded VIRGO Memory Pooling Kernel Service
 
 int virgo_mempool_client_thread(void* args)
 {
+		/*mutex_lock(&virgo_mempool_mutex);*/
 		struct socket* clientsock=(struct socket*)args;
 		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()\n");
-		virgo_mempool_ops.virgo_mempool_recvfrom(clientsock);
+		char *virgo_mempool_ret=(char*)virgo_mempool_ops.virgo_mempool_recvfrom(clientsock);
 		printk(KERN_INFO "virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()\n");
-		virgo_mempool_ops.virgo_mempool_sendto(clientsock);
+		virgo_mempool_ops.virgo_mempool_sendto(clientsock, virgo_mempool_ret);
+		/*mutex_unlock(&virgo_mempool_mutex);*/
 }
 
 #endif

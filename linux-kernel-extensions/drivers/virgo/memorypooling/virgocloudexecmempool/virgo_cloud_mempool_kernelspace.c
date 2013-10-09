@@ -30,15 +30,9 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <linux/string.h>
 #include <linux/module.h>
-#include <linux/virgo.h>
+#include <linux/virgo_mempool.h>
 #include <linux/string.h>
 
-
-struct virgo_mempool_args
-{
-	char* mempool_cmd;
-	char* mempool_args[3];
-};
 
 char* toKernelAddress(char*);
 int toInteger(char*);
@@ -70,13 +64,16 @@ EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_exit);
 void* virgo_cloud_malloc_kernelspace(void* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);
+	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
+	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size str=%s\n",vmargs->mempool_args[0]);
 
 	int size=toInteger(vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=%d\n",size);
 	void* ptr=kmalloc(size,GFP_ATOMIC);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=%p\n",ptr);
+	vmargs->ptr=(char*)ptr;
+	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=%p in vmargs as an out arg\n",ptr);
 	return ptr;
 }
 EXPORT_SYMBOL(virgo_cloud_malloc_kernelspace);
@@ -84,7 +81,8 @@ EXPORT_SYMBOL(virgo_cloud_malloc_kernelspace);
 void* virgo_cloud_get_kernelspace(void* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_get_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);
+	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
+	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	char* ptr=toKernelAddress((char*)vmargs->mempool_args[0]);	
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): address=%p, data=%s\n",ptr,ptr);
 	return ptr;
@@ -94,7 +92,8 @@ EXPORT_SYMBOL(virgo_cloud_get_kernelspace);
 void* virgo_cloud_set_kernelspace(void* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);
+	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
+	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	char* ptr=toKernelAddress(vmargs->mempool_args[0]);
 	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_ATOMIC));
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data after set=%s\n",ptr,vmargs->mempool_args[1], ptr);
@@ -105,7 +104,8 @@ EXPORT_SYMBOL(virgo_cloud_set_kernelspace);
 void* virgo_cloud_free_kernelspace(void* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_free_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);
+	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
+	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	char* ptr=toKernelAddress(vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_free_kernelspace(): address=%p\n",ptr);
 	kfree(ptr);
@@ -113,10 +113,17 @@ void* virgo_cloud_free_kernelspace(void* args)
 }
 EXPORT_SYMBOL(virgo_cloud_free_kernelspace);
 
-struct virgo_mempool_args* parse_virgomempool_command_kernelspace(char* mempoolFunction)
+/*
+/struct virgo_mempool_args* parse_virgomempool_command_kernelspace(char* mempoolFunction)/
+struct virgo_mempool_args* parse_virgomempool_command_kernelspace(void* args)
 {
+	/
         struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)kmalloc(sizeof(struct virgo_mempool_args),GFP_ATOMIC);
+	/
+	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
+	/
         vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_ATOMIC);
+	/
         if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
         {
                 vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
@@ -131,6 +138,7 @@ struct virgo_mempool_args* parse_virgomempool_command_kernelspace(char* mempoolF
         }
         return vmargs;
 }
+*/
 
 /*
 This function parses the address within the string strAddress and returns as the kernel address

@@ -117,6 +117,9 @@ struct virgo_mempool_args
 {
 	char* mempool_cmd;
 	char* mempool_args[3];
+	char* mempoolFunction;
+	char* ptr;
+	char* data;
 };
 
 struct virgo_addr_transtable vtable[3000];
@@ -129,12 +132,15 @@ char* addr_to_str(char*);
 
 typedef void* (*FPTR)(void *args);
 
+struct mutex virgo_mempool_mutex;
+
 FPTR toFuncPtr(char*);
 struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction);
+/*struct virgo_mempool_args* parse_virgomempool_command(void* args);*/
 
 int virgocloudexec_mempool_create(void);
-int virgocloudexec_mempool_recvfrom(struct socket*);
-int virgocloudexec_mempool_sendto(struct socket*);
+void* virgocloudexec_mempool_recvfrom(struct socket*);
+int virgocloudexec_mempool_sendto(struct socket*, void* virgo_mempool_ret);
 
 int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
@@ -146,8 +152,8 @@ extern void* virgo_cloud_set_kernelspace(void* args);
 
 struct virgo_mempool_ops_t {
 	int (*virgo_mempool_create)(void);
-	int (*virgo_mempool_recvfrom)(struct socket*);
-	int (*virgo_mempool_sendto)(struct socket*);
+	void* (*virgo_mempool_recvfrom)(struct socket*);
+	int (*virgo_mempool_sendto)(struct socket*,void* virgo_mempool_ret);
 };
 
 static struct virgo_mempool_ops_t virgo_mempool_ops = {
@@ -168,13 +174,19 @@ static struct virgo_mempool_class_t virgo_mempool_class = {
 	.m_virgo_ops = &virgo_mempool_ops
 };
 
+/*
 struct task_struct *task;
 char* mempoolFunction;
 int error;
 char buffer[BUF_SIZE];
+*/
+
 static struct socket *sock;	
+
+/*
 static struct sockaddr_in sin;
 int len=0;
+*/
 
 /*
 Multithreaded VIRGO Kernel Service - commented global declarations and moved to xxxsendto() and xxxrecvfrom() with in module 
@@ -197,6 +209,7 @@ int kernel_space_func(void* args);
 char* strip_control_M(char*);
 
 int virgo_mempool_client_thread(void* args);
+char* toAddressString(char* ptr);
 
 
 #endif /* _VIRGO_MEMPOOL_H_ */

@@ -170,20 +170,36 @@ int mempool_func(void* args)
 	*- Ka.Shrinivaasan
 	*/
 
+	char buffer[BUF_SIZE];
 	int ret=0;
 	char *argv[8];
 	char *envp[3];
+	char* mempoolFunction = (char*)args;
 	struct virgo_mempool_args* vmargs=parse_virgomempool_command(kstrdup(mempoolFunction,GFP_ATOMIC));
+	void* virgo_mempool_ret;
 
 	if (parameterIsExecutable==2)
 	{
 		struct task_struct *task;
 		int woken_up_2=0;
-		printk("mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		printk("Creating Kernel Thread for %s in virgo_cloud_mempool_kernelspace mempool driver module\n",vmargs->mempool_cmd);
+		printk(KERN_INFO "mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
+		printk(KERN_INFO "Creating Kernel Thread for %s in virgo_cloud_mempool_kernelspace mempool driver module\n",vmargs->mempool_cmd);
+
+		/*
+			Temporarily commenting kthread creation for the kernelspace virgo mempool
+			ops execution as return value from a kthread function is needed which is
+			difficult and circuitous to do with kthread. Instead the functions in the
+			kernel module virgo_cloud_mempool_kernelspace.ko are directly invoked using
+			intermodule kernelspace invocation.
+		*/
 		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
-		task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)mempoolFunction, "mempoolFunction kernelspace thread");
+
+		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC))((void*)vmargs);
+
+		printk(KERN_INFO "mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=%p\n", (char*)virgo_mempool_ret);
+		/*
 		woken_up_2=wake_up_process(task);
+		*/
 	}
 	else if(parameterIsExecutable==1)
 	{
@@ -240,7 +256,8 @@ int mempool_func(void* args)
 		strcpy(buffer,"mempool_func(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client");
 		filp_close(file_stdout,NULL);
 	}
-	return 1;
+	/*return 1;*/
+	return virgo_mempool_ret;
 }
 
 char* strip_control_M(char* str)
@@ -355,6 +372,9 @@ FPTR get_function_ptr_from_str(char* mempoolFunction)
 static int __init
 virgocloudexec_mempool_init(void)
 {
+	int error;
+	static struct sockaddr_in sin;
+
 	printk(KERN_INFO "virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module\n");
 	printk(KERN_INFO "virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread\n");
 	
@@ -389,6 +409,8 @@ EXPORT_SYMBOL(virgocloudexec_mempool_init);
 
 int virgocloudexec_mempool_create(void)
 {
+	int error;
+
 	/*
 	Blocking mode works in this commit again. No changes were made in virgo_malloc() or driver code. 
 	Hence making it a blocking socket. Root cause for this weird behaviour remains unknown.
@@ -429,8 +451,12 @@ int virgocloudexec_mempool_create(void)
 }
 EXPORT_SYMBOL(virgocloudexec_mempool_create);
 
-int virgocloudexec_mempool_recvfrom(struct socket* clsock)
+void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 {
+	char* mempoolFunction;
+	struct sockaddr_in sin;
+	void* virgo_mempool_func_ret;
+
 	/*
 	Multithreaded VIRGO Kernel Service
 	----------------------------------
@@ -488,15 +514,27 @@ int virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): mempoolFunction : %s \n", mempoolFunction);
 		/*mempoolFunction_ptr = get_function_ptr_from_str(mempoolFunction);*/
 		/*task=kthread_run(mempoolFunction_ptr, (void*)args, "cloudclonethread");*/
-		task=kthread_create(mempool_func, (void*)args, "mempool_func thread");
+		args=(void*)mempoolFunction;
+
+		/*
+		Temporarily commenting kthread creation for the kernelspace virgo mempool ops 
+		execution as return value from a kthread function is needed which is difficult 
+		and circuitous to do with kthread. Instead the mempool_func is directly invoked.
+		*/
+		/*task=kthread_create(mempool_func, (void*)args, "mempool_func thread");*/
+		virgo_mempool_func_ret=mempool_func((void*)args);
+
+		/*
 		int woken_up=wake_up_process(task);
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): clone thread woken_up : %d\n",woken_up);
+		*/
+
 		/*
 		task=kthread_create(mempool_func, (void*)args, "cloudclonethread");
 		strcpy(buffer,"cloudclonethread executed");
 		*/
 	}
-	return 0;
+	return virgo_mempool_func_ret;
 }
 EXPORT_SYMBOL(virgocloudexec_mempool_recvfrom);
 
@@ -509,13 +547,15 @@ void print_buffer(char* buffer)
 	printk(KERN_INFO "\n");
 }
 
-int virgocloudexec_mempool_sendto(struct socket* clsock)
+int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret)
 {
+
 	/*
 	Multithreaded VIRGO Kernel Service
 	----------------------------------
 	*/
 
+	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
 	struct kvec iov;
 	struct msghdr msg = { NULL, };
@@ -533,9 +573,10 @@ int virgocloudexec_mempool_sendto(struct socket* clsock)
 	*/
 	if(clientsock != NULL)
 	{
-		strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");
+		/*strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");*/
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
+		strcpy(buffer,kstrdup(toAddressString(virgo_mempool_ret),GFP_ATOMIC));
 		iov.iov_base=buffer;	
 		iov.iov_len=BUF_SIZE;
 		/*iov.iov_len=sizeof(buffer);*/
@@ -678,6 +719,13 @@ FPTR toFuncPtr(char* functionName)
                 return virgo_cloud_get_kernelspace;
 }
 
+char* toAddressString(char* ptr)
+{
+	char* strAddress=kmalloc(BUF_SIZE, GFP_ATOMIC);
+        sprintf(strAddress,"%p",ptr);
+        printk(KERN_INFO "toAddressString(): address=%p, sprintf strAddress=[%s]\n", ptr, strAddress);
+        return strAddress;
+}
 
 
 MODULE_LICENSE("GPL");

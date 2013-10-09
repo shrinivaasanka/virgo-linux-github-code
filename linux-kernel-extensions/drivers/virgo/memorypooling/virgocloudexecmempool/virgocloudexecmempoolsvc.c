@@ -21,6 +21,10 @@ mail to: ka.shrinivaasan@gmail.com
 
 #include <linux/virgo.h>
 
+/*
+	Old version of VIRGO cloudexec and mempool kernel module service without multithreading
+*/
+
 void virgo_cloudexec_service(void)
 {
 	try_module_get(virgo_class.m_virgo_owner);
