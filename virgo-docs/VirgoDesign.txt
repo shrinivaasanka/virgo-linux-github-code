@@ -324,6 +324,12 @@ Commits as on 7 October 2013
 Fixed the buffer truncation error from virgo_malloc syscall to mempool driver service which was caused by
 sizeof() for a char*. BUF_SIZE is now used for size in both syscall client and mempool kernel service.
 
+Commits as on 9 October 2013 and 10 October 2013
+------------------------------------------------
+Mempool driver kernelspace virgo mempool ops have been rewritten due to lack of facilities to return a
+value from kernel thread function. Since mempool service already spawns a kthread, this seems to be sufficient. Also the iov.iov_len in virgo_malloc has been changed from BUF_SIZE to strlen(buf) since BUF_SIZE
+causes the kernel socket to block as it waits for more data to be sent.
+
 
 
 
