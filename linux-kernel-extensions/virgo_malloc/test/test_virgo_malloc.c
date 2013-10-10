@@ -55,8 +55,8 @@ int main(int argc, char* argv[])
 
 	struct virgo_address* vaddr;
 	/* virgo_malloc*/
-	vaddr=(struct virgo_address*)syscall(351,10000,NULL,0,NULL);
-	printf("test_virgo_malloc: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d, vaddr->node_id = %d, vaddr->addr = %p \n", vaddr->hstprt->hostip, vaddr->hstprt->port, vaddr->node_id, vaddr->addr);
+	vaddr=(struct virgo_address*)syscall(351,1000,NULL,0,NULL);
+	/*printk(KERN_INFO "test_virgo_malloc: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d, vaddr->node_id = %d, vaddr->addr = %p \n", vaddr->hstprt->hostip, vaddr->hstprt->port, vaddr->node_id, vaddr->addr);*/
 
 	/*
 	/virgo_set/
