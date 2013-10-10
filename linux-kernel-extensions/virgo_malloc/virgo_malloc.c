@@ -164,7 +164,8 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	/*strcpy(iov.iov_base, buf);*/
 	/*iov.iov_base=buf;*/
 	/*iov.iov_len=sizeof(buf);*/
-	iov.iov_len=BUF_SIZE;
+	/*iov.iov_len=BUF_SIZE;*/
+	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
@@ -221,7 +222,8 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 
 	iov.iov_base=buf;
 	/*iov.iov_len=sizeof(buf);*/
-	iov.iov_len=BUF_SIZE;
+	/*iov.iov_len=BUF_SIZE;*/
+	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
@@ -312,7 +314,8 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		}
 
 		iov.iov_base=buf;
-		iov.iov_len=BUF_SIZE;	
+		/*iov.iov_len=BUF_SIZE;*/
+		iov.iov_len=strlen(buf);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
@@ -381,7 +384,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 
 	iov.iov_base=buf;
 	/*iov.iov_len=sizeof(buf);*/
-	iov.iov_len=BUF_SIZE;
+	/*iov.iov_len=BUF_SIZE;*/
+	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 	msg.msg_iov = (struct iovec *) &iov;
