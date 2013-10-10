@@ -1,0 +1,500 @@
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665411] Request for unknown module key 'Magrathea: Glacier signing key: c73c457d7b71da35c3f563f2776e7eb305606500' err -11
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665764] virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665767] virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665769] virgocloudexec_mempool_init(): invoking read_virgo_config()
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665795] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 1: 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665797] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 2: 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.665799] read_virgo_config(): virgo_cloud config file being read 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734116] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734116]  
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734125] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734125] 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734129] tokenize_list_of_ip_addrs(): 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734133] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[0] = 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734137] tokenize_list_of_ip_addrs(): 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734137] 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734141] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[1] = 127.0.0.1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734141] 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734161] virgocloudexec_mempool_init(): sock_create() returns error code: 0
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734168] virgocloudexec_mempool_init(): kernel_bind() returns error code: 0
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734177] virgocloudexec_mempool_init(): kernel_listen() returns error code: 0
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   18.734181] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   23.213116] bio: create slab <bio-1> at 1
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.167983] Adding 4490132k swap on /dev/mapper/cryptswap1.  Priority:-1 extents:1 across:4490132k 
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.174445] EXT3-fs (sda5): using internal journal
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.539095] RPC: Registered named UNIX socket transport module.
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.539100] RPC: Registered udp transport module.
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.539102] RPC: Registered tcp transport module.
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.539104] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.720840] type=1400 audit(1381415720.853:2): apparmor="STATUS" operation="profile_load" name="/usr/lib/lightdm/lightdm/lightdm-guest-session-wrapper" pid=1661 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.721426] type=1400 audit(1381415720.853:3): apparmor="STATUS" operation="profile_load" name="/sbin/dhclient" pid=1662 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.721935] type=1400 audit(1381415720.853:4): apparmor="STATUS" operation="profile_load" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=1662 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.722222] type=1400 audit(1381415720.853:5): apparmor="STATUS" operation="profile_load" name="/usr/lib/connman/scripts/dhclient-script" pid=1662 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.736158] type=1400 audit(1381415720.869:6): apparmor="STATUS" operation="profile_load" name="/usr/lib/telepathy/mission-control-5" pid=1668 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.736769] type=1400 audit(1381415720.869:7): apparmor="STATUS" operation="profile_load" name="/usr/lib/telepathy/telepathy-*" pid=1668 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.743001] type=1400 audit(1381415720.873:8): apparmor="STATUS" operation="profile_load" name="/usr/lib/cups/backend/cups-pdf" pid=1669 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.743652] type=1400 audit(1381415720.873:9): apparmor="STATUS" operation="profile_load" name="/usr/sbin/cupsd" pid=1669 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.748772] type=1400 audit(1381415720.881:10): apparmor="STATUS" operation="profile_load" name="/usr/sbin/tcpdump" pid=1671 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.800609] ppdev: user-space parallel port driver
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.851762] type=1400 audit(1381415720.981:11): apparmor="STATUS" operation="profile_replace" name="/usr/lib/cups/backend/cups-pdf" pid=1688 comm="apparmor_parser"
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869566] Bluetooth: Core ver 2.16
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869588] NET: Registered protocol family 31
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869590] Bluetooth: HCI device and connection manager initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869901] Bluetooth: HCI socket layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869906] Bluetooth: L2CAP socket layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.869913] Bluetooth: SCO socket layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.882172] FS-Cache: Loaded
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.895951] Bluetooth: RFCOMM TTY layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.895964] Bluetooth: RFCOMM socket layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.895966] Bluetooth: RFCOMM ver 1.11
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.987420] sky2 0000:09:00.0 eth0: enabling interface
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   33.987561] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.103439] FS-Cache: Netfs 'nfs' registered for caching
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.117107] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.117112] Bluetooth: BNEP filters: protocol multicast
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.117121] Bluetooth: BNEP socket layer initialized
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.218955] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.700066] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+Oct 10 20:05:21 kashrinivaasan-Inspiron-1545 kernel: [   34.712128] NFSD: starting 90-second grace period
+Oct 10 20:05:42 kashrinivaasan-Inspiron-1545 kernel: [   55.316657] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:05:42 kashrinivaasan-Inspiron-1545 kernel: [   55.318775] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:05:42 kashrinivaasan-Inspiron-1545 kernel: [   55.318781] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:06:34 kashrinivaasan-Inspiron-1545 kernel: [  107.033394] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:06:34 kashrinivaasan-Inspiron-1545 kernel: [  107.035746] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:06:34 kashrinivaasan-Inspiron-1545 kernel: [  107.035755] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:07:25 kashrinivaasan-Inspiron-1545 kernel: [  158.745406] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:07:25 kashrinivaasan-Inspiron-1545 kernel: [  158.747758] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:07:25 kashrinivaasan-Inspiron-1545 kernel: [  158.747768] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:08:17 kashrinivaasan-Inspiron-1545 kernel: [  210.452677] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:08:17 kashrinivaasan-Inspiron-1545 kernel: [  210.454911] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:08:17 kashrinivaasan-Inspiron-1545 kernel: [  210.454917] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:08:54 kashrinivaasan-Inspiron-1545 kernel: [  247.244853] PPP BSD Compression module registered
+Oct 10 20:08:54 kashrinivaasan-Inspiron-1545 kernel: [  247.379835] PPP Deflate Compression module registered
+Oct 10 20:09:08 kashrinivaasan-Inspiron-1545 kernel: [  261.657304] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:09:08 kashrinivaasan-Inspiron-1545 kernel: [  261.659656] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:09:08 kashrinivaasan-Inspiron-1545 kernel: [  261.659664] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:09:12 kashrinivaasan-Inspiron-1545 kernel: [  265.760276] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=111.67.197.138 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=99 ID=256 PROTO=TCP SPT=6000 DPT=1433 WINDOW=16384 RES=0x00 SYN URGP=0 
+Oct 10 20:10:00 kashrinivaasan-Inspiron-1545 kernel: [  313.369332] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:10:00 kashrinivaasan-Inspiron-1545 kernel: [  313.371434] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:10:00 kashrinivaasan-Inspiron-1545 kernel: [  313.371440] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:10:47 kashrinivaasan-Inspiron-1545 kernel: [  360.782817] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=64.27.3.16 DST=14.99.240.138 LEN=48 TOS=0x00 PREC=0x00 TTL=116 ID=14745 PROTO=TCP SPT=9570 DPT=25 WINDOW=65535 RES=0x00 SYN URGP=0 
+Oct 10 20:10:52 kashrinivaasan-Inspiron-1545 kernel: [  365.081304] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:10:52 kashrinivaasan-Inspiron-1545 kernel: [  365.083410] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:10:52 kashrinivaasan-Inspiron-1545 kernel: [  365.083416] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:11:43 kashrinivaasan-Inspiron-1545 kernel: [  416.789025] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:11:43 kashrinivaasan-Inspiron-1545 kernel: [  416.791285] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:11:43 kashrinivaasan-Inspiron-1545 kernel: [  416.791293] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:12:35 kashrinivaasan-Inspiron-1545 kernel: [  468.504761] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:12:35 kashrinivaasan-Inspiron-1545 kernel: [  468.506879] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:12:35 kashrinivaasan-Inspiron-1545 kernel: [  468.506885] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:13:27 kashrinivaasan-Inspiron-1545 kernel: [  520.189376] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=59.188.1.148 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=104 ID=256 PROTO=TCP SPT=6000 DPT=1433 WINDOW=16384 RES=0x00 SYN URGP=0 
+Oct 10 20:13:27 kashrinivaasan-Inspiron-1545 kernel: [  520.216844] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:13:27 kashrinivaasan-Inspiron-1545 kernel: [  520.218968] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:13:27 kashrinivaasan-Inspiron-1545 kernel: [  520.218974] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:14:19 kashrinivaasan-Inspiron-1545 kernel: [  571.929580] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:14:19 kashrinivaasan-Inspiron-1545 kernel: [  571.931944] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:14:19 kashrinivaasan-Inspiron-1545 kernel: [  571.931952] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:15:10 kashrinivaasan-Inspiron-1545 kernel: [  623.641104] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:15:10 kashrinivaasan-Inspiron-1545 kernel: [  623.643470] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:15:10 kashrinivaasan-Inspiron-1545 kernel: [  623.643478] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:16:02 kashrinivaasan-Inspiron-1545 kernel: [  675.348606] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:16:02 kashrinivaasan-Inspiron-1545 kernel: [  675.350740] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:16:02 kashrinivaasan-Inspiron-1545 kernel: [  675.350748] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:16:54 kashrinivaasan-Inspiron-1545 kernel: [  727.065374] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:16:54 kashrinivaasan-Inspiron-1545 kernel: [  727.067533] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:16:54 kashrinivaasan-Inspiron-1545 kernel: [  727.067541] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:17:19 kashrinivaasan-Inspiron-1545 kernel: [  751.982570] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=192.210.60.178 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=106 ID=256 PROTO=TCP SPT=6000 DPT=1433 WINDOW=16384 RES=0x00 SYN URGP=0 
+Oct 10 20:17:37 kashrinivaasan-Inspiron-1545 kernel: [  770.219608] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.73 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=24436 DF PROTO=TCP SPT=80 DPT=52276 WINDOW=0 RES=0x00 ACK RST URGP=0 
+Oct 10 20:17:39 kashrinivaasan-Inspiron-1545 kernel: [  772.062584] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=173.194.34.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=45 ID=57413 PROTO=TCP SPT=443 DPT=45856 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:17:39 kashrinivaasan-Inspiron-1545 kernel: [  772.079683] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=173.194.34.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=45 ID=57412 PROTO=TCP SPT=443 DPT=45856 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:17:45 kashrinivaasan-Inspiron-1545 kernel: [  778.773135] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:17:45 kashrinivaasan-Inspiron-1545 kernel: [  778.775527] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:17:45 kashrinivaasan-Inspiron-1545 kernel: [  778.775535] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:17:52 kashrinivaasan-Inspiron-1545 kernel: [  784.963602] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24650 DF PROTO=TCP SPT=55649 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:53 kashrinivaasan-Inspiron-1545 kernel: [  786.419694] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24661 DF PROTO=TCP SPT=55650 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:54 kashrinivaasan-Inspiron-1545 kernel: [  787.782588] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24670 DF PROTO=TCP SPT=55651 DPT=443 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:54 kashrinivaasan-Inspiron-1545 kernel: [  787.782614] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24671 DF PROTO=TCP SPT=55652 DPT=80 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:55 kashrinivaasan-Inspiron-1545 kernel: [  788.343698] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24678 DF PROTO=TCP SPT=55649 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:55 kashrinivaasan-Inspiron-1545 kernel: [  788.763597] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24692 DF PROTO=TCP SPT=55650 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:56 kashrinivaasan-Inspiron-1545 kernel: [  789.241718] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.73 DST=14.99.240.138 LEN=2888 TOS=0x00 PREC=0x00 TTL=56 ID=11533 PROTO=TCP SPT=443 DPT=56743 WINDOW=661 RES=0x00 ACK URGP=0 
+Oct 10 20:17:57 kashrinivaasan-Inspiron-1545 kernel: [  790.262628] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24695 DF PROTO=TCP SPT=55651 DPT=443 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:17:57 kashrinivaasan-Inspiron-1545 kernel: [  790.262653] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=52 TOS=0x00 PREC=0x00 TTL=117 ID=24696 DF PROTO=TCP SPT=55652 DPT=80 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:18:01 kashrinivaasan-Inspiron-1545 kernel: [  794.019586] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=48 TOS=0x00 PREC=0x00 TTL=117 ID=24715 DF PROTO=TCP SPT=55649 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:18:01 kashrinivaasan-Inspiron-1545 kernel: [  794.599590] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=122.173.169.5 DST=14.99.240.138 LEN=48 TOS=0x00 PREC=0x00 TTL=117 ID=24719 DF PROTO=TCP SPT=55650 DPT=28708 WINDOW=8192 RES=0x00 SYN URGP=0 
+Oct 10 20:18:06 kashrinivaasan-Inspiron-1545 kernel: [  799.480600] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.36 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=248 ID=8274 DF PROTO=TCP SPT=80 DPT=52168 WINDOW=0 RES=0x20 ACK RST URGP=0 
+Oct 10 20:18:09 kashrinivaasan-Inspiron-1545 kernel: [  802.742698] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.32 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=64803 PROTO=TCP SPT=443 DPT=38368 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:18:09 kashrinivaasan-Inspiron-1545 kernel: [  802.742716] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.32 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=64804 PROTO=TCP SPT=443 DPT=38368 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:18:09 kashrinivaasan-Inspiron-1545 kernel: [  802.742729] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.32 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=64805 PROTO=TCP SPT=443 DPT=38368 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:18:37 kashrinivaasan-Inspiron-1545 kernel: [  830.484665] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:18:37 kashrinivaasan-Inspiron-1545 kernel: [  830.486781] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:18:37 kashrinivaasan-Inspiron-1545 kernel: [  830.486787] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:18:46 kashrinivaasan-Inspiron-1545 kernel: [  839.260638] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=216.52.242.80 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=250 ID=49336 DF PROTO=TCP SPT=80 DPT=49312 WINDOW=0 RES=0x20 ACK RST URGP=0 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972534] get_host_from_cloud_PRG_mempool() - get_random_int() returned 1958829544 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972542] get_host_from_cloud_PRG_mempool() range mapping for 2 cloud nodes(num_cloud_nodes) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972546] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): 127.0.0.1 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972549] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: 127.0.0.1 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972561] virgo_malloc() syscall: created client kernel socket
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972684] virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972684]  
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972705] virgo_malloc() syscall: sent len=24; iov.iov_base=virgo_cloud_malloc(1000), sent message: virgo_cloud_malloc(1000) 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972730] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972790] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972799] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972802] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972809] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 24
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972813] strip_control_M(): str=virgo_cloud_malloc(1000) before strsep
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972817] strip_control_M(): newstr=virgo_cloud_malloc(1000) after carriage return newline strsep
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972821] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=, buffer: virgo_cloud_malloc(1000)
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972824] virgo_cloudexec_mempool: print_buffer(): 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972827] vi
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972831] rg
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972835] o_
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972839] cl
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972842] ou
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972846] d_
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972850] ma
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972853] ll
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972857] oc
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972861] (1
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972865] 00
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972868] 0)
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972872] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972876] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972879] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972883] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972887] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972890] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972894] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972898] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972902] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972905] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972909] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972913] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972916] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972920] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972924] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972927] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972931] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972935] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972938] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972942] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972946] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972950] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972953] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972957] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972961] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972964] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972968] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972972] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972975] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972979] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972983] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972987] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972990] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972994] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.972998] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973001] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973005] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973009] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973012] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973016] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973020] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973024] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973027] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973031] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973035] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973038] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973042] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973046] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973049] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973053] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973057] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973060] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973064] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973068] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973072] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973075] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973079] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973083] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973086] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973090] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973094] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973097] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973101] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973105] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973109] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973112] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973116] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973120] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973123] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973127] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973131] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973134] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973138] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973142] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973146] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973149] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973153] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973157] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973160] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973164] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973168] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973171] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973175] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973179] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973183] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973186] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973190] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973194] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973197] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973201] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973205] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973209] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973212] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973216] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973220] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973223] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973227] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973231] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973235] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973238] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973242] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973246] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973249] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973253] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973257] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973261] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973264] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973268] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973272] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973275] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973279] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973283] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973287] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973290] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973294] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973298] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973301] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973305] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973309] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973313] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973316] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973320] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973324] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973327] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973331] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973335] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973339] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973342] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973346] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973350] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973353] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973357] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973361] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973364] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973368] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973372] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973376] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973379] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973383] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973387] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973390] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973394] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973398] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973402] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973405] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973409] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973413] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973416] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973420] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973424] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973428] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973431] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973435] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973439] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973442] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973446] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973450] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973454] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973457] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973461] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973465] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973468] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973472] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973476] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973479] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973483] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973487] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973491] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973494] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973498] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973502] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973505] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973509] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973513] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973517] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973520] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973524] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973528] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973531] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973535] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973539] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973543] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973546] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973550] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973554] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973557] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973561] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973565] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973569] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973572] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973576] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973580] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973583] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973587] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973591] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973595] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973598] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973602] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973606] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973609] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973613] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973617] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973621] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973624] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973628] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973632] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973636] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973639] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973643] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973647] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973650] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973654] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973658] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973662] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973665] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973669] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973673] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973676] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973680] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973684] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973688] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973691] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973695] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973699] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973702] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973706] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973710] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973714] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973717] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973721] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973725] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973728] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973732] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973736] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973740] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973743] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973747] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973751] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973755] 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973758] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_malloc(1000)
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973761] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_malloc(1000) 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973765] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_malloc
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973769] parse_virgomempool_command: vmargs->mempool_args[0]: 1000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973772] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973775] Creating Kernel Thread for virgo_cloud_malloc in virgo_cloud_mempool_kernelspace mempool driver module
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973780] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973783] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size str=1000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973788] toInteger(): strInt=[1000], integer=1000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973791] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=1000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973795] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=ec59a000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973799] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=ec59a000 in vmargs as an out arg
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973802] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=ec59a000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973805] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973809] toAddressString(): address=ec59a000, sprintf strAddress=[ec59a000]
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973813] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: ec59a000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973836] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973840] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973859] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973876] virgo_malloc() syscall: recv len=500; received message: ec59a000 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973880] virgo_malloc() syscall: received iov.iov_base:  
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973886] virgo_malloc() syscall: i=0, vtable[i].node_id=0, vtable[i].addr=  (null), vtable[i].hstprt->hostip=127.0.0.1, vtable[i].hstprt->port=30000 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973889] virgo_malloc() syscall: le32_to_cpus(buf): ec59a000 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973914] BUG: unable to handle kernel NULL pointer dereference at 0000000c
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973921] IP: [<c14ee0b1>] sock_release+0x31/0x80
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973932] *pdpt = 000000002c4dd001 *pde = 0000000000000000 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973938] Oops: 0000 [#1] SMP 
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.973944] Modules linked in: ppp_deflate zlib_deflate bsd_comp ppp_async crc_ccitt nfsd nfs_acl auth_rpcgss bnep nfs rfcomm fscache bluetooth lockd parport_pc binfmt_misc ppdev sunrpc dm_crypt virgo_cloudexec_mempool(OF+) virgo_cloud_mempool_kernelspace(OF) lp parport xt_hl ip6t_rt nf_conntrack_ipv6 nf_defrag_ipv6 ipt_REJECT xt_LOG xt_limit xt_tcpudp xt_addrtype nf_conntrack_ipv4 nf_defrag_ipv4 xt_state snd_hda_codec_idt snd_hda_intel snd_hda_codec ip6table_filter ip6_tables nf_conntrack_netbios_ns nf_conntrack_broadcast joydev nf_nat_ftp nf_nat snd_hwdep snd_pcm nf_conntrack_ftp snd_seq_midi nf_conntrack snd_rawmidi iptable_filter snd_seq_midi_event option ip_tables snd_seq usb_wwan snd_timer usbserial snd_seq_device x_tables dell_laptop gpio_ich dell_wmi uvcvideo coretemp snd videobuf2_core mac_hid soundcore videodev psmouse snd_page_alloc videobuf2_vmalloc microcode lpc_ich videobuf2_memops serio_raw sparse_keymap dcdbas virgo_cloud_test_kernelspace(OF) ums_realtek usb_stor
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: age i915 drm_kms_helper ahci sky2 drm wmi i2c_algo_bit libahci video
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974071] Pid: 3472, comm: test_virgo_mall Tainted: GF          O 3.7.8 #1 Dell Inc. Inspiron 1545                   /0J037P
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974076] EIP: 0060:[<c14ee0b1>] EFLAGS: 00010246 CPU: 1
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974081] EIP is at sock_release+0x31/0x80
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974085] EAX: 00000000 EBX: ec14ffdc ECX: 000000a5 EDX: 00000000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974089] ESI: ef66dfc0 EDI: c1a7296c EBP: eb4e5f30 ESP: eb4e5f24
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974093]  DS: 007b ES: 007b FS: 00d8 GS: 00e0 SS: 0068
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974098] CR0: 8005003b CR2: 0000000c CR3: 2b47c000 CR4: 000407f0
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974102] DR0: 00000000 DR1: 00000000 DR2: 00000000 DR3: 00000000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974105] DR6: ffff0ff0 DR7: 00000400
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974110] Process test_virgo_mall (pid: 3472, ti=eb4e4000 task=ec6c8000 task.ti=eb4e4000)
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974113] Stack:
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974116]  00000000 ec4a8870 ef66dfc0 eb4e5fac c12db9c2 c17cec98 ef66dfc0 00000000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974128]  00000000 eb416050 00007530 00000000 000003e8 00000000 000003e8 00000000
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974141]  eb4e5f8c 00000000 eb4e5f80 00000001 00000000 00000000 00000000 ef66dfd8
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974153] Call Trace:
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974162]  [<c12db9c2>] sys_virgo_malloc+0x1c2/0x2a0
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974172]  [<c10128fd>] ? math_state_restore+0x8d/0x140
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974180]  [<c15f494d>] sysenter_do_call+0x12/0x28
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974183] Code: 89 5d f8 89 75 fc 66 66 66 66 90 8b 50 18 89 c3 85 d2 74 14 8b 72 04 ff 52 08 c7 43 18 00 00 00 00 89 f0 e8 a2 9b bb ff 8b 43 0c <8b> 50 0c 85 d2 75 32 8b 43 08 a8 20 75 15 64 ff 0d 80 09 9a c1
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974258] EIP: [<c14ee0b1>] sock_release+0x31/0x80 SS:ESP 0068:eb4e5f24
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974266] CR2: 000000000000000c
+Oct 10 20:19:10 kashrinivaasan-Inspiron-1545 kernel: [  862.974271] ---[ end trace dd08f1553bc54de0 ]---
+Oct 10 20:19:25 kashrinivaasan-Inspiron-1545 kernel: [  878.200704] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.43 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=54181 PROTO=TCP SPT=443 DPT=57900 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:19:29 kashrinivaasan-Inspiron-1545 kernel: [  882.201056] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:19:29 kashrinivaasan-Inspiron-1545 kernel: [  882.203398] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:19:29 kashrinivaasan-Inspiron-1545 kernel: [  882.203406] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:19:46 kashrinivaasan-Inspiron-1545 kernel: [  899.720633] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.47 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=38991 PROTO=TCP SPT=443 DPT=41461 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:19:46 kashrinivaasan-Inspiron-1545 kernel: [  899.720678] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.47 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=38993 PROTO=TCP SPT=443 DPT=41461 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:19:52 kashrinivaasan-Inspiron-1545 kernel: [  905.658701] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=23.58.17.244 DST=14.99.240.138 LEN=60 TOS=0x00 PREC=0x00 TTL=58 ID=0 DF PROTO=TCP SPT=80 DPT=32918 WINDOW=14480 RES=0x00 ACK SYN URGP=0 
+Oct 10 20:19:55 kashrinivaasan-Inspiron-1545 kernel: [  908.338634] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=111.119.15.31 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=1700 DF PROTO=TCP SPT=80 DPT=49138 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:20:05 kashrinivaasan-Inspiron-1545 kernel: [  918.401721] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.94 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=36758 PROTO=TCP SPT=443 DPT=54690 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:20:05 kashrinivaasan-Inspiron-1545 kernel: [  918.401739] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.94 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=36759 PROTO=TCP SPT=443 DPT=54690 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:20:11 kashrinivaasan-Inspiron-1545 kernel: [  924.779630] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=120.59.78.16 DST=14.99.240.138 LEN=95 TOS=0x00 PREC=0x00 TTL=116 ID=29857 PROTO=UDP SPT=14529 DPT=13772 LEN=75 
+Oct 10 20:20:12 kashrinivaasan-Inspiron-1545 kernel: [  925.101728] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.73 DST=14.99.240.138 LEN=2888 TOS=0x00 PREC=0x00 TTL=56 ID=11710 PROTO=TCP SPT=443 DPT=56743 WINDOW=661 RES=0x00 ACK URGP=0 
+Oct 10 20:20:21 kashrinivaasan-Inspiron-1545 kernel: [  933.913227] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:20:21 kashrinivaasan-Inspiron-1545 kernel: [  933.915648] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:20:21 kashrinivaasan-Inspiron-1545 kernel: [  933.915656] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:20:23 kashrinivaasan-Inspiron-1545 kernel: [  936.623706] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.190 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=63104 PROTO=TCP SPT=443 DPT=54680 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:20:29 kashrinivaasan-Inspiron-1545 kernel: [  942.299713] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=58.221.45.233 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=98 ID=256 PROTO=TCP SPT=6000 DPT=1433 WINDOW=16384 RES=0x00 SYN URGP=0 
+Oct 10 20:21:12 kashrinivaasan-Inspiron-1545 kernel: [  985.625302] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:21:12 kashrinivaasan-Inspiron-1545 kernel: [  985.627572] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:21:12 kashrinivaasan-Inspiron-1545 kernel: [  985.627580] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:21:58 kashrinivaasan-Inspiron-1545 kernel: [ 1031.558723] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.36 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=49284 PROTO=TCP SPT=443 DPT=43467 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:22:04 kashrinivaasan-Inspiron-1545 kernel: [ 1037.337459] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:22:04 kashrinivaasan-Inspiron-1545 kernel: [ 1037.339571] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:22:04 kashrinivaasan-Inspiron-1545 kernel: [ 1037.339576] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:22:50 kashrinivaasan-Inspiron-1545 kernel: [ 1082.947743] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=173.194.34.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=45 ID=39269 PROTO=TCP SPT=443 DPT=45852 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:22:50 kashrinivaasan-Inspiron-1545 kernel: [ 1082.987741] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=173.194.34.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=45 ID=39270 PROTO=TCP SPT=443 DPT=45852 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:22:56 kashrinivaasan-Inspiron-1545 kernel: [ 1089.049112] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:22:56 kashrinivaasan-Inspiron-1545 kernel: [ 1089.051199] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:22:56 kashrinivaasan-Inspiron-1545 kernel: [ 1089.051205] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:23:31 kashrinivaasan-Inspiron-1545 kernel: [ 1124.176727] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.38 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=14768 PROTO=TCP SPT=443 DPT=57327 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:31 kashrinivaasan-Inspiron-1545 kernel: [ 1124.776679] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=57561 PROTO=TCP SPT=443 DPT=56744 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:31 kashrinivaasan-Inspiron-1545 kernel: [ 1124.777634] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=57562 PROTO=TCP SPT=443 DPT=56744 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:31 kashrinivaasan-Inspiron-1545 kernel: [ 1124.798754] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.79 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=57564 PROTO=TCP SPT=443 DPT=56744 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:33 kashrinivaasan-Inspiron-1545 kernel: [ 1126.197750] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.73 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=11749 PROTO=TCP SPT=443 DPT=56743 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:33 kashrinivaasan-Inspiron-1545 kernel: [ 1126.316752] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.73 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=11750 PROTO=TCP SPT=443 DPT=56743 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:36 kashrinivaasan-Inspiron-1545 kernel: [ 1129.117759] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=222.186.25.44 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=96 ID=256 PROTO=TCP SPT=6000 DPT=8000 WINDOW=16384 RES=0x00 SYN URGP=0 
+Oct 10 20:23:39 kashrinivaasan-Inspiron-1545 kernel: [ 1132.307752] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.44 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=37139 PROTO=TCP SPT=443 DPT=56512 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:23:47 kashrinivaasan-Inspiron-1545 kernel: [ 1140.761335] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:23:47 kashrinivaasan-Inspiron-1545 kernel: [ 1140.763614] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:23:47 kashrinivaasan-Inspiron-1545 kernel: [ 1140.763622] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:24:00 kashrinivaasan-Inspiron-1545 kernel: [ 1153.307782] [UFW BLOCK] IN=ppp0 OUT= MAC= SRC=74.125.236.67 DST=14.99.240.138 LEN=40 TOS=0x00 PREC=0x00 TTL=56 ID=46043 PROTO=TCP SPT=443 DPT=52541 WINDOW=0 RES=0x00 RST URGP=0 
+Oct 10 20:24:39 kashrinivaasan-Inspiron-1545 kernel: [ 1192.468609] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:24:39 kashrinivaasan-Inspiron-1545 kernel: [ 1192.470729] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:24:39 kashrinivaasan-Inspiron-1545 kernel: [ 1192.470735] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:25:31 kashrinivaasan-Inspiron-1545 kernel: [ 1244.185353] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:25:31 kashrinivaasan-Inspiron-1545 kernel: [ 1244.187512] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:25:31 kashrinivaasan-Inspiron-1545 kernel: [ 1244.187520] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Oct 10 20:26:23 kashrinivaasan-Inspiron-1545 kernel: [ 1295.897484] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Oct 10 20:26:23 kashrinivaasan-Inspiron-1545 kernel: [ 1295.899770] sd 7:0:0:0: [sdb] Asking for cache data failed
+Oct 10 20:26:23 kashrinivaasan-Inspiron-1545 kernel: [ 1295.899777] sd 7:0:0:0: [sdb] Assuming drive cache: write through
