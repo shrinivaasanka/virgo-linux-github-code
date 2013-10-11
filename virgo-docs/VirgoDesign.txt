@@ -236,7 +236,7 @@ power of the Kernel and Operating System into an artificially (rather approximat
 
 11. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
 
-12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls.
+12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
 
 
 
@@ -329,6 +329,10 @@ Commits as on 9 October 2013 and 10 October 2013
 Mempool driver kernelspace virgo mempool ops have been rewritten due to lack of facilities to return a
 value from kernel thread function. Since mempool service already spawns a kthread, this seems to be sufficient. Also the iov.iov_len in virgo_malloc has been changed from BUF_SIZE to strlen(buf) since BUF_SIZE
 causes the kernel socket to block as it waits for more data to be sent.
+
+Commits as on 11 October 2013
+-----------------------------
+sscanf format error for virgo_cloud_malloc() return pointer address and sock_release() null pointer exception has been rectified.
 
 
 
