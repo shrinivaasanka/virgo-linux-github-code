@@ -333,11 +333,11 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
        		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message: %s \n", len, buf);
+		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: %s \n", len, buf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
 		struct virgo_address v_addr;
-		sscanf(buf,"%p",v_addr.addr);
+		sscanf(buf,"%p",&v_addr.addr);
 		v_addr.node_id=i;
 		v_addr.hstprt=leastloadedhostport;
 
@@ -349,8 +349,13 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
        
 		le32_to_cpus(buf);
 		printk(KERN_INFO "virgo_malloc() syscall: le32_to_cpus(buf): %s \n", buf);
-		sock_release(sock);
-		printk(KERN_INFO "virgo_malloc() syscall: virgo_malloc() client socket_release() invoked\n");
+		if(sock)
+		{
+			sock_release(sock);
+			printk(KERN_INFO "virgo_malloc() syscall: virgo_malloc() client socket_release() invoked\n");
+		}
+		else
+			printk(KERN_INFO "virgo_malloc() syscall: sock is NULL\n");
 		sum_alloc_size+=chunk_size;
 		if(chunk_size < PER_NODE_MALLOC_CHUNK_SIZE)
 			break;
