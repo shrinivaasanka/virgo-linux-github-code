@@ -333,11 +333,12 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
 		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
        		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: %s \n", len, buf);
+		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
 		struct virgo_address v_addr;
-		sscanf(buf,"%p",&v_addr.addr);
+		v_addr.addr=(void*)str_to_addr(buf);
+		printk(KERN_INFO "virgo_malloc() syscall: v_addr.addr=%p \n", v_addr.addr);
 		v_addr.node_id=i;
 		v_addr.hstprt=leastloadedhostport;
 
@@ -430,3 +431,12 @@ char* addr_to_str(char* addr)
 	sprintf(ret,"%p",addr);
 	return ret;
 }
+
+char* str_to_addr(char* straddr)
+{
+        char *ptr=NULL;
+        sscanf(straddr,"%p",(void**)&ptr);
+        printk(KERN_INFO "str_to_addr(): addr=[%s], address scanned=%p\n", straddr, ptr);
+        return ptr;
+}
+
