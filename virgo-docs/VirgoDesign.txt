@@ -238,6 +238,11 @@ power of the Kernel and Operating System into an artificially (rather approximat
 
 12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
 
+13. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
+
+14. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from
+the log.
+
 
 
 commits as on 23 August 2013
@@ -333,7 +338,7 @@ causes the kernel socket to block as it waits for more data to be sent.
 Commits as on 11 October 2013
 -----------------------------
 sscanf format error for virgo_cloud_malloc() return pointer address and sock_release() null pointer exception has been rectified.
-
+Added str_to_addr() utility function.
 
 
 
