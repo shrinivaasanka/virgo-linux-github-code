@@ -1,4 +1,4 @@
-/***************************************************************************************
+	/***************************************************************************************
 VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
 
 This program is free software: you can redistribute it and/or modify
@@ -104,13 +104,41 @@ struct virgo_address
         int node_id;
         struct hostport* hstprt;
         void* addr;
+	/*
+	allocation unique id to uniquely identify all chunks  for that cloud allocation
+	*/
+	int cloud_alloc_id;
+	/*
+	For future use - reference count for this address
+	*/
+	int refcount;
 };
 
 struct virgo_addr_transtable
 {
-        int node_id;
-        struct hostport* hstprt;
-        void* addr;
+
+	/*
+	address table of size 3000 for maximum of 3000 cloud nodes
+	*/
+	struct virgo_address vtable[3000];
+
+
+	/*
+	for future use - if some search algorithm is needed for tree representation of transtable 
+	fragments distributed geographically. Each fragment is for maximum of 3000 cloud nodes.
+	*/
+	struct virgo_addr_transtable* vtable_left;
+	struct virgo_addr_transtable* vtable_right;
+
+	/*
+	for future use - Set to 1 if virgo_addr_transtable fragment is persisted in disk
+	*/
+	int fragment_is_disk_persisted;
+
+	/*
+	Mutex to synchronize access to this address table fragment
+	*/
+	struct mutex vtable_fragment_mutex;
 };
 
 struct virgo_mempool_args
@@ -122,13 +150,13 @@ struct virgo_mempool_args
 	char* data;
 };
 
-struct virgo_addr_transtable vtable[3000];
 
 struct hostport* get_least_loaded_hostport_from_cloud_mempool();
 char* get_host_from_cloud_Loadtrack_mempool();
 char* get_host_from_cloud_PRG_mempool();
 char* int_to_str(int);
 char* addr_to_str(char*);
+char* str_to_addr(char*);
 
 typedef void* (*FPTR)(void *args);
 
@@ -211,6 +239,9 @@ char* strip_control_M(char*);
 int virgo_mempool_client_thread(void* args);
 char* toAddressString(char* ptr);
 
+struct virgo_addr_transtable vtranstable;
+int alloc_id=1;
+int next_vtable_entry=0;
 
 #endif /* _VIRGO_MEMPOOL_H_ */
 
