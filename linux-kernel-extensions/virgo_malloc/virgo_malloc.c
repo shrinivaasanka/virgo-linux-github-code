@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
-Ph: 9003082186, 9791165980
+Ph: 9789346927, 9003082186, 9791165980
 Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
 emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
@@ -253,7 +253,6 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 
 asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 {
-
 	int no_of_chunks=1;	
 	int nr;
 	struct kvec iov;
@@ -293,6 +292,9 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	int i=0;
+	int this_allocation_start_entry=next_vtable_entry;
+	
+	mutex_lock(&vtable_fragment_mutex);
 	while(true)	
 	{
 		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
@@ -336,17 +338,14 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
-		struct virgo_address v_addr;
-		v_addr.addr=(void*)str_to_addr(buf);
-		printk(KERN_INFO "virgo_malloc() syscall: v_addr.addr=%p \n", v_addr.addr);
-		v_addr.node_id=i;
-		v_addr.hstprt=leastloadedhostport;
+		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);
+		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[i].addr=%p \n", (char*)vtranstable.vtable[i].addr);
+		vtranstable.vtable[next_vtable_entry].node_id=next_vtable_entry;
+		vtranstable.vtable[next_vtable_entry].hstprt=leastloadedhostport;
+		vtranstable.vtable[next_vtable_entry].cloud_alloc_id=alloc_id;
+		vtranstable.vtable[next_vtable_entry].refcount=1;
 
-		vtable[i].node_id=v_addr.node_id;
-		vtable[i].addr=v_addr.addr;
-		vtable[i].hstprt=leastloadedhostport;
-	
-		printk(KERN_INFO "virgo_malloc() syscall: i=%d, vtable[i].node_id=%d, vtable[i].addr=%p, vtable[i].hstprt->hostip=%s, vtable[i].hstprt->port=%d \n",i, vtable[i].node_id, vtable[i].addr, vtable[i].hstprt->hostip, vtable[i].hstprt->port);
+		printk(KERN_INFO "virgo_malloc() syscall: next_vtable_entry=%d, vtranstable.vtable[next_vtable_entry].node_id=%d, vtranstable.vtable[next_vtable_entry].addr=%p, vtranstable.vtable[next_vtable_entry].hstprt->hostip=%s, vtranstable.vtable[next_vtable_entry].hstprt->port=%d \n",next_vtable_entry, vtranstable.vtable[next_vtable_entry].node_id, (char*)vtranstable.vtable[next_vtable_entry].addr, vtranstable.vtable[next_vtable_entry].hstprt->hostip, vtranstable.vtable[next_vtable_entry].hstprt->port);
        
 		le32_to_cpus(buf);
 		printk(KERN_INFO "virgo_malloc() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -360,9 +359,12 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		sum_alloc_size+=chunk_size;
 		if(chunk_size < PER_NODE_MALLOC_CHUNK_SIZE)
 			break;
-		i++;
+		next_vtable_entry++;
 	}	
-	return vtable[0].addr;
+	alloc_id++;
+        mutex_unlock(&vtable_fragment_mutex);
+
+	return vtranstable.vtable[this_allocation_start_entry].addr;
 }
 
 asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
@@ -435,7 +437,7 @@ char* addr_to_str(char* addr)
 char* str_to_addr(char* straddr)
 {
         char *ptr=NULL;
-        sscanf(straddr,"%p",(void**)&ptr);
+        sscanf(straddr,"%p",&ptr);
         printk(KERN_INFO "str_to_addr(): addr=[%s], address scanned=%p\n", straddr, ptr);
         return ptr;
 }
