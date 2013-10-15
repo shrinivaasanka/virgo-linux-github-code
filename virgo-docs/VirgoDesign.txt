@@ -340,6 +340,14 @@ Commits as on 11 October 2013
 sscanf format error for virgo_cloud_malloc() return pointer address and sock_release() null pointer exception has been rectified.
 Added str_to_addr() utility function.
 
+Commits as on 14 October 2013 and 15 October 2013
+-------------------------------------------------
+Updated todo list.
+
+Rewritten virgo_cloud_malloc() syscall with:
+- mutexed virgo_cloud_malloc() loop
+- redefined virgo address translation table in virgo_mempool.h
+- str_to_addr(): removed (void**) cast due to null sscanf though it should have worked
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
