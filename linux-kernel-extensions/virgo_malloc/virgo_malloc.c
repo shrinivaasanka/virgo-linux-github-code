@@ -294,7 +294,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 	int i=0;
 	int this_allocation_start_entry=next_vtable_entry;
 	
-	mutex_lock(&vtable_fragment_mutex);
+	mutex_lock(&vtranstable.vtable_fragment_mutex);
 	while(true)	
 	{
 		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
@@ -362,7 +362,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		next_vtable_entry++;
 	}	
 	alloc_id++;
-        mutex_unlock(&vtable_fragment_mutex);
+        mutex_unlock(&vtranstable.vtable_fragment_mutex);
 
 	return vtranstable.vtable[this_allocation_start_entry].addr;
 }
