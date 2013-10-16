@@ -435,11 +435,16 @@ char* addr_to_str(char* addr)
 	return ret;
 }
 
+/*
+This function parses the address within the string straddr and returns as the pointer address
+Example: "0x0000ffff" to 0x0000ffff
+*/
 char* str_to_addr(char* straddr)
 {
         char *ptr=NULL;
-        sscanf(straddr,"%p",&ptr);
-        printk(KERN_INFO "str_to_addr(): addr=[%s], address scanned=%p\n", straddr, ptr);
-        return ptr;
+	void *voidptr=NULL;
+        sscanf(straddr,"%p",(void**)&ptr);
+        sscanf(straddr,"%p",&voidptr);
+        printk(KERN_INFO "str_to_addr(): straddr=[%s], address scanned ptr=%p, address scanned voidptr=%p \n", straddr, ptr, voidptr);
+        return (char*)voidptr;
 }
-
