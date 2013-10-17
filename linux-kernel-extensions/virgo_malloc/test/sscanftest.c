@@ -39,10 +39,10 @@ userspace sscanf and vsscanf %p modifier testcase
 
 Outputs:
 --------
-kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/virgo_malloc/test$ ./sscanftest 
+shrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/virgo_malloc/test$ ./sscanftest 
 p=0x80486d0, str after sprintf: [0x80486d0]
 str=[0x80486d0], p2 after sscanf: 0x80486d0 
-after var_sscanf(): str=[0x80486d0], p2 after sscanf: 0x80486d0 
+after var_sscanf(): str=[0x80486d0], p3 after sscanf: 0x80486d0 
 
 similar sscanf() works for kernel space in virgo_cloud_mempool_kernelspace.ko 
 but doesn't work in virgo_malloc.c and returns null
@@ -56,13 +56,14 @@ int main()
 {
 	const char* p="string";
 	void* p2;
+	void* p3;
 	char str[300];
 	sprintf(str, "%p", p);
 	printf("p=%p, str after sprintf: [%s]\n", p, str);
 	sscanf(str, "%p", (void**)&p2);
 	printf("str=[%s], p2 after sscanf: %p \n", str, p2);
-	var_sscanf(str, "%p", (void**)&p2);
-	printf("after var_sscanf(): str=[%s], p2 after sscanf: %p \n", str, p2);
+	var_sscanf(str, "%p", (void**)&p3);
+	printf("after var_sscanf(): str=[%s], p3 after sscanf: %p \n", str, p3);
 	return 0;
 }
 
