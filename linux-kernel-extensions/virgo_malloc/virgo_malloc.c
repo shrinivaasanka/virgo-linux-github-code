@@ -443,8 +443,24 @@ char* str_to_addr(char* straddr)
 {
         char *ptr=NULL;
 	void *voidptr=NULL;
+	void *voidptr_vargs=NULL;
         sscanf(straddr,"%p",(void**)&ptr);
         sscanf(straddr,"%p",&voidptr);
+	var_sscanf(straddr, "%p", (void**)&voidptr_vargs);
         printk(KERN_INFO "str_to_addr(): straddr=[%s], address scanned ptr=%p, address scanned voidptr=%p \n", straddr, ptr, voidptr);
+        printk(KERN_INFO "str_to_addr(): after var_sscanf(): straddr=[%s], voidptr_vargs by vsscanf: %p \n", straddr, voidptr_vargs);
         return (char*)voidptr;
 }
+
+/*
+carried over from test/sscanftest.c for debugging null sscanf
+*/
+
+void var_sscanf(char *str, const char* fmt, ...)
+{
+        va_list vargs;
+        va_start(vargs, fmt);
+        vsscanf(str, fmt, vargs);
+        va_end(vargs);
+}
+
