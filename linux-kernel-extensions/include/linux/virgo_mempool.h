@@ -160,6 +160,8 @@ char* str_to_addr(char*);
 
 typedef void* (*FPTR)(void *args);
 
+void var_sscanf(char *str, const char* fmt, ...);
+
 struct mutex virgo_mempool_mutex;
 
 FPTR toFuncPtr(char*);
