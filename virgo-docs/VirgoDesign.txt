@@ -361,6 +361,8 @@ Continued debugging of null sscanf - added str_to_addr2() which uses simple_strt
 for scanning pointer as long long from string and casting it to void*. Also more %p qualifiers where
 added in str_to_addr() for debugging.
 
+Based on latest test_virgo_malloc run, simple_strtoll() correctly parses the address string into a long long base 16 and then is reinterpret_cast to void*. Logs in test/
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
