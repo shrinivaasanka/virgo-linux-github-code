@@ -339,6 +339,8 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 	
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);
+		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(buf);
+		
 		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[i].addr=%p \n", (char*)vtranstable.vtable[i].addr);
 		vtranstable.vtable[next_vtable_entry].node_id=next_vtable_entry;
 		vtranstable.vtable[next_vtable_entry].hstprt=leastloadedhostport;
@@ -435,6 +437,7 @@ char* addr_to_str(char* addr)
 	return ret;
 }
 
+
 /*
 This function parses the address within the string straddr and returns as the pointer address
 Example: "0x0000ffff" to 0x0000ffff
@@ -449,7 +452,21 @@ char* str_to_addr(char* straddr)
 	var_sscanf(straddr, "%p", (void**)&voidptr_vargs);
         printk(KERN_INFO "str_to_addr(): straddr=[%s], address scanned ptr=%p, address scanned voidptr=%p \n", straddr, ptr, voidptr);
         printk(KERN_INFO "str_to_addr(): after var_sscanf(): straddr=[%s], voidptr_vargs by vsscanf: %p \n", straddr, voidptr_vargs);
-        return (char*)voidptr;
+
+	var_sscanf(straddr, "%pK", (void**)&voidptr_vargs);
+        printk(KERN_INFO "str_to_addr()pK: straddr=[%s], address scanned ptr=%pK, address scanned voidptr=%pK \n", straddr, ptr, voidptr);
+        printk(KERN_INFO "str_to_addr()pK: after var_sscanf(): straddr=[%s], voidptr_vargs by vsscanf: %pK \n", straddr, voidptr_vargs);
+
+
+	var_sscanf(straddr, "%pF", (void**)&voidptr_vargs);
+        printk(KERN_INFO "str_to_addr()pF: straddr=[%s], address scanned ptr=%pF, address scanned voidptr=%pF \n", straddr, ptr, voidptr);
+        printk(KERN_INFO "str_to_addr()pF: after var_sscanf(): straddr=[%s], voidptr_vargs by vsscanf: %pF \n", straddr, voidptr_vargs);
+
+
+	var_sscanf(straddr, "%pS", (void**)&voidptr_vargs);
+        printk(KERN_INFO "str_to_addr()pS: straddr=[%s], address scanned ptr=%pS, address scanned voidptr=%pS \n", straddr, ptr, voidptr);
+        printk(KERN_INFO "str_to_addr()pS: after var_sscanf(): straddr=[%s], voidptr_vargs by vsscanf: %pS \n", straddr, voidptr_vargs);
+        return (char*)voidptr_vargs;
 }
 
 /*
@@ -464,3 +481,19 @@ void var_sscanf(char *str, const char* fmt, ...)
         va_end(vargs);
 }
 
+/*
+carried over from test/sscanftest.c for debugging null sscanf
+*/
+
+char* str_to_addr2(char* straddr)
+{
+	/*
+        bit of a hack but a nice one when sscanf() doesn't work the way it is expected to be.
+        scan the pointer address in string into a long long and in base 16 and reinterpret cast
+        it to void*.
+        */
+	char* endptr;
+        long long ll=simple_strtoll(straddr, &endptr, 16);
+        void* lltovoidptr= (void*)ll;
+        printk(KERN_INFO "str_to_addr2(): straddr=%s, lltovoidptr = %p\n", straddr, lltovoidptr);
+}
