@@ -157,6 +157,7 @@ char* get_host_from_cloud_PRG_mempool();
 char* int_to_str(int);
 char* addr_to_str(char*);
 char* str_to_addr(char*);
+char* str_to_addr2(char* straddr);
 
 typedef void* (*FPTR)(void *args);
 
