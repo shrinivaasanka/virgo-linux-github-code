@@ -355,6 +355,12 @@ Rewritten virgo_cloud_malloc() syscall with:
 - redefined virgo address translation table in virgo_mempool.h
 - str_to_addr(): removed (void**) cast due to null sscanf though it should have worked
 
+Commits as on 18 October 2013
+------------------------------
+Continued debugging of null sscanf - added str_to_addr2() which uses simple_strtoll() kernel function
+for scanning pointer as long long from string and casting it to void*. Also more %p qualifiers where
+added in str_to_addr() for debugging.
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
