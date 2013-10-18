@@ -341,7 +341,7 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(buf);
 		
-		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[i].addr=%p \n", (char*)vtranstable.vtable[i].addr);
+		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[%d].addr=%p \n", next_vtable_entry, (char*)vtranstable.vtable[next_vtable_entry].addr);
 		vtranstable.vtable[next_vtable_entry].node_id=next_vtable_entry;
 		vtranstable.vtable[next_vtable_entry].hstprt=leastloadedhostport;
 		vtranstable.vtable[next_vtable_entry].cloud_alloc_id=alloc_id;
@@ -495,5 +495,6 @@ char* str_to_addr2(char* straddr)
 	char* endptr;
         long long ll=simple_strtoll(straddr, &endptr, 16);
         void* lltovoidptr= (void*)ll;
-        printk(KERN_INFO "str_to_addr2(): straddr=%s, lltovoidptr = %p\n", straddr, lltovoidptr);
+        printk(KERN_INFO "str_to_addr2(): straddr=[%s], lltovoidptr = %p\n", straddr, lltovoidptr);
+	return (char*)lltovoidptr;
 }
