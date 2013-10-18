@@ -39,10 +39,11 @@ userspace sscanf and vsscanf %p modifier testcase
 
 Outputs:
 --------
-shrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/virgo_malloc/test$ ./sscanftest 
-p=0x80486d0, str after sprintf: [0x80486d0]
-str=[0x80486d0], p2 after sscanf: 0x80486d0 
-after var_sscanf(): str=[0x80486d0], p3 after sscanf: 0x80486d0 
+p=0x8048770, str after sprintf: [0x8048770]
+str=[0x8048770], p2 after sscanf: 0x8048770 
+after var_sscanf(): str=[0x8048770], p3 after sscanf: 0x8048770 
+sizeof(p3) = 4 
+lltovoidptr = 0x8048770, data pointed to should be [this is example string] = it is [this is example string]
 
 similar sscanf() works for kernel space in virgo_cloud_mempool_kernelspace.ko 
 but doesn't work in virgo_malloc.c and returns null
@@ -54,9 +55,10 @@ void var_sscanf(char *str, const char* fmt, ...);
 
 int main()
 {
-	const char* p="string";
+	const char* p="this is example string";
 	void* p2;
 	void* p3;
+	char* endptr;
 	char str[300];
 	sprintf(str, "%p", p);
 	printf("p=%p, str after sprintf: [%s]\n", p, str);
@@ -64,6 +66,16 @@ int main()
 	printf("str=[%s], p2 after sscanf: %p \n", str, p2);
 	var_sscanf(str, "%p", (void**)&p3);
 	printf("after var_sscanf(): str=[%s], p3 after sscanf: %p \n", str, p3);
+	printf("sizeof(p3) = %d \n", sizeof(p3));
+
+	/*
+	bit of a hack but a nice one when sscanf() doesn't work the way it is expected to be.
+	scan the pointer address in string into a long long and in base 16 and reinterpret cast
+	it to void*.
+	*/	
+	long long ll=strtoll(str, &endptr, 16);
+	void* lltovoidptr= (void*)ll;
+	printf("lltovoidptr = %p, data pointed to should be [%s] = it is [%s]\n", lltovoidptr, p, lltovoidptr); 
 	return 0;
 }
 
