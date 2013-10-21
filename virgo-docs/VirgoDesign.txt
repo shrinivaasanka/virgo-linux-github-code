@@ -369,6 +369,10 @@ added in str_to_addr() for debugging.
 
 Based on latest test_virgo_malloc run, simple_strtoll() correctly parses the address string into a long long base 16 and then is reinterpret_cast to void*. Logs in test/
 
+Commits as on 21 October 2013
+-----------------------------
+Kern.log for testing after vtranstable addr fix with simple_strtoll() added to repository and still the other %p qualifiers do not work and only simple_strtoll() parses the address correctly. 
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
