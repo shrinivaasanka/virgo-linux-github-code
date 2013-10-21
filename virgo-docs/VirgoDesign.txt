@@ -1,5 +1,5 @@
 /***************************************************************************************
-VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
+VIRGO - Linux Kernel Extensions For Cloud 
 
 
 This program is free software: you can redistribute it and/or modify
@@ -44,6 +44,76 @@ Experimental Prototype
 -----------------------
 virgo_clone() system call and a kernel module virgocloudexec which implements Sun RPC interface have been implemented.
 
+VIRGO - loadbalancer to get the host:ip of the least loaded node
+----------------------------------------------------------------
+Loadbalancer option 1 - Centralized loadbalancer registry that tracks load:
+---------------------------------------------------------------------------
+
+Virgo_clone() system call needs to lookup a registry or map of host-to-load and get the least loaded host:ip from it. This requires a  load monitoring code to run periodically and update the map. If this registry is located on a single machine then simultaneous virgo_clone() calls from many machines on the cloud could choke the registry. Due to this, loadbalancer registry needs to run on a high-end machine. Alternatively,each machine can have its own view of the load and multiple copies of load-to-host registries can be stored in individual machines. Synchronization of the copies becomes a separate task in itself(Cache coherency). Either way gives a tradeoff between accuracy, latency and efficiency. 
+
+Many application level userspace load monitoring tools are available but as virgo_clone() is in kernel space, it needs to be investigated if kernel-to-kernel loadmonitoring can be done without userspace data transport.Most Cloud API explicitly invoke a function on a host. If this functionality is needed, virgo_clone() needs to take host:ip address as extra argument,but it reduces transparent execution.
+
+Loadbalancer option 2 - Linux Psuedorandom number generator based load balancer(experimental) instead of centralized registry that tracks load:
+----------------------------------------------------------------------------------------------------------
+
+Each virgo_clone() client has a PRG which is queried (/dev/random or /dev/urandom) to get the id of the host to send the next virgo_clone() function to be executed 
+Expected number of requests per node is derived as:
+
+expected number of requests per node = summation(each_value_for_the_random_variable_for_number_of_requests * probability_for_each_value) where random variable ranges from 1 to k where N is number of processors and k is the number of requests to be distributed on N nodes
+
+=expected number of requests per node = (math.pow(N, k+2) - k*math.pow(N,2) + k*math.pow(N,1) - 1) / (math.pow(N, k+3) - 2*math.pow(N,k+2) + math.pow(N,k+1))
+
+This loadbalancer is dependent on efficacy of the PRG and since each request is uniformly, identically, independently distributed use of PRG
+would distribute requests evenly. This obviates the need for loadtracking and coherency of the load-to-host table.
+
+(python script in virgo-python-src/)
+
+****************************************************************************************************
+			VIRGO ToDo and NiceToHave Features
+****************************************************************************************************
+1. More Sophisticated VIRGO config file
+
+2. Object Marshalling and Unmarshalling (Serialization) Features
+
+(ONGOING) 3. Virgo_malloc() syscall that virtualizes the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
+
+4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
+
+(DONE)5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
+
+6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
+
+7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the
+power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.
+
+8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
+
+9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
+
+10. In addition to Virgo_malloc() which is a pooled virtual memory, a Virgo File System with virgo_open(), virgo_read() and virgo_write() syscalls that transcends disk storage in all nodes in the cloud is also a fanciful feature addition that would make VIRGO a complete all-pervading cloud platform.
+
+(ONGOING) 11. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
+
+12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
+
+13. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
+
+14. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log.
+
+15. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+
+16. Scalability features for Multicore machines - references:
+(http://halobates.de/lk09-scalability.pdf, http://pdos.csail.mit.edu/papers/linux:osdi10.pdf)
+
+17. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
+
+18. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
+
+******************************************************************************************************
+					CODE COMMIT RELATED NOTES
+******************************************************************************************************
+
 VIRGO code commits as on 16/05/2013
 -----------------------------------
 1. VIRGO cloudexec driver with a listener kernel thread service has been implemented and it listens on port 10000 on system startup
@@ -80,29 +150,6 @@ VIRGO code commits as on 1/7/2013
 2. wake_up_process() added and function received from virgo_clone() syscall is executed with kernel_thread and results returned to
 virgo_clone() syscall client.
 
-VIRGO - loadbalancer to get the host:ip of the least loaded node
-----------------------------------------------------------------
-Loadbalancer option 1 - Centralized loadbalancer registry that tracks load:
----------------------------------------------------------------------------
-
-Virgo_clone() system call needs to lookup a registry or map of host-to-load and get the least loaded host:ip from it. This requires a  load monitoring code to run periodically and update the map. If this registry is located on a single machine then simultaneous virgo_clone() calls from many machines on the cloud could choke the registry. Due to this, loadbalancer registry needs to run on a high-end machine. Alternatively,each machine can have its own view of the load and multiple copies of load-to-host registries can be stored in individual machines. Synchronization of the copies becomes a separate task in itself(Cache coherency). Either way gives a tradeoff between accuracy, latency and efficiency. 
-
-Many application level userspace load monitoring tools are available but as virgo_clone() is in kernel space, it needs to be investigated if kernel-to-kernel loadmonitoring can be done without userspace data transport.Most Cloud API explicitly invoke a function on a host. If this functionality is needed, virgo_clone() needs to take host:ip address as extra argument,but it reduces transparent execution.
-
-Loadbalancer option 2 - Linux Psuedorandom number generator based load balancer(experimental) instead of centralized registry that tracks load:
-------------------------------------------------------------------------------------------------------------------------------------------------
-
-Each virgo_clone() client has a PRG which is queried (/dev/random or /dev/urandom) to get the id of the host to send the next virgo_clone() function to be executed 
-Expected number of requests per node is derived as:
-
-expected number of requests per node = summation(each_value_for_the_random_variable_for_number_of_requests * probability_for_each_value) where random variable ranges from 1 to k where N is number of processors and k is the number of requests to be distributed on N nodes
-
-=expected number of requests per node = (math.pow(N, k+2) - k*math.pow(N,2) + k*math.pow(N,1) - 1) / (math.pow(N, k+3) - 2*math.pow(N,k+2) + math.pow(N,k+1))
-
-This loadbalancer is dependent on efficacy of the PRG and since each request is uniformly, identically, independently distributed use of PRG
-would distribute requests evenly. This obviates the need for loadtracking and coherency of the load-to-host table.
-
-(python script in virgo-python-src/)
 
 commit as on 03/07/2013
 -----------------------
@@ -208,47 +255,6 @@ Major commits done for kernel upcall usermode output logging with fd_install red
 11 August 2013:
 ---------------
 Open Source Design and Academic Research Notes uploaded to http://sourceforge.net/projects/acadpdrafts/files/MiscellaneousOpenSourceDesignAndAcademicResearchNotes_2013-08-11.pdf/download
-
-VIRGO ToDo and NiceToHave Features:
-(Roadmap for next decade or more)
-----------------------------------
-1. More Sophisticated VIRGO config file
-
-2. Object Marshalling and Unmarshalling (Serialization) Features
-
-3. Virgo_malloc() syscall that virtualizes the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
-Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
-
-4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
-
-(DONE)5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
-
-6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
-
-7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the
-power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.
-
-8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
-
-9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
-
-10. In addition to Virgo_malloc() which is a pooled virtual memory, a Virgo File System with virgo_open(), virgo_read() and virgo_write() syscalls that transcends disk storage in all nodes in the cloud is also a fanciful feature addition that would make VIRGO a complete all-pervading cloud platform.
-
-11. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
-
-12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
-
-13. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
-
-14. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from
-the log.
-
-15. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
-
-16. Scalability features for Multicore machines - references:
-(http://halobates.de/lk09-scalability.pdf, http://pdos.csail.mit.edu/papers/linux:osdi10.pdf)
-
-17. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
 
 
 commits as on 23 August 2013
