@@ -110,6 +110,8 @@ power of the Kernel and Operating System into an artificially (rather approximat
 
 18. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
 
+19. Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc.,
+
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
 ******************************************************************************************************
