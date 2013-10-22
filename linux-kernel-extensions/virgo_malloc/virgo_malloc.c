@@ -293,6 +293,11 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 	int sum_alloc_size=0;
 	int i=0;
 	int this_allocation_start_entry=next_vtable_entry;
+
+	/*
+	Mutex lock and unlock also causes a kernel panic, hence commented as of now
+	- Ka.Shrinivaasan 22October2013
+	*/
 	
 	/*mutex_lock(&vtranstable.vtable_fragment_mutex);*/
 	while(true)	
@@ -337,7 +342,13 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
        		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
 		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
-	
+
+		/*
+		str_to_addr() doesnot work which uses various %p qualifiers.
+		Only simple_strtoll() in str_to_addr2() works. But invoking
+		both for printing debug info to kern.log
+		- Ka.Shrinivaasan 22October2013
+		*/	
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(buf);
 		
@@ -352,6 +363,13 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
        
 		le32_to_cpus(buf);
 		printk(KERN_INFO "virgo_malloc() syscall: le32_to_cpus(buf): %s \n", buf);
+
+		/*
+		Mysteriously sock_release() causes kernel panic repeatedly. Hence commenting this
+		temporarily.
+		- Ka.Shrinivaasan 22October2013
+		*/
+		/*
 		if(sock)
 		{
 			sock_release(sock);
@@ -359,15 +377,21 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		}
 		else
 			printk(KERN_INFO "virgo_malloc() syscall: sock is NULL\n");
+		*/
+
 		sum_alloc_size+=chunk_size;
-		if(chunk_size < PER_NODE_MALLOC_CHUNK_SIZE)
-			break;
 		next_vtable_entry++;
+
+		/*
+		If sum of sizes of chunks allocated so far is equal to size then break 
+		*/
+		if(sum_alloc_size == size)
+			break;
 	}	
 	alloc_id++;
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
 
-	return vtranstable.vtable[this_allocation_start_entry].addr;
+	return &(vtranstable.vtable[this_allocation_start_entry]);
 }
 
 asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
