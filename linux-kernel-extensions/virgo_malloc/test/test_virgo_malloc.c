@@ -53,25 +53,25 @@ int main(int argc, char* argv[])
 	*/
 
 	struct virgo_address* vaddr;
+	long int vaddr_longint;
 	/* virgo_malloc*/
-	vaddr=(struct virgo_address*)syscall(351,1000,NULL,0,NULL);
-	printf("test_virgo_malloc: vaddr->hstprt->hostip = %s, vaddr->hstprt->port = %d, vaddr->node_id = %d, vaddr->addr = %p \n", vaddr->hstprt->hostip, vaddr->hstprt->port, vaddr->node_id, vaddr->addr);
+	vaddr_longint=syscall(351,1000,NULL,0,NULL);
+	vaddr=(struct virgo_address*)vaddr_longint;
+
+	printf("test_virgo_malloc: vaddr_longint = %ld \n", vaddr_longint);
+	printf("test_virgo_malloc: VIRGO Address allocated on cloud by virgo_malloc() is vaddr = %p \n", vaddr);
 	fflush(stdout);	
 
 	/*
 	/virgo_set/
 	char* set_ret=(char*)syscall(352,vaddr,"test_virgo_malloc_data",NULL,0,NULL);
-	/
 	if(set_ret)
 		printf("set_ret = %s\n",set_ret);
-	/
 
 	/virgo_get/
 	char* get_ret=(char*)syscall(353,vaddr,NULL,0,NULL);
-	/
 	if(get_ret)
 		printf("get_ret = %s\n",get_ret);
-	/
 
 	/virgo_free/
 	char* free_ret=(char*)syscall(354,vaddr,NULL,0,NULL);
