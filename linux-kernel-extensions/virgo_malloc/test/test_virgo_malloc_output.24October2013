@@ -1,0 +1,2 @@
+test_virgo_malloc: vaddr_longint = -1046009452 
+test_virgo_malloc: VIRGO Address allocated on cloud by virgo_malloc() is vaddr = 0xc1a72994 
