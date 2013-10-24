@@ -156,8 +156,8 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_get_cmd;
-	virgo_get_cmd=strcat("virgo_cloud_get(",addr_to_str(vaddr->addr));
-	virgo_get_cmd=strcat(virgo_get_cmd, ")");
+	virgo_get_cmd=kstrdup(strcat("virgo_cloud_get(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
+	virgo_get_cmd=kstrdup(strcat(virgo_get_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(virgo_get_cmd, GFP_ATOMIC);			
 
 	iov.iov_base=buf;
@@ -214,10 +214,10 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_set_cmd;
-	virgo_set_cmd=strcat("virgo_cloud_set(",addr_to_str(vaddr->addr));
-	virgo_set_cmd=strcat(virgo_set_cmd,",");
-	virgo_set_cmd=strcat(virgo_set_cmd, (char*)data);
-	virgo_set_cmd=strcat(virgo_set_cmd, ")");
+	virgo_set_cmd=kstrdup(strcat("virgo_cloud_set(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_ATOMIC);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, (char*)data),GFP_ATOMIC);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(virgo_set_cmd, GFP_ATOMIC);			
 
 	iov.iov_base=buf;
@@ -315,8 +315,8 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 		else
 		{
 			chunk_size=size-sum_alloc_size;
-			malloc_cmd=strcat("virgo_cloud_malloc(",int_to_str(chunk_size));
-			malloc_cmd=strcat(malloc_cmd, ")");
+			malloc_cmd=kstrdup(strcat("virgo_cloud_malloc(",int_to_str(chunk_size)),GFP_ATOMIC);
+			malloc_cmd=kstrdup(strcat(malloc_cmd, ")"),GFP_ATOMIC);
 			buf=kstrdup(malloc_cmd,GFP_ATOMIC);
 		}
 
@@ -381,16 +381,21 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 
 		sum_alloc_size+=chunk_size;
 		next_vtable_entry++;
+		printk(KERN_INFO "virgo_malloc() syscall: sum_alloc_size = %d \n", sum_alloc_size);
 
 		/*
 		If sum of sizes of chunks allocated so far is equal to size then break 
 		*/
 		if(sum_alloc_size == size)
+		{
+			printk(KERN_INFO "virgo_malloc() syscall: sum_alloc_size == size, breaking while loop\n");
 			break;
+		}
 	}	
 	alloc_id++;
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
 
+	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
 	return &(vtranstable.vtable[this_allocation_start_entry]);
 }
 
@@ -413,8 +418,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
 	
-	free_cmd=strcat("virgo_cloud_free(",addr_to_str(vaddr->addr));
-	free_cmd=strcat(free_cmd, ")");
+	free_cmd=kstrdup(strcat("virgo_cloud_free(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
+	free_cmd=kstrdup(strcat(free_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(free_cmd,GFP_ATOMIC);
 
 	iov.iov_base=buf;
