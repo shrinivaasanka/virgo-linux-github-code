@@ -75,7 +75,7 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 
 2. Object Marshalling and Unmarshalling (Serialization) Features
 
-(ONGOING) 3. Virgo_malloc() syscall that virtualizes the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+(ONGOING) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
 Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
 
 4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
@@ -374,6 +374,10 @@ Based on latest test_virgo_malloc run, simple_strtoll() correctly parses the add
 Commits as on 21 October 2013
 -----------------------------
 Kern.log for testing after vtranstable addr fix with simple_strtoll() added to repository and still the other %p qualifiers do not work and only simple_strtoll() parses the address correctly. 
+
+Commits as on 24 October 2013
+-----------------------------
+Lot of bugfixes made to virgo_malloc.c for scanning address into VIRGO transtable and size computation. Testcase test_virgo_malloc.c has also been modified to do reinterpret cast of long int into (struct virgo_address*) and corresponding test logs have been added to repository under virgo_malloc/test.
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
