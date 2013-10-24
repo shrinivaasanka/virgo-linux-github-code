@@ -1,0 +1,4 @@
+kashrinivaasan@kashrinivaasan-Inspiron-1545:~/linux-3.7.8/virgo_malloc/test$ ./test_virgo_malloc 
+test_virgo_malloc: vaddr_longlong = 3248958024 
+test_virgo_malloc: VIRGO Address allocated on cloud by virgo_malloc() is vaddr = 0xc1a72a48 
+
