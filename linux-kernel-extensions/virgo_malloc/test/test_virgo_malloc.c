@@ -53,12 +53,12 @@ int main(int argc, char* argv[])
 	*/
 
 	struct virgo_address* vaddr;
-	long int vaddr_longint;
+	long long vaddr_longlong;
 	/* virgo_malloc*/
-	vaddr_longint=syscall(351,1000,NULL,0,NULL);
-	vaddr=(struct virgo_address*)vaddr_longint;
+	vaddr_longlong=syscall(351,1000,NULL,0,NULL);
+	vaddr=(struct virgo_address*)vaddr_longlong;
 
-	printf("test_virgo_malloc: vaddr_longint = %ld \n", vaddr_longint);
+	printf("test_virgo_malloc: vaddr_longlong = %u \n", vaddr_longlong);
 	printf("test_virgo_malloc: VIRGO Address allocated on cloud by virgo_malloc() is vaddr = %p \n", vaddr);
 	fflush(stdout);	
 
