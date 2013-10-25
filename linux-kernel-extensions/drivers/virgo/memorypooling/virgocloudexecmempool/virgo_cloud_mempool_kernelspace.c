@@ -36,10 +36,10 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 char* toKernelAddress(char*);
 int toInteger(char*);
-void* virgo_cloud_malloc_kernelspace(void*);
-void* virgo_cloud_free_kernelspace(void*);
-void* virgo_cloud_get_kernelspace(void*);
-void* virgo_cloud_set_kernelspace(void*);
+void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args*);
+void* virgo_cloud_free_kernelspace(struct virgo_mempool_args*);
+void* virgo_cloud_get_kernelspace(struct virgo_mempool_args*);
+void* virgo_cloud_set_kernelspace(struct virgo_mempool_args*);
 struct virgo_mempool_args* parse_virgomempool_command_kernelspace(char* mempoolFunction);
 
 static int __init
@@ -61,7 +61,7 @@ EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_exit);
 
 
 
-void* virgo_cloud_malloc_kernelspace(void* args)
+void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
@@ -78,7 +78,7 @@ void* virgo_cloud_malloc_kernelspace(void* args)
 }
 EXPORT_SYMBOL(virgo_cloud_malloc_kernelspace);
 
-void* virgo_cloud_get_kernelspace(void* args)
+void* virgo_cloud_get_kernelspace(struct virgo_mempool_args* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_get_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
@@ -89,19 +89,20 @@ void* virgo_cloud_get_kernelspace(void* args)
 }
 EXPORT_SYMBOL(virgo_cloud_get_kernelspace);
 
-void* virgo_cloud_set_kernelspace(void* args)
+void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
 	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
-	char* ptr=toKernelAddress(vmargs->mempool_args[0]);
+	printk(KERN_INFO "virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=%s, vmargs->mempool_args[0] = %s\n, vmargs->mempool_args[1]=%s \n",vmargs->mempool_cmd, vmargs->mempool_args[0],vmargs->mempool_args[1]);
+	char* ptr=toKernelAddress(kstrdup(vmargs->mempool_args[0],GFP_ATOMIC));
 	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_ATOMIC));
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data after set=%s\n",ptr,vmargs->mempool_args[1], ptr);
 	return 0;
 }
 EXPORT_SYMBOL(virgo_cloud_set_kernelspace);
 
-void* virgo_cloud_free_kernelspace(void* args)
+void* virgo_cloud_free_kernelspace(struct virgo_mempool_args* args)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_free_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
@@ -149,8 +150,22 @@ char* toKernelAddress(char* strAddress)
 {
 	char *ptr=NULL;
 	sscanf(strAddress,"%p",(void**)&ptr);	
-	printk(KERN_INFO "toKernelAddress(): strAddress=[%s], address scanned=%p\n", strAddress, ptr);
-	return ptr;
+        printk(KERN_INFO "toKernelAddress(): sscanf: strAddress=[%s], ptr = %p\n", strAddress, ptr);
+
+	/*
+	added simple_strtoll() as done in virgo_malloc.c syscall client
+	as sscanf returns null similar to virgo_malloc.c.
+	simple_strtoll() is sscanf internal call which is deeper than sscanf.
+	- Ka.Shrinivaasan 25October2013
+	*/
+	char* endptr;
+        long long ll=simple_strtoll(strAddress, &endptr, 16);
+        void* lltovoidptr= (void*)ll;
+        printk(KERN_INFO "toKernelAddress(): simple_strtoll: strAddress=[%s], lltovoidptr = %p\n", strAddress, lltovoidptr);
+	if(lltovoidptr)
+        	return (char*)lltovoidptr;
+	else
+		return ptr;
 }
 
 int toInteger(char* strInt)
