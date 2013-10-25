@@ -135,7 +135,8 @@ char* get_host_from_cloud_PRG_mempool()
 }
 
 
-asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
+/*asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)*/
+asmlinkage long long sys_virgo_get(long long vuid, char __user *data_out)
 {
 	int nr;
 	struct kvec iov;
@@ -151,6 +152,10 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 
 	int chunk_size=0;
 	int sum_alloc_size=0;
+
+	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
+	printk("virgo_get() system call: vuid=%ld, virgo address to retrieve data from is vaddr=%p\n",vuid, vaddr);
+
 	sin.sin_family=AF_INET;
 	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
@@ -159,6 +164,8 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	virgo_get_cmd=kstrdup(strcat("virgo_cloud_get(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
 	virgo_get_cmd=kstrdup(strcat(virgo_get_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(virgo_get_cmd, GFP_ATOMIC);			
+
+	printk(KERN_INFO "virgo_get() system call: buf=%s, virgo_get_cmd=%s\n",buf,virgo_get_cmd);
 
 	iov.iov_base=buf;
 	/*strcpy(iov.iov_base, buf);*/
@@ -188,11 +195,13 @@ asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)
 	printk(KERN_INFO "virgo_get() syscall: le32_to_cpus(buf): %s \n", buf);
 	sock_release(sock);
 	printk(KERN_INFO "virgo_get() syscall: virgo_get() client socket_release() invoked\n");
-	return buf;
+	unsigned long ret=copy_to_user(data_out,buf,strlen(buf));
+	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u \n",ret);
+	return ret;
 }
 
 
-asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
+asmlinkage long long sys_virgo_set(long long vuid, char __user *data_in)
 {
 	int nr;
 	struct kvec iov;
@@ -205,8 +214,12 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
         ssize_t nread;
         /*char buf[BUF_SIZE];*/
 	char* buf;
-	
+	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
+	char* data;
+	int copyret=copy_from_user(data,data_in,strlen(data_in));
+	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %d\n",copyret);	
 
+	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p, data to set=%s\n",vuid, vaddr, data);
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	sin.sin_family=AF_INET;
@@ -219,6 +232,8 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, (char*)data),GFP_ATOMIC);
 	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(virgo_set_cmd, GFP_ATOMIC);			
+
+	printk(KERN_INFO "virgo_set() system call: buf=%s, virgo_set_cmd = %s\n",buf, virgo_set_cmd);
 
 	iov.iov_base=buf;
 	/*iov.iov_len=sizeof(buf);*/
@@ -247,11 +262,13 @@ asmlinkage char* sys_virgo_set(struct virgo_address* vaddr, void* data)
 	printk(KERN_INFO "virgo_set() syscall: le32_to_cpus(buf): %s \n", buf);
 	sock_release(sock);
 	printk(KERN_INFO "virgo_set() syscall: virgo_set() client socket_release() invoked\n");
-	return buf;
+	/*return buf;*/
+	return 0;
 }
 
 
-asmlinkage struct virgo_address* sys_virgo_malloc(int size)
+/*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
+asmlinkage long long sys_virgo_malloc(int size)
 {
 	int no_of_chunks=1;	
 	int nr;
@@ -319,6 +336,8 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
 			malloc_cmd=kstrdup(strcat(malloc_cmd, ")"),GFP_ATOMIC);
 			buf=kstrdup(malloc_cmd,GFP_ATOMIC);
 		}
+
+		printk(KERN_INFO "virgo_malloc() system call: buf=%s, malloc_cmd=%s\n",buf, malloc_cmd);
 
 		iov.iov_base=buf;
 		/*iov.iov_len=BUF_SIZE;*/
@@ -396,10 +415,11 @@ asmlinkage struct virgo_address* sys_virgo_malloc(int size)
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
 
 	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
-	return &(vtranstable.vtable[this_allocation_start_entry]);
+	return addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
 }
 
-asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
+/*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
+asmlinkage long long sys_virgo_free(long long vuid)
 {
 	int nr;
 	struct kvec iov;
@@ -414,6 +434,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	char* buf;
 	char* free_cmd;
 
+	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
+
 	sin.sin_family=AF_INET;
 	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
@@ -421,6 +443,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	free_cmd=kstrdup(strcat("virgo_cloud_free(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
 	free_cmd=kstrdup(strcat(free_cmd, ")"),GFP_ATOMIC);
 	buf=kstrdup(free_cmd,GFP_ATOMIC);
+
+	printk(KERN_INFO "virgo_free() system call: buf=%s, free_cmd=%s \n",buf,free_cmd);
 
 	iov.iov_base=buf;
 	/*iov.iov_len=sizeof(buf);*/
@@ -449,7 +473,8 @@ asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)
 	printk(KERN_INFO "virgo_free() syscall: le32_to_cpus(buf): %s \n", buf);
 	sock_release(sock);
 	printk(KERN_INFO "virgo_free() syscall: virgo_free() client socket_release() invoked\n");
-	return buf;
+	/*return buf;*/
+	return 0;
 }
 
 char* int_to_str(int n)
@@ -527,3 +552,28 @@ char* str_to_addr2(char* straddr)
         printk(KERN_INFO "str_to_addr2(): straddr=[%s], lltovoidptr = %p\n", straddr, lltovoidptr);
 	return (char*)lltovoidptr;
 }
+
+/*
+Follwing functions map a machine address to a unique virgo id (UVID)
+and inversely map a unique virgo id (VID) to a machine address. These have
+been added to hide and abstract machine address to the userspace programs.
+
+At present only pointer to long long cast is done and more sophisticated 
+Unique ID generation scheme has to be implemented if 
+needed later.
+
+Such a unique id is very much necessary for scalable persistent key-value store.
+- Ka.Shrinivaasan 25October2013 
+*/
+long long addr_to_virgo_unique_id(struct virgo_address* vaddr)
+{
+	long long uvid=(long long)vaddr;
+	return uvid;
+}
+
+struct virgo_address* virgo_unique_id_to_addr(long long virgo_unique_id)
+{
+	struct virgo_address* vaddr=(struct virgo_address*)virgo_unique_id;
+	return vaddr;
+}
+
