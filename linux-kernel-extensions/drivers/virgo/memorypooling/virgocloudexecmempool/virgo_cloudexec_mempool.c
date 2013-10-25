@@ -183,7 +183,7 @@ int mempool_func(void* args)
 		struct task_struct *task;
 		int woken_up_2=0;
 		printk(KERN_INFO "mempool_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-		printk(KERN_INFO "Creating Kernel Thread for %s in virgo_cloud_mempool_kernelspace mempool driver module\n",vmargs->mempool_cmd);
+		printk(KERN_INFO "Creating Kernel Thread for %s in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=%s, mempool_args[1]=%s\n",vmargs->mempool_cmd,vmargs->mempool_args[0],vmargs->mempool_args[1]);
 
 		/*
 			Temporarily commenting kthread creation for the kernelspace virgo mempool
@@ -194,7 +194,7 @@ int mempool_func(void* args)
 		*/
 		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
 
-		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC))((void*)vmargs);
+		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->mempool_cmd,GFP_ATOMIC),"_kernelspace"),GFP_ATOMIC))(vmargs);
 
 		printk(KERN_INFO "mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=%p\n", (char*)virgo_mempool_ret);
 		/*
