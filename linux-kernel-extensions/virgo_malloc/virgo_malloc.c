@@ -136,7 +136,7 @@ char* get_host_from_cloud_PRG_mempool()
 
 
 /*asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)*/
-asmlinkage long long sys_virgo_get(long long vuid, char __user *data_out)
+asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
 {
 	int nr;
 	struct kvec iov;
@@ -201,7 +201,7 @@ asmlinkage long long sys_virgo_get(long long vuid, char __user *data_out)
 }
 
 
-asmlinkage long long sys_virgo_set(long long vuid, char __user *data_in)
+asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
 {
 	int nr;
 	struct kvec iov;
@@ -268,7 +268,7 @@ asmlinkage long long sys_virgo_set(long long vuid, char __user *data_in)
 
 
 /*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
-asmlinkage long long sys_virgo_malloc(int size)
+asmlinkage long sys_virgo_malloc(int size, long long __user *vuid)
 {
 	int no_of_chunks=1;	
 	int nr;
@@ -415,11 +415,13 @@ asmlinkage long long sys_virgo_malloc(int size)
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
 
 	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
-	return addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
+	long long virgo_unique_id=addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
+	int copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(long long));
+	return copy_ret;
 }
 
 /*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
-asmlinkage long long sys_virgo_free(long long vuid)
+asmlinkage long sys_virgo_free(long long vuid)
 {
 	int nr;
 	struct kvec iov;
@@ -568,12 +570,14 @@ Such a unique id is very much necessary for scalable persistent key-value store.
 long long addr_to_virgo_unique_id(struct virgo_address* vaddr)
 {
 	long long uvid=(long long)vaddr;
+	printk(KERN_INFO "addr_to_virgo_unique_id(): vaddr=%p, uvid=%ld\n",vaddr,uvid);	
 	return uvid;
 }
 
 struct virgo_address* virgo_unique_id_to_addr(long long virgo_unique_id)
 {
 	struct virgo_address* vaddr=(struct virgo_address*)virgo_unique_id;
+	printk(KERN_INFO "virgo_unique_id_to_addr(): vaddr=%p, virgo_unique_id=%ld\n",vaddr,virgo_unique_id);	
 	return vaddr;
 }
 
