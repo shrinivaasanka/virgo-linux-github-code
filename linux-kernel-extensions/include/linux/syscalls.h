@@ -871,8 +871,8 @@ asmlinkage long sys_kcmp(pid_t pid1, pid_t pid2, int type,
 			 unsigned long idx1, unsigned long idx2);
 
 asmlinkage long sys_virgo_clone(char* func, void *child_stack, int flags, void *arg);
-asmlinkage long long sys_virgo_malloc(int size);
-asmlinkage long long sys_virgo_set(long long vuid, char __user *data_in);
-asmlinkage long long sys_virgo_get(long long vuid, char __user *data_out);
-asmlinkage long long sys_virgo_free(long long vuid);
+asmlinkage long sys_virgo_malloc(int size,long long __user *vuid);
+asmlinkage long sys_virgo_set(long long vuid, char __user *data_in);
+asmlinkage long sys_virgo_get(long long vuid, char __user *data_out);
+asmlinkage long sys_virgo_free(long long vuid);
 
