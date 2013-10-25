@@ -53,33 +53,32 @@ int main(int argc, char* argv[])
 	*/
 
 	struct virgo_address* vaddr;
-	long long vaddr_longlong;
+	long long virgo_unique_id;
 	/* virgo_malloc*/
-	vaddr_longlong=syscall(351,1000,NULL,0,NULL);
-	vaddr=(struct virgo_address*)vaddr_longlong;
+	virgo_unique_id=syscall(351,1000,NULL,0,NULL);
+	vaddr=(struct virgo_address*)virgo_unique_id;
 
-	printf("test_virgo_malloc: vaddr_longlong = %u \n", vaddr_longlong);
-	printf("test_virgo_malloc: VIRGO Address allocated on cloud by virgo_malloc() is vaddr = %p \n", vaddr);
+	printf("test_virgo_malloc: virgo_unique_id = %u \n", virgo_unique_id);
+	printf("test_virgo_malloc: VIRGO Address obtained by struct virgo_address*, vaddr = %p \n", vaddr);
 	fflush(stdout);	
 
-	/*
-	/virgo_set/
-	char* set_ret=(char*)syscall(352,vaddr,"test_virgo_malloc_data",NULL,0,NULL);
-	if(set_ret)
-		printf("set_ret = %s\n",set_ret);
+	/*virgo_set*/
+	char* set_data="test_virgo_malloc_data";
+	long long set_ret=syscall(352,virgo_unique_id,set_data,NULL,0,NULL);
+	printf("set_ret = %ld\n",set_ret);
+	fflush(stdout);	
 
-	/virgo_get/
-	char* get_ret=(char*)syscall(353,vaddr,NULL,0,NULL);
-	if(get_ret)
-		printf("get_ret = %s\n",get_ret);
+	/*virgo_get*/
+	char* get_data;
+	long long get_ret=syscall(353,virgo_unique_id,get_data,NULL,0,NULL);
+	if(get_data)
+		printf("get_ret = %s\n",get_data);
+	fflush(stdout);	
 
-	/virgo_free/
-	char* free_ret=(char*)syscall(354,vaddr,NULL,0,NULL);
-	/
-	if(free_ret)
-		printf("free_ret = %s\n",free_ret);
-	/
-	*/
+	/*virgo_free*/
+	long long free_ret=syscall(354,virgo_unique_id,NULL,0,NULL);
+	printf("free_ret = %ld\n",free_ret);
+	fflush(stdout);	
 
 	return 0;
 }
