@@ -162,7 +162,7 @@ char* str_to_addr2(char* straddr);
 long long addr_to_virgo_unique_id(struct virgo_address* vaddr);
 struct virgo_address* virgo_unique_id_to_addr(long long virgo_unique_id);
 
-typedef void* (*FPTR)(void *args);
+typedef void* (*FPTR)(struct virgo_mempool_args* args);
 
 void var_sscanf(char *str, const char* fmt, ...);
 
@@ -179,10 +179,10 @@ int virgocloudexec_mempool_sendto(struct socket*, void* virgo_mempool_ret);
 int virgo_cloudexec_mempool_service(void* args);
 void do_virgocloudexec_init(void);
 
-extern void* virgo_cloud_malloc_kernelspace(void* args);
-extern void* virgo_cloud_free_kernelspace(void* args);
-extern void* virgo_cloud_get_kernelspace(void* args);
-extern void* virgo_cloud_set_kernelspace(void* args);
+extern void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args* args);
+extern void* virgo_cloud_free_kernelspace(struct virgo_mempool_args* args);
+extern void* virgo_cloud_get_kernelspace(struct virgo_mempool_args* args);
+extern void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args);
 
 struct virgo_mempool_ops_t {
 	int (*virgo_mempool_create)(void);
