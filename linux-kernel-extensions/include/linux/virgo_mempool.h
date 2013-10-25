@@ -159,6 +159,9 @@ char* addr_to_str(char*);
 char* str_to_addr(char*);
 char* str_to_addr2(char* straddr);
 
+long long addr_to_virgo_unique_id(struct virgo_address* vaddr);
+struct virgo_address* virgo_unique_id_to_addr(long long virgo_unique_id);
+
 typedef void* (*FPTR)(void *args);
 
 void var_sscanf(char *str, const char* fmt, ...);
