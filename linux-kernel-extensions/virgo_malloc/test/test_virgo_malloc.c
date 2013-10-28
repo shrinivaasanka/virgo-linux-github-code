@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 	struct virgo_address* vaddr;
 	long long virgo_unique_id;
 	/* virgo_malloc*/
-	virgo_unique_id=syscall(351,1000,NULL,0,NULL);
+	syscall(351,1000,&virgo_unique_id,NULL,0,NULL);
 	vaddr=(struct virgo_address*)virgo_unique_id;
 
 	printf("test_virgo_malloc: virgo_unique_id = %u \n", virgo_unique_id);
