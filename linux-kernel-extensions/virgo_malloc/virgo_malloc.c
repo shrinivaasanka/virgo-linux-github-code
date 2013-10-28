@@ -153,6 +153,7 @@ asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
 	int chunk_size=0;
 	int sum_alloc_size=0;
 
+	printk("virgo_get() system call: before virgo_unique_id_to_addr()\n");
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 	printk("virgo_get() system call: vuid=%ld, virgo address to retrieve data from is vaddr=%p\n",vuid, vaddr);
 
@@ -196,7 +197,7 @@ asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
 	sock_release(sock);
 	printk(KERN_INFO "virgo_get() syscall: virgo_get() client socket_release() invoked\n");
 	unsigned long ret=copy_to_user(data_out,buf,strlen(buf));
-	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u \n",ret);
+	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u, data_out=%s\n",ret,data_out);
 	return ret;
 }
 
@@ -214,8 +215,10 @@ asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
         ssize_t nread;
         /*char buf[BUF_SIZE];*/
 	char* buf;
+	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
-	char* data;
+	char data[BUF_SIZE];
+	printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);	
 	int copyret=copy_from_user(data,data_in,strlen(data_in));
 	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %d\n",copyret);	
 
