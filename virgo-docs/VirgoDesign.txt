@@ -389,5 +389,10 @@ Commits as on 25 October 2013
 ----------------------------
 virgo_malloc.c has been rewritten by adding a userspace __user pointer to virgo_get() and virgo_set() syscalls which are internally copied with copy_from_user() and copy_to_user() kernel function to get and set userspace from kernelspace.Header file syscalls.h has been updated with changed syscalls prototypes.Two functions have been added to map a VIRGO address to a unique virgo identifier and viceversa for abstracting hardware addresses from userspace as mentioned in previous commit notes. VIRGO cloud mempool kernelspace driver has been updated to use virgo_mempool_args* instead of void* and VIRGO cloudexec mempool driverhas been updated accordingly during intermodule invocation.The virgo_malloc syscall client has been updated to modified signatures and return types for all mempool alloc,get,set,free syscalls.
 
+Commits as on 29 October 2013
+-----------------------------
+Miscellaneous ongoing bugfixes for virgo_set() syscall error in copy_from_user().
+
+
 "VirgoDesign.txt" 213L, 16302C written                    
 
