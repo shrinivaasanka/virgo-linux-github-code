@@ -217,9 +217,10 @@ asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
 	char* buf;
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
-	char data[BUF_SIZE];
-	printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);	
-	int copyret=copy_from_user(data,data_in,strlen(data_in));
+	printk(KERN_INFO "virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=%p\n", vaddr);
+	char *data=kmalloc(BUF_SIZE,GFP_ATOMIC);
+	/*printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);*/
+	int copyret=copy_from_user(data,data_in,BUF_SIZE-10);
 	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %d\n",copyret);	
 
 	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p, data to set=%s\n",vuid, vaddr, data);
