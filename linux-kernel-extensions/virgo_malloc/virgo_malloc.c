@@ -196,7 +196,7 @@ asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
 	printk(KERN_INFO "virgo_get() syscall: le32_to_cpus(buf): %s \n", buf);
 	sock_release(sock);
 	printk(KERN_INFO "virgo_get() syscall: virgo_get() client socket_release() invoked\n");
-	unsigned long ret=copy_to_user(data_out,buf,strlen(buf));
+	long ret=copy_to_user(data_out,buf,strlen(buf));
 	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u, data_out=%s\n",ret,data_out);
 	return ret;
 }
@@ -218,12 +218,13 @@ asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 	printk(KERN_INFO "virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=%p\n", vaddr);
-	char *data=kmalloc(BUF_SIZE,GFP_ATOMIC);
+	char *data=(char*)kmalloc(BUF_SIZE,GFP_ATOMIC);
 	/*printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);*/
-	int copyret=copy_from_user(data,data_in,BUF_SIZE-10);
-	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %d\n",copyret);	
+	long copyret=copy_from_user(data,data_in,BUF_SIZE-1);
+	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %ld\n",copyret);	
 
-	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p, data to set=%s\n",vuid, vaddr, data);
+	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p\n",vuid, vaddr);
+	printk(KERN_INFO "virgo_set() system call: vuid=%ld, data to set=%s\n", vuid, data);
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	sin.sin_family=AF_INET;
@@ -420,7 +421,7 @@ asmlinkage long sys_virgo_malloc(int size, long long __user *vuid)
 
 	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
 	long long virgo_unique_id=addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
-	int copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(long long));
+	long copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(long long));
 	return copy_ret;
 }
 
