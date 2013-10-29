@@ -29,6 +29,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <stdio.h>
 #include <sys/syscall.h>
 #include <unistd.h>
+#include <string.h>
 
 struct virgo_address
 {
@@ -63,7 +64,8 @@ int main(int argc, char* argv[])
 	fflush(stdout);	
 
 	/*virgo_set*/
-	char* set_data="test_virgo_malloc_data";
+	char set_data[256];
+	strcpy(set_data,"test_virgo_malloc_data");
 	long long set_ret=syscall(352,virgo_unique_id,set_data,NULL,0,NULL);
 	printf("set_ret = %ld\n",set_ret);
 	fflush(stdout);	
