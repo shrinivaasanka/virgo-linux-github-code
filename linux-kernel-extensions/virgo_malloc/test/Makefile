@@ -6,6 +6,8 @@ all:
 	g++ -g -I/home/kashrinivaasan/linux-3.7.8/include/uapi -I/home/kashrinivaasan/linux-3.7.8/arch/x86/include -I/home/kashrinivaasan/linux-3.7.8/include test_virgo_malloc.c -o test_virgo_malloc
 	#g++ -g -I/usr/include test_virgo_malloc.c -o test_virgo_malloc
 	g++ -g -o sscanftest ./sscanftest.c 
+	g++ -g -o intptrtest ./intptrtest.c
 clean:
 	rm test_virgo_malloc
 	rm sscanftest
+	rm intptrtest
