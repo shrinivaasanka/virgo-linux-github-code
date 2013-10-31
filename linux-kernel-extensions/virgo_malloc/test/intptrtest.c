@@ -27,14 +27,29 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 *****************************************************************************************/
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdint.h>
+
+struct teststruct
+{
+	int i;
+};
 
 int main()
 {
+	struct teststruct *p3=(struct teststruct*)malloc(sizeof(struct teststruct));
+	intptr_t sptr=(intptr_t)(void*)p3;
 	int i=245;
 	int *p=&i;
 	intptr_t iptr=(intptr_t)(void*)p;
-	printf("iptr=%u\n",iptr);
+	printf("iptr=%u,sptr=%u\n",iptr,sptr);
 	int *p2=(int *)iptr;
-	printf("p=%p, p2=%p\n",p,p2);
+	struct teststruct *sptr2=(struct teststruct*)sptr;
+	printf("p=%p, p2=%p, p3=%p,sptr2=%p\n",p,p2,p3,sptr);
+	unsigned long x=0xf1481400;
+	printf("x=%u, x=%x\n",x,x);
+	char* sptr5="test string";
+	unsigned long sptr5ul=(unsigned long)sptr5;
+	char* sptr6=(char*)sptr5ul;
+	printf("sptr6=%s\n",sptr6);
 }
