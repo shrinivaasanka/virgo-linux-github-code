@@ -46,6 +46,10 @@ static int __init
 virgo_cloud_mempool_kernelspace_init(void)
 {
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module\n");
+	unsigned long test_ul;
+	char* test_str="ef098363";
+	kstrtoul(test_str,16,&test_ul);
+	printk(KERN_INFO "virgo_cloud_mempool_kernelspace_init(): test_str=%s, test_ul=%u\n",test_str,test_ul);
 	return 0;
 }
 EXPORT_SYMBOL(virgo_cloud_mempool_kernelspace_init);
@@ -96,6 +100,7 @@ void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args)
 	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	printk(KERN_INFO "virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=%s, vmargs->mempool_args[0] = %s\n, vmargs->mempool_args[1]=%s \n",vmargs->mempool_cmd, vmargs->mempool_args[0],vmargs->mempool_args[1]);
 	char* ptr=toKernelAddress(kstrdup(vmargs->mempool_args[0],GFP_ATOMIC));
+	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: ptr set by toKernelAddress=%p\n",ptr);
 	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_ATOMIC));
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data after set=%s\n",ptr,vmargs->mempool_args[1], ptr);
 	return 0;
@@ -165,15 +170,19 @@ char* toKernelAddress(char* strAddress)
         printk(KERN_INFO "toKernelAddress(): after simple_strtoul: strAddress=[%s], ul=%u\n", strAddress, ul);
 	*/
 	unsigned long ul;
-	kstrtoul(strAddress,16,&ul);
+	kstrtoul(kstrdup(strAddress,GFP_ATOMIC),16,&ul);
+        printk(KERN_INFO "toKernelAddress(): before cast: kstrtoul: ul=%u, strAddress=[%s]", ul, strAddress);
+	/*
         char* ultovoidptr= (char*)ul;
-        printk(KERN_INFO "toKernelAddress(): kstrtoul: ul=%u, strAddress=[%s], ultovoidptr = %p\n", ul, strAddress, ultovoidptr);
+        printk(KERN_INFO "toKernelAddress(): after cast: kstrtoul: ul=%u, strAddress=[%s], ultovoidptr = %p\n", ul, strAddress, ultovoidptr);
 	if(ultovoidptr)
 	{
         	return ultovoidptr;
 	}
 	else
 		return ptr;
+	*/
+	return (char*)ul;
 }
 
 int toInteger(char* strInt)
