@@ -136,7 +136,7 @@ char* get_host_from_cloud_PRG_mempool()
 
 
 /*asmlinkage char* sys_virgo_get(struct virgo_address* vaddr)*/
-asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
+asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 {
 	int nr;
 	struct kvec iov;
@@ -202,7 +202,7 @@ asmlinkage long sys_virgo_get(long long vuid, char __user *data_out)
 }
 
 
-asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
+asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 {
 	int nr;
 	struct kvec iov;
@@ -218,12 +218,16 @@ asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 	printk(KERN_INFO "virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=%p\n", vaddr);
-	char *data=(char*)kmalloc(BUF_SIZE,GFP_ATOMIC);
-	/*printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);*/
-	long copyret=copy_from_user(data,data_in,BUF_SIZE-1);
-	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %ld\n",copyret);	
+	char data[BUF_SIZE];
+	/*printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);
+	printk(KERN_INFO "virgo_set() system call: __builtin_constant_p(BUF_SIZE-1)=%d\n",__builtin_constant_p(BUF_SIZE-1));
+	long copyret=copy_from_user((void*)data,(const void __user *)data_in,BUF_SIZE-1);
+	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %ld\n",copyret);*/
 
 	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p\n",vuid, vaddr);
+	printk(KERN_INFO "virgo_set() system_call: before memcpy()\n");
+	memcpy(data,data_in,sizeof(data)-1);
+	printk(KERN_INFO "virgo_set() system_call: after memcpy()\n");
 	printk(KERN_INFO "virgo_set() system call: vuid=%ld, data to set=%s\n", vuid, data);
 	int chunk_size=0;
 	int sum_alloc_size=0;
@@ -273,7 +277,7 @@ asmlinkage long sys_virgo_set(long long vuid, char __user *data_in)
 
 
 /*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
-asmlinkage long sys_virgo_malloc(int size, long long __user *vuid)
+asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 {
 	int no_of_chunks=1;	
 	int nr;
@@ -420,13 +424,13 @@ asmlinkage long sys_virgo_malloc(int size, long long __user *vuid)
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
 
 	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
-	long long virgo_unique_id=addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
-	long copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(long long));
+	unsigned long virgo_unique_id=addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
+	long copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(unsigned long));
 	return copy_ret;
 }
 
 /*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
-asmlinkage long sys_virgo_free(long long vuid)
+asmlinkage long sys_virgo_free(unsigned long vuid)
 {
 	int nr;
 	struct kvec iov;
@@ -550,11 +554,11 @@ char* str_to_addr2(char* straddr)
 {
 	/*
         bit of a hack but a nice one when sscanf() doesn't work the way it is expected to be.
-        scan the pointer address in string into a long long and in base 16 and reinterpret cast
+        scan the pointer address in string into a unsigned long and in base 16 and reinterpret cast
         it to void*.
         */
 	char* endptr;
-        long long ll=simple_strtoll(straddr, &endptr, 16);
+        unsigned long ll=simple_strtoll(straddr, &endptr, 16);
         void* lltovoidptr= (void*)ll;
         printk(KERN_INFO "str_to_addr2(): straddr=[%s], lltovoidptr = %p\n", straddr, lltovoidptr);
 	return (char*)lltovoidptr;
@@ -565,24 +569,24 @@ Follwing functions map a machine address to a unique virgo id (UVID)
 and inversely map a unique virgo id (VID) to a machine address. These have
 been added to hide and abstract machine address to the userspace programs.
 
-At present only pointer to long long cast is done and more sophisticated 
+At present only pointer to unsigned long cast is done and more sophisticated 
 Unique ID generation scheme has to be implemented if 
 needed later.
 
 Such a unique id is very much necessary for scalable persistent key-value store.
 - Ka.Shrinivaasan 25October2013 
 */
-long long addr_to_virgo_unique_id(struct virgo_address* vaddr)
+unsigned long addr_to_virgo_unique_id(struct virgo_address* vaddr)
 {
-	long long uvid=(long long)vaddr;
-	printk(KERN_INFO "addr_to_virgo_unique_id(): vaddr=%p, uvid=%ld\n",vaddr,uvid);	
+	unsigned long uvid=(unsigned long)vaddr;
+	printk(KERN_INFO "addr_to_virgo_unique_id(): vaddr=%p, uvid=%u\n",vaddr,uvid);	
 	return uvid;
 }
 
-struct virgo_address* virgo_unique_id_to_addr(long long virgo_unique_id)
+struct virgo_address* virgo_unique_id_to_addr(unsigned long virgo_unique_id)
 {
 	struct virgo_address* vaddr=(struct virgo_address*)virgo_unique_id;
-	printk(KERN_INFO "virgo_unique_id_to_addr(): vaddr=%p, virgo_unique_id=%ld\n",vaddr,virgo_unique_id);	
+	printk(KERN_INFO "virgo_unique_id_to_addr(): vaddr=%p, virgo_unique_id=%u\n",vaddr,virgo_unique_id);	
 	return vaddr;
 }
 
