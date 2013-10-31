@@ -54,7 +54,7 @@ int main(int argc, char* argv[])
 	*/
 
 	struct virgo_address* vaddr;
-	long long virgo_unique_id;
+	unsigned long virgo_unique_id;
 	/* virgo_malloc*/
 	syscall(351,1000,&virgo_unique_id,NULL,0,NULL);
 	vaddr=(struct virgo_address*)virgo_unique_id;
@@ -66,19 +66,19 @@ int main(int argc, char* argv[])
 	/*virgo_set*/
 	char set_data[256];
 	strcpy(set_data,"test_virgo_malloc_data");
-	long long set_ret=syscall(352,virgo_unique_id,set_data,NULL,0,NULL);
+	long set_ret=syscall(352,virgo_unique_id,set_data,NULL,0,NULL);
 	printf("set_ret = %ld\n",set_ret);
 	fflush(stdout);	
 
 	/*virgo_get*/
 	char* get_data;
-	long long get_ret=syscall(353,virgo_unique_id,get_data,NULL,0,NULL);
+	long get_ret=syscall(353,virgo_unique_id,get_data,NULL,0,NULL);
 	if(get_data)
 		printf("get_ret = %s\n",get_data);
 	fflush(stdout);	
 
 	/*virgo_free*/
-	long long free_ret=syscall(354,virgo_unique_id,NULL,0,NULL);
+	long free_ret=syscall(354,virgo_unique_id,NULL,0,NULL);
 	printf("free_ret = %ld\n",free_ret);
 	fflush(stdout);	
 
