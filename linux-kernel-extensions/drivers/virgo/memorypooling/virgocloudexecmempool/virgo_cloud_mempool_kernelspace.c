@@ -155,15 +155,23 @@ char* toKernelAddress(char* strAddress)
 	/*
 	added simple_strtoll() as done in virgo_malloc.c syscall client
 	as sscanf returns null similar to virgo_malloc.c.
-	simple_strtoll() is sscanf internal call which is deeper than sscanf.
-	- Ka.Shrinivaasan 25October2013
+	simple_strtoul() is sscanf internal call which is deeper than sscanf.
+	- Ka.Shrinivaasan 25October2013, 31October2013
 	*/
 	char* endptr;
-        long long ll=simple_strtoll(strAddress, &endptr, 16);
-        void* lltovoidptr= (void*)ll;
-        printk(KERN_INFO "toKernelAddress(): simple_strtoll: strAddress=[%s], lltovoidptr = %p\n", strAddress, lltovoidptr);
-	if(lltovoidptr)
-        	return (char*)lltovoidptr;
+	/*
+        printk(KERN_INFO "toKernelAddress(): before simple_strtoul: strAddress=[%s] \n");
+        unsigned long ul=simple_strtoul(kstrdup(strAddress,GFP_ATOMIC), &endptr, 16);
+        printk(KERN_INFO "toKernelAddress(): after simple_strtoul: strAddress=[%s], ul=%u\n", strAddress, ul);
+	*/
+	unsigned long ul;
+	kstrtoul(strAddress,16,&ul);
+        char* ultovoidptr= (char*)ul;
+        printk(KERN_INFO "toKernelAddress(): kstrtoul: ul=%u, strAddress=[%s], ultovoidptr = %p\n", ul, strAddress, ultovoidptr);
+	if(ultovoidptr)
+	{
+        	return ultovoidptr;
+	}
 	else
 		return ptr;
 }
