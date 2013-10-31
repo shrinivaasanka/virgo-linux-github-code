@@ -20,7 +20,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0xb1278c61, "kmalloc_caches" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
-	{ 0x1cc508a5, "virgo_cloud_set_kernelspace" },
+	{ 0xb3ac8151, "virgo_cloud_set_kernelspace" },
 	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x143054c, "filp_close" },
 	{ 0x794f5965, "sock_create_kern" },
@@ -29,9 +29,9 @@ __attribute__((section("__versions"))) = {
 	{ 0x91715312, "sprintf" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0xfa336f83, "kthread_create_on_node" },
-	{ 0x23f0c8b5, "virgo_cloud_get_kernelspace" },
+	{ 0x39506191, "virgo_cloud_get_kernelspace" },
 	{ 0xe2d5255a, "strcmp" },
-	{ 0x72d25688, "virgo_cloud_malloc_kernelspace" },
+	{ 0x9cc701b9, "virgo_cloud_malloc_kernelspace" },
 	{ 0xbdb1002f, "vfs_read" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
@@ -39,7 +39,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
 	{ 0x61651be, "strcat" },
-	{ 0x6c5513f2, "virgo_cloud_free_kernelspace" },
+	{ 0x2175cb1, "virgo_cloud_free_kernelspace" },
 	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
 	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x68d4fad5, "call_usermodehelper_fns" },
@@ -60,4 +60,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace";
 
 
-MODULE_INFO(srcversion, "276AB48FDDD47F85C397D4C");
+MODULE_INFO(srcversion, "3F08BFAD47AD53D10CE97D3");

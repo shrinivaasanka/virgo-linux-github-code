@@ -24,6 +24,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x20c55ae0, "sscanf" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x54a9db5f, "_kstrtoul" },
 	{ 0x37a0cba, "kfree" },
 	{ 0xe914e41e, "strcpy" },
 };
@@ -34,4 +35,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "A3D15C1CEC9F4885C157B3B");
+MODULE_INFO(srcversion, "D3E64CBED39658DCCB89917");
