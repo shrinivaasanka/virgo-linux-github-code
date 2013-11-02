@@ -393,6 +393,12 @@ Commits as on 29 October 2013
 -----------------------------
 Miscellaneous ongoing bugfixes for virgo_set() syscall error in copy_from_user().
 
+Commits as on 2 November 2013
+-----------------------------
+Due to an issue which corrupts the kernel memory, presently telnet path to VIRGO mempool driver has been
+tested after commits on 31 October 2013 and 1 November 2013 and is working but again there is an issue in kstrtoul() that returns the wrong address in virgo_cloud_mempool_kernelspace.ko that gives the address for
+data to set. 
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
