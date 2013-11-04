@@ -19,6 +19,7 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0x12da5bb2, "__kmalloc" },
+	{ 0x20000329, "simple_strtoul" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0x50eedeb8, "printk" },
 	{ 0x20c55ae0, "sscanf" },
@@ -35,4 +36,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "FE6E40B2BB5BC64E38E8DB9");
+MODULE_INFO(srcversion, "2555E82C2236B7AAC7294E1");
