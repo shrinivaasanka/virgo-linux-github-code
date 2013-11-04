@@ -34,7 +34,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/string.h>
 
 
-char* toKernelAddress(char*);
+char* toKernelAddress(const char*);
 int toInteger(char*);
 void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args*);
 void* virgo_cloud_free_kernelspace(struct virgo_mempool_args*);
@@ -74,7 +74,7 @@ void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args* args)
 
 	int size=toInteger(vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=%d\n",size);
-	void* ptr=kmalloc(size,GFP_ATOMIC);
+	void* ptr=kmalloc(size,GFP_KERNEL);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=%p\n",ptr);
 	vmargs->ptr=(char*)ptr;
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=%p in vmargs as an out arg\n",ptr);
@@ -87,7 +87,7 @@ void* virgo_cloud_get_kernelspace(struct virgo_mempool_args* args)
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_get_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
 	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
-	char* ptr=toKernelAddress((char*)vmargs->mempool_args[0]);	
+	char* ptr=toKernelAddress((const char*)vmargs->mempool_args[0]);	
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): address=%p, data=%s\n",ptr,ptr);
 	return ptr;
 }
@@ -99,9 +99,9 @@ void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args)
 	/*struct virgo_mempool_args* vmargs=parse_virgomempool_command_kernelspace((char*)args);*/
 	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	printk(KERN_INFO "virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=%s, vmargs->mempool_args[0] = %s\n, vmargs->mempool_args[1]=%s \n",vmargs->mempool_cmd, vmargs->mempool_args[0],vmargs->mempool_args[1]);
-	char* ptr=toKernelAddress(kstrdup(vmargs->mempool_args[0],GFP_ATOMIC));
+	char* ptr=toKernelAddress((const char*)vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: ptr set by toKernelAddress=%p\n",ptr);
-	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_ATOMIC));
+	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_KERNEL));
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data after set=%s\n",ptr,vmargs->mempool_args[1], ptr);
 	return 0;
 }
@@ -124,22 +124,22 @@ EXPORT_SYMBOL(virgo_cloud_free_kernelspace);
 struct virgo_mempool_args* parse_virgomempool_command_kernelspace(void* args)
 {
 	/
-        struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)kmalloc(sizeof(struct virgo_mempool_args),GFP_ATOMIC);
+        struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)kmalloc(sizeof(struct virgo_mempool_args),GFP_KERNEL);
 	/
 	struct virgo_mempool_args* vmargs=(struct virgo_mempool_args*)args;
 	/
-        vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_ATOMIC);
+        vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_KERNEL);
 	/
         if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
         {
-                vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+                vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_KERNEL);
                 vmargs->mempool_args[1]=NULL;
         }
         else
         {
 
-                vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_ATOMIC);
-                vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+                vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_KERNEL);
+                vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_KERNEL);
                 vmargs->mempool_args[2]=NULL;
         }
         return vmargs;
@@ -151,11 +151,14 @@ This function parses the address within the string strAddress and returns as the
 Example: "0x0000ffff" to 0x0000ffff
 */
 
-char* toKernelAddress(char* strAddress)
+char* toKernelAddress(const char* strAddress)
 {
 	char *ptr=NULL;
-	sscanf(strAddress,"%p",(void**)&ptr);	
-        printk(KERN_INFO "toKernelAddress(): sscanf: strAddress=[%s], ptr = %p\n", strAddress, ptr);
+	char* strAddress1="ef098363";
+	char* strAddress2="ef098363";
+
+	sscanf(strAddress1,"%p",(void**)&ptr);	
+        printk(KERN_INFO "toKernelAddress(): sscanf: strAddress1=[%s], ptr = %p\n", strAddress1, ptr);
 
 	/*
 	added simple_strtoll() as done in virgo_malloc.c syscall client
@@ -164,14 +167,15 @@ char* toKernelAddress(char* strAddress)
 	- Ka.Shrinivaasan 25October2013, 31October2013
 	*/
 	char* endptr;
-	/*
-        printk(KERN_INFO "toKernelAddress(): before simple_strtoul: strAddress=[%s] \n");
-        unsigned long ul=simple_strtoul(kstrdup(strAddress,GFP_ATOMIC), &endptr, 16);
-        printk(KERN_INFO "toKernelAddress(): after simple_strtoul: strAddress=[%s], ul=%u\n", strAddress, ul);
-	*/
+        printk(KERN_INFO "toKernelAddress(): before simple_strtoul: strAddress1=[%s] \n",strAddress1);
+        unsigned long ul1=simple_strtoul(strAddress1, &endptr, 16);
+	void* voidptr_ul1=(void*)ul1;
+        printk(KERN_INFO "toKernelAddress(): after simple_strtoul: strAddress1=[%s], (void*)ul1=%p, ul1=%u\n", strAddress1, voidptr_ul1, ul1);
+
 	unsigned long ul;
-	kstrtoul(kstrdup(strAddress,GFP_ATOMIC),16,&ul);
-        printk(KERN_INFO "toKernelAddress(): before cast: kstrtoul: ul=%u, strAddress=[%s]", ul, strAddress);
+	kstrtoul(strAddress2,16,&ul);
+	void* voidptr_ul=(void*)ul;
+        printk(KERN_INFO "toKernelAddress(): kstrtoul: ul=%u, (void*)ul=%p,strAddress2=[%s]", ul, voidptr_ul, strAddress2);
 	/*
         char* ultovoidptr= (char*)ul;
         printk(KERN_INFO "toKernelAddress(): after cast: kstrtoul: ul=%u, strAddress=[%s], ultovoidptr = %p\n", ul, strAddress, ultovoidptr);
@@ -182,7 +186,7 @@ char* toKernelAddress(char* strAddress)
 	else
 		return ptr;
 	*/
-	return (char*)ul;
+	return (char*)voidptr_ul;
 }
 
 int toInteger(char* strInt)
