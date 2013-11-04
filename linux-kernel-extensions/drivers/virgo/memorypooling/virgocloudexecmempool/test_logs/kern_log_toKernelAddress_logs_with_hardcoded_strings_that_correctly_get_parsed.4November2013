@@ -1,0 +1,1000 @@
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333590] TCP bind hash table entries: 65536 (order: 7, 524288 bytes)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333780] TCP: Hash tables configured (established 131072 bind 65536)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333808] TCP: reno registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333811] UDP hash table entries: 512 (order: 2, 16384 bytes)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333821] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333888] NET: Registered protocol family 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.333907] pci 0000:00:02.0: Boot video device
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.334363] PCI: CLS 64 bytes, default 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.334417] Trying to unpack rootfs image as initramfs...
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.832025] Freeing initrd memory: 19704k freed
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.841936] Initialise module verification
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.841993] audit: initializing netlink socket (disabled)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.842009] type=2000 audit(1383586450.840:1): initialized
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.872215] bounce pool size: 64 pages
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.872232] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.874189] VFS: Disk quotas dquot_6.5.2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.874245] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.874873] fuse init (API version 7.20)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.874972] msgmni has been set to 1700
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875449] Key type asymmetric registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875451] Asymmetric key parser 'x509' registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875492] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875524] io scheduler noop registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875527] io scheduler deadline registered (default)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875535] io scheduler cfq registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875721] pcieport 0000:00:1c.0: irq 40 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875859] pcieport 0000:00:1c.1: irq 41 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.875992] pcieport 0000:00:1c.2: irq 42 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876148] pcieport 0000:00:1c.4: irq 43 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876254] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876273] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876345] intel_idle: does not run on family 6 model 23
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876458] ACPI: AC Adapter [AC] (on-line)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.876534] input: Lid Switch as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0D:00/input/input0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877713] ACPI: Lid Switch [LID]
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877757] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877761] ACPI: Power Button [PBTN]
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877804] input: Sleep Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877807] ACPI: Sleep Button [SBTN]
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.877883] ACPI: Requesting acpi_cpufreq
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.878121] Monitor-Mwait will be used to enter C-1 state
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.878133] Monitor-Mwait will be used to enter C-2 state
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.878144] Monitor-Mwait will be used to enter C-3 state
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.878152] tsc: Marking TSC unstable due to TSC halts in idle
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.878166] ACPI: acpi_idle registered with cpuidle
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.891731] thermal LNXTHERM:00: registered as thermal_zone0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.891734] ACPI: Thermal Zone [THM] (64 C)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.891776] GHES: HEST is not enabled!
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.891789] isapnp: Scanning for PnP cards...
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    0.939962] ACPI: Battery Slot [BAT0] (battery present)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.267805] isapnp: No Plug & Play device found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.267904] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.269550] Linux agpgart interface v0.103
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.269662] agpgart-intel 0000:00:00.0: Intel GM45 Chipset
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.269707] agpgart-intel 0000:00:00.0: detected gtt size: 2097152K total, 262144K mappable
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.270394] agpgart-intel 0000:00:00.0: detected 32768K stolen memory
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.270527] agpgart-intel 0000:00:00.0: AGP aperture is 256M @ 0xe0000000
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.272197] brd: module loaded
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273038] loop: module loaded
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273536] libphy: Fixed MDIO Bus: probed
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273614] tun: Universal TUN/TAP device driver, 1.6
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273616] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273659] PPP generic driver version 2.4.2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273706] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273746] ehci_hcd 0000:00:1a.7: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273751] ehci_hcd 0000:00:1a.7: EHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273757] ehci_hcd 0000:00:1a.7: new USB bus registered, assigned bus number 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.273775] ehci_hcd 0000:00:1a.7: debug port 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.277667] ehci_hcd 0000:00:1a.7: cache line size of 64 is not supported
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.277688] ehci_hcd 0000:00:1a.7: irq 22, io mem 0xfed1c400
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288024] ehci_hcd 0000:00:1a.7: USB 2.0 started, EHCI 1.00
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288070] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288073] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288076] usb usb1: Product: EHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288079] usb usb1: Manufacturer: Linux 3.7.8 ehci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288082] usb usb1: SerialNumber: 0000:00:1a.7
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288214] hub 1-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288219] hub 1-0:1.0: 6 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288737] ehci_hcd 0000:00:1d.7: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288741] ehci_hcd 0000:00:1d.7: EHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288747] ehci_hcd 0000:00:1d.7: new USB bus registered, assigned bus number 2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.288763] ehci_hcd 0000:00:1d.7: debug port 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.292650] ehci_hcd 0000:00:1d.7: cache line size of 64 is not supported
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.292667] ehci_hcd 0000:00:1d.7: irq 20, io mem 0xfed1c000
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304023] ehci_hcd 0000:00:1d.7: USB 2.0 started, EHCI 1.00
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304039] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304042] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304045] usb usb2: Product: EHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304048] usb usb2: Manufacturer: Linux 3.7.8 ehci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304051] usb usb2: SerialNumber: 0000:00:1d.7
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304162] hub 2-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304166] hub 2-0:1.0: 6 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304642] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304663] uhci_hcd: USB Universal Host Controller Interface driver
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304685] uhci_hcd 0000:00:1a.0: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304689] uhci_hcd 0000:00:1a.0: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304695] uhci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304723] uhci_hcd 0000:00:1a.0: irq 20, io base 0x00006f60
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304759] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304763] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304765] usb usb3: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304768] usb usb3: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304771] usb usb3: SerialNumber: 0000:00:1a.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304889] hub 3-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.304894] hub 3-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305030] uhci_hcd 0000:00:1a.1: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305034] uhci_hcd 0000:00:1a.1: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305040] uhci_hcd 0000:00:1a.1: new USB bus registered, assigned bus number 4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305083] uhci_hcd 0000:00:1a.1: irq 21, io base 0x00006f80
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305120] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305123] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305126] usb usb4: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305128] usb usb4: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305131] usb usb4: SerialNumber: 0000:00:1a.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305248] hub 4-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305252] hub 4-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305383] uhci_hcd 0000:00:1a.2: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305387] uhci_hcd 0000:00:1a.2: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305393] uhci_hcd 0000:00:1a.2: new USB bus registered, assigned bus number 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305421] uhci_hcd 0000:00:1a.2: irq 22, io base 0x00006fa0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305454] usb usb5: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305457] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305460] usb usb5: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305463] usb usb5: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305465] usb usb5: SerialNumber: 0000:00:1a.2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305575] hub 5-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305580] hub 5-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305711] uhci_hcd 0000:00:1d.0: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305715] uhci_hcd 0000:00:1d.0: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305723] uhci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 6
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305751] uhci_hcd 0000:00:1d.0: irq 20, io base 0x00006f00
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305785] usb usb6: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305788] usb usb6: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305791] usb usb6: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305793] usb usb6: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305796] usb usb6: SerialNumber: 0000:00:1d.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305913] hub 6-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.305918] hub 6-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306044] uhci_hcd 0000:00:1d.1: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306048] uhci_hcd 0000:00:1d.1: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306054] uhci_hcd 0000:00:1d.1: new USB bus registered, assigned bus number 7
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306082] uhci_hcd 0000:00:1d.1: irq 21, io base 0x00006f20
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306116] usb usb7: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306119] usb usb7: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306122] usb usb7: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306125] usb usb7: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306127] usb usb7: SerialNumber: 0000:00:1d.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306236] hub 7-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306241] hub 7-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306365] uhci_hcd 0000:00:1d.2: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306369] uhci_hcd 0000:00:1d.2: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306380] uhci_hcd 0000:00:1d.2: new USB bus registered, assigned bus number 8
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306408] uhci_hcd 0000:00:1d.2: irq 22, io base 0x00006f40
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306444] usb usb8: New USB device found, idVendor=1d6b, idProduct=0001
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306447] usb usb8: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306449] usb usb8: Product: UHCI Host Controller
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306452] usb usb8: Manufacturer: Linux 3.7.8 uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306455] usb usb8: SerialNumber: 0000:00:1d.2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306564] hub 8-0:1.0: USB hub found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306569] hub 8-0:1.0: 2 ports detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.306783] i8042: PNP: PS/2 Controller [PNP0303:KBC,PNP0f13:PS2M] at 0x60,0x64 irq 1,12
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.326183] i8042: Detected active multiplexing controller, rev 1.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339263] serio: i8042 KBD port at 0x60,0x64 irq 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339271] serio: i8042 AUX0 port at 0x60,0x64 irq 12
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339300] serio: i8042 AUX1 port at 0x60,0x64 irq 12
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339323] serio: i8042 AUX2 port at 0x60,0x64 irq 12
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339347] serio: i8042 AUX3 port at 0x60,0x64 irq 12
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.339463] mousedev: PS/2 mouse device common for all mice
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340485] rtc_cmos 00:04: RTC can wake from S4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340648] rtc_cmos 00:04: rtc core: registered rtc_cmos as rtc0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340681] rtc0: alarms up to one month, y3k, 114 bytes nvram, hpet irqs
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340762] device-mapper: uevent: version 1.0.3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340832] device-mapper: ioctl: 4.23.0-ioctl (2012-07-25) initialised: dm-devel@redhat.com
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340868] EISA: Probing bus 0 at eisa.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340870] EISA: Cannot allocate resource for mainboard
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340873] Cannot allocate resource for EISA slot 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340874] Cannot allocate resource for EISA slot 2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340876] Cannot allocate resource for EISA slot 3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340878] Cannot allocate resource for EISA slot 4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340880] Cannot allocate resource for EISA slot 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340882] Cannot allocate resource for EISA slot 6
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340884] Cannot allocate resource for EISA slot 7
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340886] Cannot allocate resource for EISA slot 8
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340888] EISA: Detected 0 cards.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340898] cpufreq-nforce2: No nForce2 chipset.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.340946] cpuidle: using governor ladder
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341011] cpuidle: using governor menu
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341016] ledtrig-cpu: registered to indicate activity on CPUs
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341018] EFI Variables Facility v0.08 2004-May-17
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341260] ashmem: initialized
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341424] TCP: cubic registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341547] NET: Registered protocol family 10
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341770] NET: Registered protocol family 17
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341783] Key type dns_resolver registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.341967] Using IPI No-Shortcut mode
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.342104] Loading module verification certificates
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.347056] MODSIGN: Loaded cert 'Magrathea: Glacier signing key: cbf8ede488cdc9dc2ccbae9a4df355495ffd5ccf'
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.347070] registered taskstats version 1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.349804] Key type trusted registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.352102] Key type encrypted registered
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.355107] rtc_cmos 00:04: setting system clock to 2013-11-04 17:34:11 UTC (1383586451)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.356702] BIOS EDD facility v0.16 2004-Jun-25, 0 devices found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.356705] EDD information not available.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.356899] Freeing unused kernel memory: 788k freed
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.357249] Write protecting the kernel text: 6108k
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.357278] Write protecting the kernel read-only data: 2448k
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.357280] NX-protecting the kernel data: 4132k
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.367457] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.504782] sky2: driver version 1.30
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.534666] wmi: Mapper loaded
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.575718] [drm] Initialized drm 1.1.0 20060810
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578084] ahci 0000:00:1f.2: version 3.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578158] ahci 0000:00:1f.2: irq 44 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578225] ahci: SSS flag set, parallel bus scan disabled
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578271] ahci 0000:00:1f.2: AHCI 0001.0200 32 slots 4 ports 3 Gbps 0x33 impl SATA mode
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578277] ahci 0000:00:1f.2: flags: 64bit ncq sntf stag pm led clo pio slum part ccc ems 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.578283] ahci 0000:00:1f.2: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.593512] sky2 0000:09:00.0: Yukon-2 FE+ chip revision 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.593630] sky2 0000:09:00.0: irq 45 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.593921] sky2 0000:09:00.0 eth0: addr 00:23:ae:20:78:38
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.616046] usb 1-5: new high-speed USB device number 2 using ehci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617127] scsi0 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617293] scsi1 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617437] scsi2 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617565] scsi3 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617720] scsi4 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617846] scsi5 : ahci
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617952] ata1: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1c900 irq 44
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617957] ata2: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1c980 irq 44
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617959] ata3: DUMMY
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617961] ata4: DUMMY
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617964] ata5: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1cb00 irq 44
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.617967] ata6: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1cb80 irq 44
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.620876] i915 0000:00:02.0: setting latency timer to 64
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.621137] i915 0000:00:02.0: irq 46 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.621147] [drm] Supports vblank timestamp caching Rev 1 (10.10.2010).
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.621149] [drm] Driver supports precise vblank timestamp query.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.621187] vgaarb: device changed decodes: PCI:0000:00:02.0,olddecodes=io+mem,decodes=io+mem:owns=io+mem
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.758886] usb 1-5: New USB device found, idVendor=0bda, idProduct=0158
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.758892] usb 1-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.758897] usb 1-5: Product: USB2.0-CRW
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.758901] usb 1-5: Manufacturer: Generic
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.758906] usb 1-5: SerialNumber: 20071114173400000
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.774493] Initializing USB Mass Storage driver...
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.774706] usbcore: registered new interface driver usb-storage
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.774709] USB Mass Storage support registered.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.833752] fbcon: inteldrmfb (fb0) is primary device
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.833816] i915: fixme: max PWM is zero
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.872155] usb 1-6: new high-speed USB device number 3 using ehci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    1.936128] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.001524] ata1.00: ATA-8: WDC WD3200BEVT-75ZCT2, 11.01A11, max UDMA/133
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.001527] ata1.00: 625142448 sectors, multi 8: LBA48 NCQ (depth 31/32), AA
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004085] ata1.00: configured for UDMA/133
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004333] scsi 0:0:0:0: Direct-Access     ATA      WDC WD3200BEVT-7 11.0 PQ: 0 ANSI: 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004552] sd 0:0:0:0: [sda] 625142448 512-byte logical blocks: (320 GB/298 GiB)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004595] sd 0:0:0:0: Attached scsi generic sg0 type 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004607] sd 0:0:0:0: [sda] Write Protect is off
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004609] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.004633] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.061953]  sda: sda1 sda2 sda3 sda4 < sda5 sda6 >
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.062541] sd 0:0:0:0: [sda] Attached SCSI disk
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.079629] usb 1-6: New USB device found, idVendor=0c45, idProduct=63ee
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.079632] usb 1-6: New USB device strings: Mfr=2, Product=1, SerialNumber=0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.079635] usb 1-6: Product: Integrated_Webcam_1.3M
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.079637] usb 1-6: Manufacturer: 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.324122] ata2: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.328260] ata2.00: ATAPI: PLDS DVD+/-RW DS-8A3S, HD14, max UDMA/100
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.329422] ata2.00: configured for UDMA/100
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.335898] scsi 1:0:0:0: CD-ROM            PLDS     DVD+-RW DS-8A3S  HD14 PQ: 0 ANSI: 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.340472] sr0: scsi3-mmc drive: 24x/8x writer dvd-ram cd/rw xa/form2 cdda pop-up
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.340474] cdrom: Uniform CD-ROM driver Revision: 3.20
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.340729] sr 1:0:0:0: Attached scsi CD-ROM sr0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.340805] sr 1:0:0:0: Attached scsi generic sg1 type 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.624146] usb 7-1: new full-speed USB device number 2 using uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.660119] ata5: SATA link down (SStatus 0 SControl 300)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.688159] Console: switching to colour frame buffer device 170x48
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.692367] fb0: inteldrmfb frame buffer device
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.692369] drm: registered panic notifier
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.707130] acpi device:3b: registered as cooling_device2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.707726] ACPI: Video Device [VID1] (multi-head: yes  rom: no  post: no)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.707780] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/LNXVIDEO:01/input/input4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.707851] [Firmware Bug]: Duplicate ACPI video bus devices for the same VGA controller, please try module parameter "video.allow_duplicates=1"if the current driver doesn't work.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.707869] [drm] Initialized i915 1.6.0 20080730 for 0000:00:02.0 on minor 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.789154] usb 7-1: New USB device found, idVendor=12d1, idProduct=1505
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.789162] usb 7-1: New USB device strings: Mfr=1, Product=2, SerialNumber=4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.789167] usb 7-1: Product: HUAWEI Mobile
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.789171] usb 7-1: Manufacturer: HUAÿWEI TECHNOLOGIES
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.789176] usb 7-1: SerialNumber: ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.793228] scsi6 : usb-storage 7-1:1.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.793391] usb 7-1: USB disconnect, device number 2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.980122] ata6: SATA link down (SStatus 0 SControl 300)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.992333] scsi7 : usb-storage 1-5:1.0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    2.992474] usbcore: registered new interface driver ums-realtek
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.728750] Disabling lock debugging due to kernel taint
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.728892] virgo_cloud_test_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.729002] virgo_cloudexec: no symbol version for node_ip_addrs_in_cloud
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.729003] virgo_cloudexec: Unknown symbol node_ip_addrs_in_cloud (err -22)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.729006] virgo_cloudexec: no symbol version for num_cloud_nodes
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.729007] virgo_cloudexec: Unknown symbol num_cloud_nodes (err -22)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.746193] EXT3-fs (sda5): recovery required on readonly filesystem
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.746198] EXT3-fs (sda5): write access will be enabled during recovery
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.994303] scsi 7:0:0:0: Direct-Access     Generic- Multi-Card       1.00 PQ: 0 ANSI: 0 CCS
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.995131] sd 7:0:0:0: Attached scsi generic sg2 type 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    3.999397] sd 7:0:0:0: [sdb] Attached SCSI removable disk
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.078414] kjournald starting.  Commit interval 5 seconds
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.078522] EXT3-fs (sda5): orphan cleanup on readonly fs
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.078528] ext3_orphan_cleanup: deleting unreferenced inode 4892332
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.078564] EXT3-fs (sda5): 1 orphan inode deleted
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.167570] EXT3-fs (sda5): recovery complete
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    5.167575] EXT3-fs (sda5): mounted filesystem with ordered data mode
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.320053] usb 7-1: new full-speed USB device number 3 using uhci_hcd
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.541106] usb 7-1: New USB device found, idVendor=12d1, idProduct=140b
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.541113] usb 7-1: New USB device strings: Mfr=1, Product=2, SerialNumber=4
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.541118] usb 7-1: Product: HUAWEI Mobile
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.541123] usb 7-1: Manufacturer: HUAÿWEI TECHNOLOGIES
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.541127] usb 7-1: SerialNumber: ÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿÿ
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    6.550317] scsi8 : usb-storage 7-1:1.3
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.553164] scsi 8:0:0:0: CD-ROM            HUAWEI   Mass Storage     2.31 PQ: 0 ANSI: 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.556123] scsi 8:0:0:1: Direct-Access     HUAWEI   SD Storage       2.31 PQ: 0 ANSI: 2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.575113] sr1: scsi-1 drive
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.575297] sr 8:0:0:0: Attached scsi CD-ROM sr1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.575365] sr 8:0:0:0: Attached scsi generic sg3 type 5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.575540] sd 8:0:0:1: Attached scsi generic sg4 type 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [    7.592077] sd 8:0:0:1: [sdc] Attached SCSI removable disk
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   10.138088] EXT3-fs (sda5): using internal journal
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.472526] dcdbas dcdbas: Dell Systems Management Base Driver (version 5.6.0-3.2)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.813164] usbcore: registered new interface driver usbserial
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.813781] usbcore: registered new interface driver usbserial_generic
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.814373] usbserial: USB Serial support registered for generic
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.926174] Linux video capture interface: v2.00
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.940798] usbcore: registered new interface driver option
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941121] usbserial: USB Serial support registered for GSM modem (1-port)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941452] option 7-1:1.0: GSM modem (1-port) converter detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941660] usb 7-1: GSM modem (1-port) converter now attached to ttyUSB0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941684] option 7-1:1.1: GSM modem (1-port) converter detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941861] usb 7-1: GSM modem (1-port) converter now attached to ttyUSB1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.941879] option 7-1:1.2: GSM modem (1-port) converter detected
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   11.942052] usb 7-1: GSM modem (1-port) converter now attached to ttyUSB2
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.026064] ip_tables: (C) 2000-2006 Netfilter Core Team
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.062342] RPC: Registered named UNIX socket transport module.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.062346] RPC: Registered udp transport module.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.062348] RPC: Registered tcp transport module.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.062350] RPC: Registered tcp NFSv4.1 backchannel transport module.
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.153843] lp: driver loaded but no devices found
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.165217] microcode: CPU0 sig=0x1067a, pf=0x80, revision=0xa07
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.242632] nf_conntrack version 0.5.0 (16384 buckets, 65536 max)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.281094] input: Dell WMI hotkeys as /devices/virtual/input/input5
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.338870] virgo_cloud_mempool_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.338875] virgo_cloud_mempool_kernelspace_init(): test_str=ef098363, test_ul=4010378083
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.343870] gpio_ich: GPIO from 195 to 255 on gpio_ich
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370308] virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370312] virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370314] virgocloudexec_mempool_init(): invoking read_virgo_config()
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370334] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 1: 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370336] virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - 2: 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.370338] read_virgo_config(): virgo_cloud config file being read 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.379077] FS-Cache: Loaded
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.449584] uvcvideo: Found UVC 1.00 device Integrated_Webcam_1.3M (0c45:63ee)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.457888] input: Integrated_Webcam_1.3M as /devices/pci0000:00/0000:00:1a.7/usb1/1-6/1-6:1.0/input/input6
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.458695] usbcore: registered new interface driver uvcvideo
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.458698] USB Video Class driver (1.1.1)
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.463159] FS-Cache: Netfs 'nfs' registered for caching
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.723926] ip6_tables: (C) 2000-2006 Netfilter Core Team
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751739] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751739]  
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751747] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751747] 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751751] tokenize_list_of_ip_addrs(): 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751755] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[0] = 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751758] tokenize_list_of_ip_addrs(): 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751758] 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751762] tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[1] = 127.0.0.1
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751762] 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751786] virgocloudexec_mempool_init(): sock_create() returns error code: 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751792] virgocloudexec_mempool_init(): kernel_bind() returns error code: 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751801] virgocloudexec_mempool_init(): kernel_listen() returns error code: 0
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.751804] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.864198] input: PS/2 Mouse as /devices/platform/i8042/serio2/input/input7
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.890822] input: AlpsPS/2 ALPS GlidePoint as /devices/platform/i8042/serio2/input/input8
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.893661] microcode: CPU1 sig=0x1067a, pf=0x80, revision=0xa07
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   12.896099] microcode: Microcode Update Driver: v2.00 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.535788] Installing knfsd (copyright (C) 1996 okir@monad.swb.de).
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.558058] snd_hda_intel 0000:00:1b.0: irq 47 for MSI/MSI-X
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.740349] type=1400 audit(1383566663.884:2): apparmor="STATUS" operation="profile_load" name="/sbin/dhclient" pid=770 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.740360] type=1400 audit(1383566663.884:3): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=771 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.740862] type=1400 audit(1383566663.884:4): apparmor="STATUS" operation="profile_load" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=770 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.740871] type=1400 audit(1383566663.884:5): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=771 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.741153] type=1400 audit(1383566663.884:6): apparmor="STATUS" operation="profile_load" name="/usr/lib/connman/scripts/dhclient-script" pid=770 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.741161] type=1400 audit(1383566663.884:7): apparmor="STATUS" operation="profile_replace" name="/usr/lib/connman/scripts/dhclient-script" pid=771 comm="apparmor_parser"
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.857565] input: HDA Intel Mic as /devices/pci0000:00/0000:00:1b.0/sound/card0/input9
+Nov  4 17:34:25 kashrinivaasan-Inspiron-1545 kernel: [   13.857742] input: HDA Intel Headphone as /devices/pci0000:00/0000:00:1b.0/sound/card0/input10
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.104401] ppdev: user-space parallel port driver
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.579059] type=1400 audit(1383566666.720:8): apparmor="STATUS" operation="profile_load" name="/usr/lib/cups/backend/cups-pdf" pid=987 comm="apparmor_parser"
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.579680] type=1400 audit(1383566666.720:9): apparmor="STATUS" operation="profile_load" name="/usr/sbin/cupsd" pid=987 comm="apparmor_parser"
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697788] Bluetooth: Core ver 2.16
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697810] NET: Registered protocol family 31
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697812] Bluetooth: HCI device and connection manager initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697821] Bluetooth: HCI socket layer initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697825] Bluetooth: L2CAP socket layer initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.697832] Bluetooth: SCO socket layer initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.839413] Bluetooth: RFCOMM TTY layer initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.839427] Bluetooth: RFCOMM socket layer initialized
+Nov  4 17:34:26 kashrinivaasan-Inspiron-1545 kernel: [   16.839429] Bluetooth: RFCOMM ver 1.11
+Nov  4 17:34:27 kashrinivaasan-Inspiron-1545 kernel: [   17.125391] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Nov  4 17:34:27 kashrinivaasan-Inspiron-1545 kernel: [   17.125396] Bluetooth: BNEP filters: protocol multicast
+Nov  4 17:34:27 kashrinivaasan-Inspiron-1545 kernel: [   17.125405] Bluetooth: BNEP socket layer initialized
+Nov  4 17:34:28 kashrinivaasan-Inspiron-1545 kernel: [   18.332987] type=1400 audit(1383566668.476:10): apparmor="STATUS" operation="profile_replace" name="/sbin/dhclient" pid=1119 comm="apparmor_parser"
+Nov  4 17:34:28 kashrinivaasan-Inspiron-1545 kernel: [   18.334763] type=1400 audit(1383566668.476:11): apparmor="STATUS" operation="profile_replace" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=1119 comm="apparmor_parser"
+Nov  4 17:34:31 kashrinivaasan-Inspiron-1545 kernel: [   21.713820] NFSD: Using /var/lib/nfs/v4recovery as the NFSv4 state recovery directory
+Nov  4 17:34:32 kashrinivaasan-Inspiron-1545 kernel: [   21.858701] NFSD: starting 90-second grace period
+Nov  4 17:34:32 kashrinivaasan-Inspiron-1545 kernel: [   22.258998] sky2 0000:09:00.0 eth0: enabling interface
+Nov  4 17:34:32 kashrinivaasan-Inspiron-1545 kernel: [   22.259089] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+Nov  4 17:34:40 kashrinivaasan-Inspiron-1545 kernel: [   29.941767] bio: create slab <bio-1> at 1
+Nov  4 17:34:42 kashrinivaasan-Inspiron-1545 kernel: [   32.513375] Adding 4490132k swap on /dev/mapper/cryptswap1.  Priority:-1 extents:1 across:4490132k 
+Nov  4 17:35:05 kashrinivaasan-Inspiron-1545 kernel: [   55.316906] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:35:05 kashrinivaasan-Inspiron-1545 kernel: [   55.319036] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:35:05 kashrinivaasan-Inspiron-1545 kernel: [   55.319044] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Nov  4 17:35:40 kashrinivaasan-Inspiron-1545 kernel: [   90.300773] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Nov  4 17:35:40 kashrinivaasan-Inspiron-1545 kernel: [   90.301077] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Nov  4 17:35:40 kashrinivaasan-Inspiron-1545 kernel: [   90.301084] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Nov  4 17:35:40 kashrinivaasan-Inspiron-1545 kernel: [   90.301086] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226726] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 26
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226731] strip_control_M(): str=virgo_cloud_malloc(1000)
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226731]  before strsep
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226735] strip_control_M(): newstr=virgo_cloud_malloc(1000) after carriage return newline strsep
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226737] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=, buffer: virgo_cloud_malloc(1000)
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226737] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226741] virgo_cloudexec_mempool: print_buffer(): 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226742] vi
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226745] rg
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226747] o_
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226750] cl
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226752] ou
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226754] d_
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226756] ma
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226759] ll
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226761] oc
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226763] (1
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226766] 00
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226768] 0)
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226770] <6>[   99.226772] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226773] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226775] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226777] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226779] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226782] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226784] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226786] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226788] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226791] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226793] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226795] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226798] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226800] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226802] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226805] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226807] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226809] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226811] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226814] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226816] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226818] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226820] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226823] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226825] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226827] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226830] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226832] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226834] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226836] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226839] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226841] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226843] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226845] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226848] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226850] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226852] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226854] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226857] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226859] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226861] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226863] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226866] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226868] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226870] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226872] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226875] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226877] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226879] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226881] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226884] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226886] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226888] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226891] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226893] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226895] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226897] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226900] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226902] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226904] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226906] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226909] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226911] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226913] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226915] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226918] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226920] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226922] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226924] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226927] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226930] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226932] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226934] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226937] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226939] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226941] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226943] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226946] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226948] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226950] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226952] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226955] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226957] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226959] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226961] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226964] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226966] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226968] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226970] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226973] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226975] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226977] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226980] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226982] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226984] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226987] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226989] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226991] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226993] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226996] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.226998] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227000] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227002] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227005] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227007] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227009] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227011] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227014] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227016] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227018] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227020] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227023] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227025] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227027] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227029] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227031] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227034] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227036] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227038] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227040] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227043] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227045] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227047] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227050] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227052] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227054] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227056] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227059] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227061] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227063] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227065] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227068] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227070] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227072] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227074] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227077] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227079] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227081] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227083] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227086] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227088] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227090] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227093] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227095] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227097] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227099] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227102] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227104] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227106] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227109] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227111] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227113] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227116] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227118] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227120] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227122] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227125] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227127] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227129] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227132] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227134] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227136] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227138] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227140] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227143] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227145] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227147] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227150] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227152] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227154] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227156] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227159] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227161] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227163] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227165] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227168] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227170] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227172] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227175] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227177] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227179] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227182] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227184] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227186] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227188] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227191] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227193] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227195] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227198] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227200] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227202] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227204] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227207] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227209] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227211] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227213] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227216] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227218] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227220] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227222] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227225] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227227] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227229] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227231] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227234] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227236] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227238] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227241] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227243] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227245] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227247] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227250] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227252] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227254] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227257] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227259] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227261] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227263] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227266] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227268] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227270] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227272] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227275] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227277] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227279] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227282] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227284] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227286] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227288] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227291] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227293] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227295] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227298] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227300] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227302] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227304] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227307] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227309] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227311] <6>[   99.227313] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227315] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_malloc(1000)
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227315] 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227317] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_malloc(1000) 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227321] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_malloc
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227323] parse_virgomempool_command: vmargs->mempool_args[0]: 1000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227325] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227328] Creating Kernel Thread for virgo_cloud_malloc in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]=1000, mempool_args[1]=(null)
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227331] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_malloc_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227333] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size str=1000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227337] toInteger(): strInt=[1000], integer=1000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227338] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=1000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227345] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=f2704000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227347] virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=f2704000 in vmargs as an out arg
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227349] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=f2704000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227351] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227353] toAddressString(): address=f2704000, sprintf strAddress=[f2704000]
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227356] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer: f2704000
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227382] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227384] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Nov  4 17:35:49 kashrinivaasan-Inspiron-1545 kernel: [   99.227403] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Nov  4 17:35:51 kashrinivaasan-Inspiron-1545 kernel: [  101.250586] virgo_cloudexec_mempool_service(): virgo mempool client thread per request 
+Nov  4 17:35:51 kashrinivaasan-Inspiron-1545 kernel: [  101.250677] virgo_cloudexec_mempool_service(): virgo_mempool_ops.virgo_create() 
+Nov  4 17:35:51 kashrinivaasan-Inspiron-1545 kernel: [  101.250683] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_recvfrom()
+Nov  4 17:35:51 kashrinivaasan-Inspiron-1545 kernel: [  101.250685] virgocloudexec_mempool_recvfrom(): before kernel_recvmsg()
+Nov  4 17:35:56 kashrinivaasan-Inspiron-1545 kernel: [  106.009409] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:35:56 kashrinivaasan-Inspiron-1545 kernel: [  106.011769] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:35:56 kashrinivaasan-Inspiron-1545 kernel: [  106.011778] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843495] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns len: 36
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843503] strip_control_M(): str=virgo_cloud_set("f2704000","data")
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843503]  before strsep
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843508] strip_control_M(): newstr=virgo_cloud_set("f2704000","data") after carriage return newline strsep
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843512] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=, buffer: virgo_cloud_set("f2704000","data")
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843512] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843517] virgo_cloudexec_mempool: print_buffer(): 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843519] vi
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843524] rg
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843528] o_
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843532] cl
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843536] ou
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843540] d_
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843544] se
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843547] t(
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843551] "f
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843555] 27
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843559] 04
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843563] 00
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843566] 0"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843570] ,"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843574] da
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843578] ta
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843582] ")
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843585] <6>[  125.843588] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843590] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843592] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843596] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843600] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843604] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843608] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843611] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843615] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843619] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843623] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843627] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843630] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843634] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843638] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843642] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843645] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843649] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843653] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843657] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843661] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843664] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843668] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843672] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843676] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843679] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843683] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843687] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843691] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843695] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843698] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843702] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843706] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843710] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843714] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843717] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843721] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843725] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843729] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843732] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843736] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843740] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843744] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843748] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843751] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843755] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843759] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843763] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843767] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843771] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843775] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843778] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843782] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843786] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843790] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843793] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843797] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843801] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843805] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843809] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843813] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843817] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843821] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843825] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843828] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843832] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843836] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843840] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843843] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843847] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843851] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843855] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843858] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843862] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843866] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843870] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843874] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843877] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843881] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843885] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843889] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843893] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843897] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843900] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843904] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843908] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843912] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843915] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843919] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843923] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843927] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843931] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843934] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843938] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843942] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843946] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843950] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843954] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843957] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843961] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843965] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843969] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843972] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843976] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843980] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843984] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843988] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843992] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843995] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.843999] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844043] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844058] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844070] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844084] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844097] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844111] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844125] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844137] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844151] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844163] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844177] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844190] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844203] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844216] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844229] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844242] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844255] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844268] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844281] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844294] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844307] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844320] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844333] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844346] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844360] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844373] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844386] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844399] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844412] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844425] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844439] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844451] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844465] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844477] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844491] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844503] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844517] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844523] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844527] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844531] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844535] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844538] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844560] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844564] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844568] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844571] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844575] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844579] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844583] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844586] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844590] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844594] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844598] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844602] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844605] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844609] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844613] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844616] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844620] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844624] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844628] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844632] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844635] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844639] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844643] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844647] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844650] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844654] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844658] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844662] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844665] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844669] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844673] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844676] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844680] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844684] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844688] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844691] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844695] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844699] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844703] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844706] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844710] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844714] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844717] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844721] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844725] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844729] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844732] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844736] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844740] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844744] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844747] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844751] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844755] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844759] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844763] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844766] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844770] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844774] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844778] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844781] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844785] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844789] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844793] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844796] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844800] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844804] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844807] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844811] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844815] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844819] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844822] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844826] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844830] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844833] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844837] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844841] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844845] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844848] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844852] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844856] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844860] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844863] <6>[  125.844866] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844869] virgocloudexec_mempool_recvfrom(): kernel_recvmsg() le32 to cpu virgo_cloud_set("f2704000","data")
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844869] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844873] virgocloudexec_mempool_recvfrom(): mempoolFunction : virgo_cloud_set("f2704000","data") 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844878] parse_virgomempool_command: vmargs->mempool_cmd: virgo_cloud_set
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844882] parse_virgomempool_command: vmargs->mempool_args[0]: "f2704000"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844885] parse_virgomempool_command: vmargs->mempool_args[1]: "data"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844889] mempool_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844892] Creating Kernel Thread for virgo_cloud_set in virgo_cloud_mempool_kernelspace mempool driver module with mempool_args[0]="f2704000", mempool_args[1]="data"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844897] virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844902] virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=virgo_cloud_set, vmargs->mempool_args[0] = "f2704000"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844902] , vmargs->mempool_args[1]="data" 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844907] toKernelAddress(): sscanf: strAddress1=[ef098363], ptr =   (null)
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844911] toKernelAddress(): before simple_strtoul: strAddress1=[ef098363] 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844915] toKernelAddress(): after simple_strtoul: strAddress1=[ef098363], (void*)ul1=ef098363, ul1=4010378083
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844919] toKernelAddress(): kstrtoul: ul=4010378083, (void*)ul=ef098363,strAddress2=[ef098363]
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844922] virgo_cloud_mempool_kernelspace.c: ptr set by toKernelAddress=ef098363
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844926] virgo_cloud_mempool_kernelspace.c: virgo_cloud_set_kernelspace(): address=ef098363, data to be set="data", data after set="data"
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844929] mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=  (null)
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844932] virgo_mempool_client_thread(): virgo_mempool_ops.virgo_mempool_sendto()
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844936] toAddressString(): address=  (null), sprintf strAddress=[  (null)]
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844939] virgocloudexec_mempool_sendto(): before kernel_sendmsg() for send buffer:   (null)
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844977] virgocloudexec_mempool_sendto(): kernel_sendmsg() returns ret: 500
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.844981] virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg 
+Nov  4 17:36:15 kashrinivaasan-Inspiron-1545 kernel: [  125.845006] virgocloudexec_mempool_sendto(): sock_release invoked on client socket 
+Nov  4 17:36:47 kashrinivaasan-Inspiron-1545 kernel: [  157.721423] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:36:47 kashrinivaasan-Inspiron-1545 kernel: [  157.723705] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:36:47 kashrinivaasan-Inspiron-1545 kernel: [  157.723716] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Nov  4 17:37:39 kashrinivaasan-Inspiron-1545 kernel: [  209.428823] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:37:39 kashrinivaasan-Inspiron-1545 kernel: [  209.431066] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:37:39 kashrinivaasan-Inspiron-1545 kernel: [  209.431072] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Nov  4 17:38:31 kashrinivaasan-Inspiron-1545 kernel: [  261.145220] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:38:31 kashrinivaasan-Inspiron-1545 kernel: [  261.147326] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:38:31 kashrinivaasan-Inspiron-1545 kernel: [  261.147334] sd 7:0:0:0: [sdb] Assuming drive cache: write through
+Nov  4 17:39:23 kashrinivaasan-Inspiron-1545 kernel: [  312.853106] sd 7:0:0:0: [sdb] Test WP failed, assume Write Enabled
+Nov  4 17:39:23 kashrinivaasan-Inspiron-1545 kernel: [  312.855240] sd 7:0:0:0: [sdb] Asking for cache data failed
+Nov  4 17:39:23 kashrinivaasan-Inspiron-1545 kernel: [  312.855250] sd 7:0:0:0: [sdb] Assuming drive cache: write through
