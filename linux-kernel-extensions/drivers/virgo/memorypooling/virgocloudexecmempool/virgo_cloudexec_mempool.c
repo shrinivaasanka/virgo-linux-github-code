@@ -175,7 +175,7 @@ int mempool_func(void* args)
 	char *argv[8];
 	char *envp[3];
 	char* mempoolFunction = (char*)args;
-	struct virgo_mempool_args* vmargs=parse_virgomempool_command(kstrdup(mempoolFunction,GFP_ATOMIC));
+	struct virgo_mempool_args* vmargs=parse_virgomempool_command(kstrdup(mempoolFunction,GFP_KERNEL));
 	void* virgo_mempool_ret;
 
 	if (parameterIsExecutable==2)
@@ -192,9 +192,9 @@ int mempool_func(void* args)
 			kernel module virgo_cloud_mempool_kernelspace.ko are directly invoked using
 			intermodule kernelspace invocation.
 		*/
-		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_ATOMIC)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
+		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_KERNEL)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
 
-		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->mempool_cmd,GFP_ATOMIC),"_kernelspace"),GFP_ATOMIC))(vmargs);
+		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->mempool_cmd,GFP_KERNEL),"_kernelspace"),GFP_KERNEL))(vmargs);
 
 		printk(KERN_INFO "mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=%p\n", (char*)virgo_mempool_ret);
 		/*
@@ -206,9 +206,9 @@ int mempool_func(void* args)
 	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_cloudexec_mempool_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
-		argv[0]=kstrdup(mempoolFunction,GFP_ATOMIC);
+		argv[0]=kstrdup(mempoolFunction,GFP_KERNEL);
 		/*
-		argv[2]=kstrdup(strcat(argv[2], " >> /home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin_userspace_exec.log"),GFP_ATOMIC);
+		argv[2]=kstrdup(strcat(argv[2], " >> /home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin_userspace_exec.log"),GFP_KERNEL);
 		*/
 		argv[1]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/";
@@ -227,8 +227,8 @@ int mempool_func(void* args)
 	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_cloudexec_mempool_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
-		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[1]=kstrdup(mempoolFunction,GFP_ATOMIC);
+		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_KERNEL);
+		argv[1]=kstrdup(mempoolFunction,GFP_KERNEL);
 		argv[2]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/";
 		envp[1]="HOME=/home/kashrinivaasan";
@@ -237,10 +237,10 @@ int mempool_func(void* args)
 		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
 
 		/*
-		argv[0]=kstrdup("/bin/bash",GFP_ATOMIC);
-		argv[1]=kstrdup("-c",GFP_ATOMIC);
-		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_ATOMIC);
-		argv[3]=kstrdup(mempoolFunction,GFP_ATOMIC);
+		argv[0]=kstrdup("/bin/bash",GFP_KERNEL);
+		argv[1]=kstrdup("-c",GFP_KERNEL);
+		argv[2]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/mempooling/virgocloudexec_mempool/virgo_kernelupcall_plugin",GFP_KERNEL);
+		argv[3]=kstrdup(mempoolFunction,GFP_KERNEL);
 		argv[4]=NULL;
 		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games";
 		envp[1]="HOME=/home/kashrinivaasan";
@@ -263,7 +263,7 @@ int mempool_func(void* args)
 char* strip_control_M(char* str)
 {
         printk("strip_control_M(): str=%s before strsep\n",str);
-        char* dupstr=kstrdup(str, GFP_ATOMIC);
+        char* dupstr=kstrdup(str, GFP_KERNEL);
         char* newstr=strsep(&dupstr, "\r\n ");
         printk("strip_control_M(): newstr=%s after carriage return newline strsep\n",newstr);
         return newstr;
@@ -327,13 +327,13 @@ void read_virgo_config()
 	/*num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
 	char* delim=",";
 	char* token=NULL;
-	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	char* bufdup=kstrdup(buf,GFP_KERNEL);
 	printk(KERN_INFO "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
 	while(bufdup != NULL)
 	{
 		token=strsep(&bufdup, delim);	
 		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
-		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_ATOMIC);
+		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
 		printk(KERN_INFO "tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);
 		i++;
 	}
@@ -349,7 +349,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 {
 	char* delim=",";
 	char* token=NULL;
-	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	char* bufdup=kstrdup(buf,GFP_KERNEL);
 	printk(KERN_INFO, "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
 	int i=0;
 	while(bufdup != NULL)
@@ -504,7 +504,7 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		mempoolFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
+		mempoolFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
 		/*mempoolFunction[strlen(mempoolFunction)-2]='\0';*/
 		
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=%s, buffer: %s\n", iov.iov_base, buffer);
@@ -576,7 +576,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 		/*strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");*/
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
-		strcpy(buffer,kstrdup(toAddressString(virgo_mempool_ret),GFP_ATOMIC));
+		strcpy(buffer,kstrdup(toAddressString(virgo_mempool_ret),GFP_KERNEL));
 		iov.iov_base=buffer;	
 		iov.iov_len=BUF_SIZE;
 		/*iov.iov_len=sizeof(buffer);*/
@@ -684,13 +684,13 @@ virgo_cloud_set,virgo_cloud_get- sent from virgo_malloc syscall
 
 struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
 {
-	struct virgo_mempool_args* vmargs=kmalloc(sizeof(struct virgo_mempool_args),GFP_ATOMIC);
-	vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_ATOMIC);
+	struct virgo_mempool_args* vmargs=kmalloc(sizeof(struct virgo_mempool_args),GFP_KERNEL);
+	vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_KERNEL);
         printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_cmd: %s\n", vmargs->mempool_cmd);
 
 	if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
 	{
-		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_KERNEL);
         	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[0]: %s\n", vmargs->mempool_args[0]);
 
 		vmargs->mempool_args[1]=NULL;
@@ -698,8 +698,8 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
 	else
 	{
 
-		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_ATOMIC);
-		vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_ATOMIC);
+		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,","),GFP_KERNEL);
+		vmargs->mempool_args[1]=kstrdup(strsep(&mempoolFunction,")"),GFP_KERNEL);
         	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[0]: %s\n", vmargs->mempool_args[0]);
         	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[1]: %s\n", vmargs->mempool_args[1]);
 		vmargs->mempool_args[2]=NULL;
@@ -721,7 +721,7 @@ FPTR toFuncPtr(char* functionName)
 
 char* toAddressString(char* ptr)
 {
-	char* strAddress=kmalloc(BUF_SIZE, GFP_ATOMIC);
+	char* strAddress=kmalloc(BUF_SIZE, GFP_KERNEL);
         sprintf(strAddress,"%p",ptr);
         printk(KERN_INFO "toAddressString(): address=%p, sprintf strAddress=[%s]\n", ptr, strAddress);
         return strAddress;
