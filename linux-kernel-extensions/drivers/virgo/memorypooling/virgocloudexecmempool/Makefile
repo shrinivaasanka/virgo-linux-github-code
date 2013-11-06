@@ -2,7 +2,7 @@
 #Makefile for VIRGO mempool cloudexec driver and mempool kernelspace driver for intermodule invocation in kernelspace 
 #
 
-ccflags-y := -I/home/kashrinivaasan/linux-3.7.8/include -DDEBUG
+ccflags-y := -I/home/kashrinivaasan/linux-3.7.8/lib -I/home/kashrinivaasan/linux-3.7.8 -I/home/kashrinivaasan/linux-3.7.8/include -DDEBUG
 
 virgocloudexec_mempool_driver-y := virgo_cloudexec_mempool.o
 virgo_cloud_mempool_kernelspace_driver-y := virgo_cloud_mempool_kernelspace.o
