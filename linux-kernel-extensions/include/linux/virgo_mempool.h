@@ -183,6 +183,7 @@ extern void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args* args);
 extern void* virgo_cloud_free_kernelspace(struct virgo_mempool_args* args);
 extern void* virgo_cloud_get_kernelspace(struct virgo_mempool_args* args);
 extern void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args);
+extern char* toKernelAddress(const char* str);
 
 struct virgo_mempool_ops_t {
 	int (*virgo_mempool_create)(void);
