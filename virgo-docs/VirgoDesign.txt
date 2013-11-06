@@ -53,6 +53,8 @@ Virgo_clone() system call needs to lookup a registry or map of host-to-load and 
 
 Many application level userspace load monitoring tools are available but as virgo_clone() is in kernel space, it needs to be investigated if kernel-to-kernel loadmonitoring can be done without userspace data transport.Most Cloud API explicitly invoke a function on a host. If this functionality is needed, virgo_clone() needs to take host:ip address as extra argument,but it reduces transparent execution.
 
+(Design notes for LB option 1 handwritten by myself are at :http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/trunk/virgo-docs/MiscellaneousOpenSourceDesignAndAcademicResearchNotes.pdf)
+
 Loadbalancer option 2 - Linux Psuedorandom number generator based load balancer(experimental) instead of centralized registry that tracks load:
 ----------------------------------------------------------------------------------------------------------
 
@@ -65,6 +67,9 @@ expected number of requests per node = summation(each_value_for_the_random_varia
 
 This loadbalancer is dependent on efficacy of the PRG and since each request is uniformly, identically, independently distributed use of PRG
 would distribute requests evenly. This obviates the need for loadtracking and coherency of the load-to-host table.
+
+(Design notes for LB option 2 handwritten by myself at :http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/trunk/virgo-docs/MiscellaneousOpenSourceDesignAndAcademicResearchNotes.pdf)
+
 
 (python script in virgo-python-src/)
 
