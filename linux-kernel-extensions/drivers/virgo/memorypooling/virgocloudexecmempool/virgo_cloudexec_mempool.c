@@ -193,7 +193,6 @@ int mempool_func(void* args)
 			intermodule kernelspace invocation.
 		*/
 		/*task=kthread_create(toFuncPtr(kstrdup(strcat(vmargs->mempool_cmd,"_kernelspace"),GFP_KERNEL)), (void*)vmargs, "mempoolFunction kernelspace thread");*/
-
 		virgo_mempool_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->mempool_cmd,GFP_KERNEL),"_kernelspace"),GFP_KERNEL))(vmargs);
 
 		printk(KERN_INFO "mempool_func(): virgo mempool kernelspace module returns value virgo_mempool_ret=%p\n", (char*)virgo_mempool_ret);
