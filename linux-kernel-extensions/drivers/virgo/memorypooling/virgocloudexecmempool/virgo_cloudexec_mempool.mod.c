@@ -35,6 +35,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xbdb1002f, "vfs_read" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
+	{ 0x6c2e3320, "strncmp" },
 	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
 	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
@@ -60,4 +61,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace";
 
 
-MODULE_INFO(srcversion, "7C99695AFE9131CAAE4F7A3");
+MODULE_INFO(srcversion, "F859144B78920777A73CB81");
