@@ -410,6 +410,10 @@ New parser function virgo_parse_integer() has been added to virgo_cloud_mempool_
 lib/kstrtox.c and modified locally to add an if clause to discard quotes and unquotes. With this the telnet path commands for virgo_malloc()
 and virgo_set() are working. Today's kern.log has been added to repository in test_logs/.
 
+Commits as on 7 November 2013
+------------------------------
+In addition to virgo_malloc and virgo_set, virgo_set is also working through telnet path after today's commit for "virgodata:" prefix in virgo_cloud_mempool_kernelspace.ko. This prefix is needed to differentiate data and address so that toAddressString() can be invoked to sprintf() the address in virgo_cloudexec_mempool.ko. Also mempool command parser has been updated to strcmp() virgo_cloud_get command also. 
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
