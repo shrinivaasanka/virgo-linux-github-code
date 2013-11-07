@@ -89,35 +89,36 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
 
-7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the
-power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.
+(ONGOING) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.
 
 8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
 
 9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
 
-10. In addition to Virgo_malloc() which is a pooled virtual memory, a Virgo File System with virgo_open(), virgo_read() and virgo_write() syscalls that transcends disk storage in all nodes in the cloud is also a fanciful feature addition that would make VIRGO a complete all-pervading cloud platform.
+(ONGOING) 10. Memory Pooling Subsystem Driver - Virgo_malloc(), Virgo_set(), Virgo_get() and Virgo_free() system calls and their Kernel Module Implementations. In addition to syscall path, telnet or userspace socket client interface is also provided for both VIRGO CPU pooling(virgo_clone()) and VIRGO Memory Pooling Drivers.
 
-(ONGOING) 11. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
+11. Virgo File System with virgo_open(), virgo_read() and virgo_write() syscalls that transcends disk storage in all nodes in the cloud is also a fanciful feature addition that would make VIRGO a complete all-pervading cloud platform.
 
-12. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
+(ONGOING) 12. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
 
-13. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
+13. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
 
-14. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log.
+14. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
 
-15. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+15. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log.
 
-16. Scalability features for Multicore machines - references:
+16. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+
+17. Scalability features for Multicore machines - references:
 (http://halobates.de/lk09-scalability.pdf, http://pdos.csail.mit.edu/papers/linux:osdi10.pdf)
 
-17. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
+18. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
 
-18. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
+19. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
 
-19. Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc.,
+20. Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc.,
 
-20. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
+21. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
 USERSPACE: Do the above for sbrk() and brk() implementation. 
 
