@@ -575,7 +575,20 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 		/*strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");*/
 		/*iov.iov_base=(void*)buffer;*/	
 		/*memset(buffer, 0, sizeof(buffer));*/
-		strcpy(buffer,kstrdup(toAddressString(virgo_mempool_ret),GFP_KERNEL));
+	
+		printk(KERN_INFO "virgocloudexec_mempool_sendto(): virgo_mempool_ret=%s\n",virgo_mempool_ret);
+		if(strncmp(virgo_mempool_ret,"virgodata:",10)==0)
+		{
+			/* data retrieved by virgo_get */
+			printk(KERN_INFO "virgocloudexec_mempool_sendto(): data sent=%s\n",virgo_mempool_ret+10);
+			strcpy(buffer,kstrdup(virgo_mempool_ret+10,GFP_KERNEL));
+		}
+		else
+		{
+			/* address alloc-ed by virgo_malloc, or return value of virgo_set or virgo_free */	
+			printk(KERN_INFO "virgocloudexec_mempool_sendto(): address sent=%p\n",virgo_mempool_ret);
+			strcpy(buffer,toAddressString(virgo_mempool_ret));
+		}
 		iov.iov_base=buffer;	
 		iov.iov_len=BUF_SIZE;
 		/*iov.iov_len=sizeof(buffer);*/
@@ -687,7 +700,7 @@ struct virgo_mempool_args* parse_virgomempool_command(char* mempoolFunction)
 	vmargs->mempool_cmd=kstrdup(strsep(&mempoolFunction, "("),GFP_KERNEL);
         printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_cmd: %s\n", vmargs->mempool_cmd);
 
-	if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0)
+	if(strcmp(vmargs->mempool_cmd,"virgo_cloud_malloc")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_free")==0 || strcmp(vmargs->mempool_cmd,"virgo_cloud_get")==0)
 	{
 		vmargs->mempool_args[0]=kstrdup(strsep(&mempoolFunction,")"),GFP_KERNEL);
         	printk(KERN_INFO "parse_virgomempool_command: vmargs->mempool_args[0]: %s\n", vmargs->mempool_args[0]);
