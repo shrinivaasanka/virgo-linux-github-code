@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
-Ph: 9003082186, 9791165980
+Ph: 9789346927, 9003082186, 9791165980
 Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
 emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
@@ -610,8 +610,11 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): kernel_recvmsg() returns len: %d\n",len);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
 		*/
+
+		/*
 		kernel_sock_shutdown(clientsock,SOCK_WAKE_URG);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg \n");
+		*/
 		sock_release(clientsock);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): sock_release invoked on client socket \n");
 	}
