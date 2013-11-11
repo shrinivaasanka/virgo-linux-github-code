@@ -415,6 +415,12 @@ Commits as on 7 November 2013
 ------------------------------
 In addition to virgo_malloc and virgo_set, virgo_get is also working through telnet path after today's commit for "virgodata:" prefix in virgo_cloud_mempool_kernelspace.ko. This prefix is needed to differentiate data and address so that toAddressString() can be invoked to sprintf() the address in virgo_cloudexec_mempool.ko. Also mempool command parser has been updated to strcmp() virgo_cloud_get command also. 
 
+Commits as on 11 November 2013
+------------------------------
+More testing done on telnet path for virgo_malloc, virgo_set and virgo_get commands which work correctly. But there seem to be unrelated
+kmem_cache_trace_alloc panics that follow each successful virgo command execution. kern.log for this has been added to repository.
+
+
 
 "VirgoDesign.txt" 213L, 16302C written                    
 
