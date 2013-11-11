@@ -122,6 +122,10 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
 USERSPACE: Do the above for sbrk() and brk() implementation. 
 
+22. Cleanup the code and remove unnecessary comments.
+
+23. Documentation. 
+
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
 ******************************************************************************************************
