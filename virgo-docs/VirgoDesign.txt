@@ -424,6 +424,12 @@ Commits as on 11 November 2013
 More testing done on telnet path for virgo_malloc, virgo_set and virgo_get commands which work correctly. But there seem to be unrelated
 kmem_cache_trace_alloc panics that follow each successful virgo command execution. kern.log for this has been added to repository.
 
+Commits as on 22 November 2013
+------------------------------
+More testing done on telnet path for virgo_malloc,virgo_set and virgo_set after commenting kernel socket shutdown code in the VIRGO cloudexec
+mempool sendto code. Kernel panics do not occur after commenting kernel socket shutdown.
+
+
 
 
 "VirgoDesign.txt" 213L, 16302C written                    
