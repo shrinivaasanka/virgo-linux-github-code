@@ -48,7 +48,7 @@ int main()
 	printf("p=%p, p2=%p, p3=%p,sptr2=%p\n",p,p2,p3,sptr);
 	unsigned long x=0xf1481400;
 	printf("x=%u, x=%x\n",x,x);
-	char* sptr5="test string";
+	const char* sptr5="test string";
 	unsigned long sptr5ul=(unsigned long)sptr5;
 	char* sptr6=(char*)sptr5ul;
 	printf("sptr6=%s\n",sptr6);
