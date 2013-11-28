@@ -162,9 +162,9 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_get_cmd;
-	virgo_get_cmd=kstrdup(strcat("virgo_cloud_get(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
-	virgo_get_cmd=kstrdup(strcat(virgo_get_cmd, ")"),GFP_ATOMIC);
-	buf=kstrdup(virgo_get_cmd, GFP_ATOMIC);			
+	virgo_get_cmd=kstrdup(strcat("virgo_cloud_get(",addr_to_str(vaddr->addr)),GFP_KERNEL);
+	virgo_get_cmd=kstrdup(strcat(virgo_get_cmd, ")"),GFP_KERNEL);
+	buf=kstrdup(virgo_get_cmd, GFP_KERNEL);			
 
 	printk(KERN_INFO "virgo_get() system call: buf=%s, virgo_get_cmd=%s\n",buf,virgo_get_cmd);
 
@@ -236,11 +236,11 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
        	sin.sin_port=htons(vaddr->hstprt->port);
 
 	char* virgo_set_cmd;
-	virgo_set_cmd=kstrdup(strcat("virgo_cloud_set(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
-	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_ATOMIC);
-	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, (char*)data),GFP_ATOMIC);
-	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_ATOMIC);
-	buf=kstrdup(virgo_set_cmd, GFP_ATOMIC);			
+	virgo_set_cmd=kstrdup(strcat("virgo_cloud_set(",addr_to_str(vaddr->addr)),GFP_KERNEL);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_KERNEL);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, (char*)data),GFP_KERNEL);
+	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_KERNEL);
+	buf=kstrdup(virgo_set_cmd, GFP_KERNEL);			
 
 	printk(KERN_INFO "virgo_set() system call: buf=%s, virgo_set_cmd = %s\n",buf, virgo_set_cmd);
 
@@ -336,14 +336,22 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		if(sum_alloc_size + PER_NODE_MALLOC_CHUNK_SIZE <= size)
 		{
 			chunk_size=PER_NODE_MALLOC_CHUNK_SIZE;	
-			buf=kstrdup("virgo_cloud_malloc(1000)",GFP_ATOMIC);			
+			printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size=1000",size,sum_alloc_size);
+			buf=kstrdup("virgo_cloud_malloc(1000)",GFP_KERNEL);			
 		}
 		else
 		{
 			chunk_size=size-sum_alloc_size;
-			malloc_cmd=kstrdup(strcat("virgo_cloud_malloc(",int_to_str(chunk_size)),GFP_ATOMIC);
-			malloc_cmd=kstrdup(strcat(malloc_cmd, ")"),GFP_ATOMIC);
-			buf=kstrdup(malloc_cmd,GFP_ATOMIC);
+			printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size==%d",size,sum_alloc_size,chunk_size);
+			/* This should not happen and should have broken earlier in the loop*/
+			if(chunk_size==0) 
+			{
+				printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size==0, but this should not get printed and should have exited earlier",size,sum_alloc_size);
+				break;
+			}
+			malloc_cmd=kstrdup(strcat("virgo_cloud_malloc(",int_to_str(chunk_size)),GFP_KERNEL);
+			malloc_cmd=kstrdup(strcat(malloc_cmd, ")"),GFP_KERNEL);
+			buf=kstrdup(malloc_cmd,GFP_KERNEL);
 		}
 
 		printk(KERN_INFO "virgo_malloc() system call: buf=%s, malloc_cmd=%s\n",buf, malloc_cmd);
@@ -409,7 +417,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 
 		sum_alloc_size+=chunk_size;
 		next_vtable_entry++;
-		printk(KERN_INFO "virgo_malloc() syscall: sum_alloc_size = %d \n", sum_alloc_size);
+		printk(KERN_INFO "virgo_malloc() syscall: size to be allocated = %d, sum_alloc_size = %d \n", size, sum_alloc_size);
 
 		/*
 		If sum of sizes of chunks allocated so far is equal to size then break 
@@ -451,9 +459,9 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
        	sin.sin_port=htons(vaddr->hstprt->port);
 	
-	free_cmd=kstrdup(strcat("virgo_cloud_free(",addr_to_str(vaddr->addr)),GFP_ATOMIC);
-	free_cmd=kstrdup(strcat(free_cmd, ")"),GFP_ATOMIC);
-	buf=kstrdup(free_cmd,GFP_ATOMIC);
+	free_cmd=kstrdup(strcat("virgo_cloud_free(",addr_to_str(vaddr->addr)),GFP_KERNEL);
+	free_cmd=kstrdup(strcat(free_cmd, ")"),GFP_KERNEL);
+	buf=kstrdup(free_cmd,GFP_KERNEL);
 
 	printk(KERN_INFO "virgo_free() system call: buf=%s, free_cmd=%s \n",buf,free_cmd);
 
@@ -490,15 +498,19 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 
 char* int_to_str(int n)
 {
-	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
+	char* ret=(char*)kmalloc(50,GFP_KERNEL);
 	sprintf(ret,"%d",n);
+	printk(KERN_INFO "int_to_str(): n=%d\n",n);
+	printk(KERN_INFO "int_to_str(): ret=[%s]\n",ret);
 	return ret;
 }
 
 char* addr_to_str(char* addr)
 {
-	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
+	char* ret=(char*)kmalloc(50,GFP_KERNEL);
 	sprintf(ret,"%p",addr);
+	printk(KERN_INFO "addr_to_str(): addr=%p\n",addr);
+	printk(KERN_INFO "addr_to_str(): ret=[%s]\n",ret);
 	return ret;
 }
 
