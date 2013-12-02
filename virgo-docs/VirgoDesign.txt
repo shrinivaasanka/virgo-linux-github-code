@@ -126,6 +126,8 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 
 23. Documentation. 
 
+24. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
+
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
 ******************************************************************************************************
@@ -428,6 +430,10 @@ Commits as on 22 November 2013
 ------------------------------
 More testing done on telnet path for virgo_malloc,virgo_set and virgo_set after commenting kernel socket shutdown code in the VIRGO cloudexec
 mempool sendto code. Kernel panics do not occur after commenting kernel socket shutdown.
+
+Commits as on 2 December 2013
+-----------------------------
+Lots of testing were done on telnet path and syscall path connection to VIRGO mempool driver and screenshots for working telnet path (virgo_malloc, virgo_set and virgo_get) have been committed to repository. Intriguingly, the syscall path is suddenly witnessing series of broken pipe erros, blocking errors etc., which are mostly Heisenbugs. 
 
 
 
