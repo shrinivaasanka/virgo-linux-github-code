@@ -147,8 +147,8 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-        /*char buf[BUF_SIZE];*/
-	char *buf;
+        char buf[BUF_SIZE];
+	/*char *buf;*/
 
 	int chunk_size=0;
 	int sum_alloc_size=0;
@@ -164,12 +164,12 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	char* virgo_get_cmd;
 	virgo_get_cmd=kstrdup(strcat("virgo_cloud_get(",addr_to_str(vaddr->addr)),GFP_KERNEL);
 	virgo_get_cmd=kstrdup(strcat(virgo_get_cmd, ")"),GFP_KERNEL);
-	buf=kstrdup(virgo_get_cmd, GFP_KERNEL);			
+	strcpy(buf,kstrdup(virgo_get_cmd, GFP_KERNEL));			
 
 	printk(KERN_INFO "virgo_get() system call: buf=%s, virgo_get_cmd=%s\n",buf,virgo_get_cmd);
 
+	/*iov.iov_base=buf;*/
 	iov.iov_base=buf;
-	/*strcpy(iov.iov_base, buf);*/
 	/*iov.iov_base=buf;*/
 	/*iov.iov_len=sizeof(buf);*/
 	/*iov.iov_len=BUF_SIZE;*/
@@ -213,8 +213,8 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-        /*char buf[BUF_SIZE];*/
-	char* buf;
+        char buf[BUF_SIZE];
+	/*char* buf;*/
 	printk(KERN_INFO "virgo_set() system call: before virgo_unique_id_to_addr()\n");	
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 	printk(KERN_INFO "virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=%p\n", vaddr);
@@ -240,13 +240,11 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_KERNEL);
 	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, (char*)data),GFP_KERNEL);
 	virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_KERNEL);
-	buf=kstrdup(virgo_set_cmd, GFP_KERNEL);			
+	strcpy(buf,kstrdup(virgo_set_cmd, GFP_KERNEL));			
 
 	printk(KERN_INFO "virgo_set() system call: buf=%s, virgo_set_cmd = %s\n",buf, virgo_set_cmd);
 
 	iov.iov_base=buf;
-	/*iov.iov_len=sizeof(buf);*/
-	/*iov.iov_len=BUF_SIZE;*/
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
@@ -280,27 +278,39 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 {
 	int no_of_chunks=1;	
+	/*
 	int nr;
 	struct kvec iov;
+	*/
 	/*
 	struct msghdr msg = {
 		.msg_flags = MSG_EOF,
 	};
 	*/
+	/*
 	struct msghdr msg;
 	int error;
+	*/
+
+	/*
 	struct socket *sock;
 	struct sockaddr_in sin;
+	*/
+
 	/*
         struct addrinfo hints;
         struct addrinfo *result, *rp;
 	*/
+	/*
         int sfd, s, j;
         size_t len;
         ssize_t nread;
+	*/
         /*char buf[BUF_SIZE];*/
+	/*
 	char *buf;
 	char *malloc_cmd;
+	*/
 
 	/*
         memset(&hints, 0, sizeof(struct addrinfo));
@@ -328,36 +338,61 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 	/*mutex_lock(&vtranstable.vtable_fragment_mutex);*/
 	while(true)	
 	{
+		/*char *buf;*/
+        	char buf[BUF_SIZE];
+		char *malloc_cmd;
+        	int sfd, s, j;
+        	size_t len;
+        	ssize_t nread;
+		struct msghdr msg;
+		int error;
+		int nr;
+		struct kvec iov;
 		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
-		sin.sin_family=AF_INET;
+		struct socket *sock;
+		struct sockaddr_in sin;
+		if(leastloadedhostport->hostip==NULL)
+		{
+			printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->hostip == NULL, hardcoding it to loopback address");
+			leastloadedhostport->hostip="127.0.0.1";
+		}
+		if(leastloadedhostport->port != 30000)
+		{
+			printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->port != 30000, hardcoding it to 30000");
+			leastloadedhostport->port=30000;
+		}
+		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
+		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
 		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+		sin.sin_family=AF_INET;
        		sin.sin_port=htons(leastloadedhostport->port);
+		printk(KERN_INFO "virgo_malloc() syscall: after in4_pton and htons, leastloadedhostport->hostip=%s, leastloadedhostport->port=%d, sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",leastloadedhostport->hostip,leastloadedhostport->port, sin.sin_addr.s_addr, sin.sin_port);
+		printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d \n", size,sum_alloc_size);
 	
 		if(sum_alloc_size + PER_NODE_MALLOC_CHUNK_SIZE <= size)
 		{
 			chunk_size=PER_NODE_MALLOC_CHUNK_SIZE;	
-			printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size=1000",size,sum_alloc_size);
-			buf=kstrdup("virgo_cloud_malloc(1000)",GFP_KERNEL);			
+			printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size=1000",size,sum_alloc_size);
+			strcpy(buf,"virgo_cloud_malloc(1000)");			
 		}
 		else
 		{
 			chunk_size=size-sum_alloc_size;
-			printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size==%d",size,sum_alloc_size,chunk_size);
+			printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size==%d",size,sum_alloc_size,chunk_size);
 			/* This should not happen and should have broken earlier in the loop*/
-			if(chunk_size==0) 
+			if(chunk_size <= 0) 
 			{
-				printk(KERN_INFO "size=%d, sum_alloc_size=%d, chunk_size==0, but this should not get printed and should have exited earlier",size,sum_alloc_size);
+				printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size <= 0, but this should not get printed and should have exited earlier",size,sum_alloc_size);
 				break;
 			}
 			malloc_cmd=kstrdup(strcat("virgo_cloud_malloc(",int_to_str(chunk_size)),GFP_KERNEL);
 			malloc_cmd=kstrdup(strcat(malloc_cmd, ")"),GFP_KERNEL);
-			buf=kstrdup(malloc_cmd,GFP_KERNEL);
+			strcpy(buf,malloc_cmd);
 		}
 
-		printk(KERN_INFO "virgo_malloc() system call: buf=%s, malloc_cmd=%s\n",buf, malloc_cmd);
+		printk(KERN_INFO "virgo_malloc() syscall: buf=%s, malloc_cmd=%s\n",buf, malloc_cmd);
 
-		iov.iov_base=buf;
-		/*iov.iov_len=BUF_SIZE;*/
+	        iov.iov_base=buf;
 		iov.iov_len=strlen(buf);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
@@ -385,7 +420,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		both for printing debug info to kern.log
 		- Ka.Shrinivaasan 22October2013
 		*/	
-		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);
+		/*vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);*/
 		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(buf);
 		
 		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[%d].addr=%p \n", next_vtable_entry, (char*)vtranstable.vtable[next_vtable_entry].addr);
@@ -417,6 +452,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 
 		sum_alloc_size+=chunk_size;
 		next_vtable_entry++;
+		no_of_chunks++;
 		printk(KERN_INFO "virgo_malloc() syscall: size to be allocated = %d, sum_alloc_size = %d \n", size, sum_alloc_size);
 
 		/*
@@ -465,9 +501,7 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 
 	printk(KERN_INFO "virgo_free() system call: buf=%s, free_cmd=%s \n",buf,free_cmd);
 
-	iov.iov_base=buf;
-	/*iov.iov_len=sizeof(buf);*/
-	/*iov.iov_len=BUF_SIZE;*/
+        strcpy(iov.iov_base, buf);
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
