@@ -75,7 +75,7 @@ int main(int argc, char* argv[])
 	fflush(stdout);	
 
 	/*virgo_get*/
-	char* get_data;
+	char get_data[256];
 	long get_ret=syscall(353,virgo_unique_id,get_data,NULL,0,NULL);
 
 	/*
