@@ -197,8 +197,10 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_get() syscall: le32_to_cpus(buf): %s \n", buf);
+	/*
 	sock_release(sock);
 	printk(KERN_INFO "virgo_get() syscall: virgo_get() client socket_release() invoked\n");
+	*/
 	long ret=copy_to_user(data_out,buf,strlen(buf));
 	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u, data_out=%s\n",ret,data_out);
 	return ret;
@@ -282,8 +284,10 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_set() syscall: le32_to_cpus(buf): %s \n", buf);
+	/*
 	sock_release(sock);
 	printk(KERN_INFO "virgo_set() syscall: virgo_set() client socket_release() invoked\n");
+	*/
 	/*return buf;*/
 	return 0;
 }
@@ -546,8 +550,10 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 	
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_free() syscall: le32_to_cpus(buf): %s \n", buf);
+	/*
 	sock_release(sock);
 	printk(KERN_INFO "virgo_free() syscall: virgo_free() client socket_release() invoked\n");
+	*/
 	/*return buf;*/
 	return 0;
 }
