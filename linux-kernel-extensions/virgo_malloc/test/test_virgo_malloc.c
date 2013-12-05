@@ -18,7 +18,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 Copyright(C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
-Ph: 9003082186, 9791165980
+Ph: 9789346927, 9003082186, 9791165980
 Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
 emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
@@ -74,9 +74,11 @@ int main(int argc, char* argv[])
 	printf("set_ret = %ld\n",set_ret);
 	fflush(stdout);	
 
-	/virgo_get/
+	/*virgo_get*/
 	char* get_data;
 	long get_ret=syscall(353,virgo_unique_id,get_data,NULL,0,NULL);
+
+	/*
 	if(get_data)
 		printf("get_ret = %s\n",get_data);
 	fflush(stdout);	
