@@ -87,7 +87,7 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 (DONE)5. Multithreading of VIRGO cloudexec kernel module (if not already done by kernel module subsystem internally)
 
-6. Sophisticated queuing and persistence of virgo_clone() requests in Kernel Side (by possibly improving already existing kernel workqueues)
+6. Sophisticated queuing and persistence of CPU and Memory pooling requests in Kernel Side (by possibly improving already existing kernel workqueues). Either open source implementations like ActiveMQ can be used or Queuing implementation has to be written from scratch or both. ActiveMQ supports REST APIs and is JMS implementation.
 
 (ONGOING) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.
 
