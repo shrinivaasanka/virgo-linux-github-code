@@ -17,11 +17,12 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xd320a490, "module_layout" },
+	{ 0x8a9dc593, "module_layout" },
 	{ 0xc499ae1e, "kstrdup" },
-	{ 0x86a4889a, "kmalloc_order_trace" },
-	{ 0x952664c5, "do_exit" },
+	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
+	{ 0x952664c5, "do_exit" },
+	{ 0x86a4889a, "kmalloc_order_trace" },
 };
 
 static const char __module_depends[]
@@ -30,4 +31,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "67FA55E53A23FC7E935007B");
+MODULE_INFO(srcversion, "C78347E493877A421AE58B7");

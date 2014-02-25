@@ -1,0 +1,2 @@
+0x81c90249	push_request	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
+0x5f58edf1	pop_request	/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/virgo_queue	EXPORT_SYMBOL
