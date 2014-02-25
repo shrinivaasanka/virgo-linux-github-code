@@ -40,6 +40,17 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 static int __init virgo_queue_init()
 {
 	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_KERNEL);
+	struct virgo_request r1;
+	r1.data=kstrdup("example virgo queue element 1",GFP_KERNEL);
+	r1.next=NULL;
+	push_request(&r1);
+
+	/* Simple push-pop test */
+
+	printk(KERN_INFO "virgo_queue_init(): pushed element to virgo_queue: %s\n",r1.data);
+	struct virgo_request *r2=pop_request();
+	printk(KERN_INFO "virgo_queue_init(): popped element from virgo_queue: %s\n",r2->data);
+	return 0;
 }
 
 void push_request(struct virgo_request* req)
@@ -48,12 +59,14 @@ void push_request(struct virgo_request* req)
 	virgo_request_queue[queue_end].next=req->next;
 	queue_end++;
 }
+EXPORT_SYMBOL(push_request);
 
-struct virgo_request* pop_request(struct virgo_request* req)
+struct virgo_request* pop_request()
 {
 	return &virgo_request_queue[queue_front];
 	queue_front++;
 }
+EXPORT_SYMBOL(pop_request);
 
 static void __exit virgo_queue_exit()
 {
