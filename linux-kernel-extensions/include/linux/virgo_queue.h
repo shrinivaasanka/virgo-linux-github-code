@@ -105,8 +105,10 @@ int queue_front=0;
 int queue_end=0;
 
 struct virgo_request* virgo_request_queue;
-void init_virgo_queue();
+
+static int __init virgo_queue_init();
 void push_request(struct virgo_request* req);
-struct virgo_request* pop_request(struct virgo_request* req);
+struct virgo_request* pop_request();
+static void __exit virgo_queue_exit();
                                       
 #endif _VIRGO_QUEUE_H_
