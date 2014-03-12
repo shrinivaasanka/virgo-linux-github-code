@@ -81,6 +81,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/types.h>
 #include <linux/uio.h>
 #include <linux/unistd.h>
+#include <linux/workqueue.h>
 /*#include <linux/init.h>*/
 
 #include <linux/sunrpc/types.h>
@@ -103,6 +104,23 @@ struct virgo_request
 
 int queue_front=0;
 int queue_end=0;
+
+/*
+This is a boolean flag than flips between a native local implementation of a queue and a 
+linux kernel implementation of workqueue.
+*/
+int use_workqueue=1;
+void* work_args;
+
+static void virgo_workqueue_handler(struct work_struct* w);
+static DECLARE_WORK(virgo_work, virgo_workqueue_handler);
+static struct workqueue_struct *virgo_kernel_wq=NULL;
+
+static void virgo_workqueue_handler(struct work_struct* w)
+{
+	printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p",w);
+}
+
 
 struct virgo_request* virgo_request_queue;
 
