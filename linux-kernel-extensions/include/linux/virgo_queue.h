@@ -105,6 +105,12 @@ struct virgo_request
 int queue_front=0;
 int queue_end=0;
 
+struct virgo_workqueue_request
+{
+	char* data;
+	struct work_struct work;
+};
+
 /*
 This is a boolean flag than flips between a native local implementation of a queue and a 
 linux kernel implementation of workqueue.
@@ -118,7 +124,8 @@ static struct workqueue_struct *virgo_kernel_wq=NULL;
 
 static void virgo_workqueue_handler(struct work_struct* w)
 {
-	printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p",w);
+	struct virgo_workqueue_request *vwqrq=container_of(w, struct virgo_workqueue_request, work);
+	printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p, dequeueing enqueued vwqrq->data=%s",w,vwqrq->data);
 }
 
 
@@ -128,5 +135,8 @@ static int __init virgo_queue_init();
 void push_request(struct virgo_request* req);
 struct virgo_request* pop_request();
 static void __exit virgo_queue_exit();
+
+
+/*static struct virgo_workqueue_request vwqreq;*/
                                       
 #endif _VIRGO_QUEUE_H_
