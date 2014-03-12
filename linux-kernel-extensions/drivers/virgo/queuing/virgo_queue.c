@@ -30,7 +30,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 *****************************************************************************************/
 
 /* 
-	A standalone Queueing Driver implementation that can be used for VIRGO CPU and Memory pooling Drivers requests and  
+	A standalone Queueing Driver implementation which either uses a kernel workqueue or a naive local queue
+	that can be used for VIRGO CPU and Memory pooling Drivers requests and  
 	KingCobra byzantine request servicing pub-sub model
 */
 
@@ -47,9 +48,22 @@ static int __init virgo_queue_init()
 
 	/* Simple push-pop test */
 
-	printk(KERN_INFO "virgo_queue_init(): pushed element to virgo_queue: %s\n",r1.data);
+	printk(KERN_INFO "virgo_queue_init(): pushed element to native virgo_queue: %s\n",r1.data);
 	struct virgo_request *r2=pop_request();
-	printk(KERN_INFO "virgo_queue_init(): popped element from virgo_queue: %s\n",r2->data);
+	printk(KERN_INFO "virgo_queue_init(): popped element from native virgo_queue: %s\n",r2->data);
+
+	/* Linux workqueue has to be differently queued-in and there need not be any explicit push and pop */
+	if(use_workqueue)
+	{
+		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1");
+		if(virgo_kernel_wq==NULL)
+		{
+			printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue");
+			virgo_kernel_wq = create_workqueue("virgo_kernel_workqueue");
+		}
+		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, enqueueing work to kernel workqueue");
+		queue_work(virgo_kernel_wq, &virgo_work);
+	}
 	return 0;
 }
 

@@ -18,6 +18,8 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
+	{ 0x43a53735, "__alloc_workqueue_key" },
+	{ 0x92c90e22, "queue_work" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
@@ -31,4 +33,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "C78347E493877A421AE58B7");
+MODULE_INFO(srcversion, "61C75E84637FF817B5B7E37");
