@@ -444,7 +444,8 @@ VIRGO version 12.0 tagged.
 
 Commits as on 12 March 2014
 ---------------------------
-Initial VIRGO queueing driver implemented that flips between two internal queues: 1) a native queue implemented locally and 2) wrapper around linux kernel's workqueue facility.
+Initial VIRGO queueing driver implemented that flips between two internal queues: 1) a native queue implemented locally and 2) wrapper around linux kernel's workqueue facility 3) push_request() modified to pass on the request data to the workqueue handler using container_of on a wrapper
+structure virgo_workqueue_request.
 
 
 - Ka.Shrinivaasan
