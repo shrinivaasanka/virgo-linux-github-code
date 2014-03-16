@@ -41,7 +41,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 static int __init virgo_queue_init()
 {
 	/* native queue initialization */
-	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_KERNEL);
+	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_ATOMIC);
 
 	/* Linux workqueue has to be differently queued-in and there need not be any explicit push and pop */
 	if(use_workqueue)
@@ -52,19 +52,28 @@ static int __init virgo_queue_init()
 			printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue\n");
 			virgo_kernel_wq = create_workqueue("virgo_kernel_workqueue");
 		}
-		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, enqueueing work to kernel workqueue\n");
+		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, enqueueing work %p to kernel workqueue\n",&virgo_work);
 		queue_work(virgo_kernel_wq, &virgo_work);
 	}
 
 	struct virgo_request r1;
-	r1.data=kstrdup("example virgo queue element 1",GFP_KERNEL);
+	r1.data=kstrdup("example virgo queue element 1",GFP_ATOMIC);
 	r1.next=NULL;
 	push_request(&r1);
 
-	/* Simple push-pop test */
+	/*
+	/ Simple push-pop test /
 	printk(KERN_INFO "virgo_queue_init(): pushed element to native virgo_queue: %s\n",r1.data);
 	struct virgo_request *r2=pop_request();
 	printk(KERN_INFO "virgo_queue_init(): popped element from native virgo_queue: %s\n",r2->data);
+	*/
+
+	/* Example KingCobra ServiceRequest /
+	struct virgo_request r3;
+	r3.data=kstrdup("KingCobra: example service request",GFP_ATOMIC);
+	r3.next=NULL;
+	push_request(&r3);
+	*/
 
 	return 0;
 }
@@ -73,15 +82,18 @@ void push_request(struct virgo_request* req)
 {
 	if(use_workqueue)
 	{
-		struct virgo_workqueue_request vwqreq;
-		printk(KERN_INFO "push_request(): use_workqueue=1, enqueueing req in the kernel workqueue which will invoke handler, req->data = %s\n",req->data);
-		vwqreq.data=kstrdup(req->data,GFP_KERNEL);
-		INIT_WORK(&vwqreq.work,virgo_workqueue_handler);
-		queue_work(virgo_kernel_wq,&vwqreq.work);
+		struct virgo_workqueue_request *vwqreq=kmalloc(sizeof(struct virgo_workqueue_request),GFP_ATOMIC);
+		vwqreq->data=kstrdup(req->data,GFP_ATOMIC);
+		printk(KERN_INFO "push_request(): use_workqueue=1, enqueueing req in the kernel workqueue which will invoke handler, req->data = %s, vwqreq->work=%p, vwqreq->data = %s\n",req->data, &(vwqreq->work), vwqreq->data);
+		INIT_WORK(&(vwqreq->work),virgo_workqueue_handler);
+		queue_work(virgo_kernel_wq,&(vwqreq->work));
 	}
-	virgo_request_queue[queue_end].data=kstrdup(req->data,GFP_KERNEL);
-	virgo_request_queue[queue_end].next=req->next;
-	queue_end++;
+	else
+	{
+		virgo_request_queue[queue_end].data=kstrdup(req->data,GFP_ATOMIC);
+		virgo_request_queue[queue_end].next=req->next;
+		queue_end++;
+	}
 }
 EXPORT_SYMBOL(push_request);
 
