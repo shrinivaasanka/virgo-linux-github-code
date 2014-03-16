@@ -18,13 +18,18 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
+	{ 0xb1278c61, "kmalloc_caches" },
 	{ 0x43a53735, "__alloc_workqueue_key" },
 	{ 0x92c90e22, "queue_work" },
+	{ 0x143054c, "filp_close" },
 	{ 0xc499ae1e, "kstrdup" },
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0x952664c5, "do_exit" },
 	{ 0x86a4889a, "kmalloc_order_trace" },
+	{ 0x68d4fad5, "call_usermodehelper_fns" },
+	{ 0xac518073, "kmem_cache_alloc_trace" },
+	{ 0x95a608a3, "filp_open" },
 };
 
 static const char __module_depends[]
@@ -33,4 +38,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "E27ECBFD475AC6566203FEB");
+MODULE_INFO(srcversion, "4974175970B9A5BD12C1848");
