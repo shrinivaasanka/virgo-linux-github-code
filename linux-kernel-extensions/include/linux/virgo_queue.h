@@ -20,7 +20,7 @@ Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
 Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan, https://www.ohloh.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
 emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
 --------------------------------------------------------------------------------------------------
@@ -112,20 +112,55 @@ struct virgo_workqueue_request
 };
 
 /*
-This is a boolean flag than flips between a native local implementation of a queue and a 
+This is a boolean flag that flips between a native local implementation of a queue and a 
 linux kernel implementation of workqueue.
 */
 int use_workqueue=1;
+
+/*
+This is a boolean flag that enables use of VIRGO linux workqueue for KingCobra BFT messaging with queues and arbiters. 
+*/
+int use_for_kingcobra_messaging=1;
+
 void* work_args;
 
-static void virgo_workqueue_handler(struct work_struct* w);
+void virgo_workqueue_handler(struct work_struct* w);
 static DECLARE_WORK(virgo_work, virgo_workqueue_handler);
 static struct workqueue_struct *virgo_kernel_wq=NULL;
 
-static void virgo_workqueue_handler(struct work_struct* w)
+struct file* file_stdout;
+
+void virgo_workqueue_handler(struct work_struct* w)
 {
+	int ret;
+	char* argv[5];
+	char* envp[5];
+	mm_segment_t fs;
 	struct virgo_workqueue_request *vwqrq=container_of(w, struct virgo_workqueue_request, work);
 	printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p, dequeueing enqueued vwqrq->data=%s",w,vwqrq->data);
+
+	/*if(strncmp(vwqrq->data,"KingCobra:",10)==0)*/
+	if(use_for_kingcobra_messaging==1)
+	{
+        	fs=get_fs();
+        	set_fs(get_ds());
+
+		file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/kingcobra_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+		/*
+        	fd_install(1,file_stdout);
+        	fd_install(2,file_stdout);
+		*/
+
+		argv[1]="_Z24KingCobra_ServiceRequestPv";
+		argv[2]=NULL;
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/";
+                envp[1]="HOME=/home/kashrinivaasan";
+                envp[2]=NULL;
+		printk(KERN_INFO "virgo_workqueue_handler(): before invoking call_usermodehelper() for KingCobra \n");
+                ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/kingcobra_main", argv, envp, UMH_WAIT_EXEC);
+		printk(KERN_INFO "virgo_workqueue_handler(): after invoking call_usermodehelper() for KingCobra \n");
+		filp_close(file_stdout,NULL);
+	}
 }
 
 
@@ -135,6 +170,7 @@ static int __init virgo_queue_init();
 void push_request(struct virgo_request* req);
 struct virgo_request* pop_request();
 static void __exit virgo_queue_exit();
+
 
 
 /*static struct virgo_workqueue_request vwqreq;*/
