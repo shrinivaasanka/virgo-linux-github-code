@@ -447,6 +447,11 @@ Commits as on 12 March 2014
 Initial VIRGO queueing driver implemented that flips between two internal queues: 1) a native queue implemented locally and 2) wrapper around linux kernel's workqueue facility 3) push_request() modified to pass on the request data to the workqueue handler using container_of on a wrapper
 structure virgo_workqueue_request.
 
+Commits as on 20 March 2014
+---------------------------
+- VIRGO queue with additional boolean flags for its use as KingCobra queue
+- KingCobra kernel space driver that is invoked by the VIRGO workqueue handler
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
