@@ -26,7 +26,6 @@ __attribute__((section("__versions"))) = {
 	{ 0x50eedeb8, "printk" },
 	{ 0xb4390f9a, "mcount" },
 	{ 0x952664c5, "do_exit" },
-	{ 0xe3fe0694, "kingcobra_servicerequest_kernelspace" },
 	{ 0x86a4889a, "kmalloc_order_trace" },
 	{ 0x68d4fad5, "call_usermodehelper_fns" },
 	{ 0xac518073, "kmem_cache_alloc_trace" },
@@ -36,7 +35,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=kingcobra_main_kernelspace";
+"depends=";
 
 
 MODULE_INFO(srcversion, "4974175970B9A5BD12C1848");

@@ -1051,6 +1051,9 @@ deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/virgo_queue.o := \
   /home/kashrinivaasan/linux-3.7.8/include/linux/sunrpc/svcauth.h \
   /home/kashrinivaasan/linux-3.7.8/include/linux/sunrpc/cache.h \
   /home/kashrinivaasan/linux-3.7.8/include/linux/sunrpc/svc_xprt.h \
+  /home/kashrinivaasan/linux-3.7.8/include/linux/kingcobra.h \
+  /home/kashrinivaasan/linux-3.7.8/lib/kstrtox.h \
+  /home/kashrinivaasan/linux-3.7.8/include/linux/ctype.h \
 
 /home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/virgo_queue.o: $(deps_/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/virgo_queue.o)
 
