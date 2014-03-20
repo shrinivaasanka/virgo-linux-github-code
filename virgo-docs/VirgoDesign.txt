@@ -74,7 +74,7 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 (python script in virgo-python-src/)
 
 ****************************************************************************************************
-			VIRGO ToDo and NiceToHave Features
+			VIRGO ToDo and NiceToHave Features (longterm with no deadline)
 ****************************************************************************************************
 1. More Sophisticated VIRGO config file
 
@@ -127,6 +127,10 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 23. Documentation. 
 
 24. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
+
+25. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
+
+26.(ONGOING) VIRGO queue wrapper with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra. 
 
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
