@@ -18,6 +18,7 @@ static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
+	{ 0xb1278c61, "kmalloc_caches" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
 	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x143054c, "filp_close" },
@@ -32,10 +33,13 @@ __attribute__((section("__versions"))) = {
 	{ 0xf8a4b0e5, "kernel_sock_shutdown" },
 	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x81c90249, "push_request" },
 	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
+	{ 0xe3fe0694, "kingcobra_servicerequest_kernelspace" },
 	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x68d4fad5, "call_usermodehelper_fns" },
 	{ 0x281056ca, "wake_up_process" },
+	{ 0xac518073, "kmem_cache_alloc_trace" },
 	{ 0xd206e501, "kernel_recvmsg" },
 	{ 0x40b508a5, "kernel_accept" },
 	{ 0x5cbdbccf, "virgo_cloud_test_kernelspace" },
@@ -49,7 +53,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_cloud_test_kernelspace";
+"depends=virgo_queue,kingcobra_main_kernelspace,virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "1BE1E48EF59528B6527AA78");
+MODULE_INFO(srcversion, "0AEE1EB74D604BFE5F56128");
