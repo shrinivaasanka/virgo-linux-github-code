@@ -27,10 +27,9 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 *****************************************************************************************/
 
-#include <linux/virgo.h>
+#include <linux/virgo_queue.h>
 #include <linux/virgocloudexecsvc.h>
 #include <linux/virgo_config.h>
-
 #include <linux/string.h>
 #include <linux/kallsyms.h>
 
@@ -180,8 +179,23 @@ int clone_func(void* args)
 		int (*virgo_cloud_test_kernelspace)(void*);
 		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
 		*/
-		task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
-		woken_up_2=wake_up_process(task);
+		if(use_as_kingcobra_service==1)
+                {
+                        printk("clone_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",cloneFunction);
+			struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_ATOMIC);
+			vrq->data=kstrdup(cloneFunction,GFP_ATOMIC);	
+			vrq->next=NULL;
+			push_request(vrq);
+			/*
+			task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
+			woken_up_2=wake_up_process(task);
+			*/
+                }
+		else
+		{
+			task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
+			woken_up_2=wake_up_process(task);
+		}
 	}
 	else if(parameterIsExecutable==1)
 	{
