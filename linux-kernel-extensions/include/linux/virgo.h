@@ -103,6 +103,16 @@ void do_virgocloudexec_init(void);
 
 extern int virgo_cloud_test_kernelspace(void* args);
 
+extern void push_request(struct virgo_request* vrq);
+
+
+/*
+New boolean flag added for using VIRGO cloud for KingCobra. If set to 1, VIRGO cloudexec service
+in cpupooling driver is invoked in kernelspace.
+*/
+
+int use_as_kingcobra_service=1;
+
 
 /*
 static struct svc_xprt_ops virgo_ops = {
