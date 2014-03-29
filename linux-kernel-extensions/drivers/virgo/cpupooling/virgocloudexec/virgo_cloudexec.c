@@ -455,6 +455,7 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 	struct task_struct *task;
 	int error;
 	char buffer[BUF_SIZE];
+	char *client_ip_str;
 	int len=0;
 
 	/*	
@@ -488,6 +489,19 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 			do kernel_sendmsg() with the results
 		*/
 		cloneFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
+		if(use_as_kingcobra_service==1)
+		{
+			client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
+			struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
+			long ipaddr_int = ipaddr->sin_addr.s_addr;
+			/*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
+			sprintf(client_ip_str,"%x",ipaddr_int);
+			printk(KERN_INFO "virgocloudexec_recvfrom(): client_ip_str = %s\n",client_ip_str);
+			client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);	
+			printk(KERN_INFO "virgocloudexec_recvfrom(): client_ip_str with # appended = %s\n",client_ip_str);
+			cloneFunction = kstrdup(strcat(client_ip_str,cloneFunction),GFP_ATOMIC);
+			printk(KERN_INFO "virgocloudexec_recvfrom(): use_as_kingcobra_service=1, cloneFunction with prepended client ip=%s\n",cloneFunction);
+		}
 		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
 		
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
