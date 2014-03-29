@@ -52,14 +52,18 @@ static int __init virgo_queue_init()
 			printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue\n");
 			virgo_kernel_wq = create_workqueue("virgo_kernel_workqueue");
 		}
+		/*
 		printk(KERN_INFO "virgo_queue_init(): use_workqueue=1, enqueueing work %p to kernel workqueue\n",&virgo_work);
 		queue_work(virgo_kernel_wq, &virgo_work);
+		*/
 	}
 
+	/*
 	struct virgo_request r1;
 	r1.data=kstrdup("example virgo queue element 1",GFP_ATOMIC);
 	r1.next=NULL;
 	push_request(&r1);
+	*/
 
 	/*
 	/ Simple push-pop test /
