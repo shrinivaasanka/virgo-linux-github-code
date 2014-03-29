@@ -32,10 +32,13 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/module.h>
 #include <linux/virgo_queue.h>
 #include <linux/string.h>
-#include <kstrtox.h>
 #include <linux/ctype.h>
 
+#define KCOBRA_BUF_SIZE 512
 
 static int __init kingcobra_kernelspace_init(void);
 static void __exit kingcobra_kernelspace_exit(void);
 void kingcobra_servicerequest_kernelspace(void* args);
+
+long parse_ip_address(char* request);
+void reply_to_publisher(long client_ip_l, char *response);
