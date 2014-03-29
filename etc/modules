@@ -3,11 +3,11 @@
 # This file contains the names of kernel modules that should be loaded
 # at boot time, one per line. Lines beginning with "#" are ignored.
 
-#virgo_cloudexec
-#virgo_cloud_test_kernelspace
 lp
-virgo_cloud_mempool_kernelspace
-virgo_cloudexec_mempool
+virgo_cloudexec
+virgo_cloud_test_kernelspace
 umb
-virgo_queue
 kingcobra_main_kernelspace
+virgo_queue
+#virgo_cloud_mempool_kernelspace
+#virgo_cloudexec_mempool
