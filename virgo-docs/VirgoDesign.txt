@@ -456,6 +456,11 @@ Commits as on 20 March 2014
 - VIRGO queue with additional boolean flags for its use as KingCobra queue
 - KingCobra kernel space driver that is invoked by the VIRGO workqueue handler
 
+Commits as on 30 March 2014
+----------------------------
+- VIRGO mempool driver has been augmented with use_as_kingcobra_service flags in CPU pooling and Memory pooling drivers
+
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
