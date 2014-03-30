@@ -38,9 +38,11 @@ __attribute__((section("__versions"))) = {
 	{ 0x6c2e3320, "strncmp" },
 	{ 0x64c0ec, "num_cloud_nodes" },
 	{ 0x952664c5, "do_exit" },
+	{ 0x81c90249, "push_request" },
 	{ 0x61651be, "strcat" },
 	{ 0x2175cb1, "virgo_cloud_free_kernelspace" },
 	{ 0xfe26f191, "node_ip_addrs_in_cloud" },
+	{ 0xe3fe0694, "kingcobra_servicerequest_kernelspace" },
 	{ 0xf0fdf6cb, "__stack_chk_fail" },
 	{ 0x68d4fad5, "call_usermodehelper_fns" },
 	{ 0x281056ca, "wake_up_process" },
@@ -57,7 +59,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_cloud_mempool_kernelspace";
+"depends=virgo_cloud_mempool_kernelspace,virgo_queue,kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "8A504AF4BE8A4C43B3D1BDA");
+MODULE_INFO(srcversion, "38A8A6B8972C5690C0FA32E");
