@@ -250,5 +250,18 @@ struct virgo_addr_transtable vtranstable;
 int alloc_id=1;
 int next_vtable_entry=0;
 
+extern int virgo_cloud_test_kernelspace(void* args);
+
+extern void push_request(struct virgo_request* vrq);
+
+
+/*
+New boolean flag added for using VIRGO cloud mempool for KingCobra. If set to 1, VIRGO cloudexec service
+in mempooling driver is invoked in kernelspace.
+*/
+
+int use_as_kingcobra_service=1;
+
+
 #endif /* _VIRGO_MEMPOOL_H_ */
 
