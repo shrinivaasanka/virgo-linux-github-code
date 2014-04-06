@@ -533,8 +533,11 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): client_ip_str = %s\n",client_ip_str);
                         client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): client_ip_str with # appended = %s\n",client_ip_str);
-                        mempoolFunction = kstrdup(strcat(client_ip_str,mempoolFunction),GFP_ATOMIC);
-                        printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended client ip=%s\n",mempoolFunction);
+			char* request_header=kmalloc(BUF_SIZE,GFP_ATOMIC);
+			sprintf(request_header,"REQUEST#");
+			request_header=kstrdup(strcat(request_header,client_ip_str),GFP_ATOMIC);	
+                        mempoolFunction = kstrdup(strcat(request_header,mempoolFunction),GFP_ATOMIC);
+                        printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",mempoolFunction);
                 }
 
 		
