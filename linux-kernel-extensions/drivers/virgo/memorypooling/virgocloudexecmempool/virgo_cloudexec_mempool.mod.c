@@ -19,8 +19,10 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0x8a9dc593, "module_layout" },
 	{ 0xb1278c61, "kmalloc_caches" },
+	{ 0x405c1144, "get_seconds" },
 	{ 0x4f84ad10, "kernel_sendmsg" },
 	{ 0xb3ac8151, "virgo_cloud_set_kernelspace" },
+	{ 0x34184afe, "current_kernel_time" },
 	{ 0xd3fc9f1a, "sock_release" },
 	{ 0x143054c, "filp_close" },
 	{ 0x794f5965, "sock_create_kern" },
@@ -62,4 +64,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_queue,kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "01E4B3AAB9DB3DCF0072ADC");
+MODULE_INFO(srcversion, "253C9512120E0F0BA677D6B");
