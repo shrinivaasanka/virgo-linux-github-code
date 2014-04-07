@@ -536,6 +536,8 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 			char* request_header=kmalloc(BUF_SIZE,GFP_ATOMIC);
 			sprintf(request_header,"REQUEST#");
 			request_header=kstrdup(strcat(request_header,client_ip_str),GFP_ATOMIC);	
+			char* logicaltimestamp=generate_logical_timestamp();
+			request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_ATOMIC);
                         mempoolFunction = kstrdup(strcat(request_header,mempoolFunction),GFP_ATOMIC);
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",mempoolFunction);
                 }
@@ -777,6 +779,27 @@ char* toAddressString(char* ptr)
         return strAddress;
 }
 
+char* generate_logical_timestamp(void)
+{
+	char* logicaltimestamp=NULL;
+	if(EventNet_timestamp==1)
+	{
+		return "notimplemented#";
+	}
+	else if(machine_timestamp==1)
+	{
+		logicaltimestamp=kmalloc(BUF_SIZE, GFP_KERNEL);
+		/* generates a hash terminated timestamp string*/
+		sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);
+		printk(KERN_INFO "generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as %s",logicaltimestamp);
+		return logicaltimestamp;
+		
+	}
+	else if(other_timestamp_cloudservice==1)
+	{
+		return "notimplemented#";
+	}
+}
 
 MODULE_LICENSE("GPL");
 module_init(virgocloudexec_mempool_init);
