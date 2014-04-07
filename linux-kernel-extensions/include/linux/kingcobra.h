@@ -41,4 +41,6 @@ static void __exit kingcobra_kernelspace_exit(void);
 void kingcobra_servicerequest_kernelspace(void* args);
 
 long parse_ip_address(char* request);
+char* parse_timestamp(char* request);
+
 void reply_to_publisher(long client_ip_l, char *response);
