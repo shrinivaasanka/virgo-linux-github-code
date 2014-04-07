@@ -464,6 +464,11 @@ Commits as on 6 April 2014
 --------------------------
 - VIRGO mempool driver recvfrom() function's if clause for KingCobra has been updated for REQUEST header formatting mentioned in KingCobra design notes
 
+Commits as on 7 April 2014
+--------------------------
+- generate_logical_timestamp() function has been implemented in VIRGO mempool driver that generates timestamps based on 3 boolean flags. At present machine_timestamp is generated and prepended to the request to be pushed to VIRGO queue driver and then serviced by KingCobra.
+
+
 
 
 
