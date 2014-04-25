@@ -20,7 +20,7 @@ Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 Independent Open Source Developer, Researcher and Consultant
 Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan, http://www.ohloh.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
 emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
 --------------------------------------------------------------------------------------------------
@@ -116,7 +116,7 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 19. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
 
-20. Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc.,
+20. (ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc., Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
 
 21. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
@@ -130,7 +130,7 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 
 25. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
 
-26.(ONGOING) VIRGO queue wrapper with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra. 
+26.(DONE) VIRGO queue driver with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra and is invoked through VIRGO cpupooling and memorypooling drivers. (Schematic in http://sourceforge.net/p/kcobra/code-svn/HEAD/tree/KingCobraDesignNotes.txt and http://sourceforge.net/p/acadpdrafts/code/ci/master/tree/Krishna_iResearch_opensourceproducts_archdiagram.pdf)
 
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
