@@ -64,4 +64,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_queue,kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "253C9512120E0F0BA677D6B");
+MODULE_INFO(srcversion, "4AD249387324203922A98DB");
