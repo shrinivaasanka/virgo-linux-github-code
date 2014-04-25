@@ -80,7 +80,7 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 
 2. Object Marshalling and Unmarshalling (Serialization) Features
 
-(ONGOING) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+(DONE) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
 Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
 
 4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc.,
@@ -467,6 +467,10 @@ Commits as on 6 April 2014
 Commits as on 7 April 2014
 --------------------------
 - generate_logical_timestamp() function has been implemented in VIRGO mempool driver that generates timestamps based on 3 boolean flags. At present machine_timestamp is generated and prepended to the request to be pushed to VIRGO queue driver and then serviced by KingCobra.
+
+Commits as on 25 April 2014
+---------------------------
+- client ip address in VIRGO mempool recvfrom KingCobra if clause is converted to host byte order from network byte order with ntohl() 
 
 
 
