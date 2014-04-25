@@ -527,7 +527,7 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
                 {
                         client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
                         struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
-                        long ipaddr_int = ipaddr->sin_addr.s_addr;
+                        long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
                         /*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
                         sprintf(client_ip_str,"%x",ipaddr_int);
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): client_ip_str = %s\n",client_ip_str);
