@@ -129,6 +129,14 @@ Obviously circuitous but might have necessity in some userspace applications. By
 */
 int kingcobra_in_userspace=0;
 
+/*
+Persist KingCobra queue contents to disk - Guaranteed queue vs in-memory queue
+with other declarations for file data segment and queue file offset.
+*/
+int kingcobra_disk_persistence=1;
+loff_t request_reply_queue_pos=0;
+mm_segment_t fs;
+
 void* work_args;
 
 void virgo_workqueue_handler(struct work_struct* w);
@@ -191,4 +199,4 @@ static void __exit virgo_queue_exit();
 
 /*static struct virgo_workqueue_request vwqreq;*/
                                       
-#endif _VIRGO_QUEUE_H_
+#endif 
