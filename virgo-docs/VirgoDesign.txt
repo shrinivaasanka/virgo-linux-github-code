@@ -80,7 +80,7 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 
 2. Object Marshalling and Unmarshalling (Serialization) Features
 
-(DONE) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA).
+(DONE) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA). (There are random crashes in copy_to_user and copy_from_user in syscall path for VIRGO memory pooling commands that were investigated but turned out to be mystery)
 Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
 
 4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc., and VIRGO cluster testing.
@@ -93,55 +93,57 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
 
-9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
+(ONGOING) 9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
 
 (DONE) 10. Memory Pooling Subsystem Driver - Virgo_malloc(), Virgo_set(), Virgo_get() and Virgo_free() system calls and their Kernel Module Implementations. In addition to syscall path, telnet or userspace socket client interface is also provided for both VIRGO CPU pooling(virgo_clone()) and VIRGO Memory Pooling Drivers.
 
-(ONGOING) 11. Virgo File System with virgo_open(), virgo_read() and virgo_write() syscalls that transcends disk storage in all nodes in the cloud is also a fanciful feature addition that would make VIRGO a complete all-pervading cloud platform. The remote syscalls send the file path and the buf to be read or data to be written. The Virgo File System kernel driver service has a map of open file pathnames to struct file* in kernelspace.
+(DONE) 11. Virgo Cloud File System with virgo_cloud_open(), virgo_cloud_read() , virgo_cloud_write() and virgo_cloud_close() commands invoked through telnet path has been implemented that transcends disk storage in all nodes in the cloud. It is also fanciful feature addition that would make VIRGO a complete all-pervading cloud platform. The remote telnet clients send the file path and the buf to be read or data to be written. The Virgo File System kernel driver service creates a unique Virgo File Descriptor for each struct file* opened by filp_open() and is returned to client. Earlier design option to use a hashmap (linux/hashmap.h) looked less attractive as file desciptor is an obvious unique description for open file and also map becomes unscalable. The kernel upcall path is not implemented at present and may not be necessary also in most cases and all above cloudfs commands work in kernelspace using VFS calls.
 
-(DONE) 12. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
+(ONGOING) 12. VIRGO Cloud File System commands through syscall paths - virgo_open(),virgo_close(),virgo_read() and virgo_write(). (But problems similar to copy_from_user and copy_to_user as in memory pooling syscall path mentioned above could resurface).
 
-13. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
+(DONE) 13. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
 
-14. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
+14. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
 
-15. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log.
+15. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
 
-16. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+16. Operating System Logfile analysis using Machine Learning code in AstroInfer for finding patterns of processes execution and learn rules from the log.
 
-17. Scalability features for Multicore machines - references:
+17. Implementations of prototypical Software Transactional Memory and LockFree Datastructures for VIRGO memory pooling.
+
+18. Scalability features for Multicore machines - references:
 (http://halobates.de/lk09-scalability.pdf, http://pdos.csail.mit.edu/papers/linux:osdi10.pdf)
 
-18. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
+19. Read-Copy-Update algorithm implementation for VIRGO memory pooling that supports multiple simultaneous versions of memory for readers - widely used in redesigned Linux Kernel.
 
-19. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
+20. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
 
-20. (ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc., Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
+21. (ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc., Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
 
-21. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
+22. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
 USERSPACE: Do the above for sbrk() and brk() implementation. 
 
-22. Cleanup the code and remove unnecessary comments.
+23.(ONGOING) Cleanup the code and remove unnecessary comments.
 
-23. Documentation. 
+24.(ONGOING) Documentation - This design document is also a documentation for commit notes and other build and debugging technical details. 
 
-24. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
+25. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
 
-25. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
+26. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
 
-26.(DONE) VIRGO queue driver with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra and is invoked through VIRGO cpupooling and memorypooling drivers. (Schematic in http://sourceforge.net/p/kcobra/code-svn/HEAD/tree/KingCobraDesignNotes.txt and http://sourceforge.net/p/acadpdrafts/code/ci/master/tree/Krishna_iResearch_opensourceproducts_archdiagram.pdf)
+27.(DONE) VIRGO queue driver with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra and is invoked through VIRGO cpupooling and memorypooling drivers. (Schematic in http://sourceforge.net/p/kcobra/code-svn/HEAD/tree/KingCobraDesignNotes.txt and http://sourceforge.net/p/acadpdrafts/code/ci/master/tree/Krishna_iResearch_opensourceproducts_archdiagram.pdf)
 
-27.(DONE) KERNELSPACE EXECUTION ACROSS CLOUD NODES which geographically distribute userspace and kernelspace execution creating 
+28.(DONE) KERNELSPACE EXECUTION ACROSS CLOUD NODES which geographically distribute userspace and kernelspace execution creating 
 a logical abstraction for a cloudwide virtualized kernel:
 	
 	Remote Cloud Node Client
-	(virgo_clone(), virgo_malloc() calls)
+	(virgo_clone(), virgo_malloc(),virgo_open() telnet and syscalls)
 		|
 		|
  (Userspace)	|
 		|-------------------------------------Kernel Sockets-------------------------------------> Remote Cloud Node Service
-										(VIRGO cpupooling, memorypooling, queue, KingCobra drivers)
+									(VIRGO cpupooling, memorypooling, cloudfs, queue, KingCobra drivers)
 														|
 														|
 														|  (Kernelspace execution)
@@ -153,6 +155,7 @@ a logical abstraction for a cloudwide virtualized kernel:
 		|
  (Userspace)	|
 
+29. (DONE) VIRGO platform as on 5 May 2014 implements a minimum set of features and kernelsocket commands required for a cloud OS kernel: CPU virtualization(virgo_clone), Memory virtualization(virgo_malloc,virgo_get,virgo_set,virgo_free) and a distributed cloud file system(virgo_open,virgo_close,virgo_read,virgo_write) on the cloud nodes and thus gives a logical view of one unified, distributed linux kernel across all cloud nodes that splits userspace and kernelspace execution across cloud as above.
 
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
@@ -493,6 +496,10 @@ Commits as on 7 April 2014
 Commits as on 25 April 2014
 ---------------------------
 - client ip address in VIRGO mempool recvfrom KingCobra if clause is converted to host byte order from network byte order with ntohl() 
+
+Commits as on 5 May 2014
+-------------------------
+- Telnet path commands for VIRGO cloud file system - virgo_cloud_open(), virgo_cloud_read(), virgo_cloud_write(), virgo_cloud_close() has been implemented and test logs have been added to repository (drivers/virgo/cloudfs/ and cloudfs/testlogs)
 
 
 
