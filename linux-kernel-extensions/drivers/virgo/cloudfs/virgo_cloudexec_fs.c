@@ -115,12 +115,12 @@ int fs_func(void* args)
 	}
 	else if(parameterIsExecutable==1)
 	{
-	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/virgo_cloudexec_fs_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_cloudexec_fs_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
 		argv[0]=kstrdup(fsFunction,GFP_KERNEL);
 		argv[1]=NULL;
-		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/";
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
 		/* call_usermodehelper() Kernel upcall to usermode */
@@ -132,17 +132,24 @@ int fs_func(void* args)
 	}
 	else if (parameterIsExecutable==0)
 	{
-	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/virgo_cloudexec_fs_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+	        file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_cloudexec_fs_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+		/*
+		Commented fd_install() due to crashes which were working in cpupooling driver. Same crash was occuring in memorypooling driver
+		also few months ago. Probably some other process has already done fd_install to these fd(s).
+		- Ka.Shrinivaasan 5May2014
+		*/
+		/*
 		fd_install(1,file_stdout);
 		fd_install(2,file_stdout);
-		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/virgo_kernelupcall_plugin",GFP_KERNEL);
+		*/
+		argv[0]=kstrdup("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_kernelupcall_plugin",GFP_KERNEL);
 		argv[1]=kstrdup(fsFunction,GFP_KERNEL);
 		argv[2]=NULL;
-		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/";
+		envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/";
 		envp[1]="HOME=/home/kashrinivaasan";
 		envp[2]=NULL;
-		printk(KERN_INFO "fs_func(): executing the virgo_malloc() syscall function parameter in cloud - parameterIsExecutable=%d, fsFunction=%s\n",parameterIsExecutable,fsFunction);
-		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/fs/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
+		printk(KERN_INFO "fs_func(): executing the virgo_fs function parameter in cloud - parameterIsExecutable=%d, fsFunction=%s\n",parameterIsExecutable,fsFunction);
+		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_kernelupcall_plugin",argv,envp,UMH_WAIT_EXEC);
 
 		printk("fs_func(): call_usermodehelper() for virgo_kernelupcall_plugin returns ret=%d\n", ret);
 		/*
@@ -159,7 +166,7 @@ char* strip_control_M(char* str)
 {
         printk("strip_control_M(): str=%s before strsep\n",str);
         char* dupstr=kstrdup(str, GFP_KERNEL);
-        char* newstr=strsep(&dupstr, "\r\n ");
+        char* newstr=strsep(&dupstr, "\r\n");
         printk("strip_control_M(): newstr=%s after carriage return newline strsep\n",newstr);
         return newstr;
 }

@@ -55,8 +55,7 @@ int main(int argc, char **argv)
                exit(EXIT_FAILURE);
        }
        printf("virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud fs function pointer: %x\n",cloud_function);
-       int args=1000;
-       s=pthread_create(&tid, NULL, cloud_function, &args); 
+       s=pthread_create(&tid, NULL, cloud_function, argv[2]); 
        pthread_join(tid, &x);
        fflush(stdout);
        dlclose(handle);

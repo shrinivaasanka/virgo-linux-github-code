@@ -51,10 +51,10 @@ void* virgo_cloud_open(void* args)
 {
 	printf("virgo_cloud_fs.c:Executing virgo_cloud_fs on cloud node, Invoking virgo_cloud_open(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
-	FILE* fp=fopen(vmargs->fs_args[0],"wa");
-	printf("virgo_cloud_fs.c:virgo_cloud_open(): fp=%p\n",fp);
+	int fd=open(vmargs->fs_args[0],O_APPEND,O_RDWR);
+	printf("virgo_cloud_fs.c:virgo_cloud_open(): fd=%d\n",fd);
 	fflush(stdout);
-	return fp;
+	return &fd;
 }
 
 void* virgo_cloud_read(void* args)
@@ -62,46 +62,55 @@ void* virgo_cloud_read(void* args)
 	printf("virgo_cloud_fs.c:Executing virgo_cloud_fs on cloud node, Invoking virgo_cloud_read(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
 	char buf[256];
-	FILE* fp;
-	fread(buf,256,sizeof(char),fp);	
+	int fd=atoi(vmargs->fs_args[0]);
+	read(fd,buf,256);	
+	syncfs(fd);
 	printf("virgo_cloud_fs.c: virgo_cloud_read(): buf=%s\n",buf);
-	return buf;
+	return NULL;
 }
 
 void* virgo_cloud_write(void* args)
 {
 	printf("virgo_cloud_fs.c:Executing virgo_cloud_fs on cloud node, Invoking virgo_cloud_write(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	FILE* fp;
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
-	fread(vmargs->fs_args[0],256,sizeof(char),fp);	
+	int fd=atoi(vmargs->fs_args[0]);
 	printf("virgo_cloud_fs.c: virgo_cloud_write(): buf=%s\n",vmargs->fs_args[1]);
-	return 0;
+	write(fd,vmargs->fs_args[1],256);	
+	syncfs(fd);
+	return NULL;
 }
 
 void* virgo_cloud_close(void* args)
 {
 	printf("virgo_cloud_fs.c:Executing virgo_cloud_fs on cloud node, Invoking virgo_cloud_close(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
-	FILE* fp;
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
-	free(fp);
-	return 0;
+	int fd=atoi(vmargs->fs_args[0]);
+	close(fd);
+	return NULL;
 }
 
 struct virgo_fs_args* parse_virgofs_command_userspace(char* fsFunction)
 {
         struct virgo_fs_args* vmargs=(struct virgo_fs_args*)malloc(sizeof(struct virgo_fs_args));
+	printf("virgo_cloud_fs.c:fsFunction to parse = %s\n",fsFunction);
         vmargs->fs_cmd=strdup(strsep(&fsFunction, "("));
+	printf("virgo_cloud_fs.c:vmargs->fs_cmd = %s\n",vmargs->fs_cmd);
         if(strcmp(vmargs->fs_cmd,"virgo_cloud_open")==0 || strcmp(vmargs->fs_cmd,"virgo_cloud_close")==0)
         {
                 vmargs->fs_args[0]=strdup(strsep(&fsFunction,")"));
+		printf("virgo_cloud_fs.c:vmargs->fs_args[0] = %s\n",vmargs->fs_args[0]);
                 vmargs->fs_args[1]=NULL;
         }
         else
         {
 
                 vmargs->fs_args[0]=strdup(strsep(&fsFunction,","));
-                vmargs->fs_args[1]=strdup(strsep(&fsFunction,")"));
-                vmargs->fs_args[2]=NULL;
+                vmargs->fs_args[1]=strdup(strsep(&fsFunction,","));
+                vmargs->fs_args[2]=strdup(strsep(&fsFunction,")"));
+		printf("virgo_cloud_fs.c:vmargs->fs_args[0] = %s\n",vmargs->fs_args[0]);
+		printf("virgo_cloud_fs.c:vmargs->fs_args[1] = %s\n",vmargs->fs_args[1]);
+		printf("virgo_cloud_fs.c:vmargs->fs_args[2] = %s\n",vmargs->fs_args[2]);
+                vmargs->fs_args[3]=NULL;
         }
         return vmargs;
 }
