@@ -501,6 +501,10 @@ Commits as on 5 May 2014
 -------------------------
 - Telnet path commands for VIRGO cloud file system - virgo_cloud_open(), virgo_cloud_read(), virgo_cloud_write(), virgo_cloud_close() has been implemented and test logs have been added to repository (drivers/virgo/cloudfs/ and cloudfs/testlogs) and kernel upcall path for paramIsExecutable=0
 
+Commits as on 7 May 2014
+-------------------------
+- Bugfixes to tokenization in kernel upcall plugin with strsep() for args passed on to the userspace
+
 
 
 
