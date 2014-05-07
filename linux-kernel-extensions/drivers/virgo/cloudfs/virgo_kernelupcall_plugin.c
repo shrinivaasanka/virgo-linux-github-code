@@ -27,6 +27,7 @@ mail to: ka.shrinivaasan@gmail.com
 #include <pthread.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <string.h>
 
 int main(int argc, char **argv)
 {
@@ -47,7 +48,10 @@ int main(int argc, char **argv)
        dlerror();    /* Clear any existing error */
 
        printf("dlsym lookup for cloud fs function: %s\n", argv[1]);
-       *(void **) (&cloud_function) = dlsym(handle, argv[1]);
+       char* symbol_args=strdup(argv[1]);
+       char* symbol=strsep(&symbol_args," ");
+       printf("virgo_kernel_upcall_plugin: symbol=%s, symbol_args=%s\n",symbol,symbol_args);
+       *(void **) (&cloud_function) = dlsym(handle, symbol);
        /* *(void **) (&cloud_function) = dlsym(handle, "_Z16virgo_cloud_testPv");*/
 
        if ((error = dlerror()) != NULL)  {
@@ -55,7 +59,7 @@ int main(int argc, char **argv)
                exit(EXIT_FAILURE);
        }
        printf("virgo_kernel_upcall_plugin: spawning userspace thread for virgo cloud fs function pointer: %x\n",cloud_function);
-       s=pthread_create(&tid, NULL, cloud_function, argv[2]); 
+       s=pthread_create(&tid, NULL, cloud_function, symbol_args); 
        pthread_join(tid, &x);
        fflush(stdout);
        dlclose(handle);
