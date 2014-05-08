@@ -49,10 +49,12 @@ void* virgo_cloud_write(void*);
 
 void* virgo_cloud_open(void* args)
 {
+	char buf[500];
 	printf("virgo_cloud_fs.c:Executing virgo_cloud_fs on cloud node, Invoking virgo_cloud_open(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
-	int fd=open(vmargs->fs_args[0],O_APPEND,O_RDWR);
-	printf("virgo_cloud_fs.c:virgo_cloud_open(): fd=%d\n",fd);
+	int fd=open(vmargs->fs_args[0],O_RDWR);
+	read(fd,buf,500);	
+	printf("virgo_cloud_fs.c:virgo_cloud_open(): fd=%d,buf=%s\n",fd,buf);
 	fflush(stdout);
 	return &fd;
 }
@@ -63,9 +65,9 @@ void* virgo_cloud_read(void* args)
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
 	char buf[256];
 	int fd=atoi(vmargs->fs_args[0]);
+	fd=open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgofstest.txt",O_RDWR);
 	read(fd,buf,256);	
-	syncfs(fd);
-	printf("virgo_cloud_fs.c: virgo_cloud_read(): buf=%s\n",buf);
+	printf("virgo_cloud_fs.c: virgo_cloud_read(): fd=%d, buf=%s\n",fd,buf);
 	return NULL;
 }
 
@@ -75,8 +77,9 @@ void* virgo_cloud_write(void* args)
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
 	int fd=atoi(vmargs->fs_args[0]);
 	printf("virgo_cloud_fs.c: virgo_cloud_write(): buf=%s\n",vmargs->fs_args[1]);
+	fd=open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgofstest.txt",O_RDWR);
 	write(fd,vmargs->fs_args[1],256);	
-	syncfs(fd);
+	fsync(fd);
 	return NULL;
 }
 
