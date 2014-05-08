@@ -29,5 +29,5 @@ g++ -c virgo_kernelupcall_plugin.c
 g++ -o virgo_kernelupcall_plugin virgo_kernelupcall_plugin.o -ldl -lpthread
 ./virgo_kernelupcall_plugin "_Z16virgo_cloud_openPv virgo_cloud_open(/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgofstest.txt)"
 ./virgo_kernelupcall_plugin "_Z16virgo_cloud_readPv virgo_cloud_read(3,sssss,256)"
-./virgo_kernelupcall_plugin "_Z17virgo_cloud_writePv virgo_cloud_write(3,Appended5May2014,256)"
+./virgo_kernelupcall_plugin "_Z17virgo_cloud_writePv virgo_cloud_write(3,Appended8May2014,256)"
 ./virgo_kernelupcall_plugin "_Z17virgo_cloud_closePv virgo_cloud_close(3)"
