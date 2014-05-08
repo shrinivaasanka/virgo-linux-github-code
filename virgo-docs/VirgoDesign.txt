@@ -505,6 +505,11 @@ Commits as on 7 May 2014
 -------------------------
 - Bugfixes to tokenization in kernel upcall plugin with strsep() for args passed on to the userspace
 
+Commits as on 8 May 2014
+------------------------
+- Bugfixes to virgo_cloud_fs.c for kernel upcall (parameterIsExecutable=0) and with these the kernel to userspace upcall and writing to a file in userspace (virgofstest.txt) works. Logs and screenshots for this are added to repository in test_logs/
+
+
 
 
 
