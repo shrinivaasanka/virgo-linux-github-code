@@ -58,4 +58,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_fs_kernelspace";
 
 
-MODULE_INFO(srcversion, "BA42EF01B8B16238E23ED8D");
+MODULE_INFO(srcversion, "80496EF103C7FBC92215CF8");
