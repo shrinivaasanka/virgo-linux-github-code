@@ -166,7 +166,7 @@ static struct virgo_fs_class_t virgo_fs_class = {
 
 static struct socket *sock;	
 
-int parameterIsExecutable=2;
+int parameterIsExecutable=0;
 struct file* file_stdout;
 
 void print_buffer(char*);
