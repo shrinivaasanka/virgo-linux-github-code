@@ -31,17 +31,44 @@
 #*****************************************************************************************/
 
 #VIRGO BUILD SCRIPT
+rm -rf /home/kashrinivaasan/linux-3.7.8-build-virgofs/
+mkdir -p /home/kashrinivaasan/linux-3.7.8-build-virgofs/
+cp /home/kashrinivaasan/linux-3.7.8-build-2/.config /home/kashrinivaasan/linux-3.7.8-build-virgofs/
+cp /home/kashrinivaasan/linux-3.7.8-build-2/Module.symvers /home/kashrinivaasan/linux-3.7.8-build-virgofs/
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs clean 
+make mrproper
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs i386_defconfig
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs oldconfig
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs prepare
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs outputmakefile
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs archprepare
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/usb clean
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/usb 
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/usb modules_install
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=scripts
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/virgo/memorypooling/virgocloudexecmempool clean
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/virgo/memorypooling/virgocloudexecmempool
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules_install SUBDIRS=drivers/virgo/mempooling/virgocloudexecmempool
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/virgo/cpupooling/virgocloudexec clean
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules SUBDIRS=drivers/virgo/cpupooling/virgocloudexec
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules_install SUBDIRS=drivers/virgo/cpupooling/virgocloudexec
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules
+make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs modules_install
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgofs install
+#make headers_install
+#update-initramfs -uvk 3.7.8
 
 #rm -rf /home/kashrinivaasan/linux-3.7.8-build-virgomempool/
 #mkdir -p /home/kashrinivaasan/linux-3.7.8-build-virgomempool/
 #cp /home/kashrinivaasan/linux-3.7.8-build/.config /home/kashrinivaasan/linux-3.7.8-build-virgomempool/
 #cp /home/kashrinivaasan/linux-3.7.8-build/Module.symvers /home/kashrinivaasan/linux-3.7.8-build-virgomempool/
 #make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool clean 
-make mrproper
-make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool oldconfig
-make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool prepare
-make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool outputmakefile
-make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool archprepare
+#make mrproper
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool oldconfig
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool prepare
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool outputmakefile
+#make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool archprepare
 #make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool modules SUBDIRS=drivers/usb clean
 #make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool modules SUBDIRS=drivers/usb 
 #make -j 20 O=/home/kashrinivaasan/linux-3.7.8-build-virgomempool modules SUBDIRS=drivers/usb modules_install
