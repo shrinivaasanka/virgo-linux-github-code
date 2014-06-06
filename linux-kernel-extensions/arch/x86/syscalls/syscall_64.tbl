@@ -324,6 +324,10 @@
 315	common	virgo_set		sys_virgo_set
 316	common	virgo_get		sys_virgo_get
 317	common	virgo_free		sys_virgo_free
+318	common	virgo_open		sys_virgo_open
+319	common	virgo_close		sys_virgo_close
+320	common	virgo_read		sys_virgo_read
+321	common	virgo_write		sys_virgo_write
 
 #
 # x32-specific system call numbers start at 512 to avoid cache impact

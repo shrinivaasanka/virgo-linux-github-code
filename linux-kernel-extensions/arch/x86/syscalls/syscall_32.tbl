@@ -361,3 +361,7 @@
 352	i386	virgo_set		sys_virgo_set
 353	i386	virgo_get		sys_virgo_get
 354	i386	virgo_free		sys_virgo_free
+355	i386	virgo_open		sys_virgo_open
+356	i386	virgo_close		sys_virgo_close
+357	i386	virgo_read		sys_virgo_read
+358	i386	virgo_write		sys_virgo_write
