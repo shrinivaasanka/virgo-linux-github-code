@@ -64,14 +64,16 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/random.h>
 
 #include <linux/virgo_config.h>
-#include <linux/virgo_mempool.h>
+#include <linux/virgo_fs.h>
+#include <linux/ctype.h>
 
 #define BUF_SIZE 3000
 
 #define PER_NODE_MALLOC_CHUNK_SIZE 1000
 
+unsigned int virgo_parse_integer(const char *s, unsigned int base, unsigned long long *p);
 
-struct hostport* get_least_loaded_hostport_from_cloud_mempool()
+struct hostport* get_least_loaded_hostport_from_cloud_fs()
 {
 	/*
 	Either a loadtracking algorithm or a pseudorandom generator based loadbalancing algorithm is invoked to
@@ -83,17 +85,17 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
 	if(strcmp(LBAlgorithm, "Loadtrack")==0)
 	{
-		char* cloud_host = get_host_from_cloud_Loadtrack_mempool();
+		char* cloud_host = get_host_from_cloud_Loadtrack_fs();
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_mempool() returns host ip: %s \n",hopo->hostip);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_fs() returns host ip: %s \n",hopo->hostip);
 		hopo->port=30000;
 	}
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
-		char* cloud_host = get_host_from_cloud_PRG_mempool();
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): %s \n",cloud_host);
+		char* cloud_host = get_host_from_cloud_PRG_fs();
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): %s \n",cloud_host);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
-		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: %s \n",hopo->hostip);
+		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: %s \n",hopo->hostip);
 		hopo->port=30000;
 	}
 	return hopo;
@@ -103,7 +105,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
  Loadtracking algorithm for  nodes in the cloud
 */
 
-char* get_host_from_cloud_Loadtrack_mempool()
+char* get_host_from_cloud_Loadtrack_fs()
 {
 	return NULL;
 }
@@ -112,7 +114,7 @@ char* get_host_from_cloud_Loadtrack_mempool()
 Pseudorandom number generator based algorithm to distribute virgo_open() requests amongst cloud nodes
 */
 
-char* get_host_from_cloud_PRG_mempool()
+char* get_host_from_cloud_PRG_fs()
 {
 	unsigned int rand_int = get_random_int();
 	/* 
@@ -128,8 +130,8 @@ char* get_host_from_cloud_PRG_mempool()
 	*/
 	unsigned int rand_host_id = rand_int % num_cloud_nodes;
 
-	printk(KERN_INFO "get_host_from_cloud_PRG_mempool() - get_random_int() returned %u \n",rand_int);
-	printk(KERN_INFO "get_host_from_cloud_PRG_mempool() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
+	printk(KERN_INFO "get_host_from_cloud_PRG_fs() - get_random_int() returned %u \n",rand_int);
+	printk(KERN_INFO "get_host_from_cloud_PRG_fs() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
 	return node_ip_addrs_in_cloud[rand_host_id];	
 	
 }
@@ -151,16 +153,11 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	char tempbuf[BUF_SIZE];
 	/*char *buf;*/
 
-	int chunk_size=0;
-	int sum_alloc_size=0;
-
-	printk("virgo_read() system call: before virgo_unique_id_to_addr()\n");
-	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
-	printk("virgo_read() system call: vuid=%ld, virgo address to retrieve data from is vaddr=%p\n",vuid, vaddr);
 
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
-       	sin.sin_port=htons(vaddr->hstprt->port);
+	struct hostport* leastloadedhostip=get_least_loaded_hostport_from_cloud_fs();
+	in4_pton(leastloadedhostip->hostip, strlen(leastloadedhostip->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+       	sin.sin_port=htons(leastloadedhostip->port);
 
 	char* virgo_read_cmd;
 	strcpy(tempbuf,"virgo_cloud_read(");
@@ -232,8 +229,9 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	printk(KERN_INFO "virgo_write() system_call: after memcpy()\n");
 	printk(KERN_INFO "virgo_write() system call: data to set=%s\n", data);
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
-       	sin.sin_port=htons(vaddr->hstprt->port);
+	struct hostport* leastloadedhostip=get_least_loaded_hostport_from_cloud_fs();
+	in4_pton(leastloadedhostip->hostip, strlen(leastloadedhostip->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+       	sin.sin_port=htons(leastloadedhostip->port);
 
 	char* virgo_write_cmd;
 	strcpy(tempbuf,"virgo_cloud_read(");
@@ -339,91 +337,89 @@ asmlinkage long sys_virgo_open(char* filepath)
 	*/
 	
 	/*mutex_lock(&vtranstable.vtable_fragment_mutex);*/
-	while(true)	
+	/*char *buf;*/
+        char buf[BUF_SIZE];
+	char tempbuf[BUF_SIZE];
+	char *open_cmd;
+        int sfd, s, j;
+        size_t len;
+        ssize_t nread;
+	struct msghdr msg;
+	int error;
+	int nr;
+	struct kvec iov;
+	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_fs();
+	struct socket *sock;
+	struct sockaddr_in sin;
+	if(leastloadedhostport->hostip==NULL)
 	{
-		/*char *buf;*/
-        	char buf[BUF_SIZE];
-		char tempbuf[BUF_SIZE];
-		char *open_cmd;
-        	int sfd, s, j;
-        	size_t len;
-        	ssize_t nread;
-		struct msghdr msg;
-		int error;
-		int nr;
-		struct kvec iov;
-		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
-		struct socket *sock;
-		struct sockaddr_in sin;
-		if(leastloadedhostport->hostip==NULL)
-		{
-			printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip == NULL, hardcoding it to loopback address");
-			leastloadedhostport->hostip="127.0.0.1";
-		}
-		if(leastloadedhostport->port != 30000)
-		{
-			printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port != 30000, hardcoding it to 30000");
-			leastloadedhostport->port=30000;
-		}
-		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
-		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
-		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
-		sin.sin_family=AF_INET;
-       		sin.sin_port=htons(leastloadedhostport->port);
-		printk(KERN_INFO "virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=%s, leastloadedhostport->port=%d, sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",leastloadedhostport->hostip,leastloadedhostport->port, sin.sin_addr.s_addr, sin.sin_port);
-		/* This should not happen and should have broken earlier in the loop*/
-		strcpy(tempbuf,"virgo_cloud_open(");
-		open_cmd=strcat(tempbuf,filepath);
-		open_cmd=strcat(tempbuf, ")");
-		strcpy(buf,tempbuf);
-		printk(KERN_INFO "virgo_open() syscall: open_cmd=%s, buf=%s, tempbuf=%s",open_cmd,buf,tempbuf);
+		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip == NULL, hardcoding it to loopback address");
+		leastloadedhostport->hostip="127.0.0.1";
+	}
+	if(leastloadedhostport->port != 30000)
+	{
+		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port != 30000, hardcoding it to 30000");
+		leastloadedhostport->port=30000;
+	}
+	printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
+	printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
+	in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+	sin.sin_family=AF_INET;
+       	sin.sin_port=htons(leastloadedhostport->port);
+	printk(KERN_INFO "virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=%s, leastloadedhostport->port=%d, sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",leastloadedhostport->hostip,leastloadedhostport->port, sin.sin_addr.s_addr, sin.sin_port);
+	/* This should not happen and should have broken earlier in the loop*/
+	strcpy(tempbuf,"virgo_cloud_open(");
+	open_cmd=strcat(tempbuf,filepath);
+	open_cmd=strcat(tempbuf, ")");
+	strcpy(buf,tempbuf);
+	printk(KERN_INFO "virgo_open() syscall: open_cmd=%s, buf=%s, tempbuf=%s",open_cmd,buf,tempbuf);
 
-		printk(KERN_INFO "virgo_open() syscall: buf=%s, open_cmd=%s\n",buf, open_cmd);
+	printk(KERN_INFO "virgo_open() syscall: buf=%s, open_cmd=%s\n",buf, open_cmd);
 
-	        iov.iov_base=buf;
-		iov.iov_len=strlen(buf);
-		msg.msg_name = (struct sockaddr *) &sin;
-		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
-		msg.msg_control = NULL;
-		msg.msg_controllen = 0;
-		msg.msg_flags = 0;
-		nr=1;
+	iov.iov_base=buf;
+	iov.iov_len=strlen(buf);
+	msg.msg_name = (struct sockaddr *) &sin;
+	msg.msg_namelen = sizeof(struct sockaddr);
+	msg.msg_iov = (struct iovec *) &iov;
+	msg.msg_iovlen = 1;
+	msg.msg_control = NULL;
+	msg.msg_controllen = 0;
+	msg.msg_flags = 0;
+	nr=1;
 	
-		/*strcpy(iov.iov_base, buf);*/
-		error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-		printk(KERN_INFO "virgo_open() syscall: created client kernel socket\n");
-		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
-		printk(KERN_INFO "virgo_open() syscall: connected kernel client to virgo cloudexec kernel service\n ");
-		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-		printk(KERN_INFO "virgo_open() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
-       		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		printk(KERN_INFO "virgo_open() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
-		printk(KERN_INFO "virgo_open() syscall: received iov.iov_base: %s \n", iov.iov_base);
+	/*strcpy(iov.iov_base, buf);*/
+	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
+	printk(KERN_INFO "virgo_open() syscall: created client kernel socket\n");
+	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
+	printk(KERN_INFO "virgo_open() syscall: connected kernel client to virgo cloudexec kernel service\n ");
+	len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
+	printk(KERN_INFO "virgo_open() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+       	len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
+	printk(KERN_INFO "virgo_open() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
+	printk(KERN_INFO "virgo_open() syscall: received iov.iov_base: %s \n", iov.iov_base);
 
-		le32_to_cpus(buf);
-		printk(KERN_INFO "virgo_open() syscall: le32_to_cpus(buf): %s \n", buf);
+	le32_to_cpus(buf);
+	printk(KERN_INFO "virgo_open() syscall: le32_to_cpus(buf): %s \n", buf);
 
-		/*
-		Mysteriously sock_release() causes kernel panic repeatedly. Hence commenting this
-		temporarily.
-		- Ka.Shrinivaasan 22October2013
-		*/
-		/*
-		if(sock)
-		{
-			sock_release(sock);
-			printk(KERN_INFO "virgo_open() syscall: virgo_open() client socket_release() invoked\n");
-		}
-		else
-			printk(KERN_INFO "virgo_open() syscall: sock is NULL\n");
-		*/
+	/*
+	Mysteriously sock_release() causes kernel panic repeatedly. Hence commenting this
+	temporarily.
+	- Ka.Shrinivaasan 22October2013
+	*/
+	/*
+	if(sock)
+	{
+		sock_release(sock);
+		printk(KERN_INFO "virgo_open() syscall: virgo_open() client socket_release() invoked\n");
+	}
+	else
+		printk(KERN_INFO "virgo_open() syscall: sock is NULL\n");
+	*/
 
-	}	
         /*mutex_unlock(&vtranstable.vtable_fragment_mutex);*/
-
-	return atol(buf);
+	unsigned long long ret;
+        virgo_parse_integer(buf,10,&ret);
+	return (long)ret;
 }
 
 /*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
@@ -443,13 +439,12 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	/*char* buf;*/
 	char* close_cmd;
 
-	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 
 	sin.sin_family=AF_INET;
-	in4_pton(vaddr->hstprt->hostip, strlen(vaddr->hstprt->hostip), &sin.sin_addr.s_addr, '\0',NULL);
-       	sin.sin_port=htons(vaddr->hstprt->port);
+	struct hostport* leastloadedhostip=get_least_loaded_hostport_from_cloud_fs();
+	in4_pton(leastloadedhostip->hostip, strlen(leastloadedhostip->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+       	sin.sin_port=htons(leastloadedhostip->port);
 
-	char* vaddr_addr_str=addr_to_str(vaddr->addr);
 	strcpy(tempbuf,"virgo_cloud_close(");	
 	close_cmd=strcat(tempbuf,int_to_str(vfsdesc));
 	close_cmd=strcat(tempbuf, ")");
@@ -567,6 +562,49 @@ char* str_to_addr2(char* straddr)
         printk(KERN_INFO "str_to_addr2(): straddr=[%s], lltovoidptr = %p\n", straddr, lltovoidptr);
 	return (char*)lltovoidptr;
 }
+
+unsigned int virgo_parse_integer(const char *s, unsigned int base, unsigned long long *p)
+{
+	unsigned long long res;
+	unsigned int rv;
+	int overflow;
+
+	res = 0;
+	rv = 0;
+	overflow = 0;
+	while (*s) {
+		printk(KERN_INFO "virgo_parse_integer(): *s=%c, res=%ld\n",*s, res);
+		unsigned int val;
+		if(*s=='\"')
+		{
+			s++;
+			continue;
+		}
+		if ('0' <= *s && *s <= '9')
+			val = *s - '0';
+		else if ('a' <= tolower(*s) && tolower(*s) <= 'f')
+			val = tolower(*s) - 'a' + 10;
+		else
+			break;
+
+		if (val >= base)
+			break;
+		/*
+		 * Check for overflow only if we are within range of
+		 * it in the max base we support (16)
+		if (unlikely(res & (~0ull << 60))) {
+			if (res > div_u64(ULLONG_MAX - val, base))
+				overflow = 1;
+		}
+		*/
+		res = res * base + val;
+		rv++;
+		s++;
+	}
+	*p = res;
+	return rv;
+}
+
 
 /*
 Follwing functions map a machine address to a unique virgo id (UVID)
