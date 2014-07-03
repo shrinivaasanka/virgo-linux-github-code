@@ -64,7 +64,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/random.h>
 
 #include <linux/virgo_config.h>
-#include <linux/virgo_fs.h>
+#include <linux/virgo_fs_syscall.h>
 #include <linux/ctype.h>
 
 #define BUF_SIZE 3000
@@ -161,12 +161,12 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 
 	char* virgo_read_cmd;
 	strcpy(tempbuf,"virgo_cloud_read(");
-	virgo_read_cmd=strcat(tempbuf,int_to_str(vfsdesc));
+	virgo_read_cmd=strcat(tempbuf,long_to_str(vfsdesc));
 	virgo_read_cmd=strcat(tempbuf,",");
 	virgo_read_cmd=strcat(tempbuf,"\"none\",");
-	virgo_read_cmd=strcat(tempbuf,int_to_str(size));
+	virgo_read_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_read_cmd=strcat(tempbuf,",");
-	virgo_read_cmd=strcat(tempbuf,int_to_str(size));
+	virgo_read_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_read_cmd=strcat(tempbuf, ")");
 	strcpy(buf,tempbuf);			
 
@@ -235,13 +235,13 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 
 	char* virgo_write_cmd;
 	strcpy(tempbuf,"virgo_cloud_read(");
-	virgo_write_cmd=strcat(tempbuf,int_to_str(vfsdesc));
+	virgo_write_cmd=strcat(tempbuf,long_to_str(vfsdesc));
 	virgo_write_cmd=strcat(tempbuf,",");
 	virgo_write_cmd=strcat(tempbuf,data);
 	virgo_write_cmd=strcat(tempbuf,",");
-	virgo_write_cmd=strcat(tempbuf,int_to_str(size));
+	virgo_write_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_write_cmd=strcat(tempbuf,",");
-	virgo_write_cmd=strcat(tempbuf,int_to_str(size));
+	virgo_write_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_write_cmd=strcat(tempbuf, ")");
 	strcpy(buf,tempbuf);
 
@@ -446,7 +446,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
        	sin.sin_port=htons(leastloadedhostip->port);
 
 	strcpy(tempbuf,"virgo_cloud_close(");	
-	close_cmd=strcat(tempbuf,int_to_str(vfsdesc));
+	close_cmd=strcat(tempbuf,long_to_str(vfsdesc));
 	close_cmd=strcat(tempbuf, ")");
 	strcpy(buf,tempbuf);
 
@@ -483,15 +483,25 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	return 0;
 }
 
-char* int_to_str(int n)
+char* int_to_str_vfs(int n)
 {
 	char* ret=(char*)kmalloc(50,GFP_KERNEL);
 	sprintf(ret,"%d",n);
-	printk(KERN_INFO "int_to_str(): n=%d\n",n);
-	printk(KERN_INFO "int_to_str(): ret=[%s]\n",ret);
+	printk(KERN_INFO "int_to_str_vfs(): n=%d\n",n);
+	printk(KERN_INFO "int_to_str_vfs(): ret=[%s]\n",ret);
 	return ret;
 }
 
+char* long_to_str(long n)
+{
+	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	sprintf(ret,"%ld",n);
+	printk(KERN_INFO "long_to_str(): n=%ld\n",n);
+	printk(KERN_INFO "long_to_str(): ret=[%s]\n",ret);
+	return ret;
+}
+
+/*
 char* addr_to_str(char* addr)
 {
 	char* ret=(char*)kmalloc(50,GFP_KERNEL);
@@ -502,10 +512,10 @@ char* addr_to_str(char* addr)
 }
 
 
-/*
+/
 This function parses the address within the string straddr and returns as the pointer address
 Example: "0x0000ffff" to 0x0000ffff
-*/
+/
 char* str_to_addr(char* straddr)
 {
         char *ptr=NULL;
@@ -533,9 +543,9 @@ char* str_to_addr(char* straddr)
         return (char*)voidptr_vargs;
 }
 
-/*
+/
 carried over from test/sscanftest.c for debugging null sscanf
-*/
+/
 
 void var_sscanf(char *str, const char* fmt, ...)
 {
@@ -545,23 +555,24 @@ void var_sscanf(char *str, const char* fmt, ...)
         va_end(vargs);
 }
 
-/*
+/
 carried over from test/sscanftest.c for debugging null sscanf
-*/
+/
 
 char* str_to_addr2(char* straddr)
 {
-	/*
+	/
         bit of a hack but a nice one when sscanf() doesn't work the way it is expected to be.
         scan the pointer address in string into a unsigned long and in base 16 and reinterpret cast
         it to void*.
-        */
+        /
 	char* endptr;
         unsigned long ll=simple_strtoll(straddr, &endptr, 16);
         void* lltovoidptr= (void*)ll;
         printk(KERN_INFO "str_to_addr2(): straddr=[%s], lltovoidptr = %p\n", straddr, lltovoidptr);
 	return (char*)lltovoidptr;
 }
+*/
 
 unsigned int virgo_parse_integer(const char *s, unsigned int base, unsigned long long *p)
 {
