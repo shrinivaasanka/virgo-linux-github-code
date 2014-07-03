@@ -88,7 +88,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_fs()
 		char* cloud_host = get_host_from_cloud_Loadtrack_fs();
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_fs() returns host ip: %s \n",hopo->hostip);
-		hopo->port=30000;
+		hopo->port=50000;
 	}
 	else if(strcmp(LBAlgorithm, "PRG")==0)
 	{
@@ -96,7 +96,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_fs()
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): %s \n",cloud_host);
 		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: %s \n",hopo->hostip);
-		hopo->port=30000;
+		hopo->port=50000;
 	}
 	return hopo;
 }
@@ -166,7 +166,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	virgo_read_cmd=strcat(tempbuf,"\"none\",");
 	virgo_read_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_read_cmd=strcat(tempbuf,",");
-	virgo_read_cmd=strcat(tempbuf,int_to_str_vfs(size));
+	virgo_read_cmd=strcat(tempbuf,int_to_str_vfs(pos));
 	virgo_read_cmd=strcat(tempbuf, ")");
 	strcpy(buf,tempbuf);			
 
@@ -241,7 +241,7 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	virgo_write_cmd=strcat(tempbuf,",");
 	virgo_write_cmd=strcat(tempbuf,int_to_str_vfs(size));
 	virgo_write_cmd=strcat(tempbuf,",");
-	virgo_write_cmd=strcat(tempbuf,int_to_str_vfs(size));
+	virgo_write_cmd=strcat(tempbuf,int_to_str_vfs(pos));
 	virgo_write_cmd=strcat(tempbuf, ")");
 	strcpy(buf,tempbuf);
 
@@ -356,10 +356,10 @@ asmlinkage long sys_virgo_open(char* filepath)
 		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip == NULL, hardcoding it to loopback address");
 		leastloadedhostport->hostip="127.0.0.1";
 	}
-	if(leastloadedhostport->port != 30000)
+	if(leastloadedhostport->port != 50000)
 	{
-		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port != 30000, hardcoding it to 30000");
-		leastloadedhostport->port=30000;
+		printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port != 50000, hardcoding it to 50000");
+		leastloadedhostport->port=50000;
 	}
 	printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
 	printk(KERN_INFO "virgo_open() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
