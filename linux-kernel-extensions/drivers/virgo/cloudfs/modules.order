@@ -1,2 +1,2 @@
-kernel//home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_cloudexec_fs.ko
-kernel//home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgo_cloud_fs_kernelspace.ko
+kernel//home/kashrinivaasan/linux-3.7.8-src1/drivers/virgo/cloudfs/virgo_cloudexec_fs.ko
+kernel//home/kashrinivaasan/linux-3.7.8-src1/drivers/virgo/cloudfs/virgo_cloud_fs_kernelspace.ko
