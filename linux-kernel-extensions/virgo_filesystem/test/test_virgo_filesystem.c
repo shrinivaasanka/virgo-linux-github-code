@@ -52,10 +52,10 @@ int main(int argc, char* argv[])
 	invoked by syscall numbers in arch/x86/syscalls/syscalls_32.tbl
 	*/
 
-	long vfsdesc = syscall(355,"./virgofstext.txt"); /* open */
+	long vfsdesc = syscall(355,"/var/log/virgo_fs/virgofstest.txt"); /* open */
 	char data_read[256];
-	syscall(357,vfsdesc,data_read,100,0); /* read */
-	syscall(358,vfsdesc,"test_virgo_filesystem",100,100);/* write */
+	syscall(357,vfsdesc,data_read,250,0); /* read */
+	syscall(358,vfsdesc,"test_virgo_filesystem",250,0);/* write */
 	syscall(356,vfsdesc); /* close */
 	return 0;
 }
