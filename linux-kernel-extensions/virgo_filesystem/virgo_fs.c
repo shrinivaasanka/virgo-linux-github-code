@@ -234,7 +234,7 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
        	sin.sin_port=htons(leastloadedhostip->port);
 
 	char* virgo_write_cmd;
-	strcpy(tempbuf,"virgo_cloud_read(");
+	strcpy(tempbuf,"virgo_cloud_write(");
 	virgo_write_cmd=strcat(tempbuf,long_to_str(vfsdesc));
 	virgo_write_cmd=strcat(tempbuf,",");
 	virgo_write_cmd=strcat(tempbuf,data);
