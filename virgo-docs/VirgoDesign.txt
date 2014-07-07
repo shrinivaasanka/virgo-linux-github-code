@@ -517,6 +517,25 @@ Commits as on 3 July 2014
 --------------------------
 - More testing and bugfixes for VIRGO File System syscalls have been done. virgo_write() causes kernel panic.
 
+7 July 2014 - virgo_write() kernel panic notes:
+----------------------------------------------
+warning within http://lxr.free-electrons.com/source/arch/x86/kernel/smp.c#L121:
+
+static void native_smp_send_reschedule(int cpu)
+{
+        if (unlikely(cpu_is_offline(cpu))) {
+                WARN_ON(1);
+                return;
+        }
+        apic->send_IPI_mask(cpumask_of(cpu), RESCHEDULE_VECTOR);
+}
+
+This is probably a fixed kernel bug in <3.7.8 but recurring in 3.7.8:
+- http://lkml.iu.edu/hypermail/linux/kernel/1205.3/00653.html
+- http://www.kernelhub.org/?p=3&msg=74473&body_id=72338
+- http://lists.openwall.net/linux-kernel/2012/09/07/22
+- https://bugzilla.kernel.org/show_bug.cgi?id=54331
+- https://bbs.archlinux.org/viewtopic.php?id=156276
 
 
 - Ka.Shrinivaasan
