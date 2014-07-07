@@ -30,6 +30,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <sys/syscall.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdio.h>
 
 
 struct hostport
@@ -54,8 +55,9 @@ int main(int argc, char* argv[])
 
 	long vfsdesc = syscall(355,"/var/log/virgo_fs/virgofstest.txt"); /* open */
 	char data_read[256];
-	syscall(357,vfsdesc,data_read,250,0); /* read */
-	syscall(358,vfsdesc,"test_virgo_filesystem",250,0);/* write */
+	/*syscall(357,vfsdesc,data_read,250,0); */ /* read */
+	/*printf("test_virgo_filesystem.c: data_read = %s\n",data_read);*/	
+	syscall(358,vfsdesc,"test_virgo_filesystem",50,30);/* write */
 	syscall(356,vfsdesc); /* close */
 	return 0;
 }
