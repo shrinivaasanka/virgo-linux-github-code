@@ -82,11 +82,11 @@ struct hostport* get_least_loaded_hostport_from_cloud_fs()
 
 	/*char *LBAlgorithm = "Loadtrack";*/
 	char *LBAlgorithm = "PRG";
-	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
+	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_ATOMIC);
 	if(strcmp(LBAlgorithm, "Loadtrack")==0)
 	{
 		char* cloud_host = get_host_from_cloud_Loadtrack_fs();
-		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_ATOMIC);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_fs() returns host ip: %s \n",hopo->hostip);
 		hopo->port=50000;
 	}
@@ -94,7 +94,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_fs()
 	{
 		char* cloud_host = get_host_from_cloud_PRG_fs();
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): %s \n",cloud_host);
-		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_ATOMIC);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: %s \n",hopo->hostip);
 		hopo->port=50000;
 	}
@@ -485,7 +485,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 
 char* int_to_str_vfs(int n)
 {
-	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
 	sprintf(ret,"%d",n);
 	printk(KERN_INFO "int_to_str_vfs(): n=%d\n",n);
 	printk(KERN_INFO "int_to_str_vfs(): ret=[%s]\n",ret);
@@ -494,7 +494,7 @@ char* int_to_str_vfs(int n)
 
 char* long_to_str(long n)
 {
-	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
 	sprintf(ret,"%ld",n);
 	printk(KERN_INFO "long_to_str(): n=%ld\n",n);
 	printk(KERN_INFO "long_to_str(): ret=[%s]\n",ret);
@@ -504,7 +504,7 @@ char* long_to_str(long n)
 /*
 char* addr_to_str(char* addr)
 {
-	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
 	sprintf(ret,"%p",addr);
 	printk(KERN_INFO "addr_to_str(): addr=%p\n",addr);
 	printk(KERN_INFO "addr_to_str(): ret=[%s]\n",ret);
