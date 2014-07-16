@@ -126,7 +126,7 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 
 23.(ONGOING) Cleanup the code and remove unnecessary comments.
 
-24.(ONGOING) Documentation - This design document is also a documentation for commit notes and other build and debugging technical details. 
+24.(DONE) Documentation - This design document is also a documentation for commit notes and other build and debugging technical details. Doxygen html cross-reference documentation for AsFer, USBmd, VIRGO, KingCobra and Acadpdrafts has been created along with summed-up design document and committed to GitHub Repository at https://github.com/shrinivaasanka/Krishna_iResearch_DoxygenDocs
 
 25. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
 
