@@ -17,7 +17,7 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0x11c92bdf, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x1b24d8b0, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0x12da5bb2, __VMLINUX_SYMBOL_STR(__kmalloc) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x11089ac7, __VMLINUX_SYMBOL_STR(_ctype) },
@@ -25,8 +25,10 @@ __attribute__((section("__versions"))) = {
 	{ 0x20c55ae0, __VMLINUX_SYMBOL_STR(sscanf) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
+	{ 0x37c3e76, __VMLINUX_SYMBOL_STR(__gcov_merge_add) },
 	{ 0x61651be, __VMLINUX_SYMBOL_STR(strcat) },
-	{ 0xf0fdf6cb, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
+	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
+	{ 0xdceb3072, __VMLINUX_SYMBOL_STR(__gcov_init) },
 	{ 0x54a9db5f, __VMLINUX_SYMBOL_STR(_kstrtoul) },
 	{ 0x37a0cba, __VMLINUX_SYMBOL_STR(kfree) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
