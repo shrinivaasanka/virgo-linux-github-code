@@ -35,23 +35,8 @@
 rm -rf /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build/
 mkdir -p /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build/
 
-#cp /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.7.8-build-2/.config /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2//home/kashrinivaasan/linux-3.15.5-build/
-#cp /boot/config-3.15.5-031505-generic /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build/.config
-
-#cp /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.7.8-build-2/Module.symvers /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build/
-#cp /Module.symvers /media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build/
-
-make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build clean 
+#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build clean 
 make mrproper
-
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build i386_defconfig
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build oldconfig
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build prepare
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build outputmakefile
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build archprepare
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build modules SUBDIRS=scripts
-#make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build modules
-
 make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build menuconfig 
 make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build
 make -j 10 O=/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5-build modules_install
