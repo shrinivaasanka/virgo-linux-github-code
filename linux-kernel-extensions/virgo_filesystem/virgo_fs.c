@@ -63,13 +63,18 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <linux/random.h>
 
-#include <linux/virgo_config.h>
+/*#include <linux/virgo_config.h>*/
 #include <linux/virgo_fs_syscall.h>
 #include <linux/ctype.h>
 
 #define BUF_SIZE 3000
 
 #define PER_NODE_MALLOC_CHUNK_SIZE 1000
+
+extern int num_cloud_nodes;
+
+extern char* node_ip_addrs_in_cloud[3000];
+
 
 unsigned int virgo_parse_integer(const char *s, unsigned int base, unsigned long long *p);
 
