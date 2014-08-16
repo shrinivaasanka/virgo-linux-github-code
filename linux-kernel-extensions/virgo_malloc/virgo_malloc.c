@@ -63,12 +63,16 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <linux/random.h>
 
-#include <linux/virgo_config.h>
+/*#include <linux/virgo_config.h>*/
 #include <linux/virgo_mempool.h>
 
 #define BUF_SIZE 3000
 
 #define PER_NODE_MALLOC_CHUNK_SIZE 1000
+
+extern int num_cloud_nodes;
+
+extern char* node_ip_addrs_in_cloud[3000];
 
 
 struct hostport* get_least_loaded_hostport_from_cloud_mempool()
