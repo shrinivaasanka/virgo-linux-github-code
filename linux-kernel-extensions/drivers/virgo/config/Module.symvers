@@ -1,0 +1,5 @@
+0x1426d4b2	read_virgo_config	/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/drivers/virgo/config/virgo_config	EXPORT_SYMBOL
+0x525604fb	virgoconfig_exit	/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/drivers/virgo/config/virgo_config	EXPORT_SYMBOL
+0x624f0a24	virgoconfig_init	/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/drivers/virgo/config/virgo_config	EXPORT_SYMBOL
+0x0064c0ec	num_cloud_nodes	/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/drivers/virgo/config/virgo_config	EXPORT_SYMBOL
+0xfe26f191	node_ip_addrs_in_cloud	/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/drivers/virgo/config/virgo_config	EXPORT_SYMBOL

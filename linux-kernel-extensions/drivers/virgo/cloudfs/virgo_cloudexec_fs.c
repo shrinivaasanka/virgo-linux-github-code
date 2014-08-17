@@ -192,11 +192,11 @@ void read_virgo_config()
 	 * - Ka.Shrinivaasan 10 July 2013
 	 *
 
-	node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("node_ip_addrs_in_cloud");
-	num_cloud_nodes=kallsyms_lookup_name("num_cloud_nodes");
+	virgofs_node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("virgofs_node_ip_addrs_in_cloud");
+	virgofs_num_cloud_nodes=kallsyms_lookup_name("virgofs_num_cloud_nodes");
 
 	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud config being read... \n");
-	printk(KERN_INFO "virgo kernel service: read_virgo_config(): num_cloud_nodes=%d #### node_ip_addrs_in_cloud=%s\n", num_cloud_nodes,node_ip_addrs_in_cloud);
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgofs_num_cloud_nodes=%d #### virgofs_node_ip_addrs_in_cloud=%s\n", virgofs_num_cloud_nodes,virgofs_node_ip_addrs_in_cloud);
 	*/
 
 	fs=get_fs();
@@ -211,8 +211,8 @@ void read_virgo_config()
 	for(k=0;k<256;k++)
 		buf[k]=0;
 
-	for(k=0; k < num_cloud_nodes; k++)	
-		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
+	for(k=0; k < virgofs_num_cloud_nodes; k++)	
+		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, virgofs_node_ip_addrs_in_cloud[k]);
 
 	printk(KERN_INFO "read_virgo_config(): virgo_cloud config file being read \n");
 
@@ -231,11 +231,11 @@ void read_virgo_config()
 	{
 		token=strsep(&bufdup, delim);	
 		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
-		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
-		printk(KERN_INFO "tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);
+		virgofs_node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud[%d] = %s\n",i,virgofs_node_ip_addrs_in_cloud[i]);
 		i++;
 	}
-	num_cloud_nodes=i;
+	virgofs_num_cloud_nodes=i;
 	set_fs(fs);
 	filp_close(f,NULL);	
 }
@@ -254,7 +254,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 	{
 		token=strsep(&bufdup, delim);	
 		printk(KERN_INFO, "tokenize_list_of_ip_addrs(): %s\n",token);
-		/*strcpy(node_ip_addrs_in_cloud[i],  token);*/
+		/*strcpy(virgofs_node_ip_addrs_in_cloud[i],  token);*/
 		i++;
 	}
 	return i;

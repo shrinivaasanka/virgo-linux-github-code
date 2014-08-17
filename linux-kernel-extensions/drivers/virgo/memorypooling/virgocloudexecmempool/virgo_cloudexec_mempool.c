@@ -39,93 +39,6 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 	VIRGO Memory Pooling Driver for virgo_malloc(), virgo_free(),virgo_set(),virgo_get()
 */
 
-/*
-#include <linux/kernel.h>
-#include <linux/kthread.h>
-#include <linux/sched.h>
-#include <linux/module.h>
-#include <linux/errno.h>
-#include <linux/fcntl.h>
-#include <linux/net.h>
-#include <linux/in.h>
-#include <linux/inet.h>
-#include <linux/udp.h>
-#include <linux/tcp.h>
-#include <linux/string.h>
-#include <linux/unistd.h>
-#include <linux/slab.h>
-#include <linux/netdevice.h>
-#include <linux/skbuff.h>
-#include <linux/file.h>
-#include <linux/freezer.h>
-#include <net/sock.h>
-#include <net/checksum.h>
-#include <net/ip.h>
-#include <net/ipv6.h>
-#include <net/tcp.h>
-#include <net/tcp_states.h>
-#include <asm/uaccess.h>
-#include <asm/ioctls.h>
-#include <trace/events/skb.h>
-
-#include <linux/module.h>
-#include <linux/types.h>
-#include <linux/uio.h>
-#include <linux/unistd.h>
-#include <linux/init.h>
-
-
-#include <linux/sunrpc/types.h>
-#include <linux/sunrpc/clnt.h>
-#include <linux/sunrpc/xdr.h>
-#include <linux/sunrpc/msg_prot.h>
-#include <linux/sunrpc/svcsock.h>
-#include <linux/sunrpc/stats.h>
-#include <linux/sunrpc/xprt.h>
-//#include "sunrpc.h"//
-#include <linux/sunrpc/xprt.h>
-//#include "netns.h"//
-
-#define BUF_SIZE 500
-typedef int (*FPTR)(void *args);
-
-static int virgocloudexec_mempool_create(void);
-static int virgocloudexec_mempool_recvfrom(void);
-static int virgocloudexec_mempool_sendto(void);
-
-static struct svc_xprt_ops virgo_ops = {
-	.xpo_create = virgocloudexec_mempool_create,
-	.xpo_recvfrom = virgocloudexec_mempool_recvfrom,
-	.xpo_sendto = virgocloudexec_mempool_sendto
-};
-
-static struct svc_xprt_class virgo_class = {
-	.xcl_name = "virgo",
-	.xcl_owner = THIS_MODULE,
-	.xcl_ops = &virgo_ops
-};
-
-
-
-struct task_struct *task;
-int (*mempoolFunction_ptr)(void*);
-char* mempoolFunction;
-int error;
-char buffer[BUF_SIZE];
-struct socket *sock;	
-struct sockaddr_in sin;
-int len=0;
-struct socket *clientsock;
-struct kvec iov;
-struct msghdr msg;
-int buflen=BUF_SIZE;
-int nr=0;
-int args=0;
-
-char** node_ip_addrs_in_cloud;
-int num_cloud_nodes;
-*/
-
 
 /*
 * The wrapper function that based on switch parameterIsExecutable (values 0,1,2) executes the binary or function data from virgo_malloc
@@ -305,11 +218,11 @@ void read_virgo_config()
 	 * - Ka.Shrinivaasan 10 July 2013
 	 *
 
-	node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("node_ip_addrs_in_cloud");
-	num_cloud_nodes=kallsyms_lookup_name("num_cloud_nodes");
+	virgomemorypooling_node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("virgomemorypooling_node_ip_addrs_in_cloud");
+	virgomemorypooling_num_cloud_nodes=kallsyms_lookup_name("virgomemorypooling_num_cloud_nodes");
 
 	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud config being read... \n");
-	printk(KERN_INFO "virgo kernel service: read_virgo_config(): num_cloud_nodes=%d #### node_ip_addrs_in_cloud=%s\n", num_cloud_nodes,node_ip_addrs_in_cloud);
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgomemorypooling_num_cloud_nodes=%d #### virgomemorypooling_node_ip_addrs_in_cloud=%s\n", virgomemorypooling_num_cloud_nodes,virgomemorypooling_node_ip_addrs_in_cloud);
 	*/
 
 	fs=get_fs();
@@ -324,8 +237,8 @@ void read_virgo_config()
 	for(k=0;k<256;k++)
 		buf[k]=0;
 
-	for(k=0; k < num_cloud_nodes; k++)	
-		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, node_ip_addrs_in_cloud[k]);
+	for(k=0; k < virgomemorypooling_num_cloud_nodes; k++)	
+		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, virgomemorypooling_node_ip_addrs_in_cloud[k]);
 
 	printk(KERN_INFO "read_virgo_config(): virgo_cloud config file being read \n");
 
@@ -334,12 +247,12 @@ void read_virgo_config()
 	{
 		/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
 		bytesread=vfs_read(f, buf, 256, &pos);
-		/*strcpy(node_ip_addrs_in_cloud[i],buf);*/
+		/*strcpy(virgomemorypooling_node_ip_addrs_in_cloud[i],buf);*/
 		printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : %s \n",buf);
 		/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);*/
 		pos=pos+bytesread;
 	}
-	/*num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
+	/*virgomemorypooling_num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
 	char* delim=",";
 	char* token=NULL;
 	char* bufdup=kstrdup(buf,GFP_KERNEL);
@@ -348,11 +261,11 @@ void read_virgo_config()
 	{
 		token=strsep(&bufdup, delim);	
 		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
-		node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
-		printk(KERN_INFO "tokenize_list_of_ip_addrs(): node_ip_addrs_in_cloud[%d] = %s\n",i,node_ip_addrs_in_cloud[i]);
+		virgomemorypooling_node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud[%d] = %s\n",i,virgomemorypooling_node_ip_addrs_in_cloud[i]);
 		i++;
 	}
-	num_cloud_nodes=i;
+	virgomemorypooling_num_cloud_nodes=i;
 	set_fs(fs);
 	filp_close(f,NULL);	
 }
@@ -371,7 +284,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 	{
 		token=strsep(&bufdup, delim);	
 		printk(KERN_INFO, "tokenize_list_of_ip_addrs(): %s\n",token);
-		/*strcpy(node_ip_addrs_in_cloud[i],  token);*/
+		/*strcpy(virgomemorypooling_node_ip_addrs_in_cloud[i],  token);*/
 		i++;
 	}
 	return i;

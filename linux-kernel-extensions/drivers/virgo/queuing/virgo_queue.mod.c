@@ -17,23 +17,21 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0x1b24d8b0, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0xabcda7ae, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0xce128e84, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x4febffce, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
 	{ 0x4c4fef19, __VMLINUX_SYMBOL_STR(kernel_stack) },
 	{ 0x43a53735, __VMLINUX_SYMBOL_STR(__alloc_workqueue_key) },
-	{ 0x333422b, __VMLINUX_SYMBOL_STR(filp_close) },
+	{ 0xd331fcb4, __VMLINUX_SYMBOL_STR(filp_close) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0xc5fdef94, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
-	{ 0x37c3e76, __VMLINUX_SYMBOL_STR(__gcov_merge_add) },
 	{ 0xe3fe0694, __VMLINUX_SYMBOL_STR(kingcobra_servicerequest_kernelspace) },
 	{ 0x86a4889a, __VMLINUX_SYMBOL_STR(kmalloc_order_trace) },
-	{ 0xdceb3072, __VMLINUX_SYMBOL_STR(__gcov_init) },
-	{ 0x133375cb, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0xa4c996c2, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
 	{ 0xb2d48a2e, __VMLINUX_SYMBOL_STR(queue_work_on) },
-	{ 0x6b7f0b64, __VMLINUX_SYMBOL_STR(filp_open) },
+	{ 0xbfc1f223, __VMLINUX_SYMBOL_STR(filp_open) },
 };
 
 static const char __module_depends[]

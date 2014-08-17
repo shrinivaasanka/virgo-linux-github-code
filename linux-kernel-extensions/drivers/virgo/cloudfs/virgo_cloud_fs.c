@@ -77,7 +77,7 @@ void* virgo_cloud_write(void* args)
 	struct virgo_fs_args* vmargs=parse_virgofs_command_userspace((char*)args);
 	int fd=atoi(vmargs->fs_args[0]);
 	printf("virgo_cloud_fs.c: virgo_cloud_write(): buf=%s\n",vmargs->fs_args[1]);
-	fd=open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cloudfs/virgofstest.txt",O_RDWR);
+	fd=open("/var/log/virgofstest.txt",O_RDWR);
 	write(fd,vmargs->fs_args[1],256);	
 	fsync(fd);
 	return NULL;
