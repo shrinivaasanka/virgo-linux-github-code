@@ -203,7 +203,7 @@ int kernel_space_func(void* args)
 	return 0;
 }
 
-void read_virgo_config()
+void virgomemorypooling_read_virgo_config()
 {
 	/* virgo_cloud.conf contains a string of comma separated list of IP addresses in the virgo cloud .Read and strsep() it. */
 
@@ -307,7 +307,7 @@ virgocloudexec_mempool_init(void)
 	printk(KERN_INFO "virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread\n");
 	
 	printk(KERN_INFO "virgocloudexec_mempool_init(): invoking read_virgo_config()\n");
-	read_virgo_config();
+	virgomemorypooling_read_virgo_config();
 
 	memset(&sin, 0, sizeof(struct sockaddr_in));
 	sin.sin_family=AF_INET;

@@ -171,7 +171,7 @@ struct file* file_stdout;
 
 void print_buffer(char*);
 int tokenize_list_of_ip_addrs(char* buf);
-void read_virgo_config();
+void virgofs_read_virgo_config();
 int kernel_space_func(void* args);
 char* strip_control_M(char*);
 
