@@ -55,7 +55,6 @@ mail to: ka.shrinivaasan@gmail.com
 
 #include <linux/random.h>
 
-#include <linux/virgo_config.h>
 /*
 #include "netns.h"
 */
@@ -68,15 +67,14 @@ struct hostport
 
 #define BUF_SIZE 3000
 
-/*
-extern int num_cloud_nodes;
+int virgocpupooling_num_cloud_nodes_client;
 
-extern char* node_ip_addrs_in_cloud[3000];
-*/
+char* virgocpupooling_node_ip_addrs_in_client[3000];
 
 
 char* get_host_from_cloud_Loadtrack();
 char* get_host_from_cloud_PRG();
+void virgocpupooling_read_virgo_config_client();
 
 struct hostport* get_least_loaded_hostport_from_cloud()
 {
@@ -126,18 +124,18 @@ char* get_host_from_cloud_PRG()
 	maps a pseudo random integer in range 0 to 2^32-1 to 0 to num_of_cloud_nodes 
 	- Ka.Shrinivaasan 12 July 2013
 
-	unsigned int rand_host_id = (num_cloud_nodes) * rand_int / (65536-1);
+	unsigned int rand_host_id = (virgocpupooling_num_cloud_nodes_client) * rand_int / (65536-1);
 	*/
 
 	/*
-	Instead of range mapping, rand_int (mod) num_cloud_nodes is also sufficient
+	Instead of range mapping, rand_int (mod) virgocpupooling_num_cloud_nodes_client is also sufficient
 	- Ka.Shrinivaasan 12 July 2013
 	*/
-	unsigned int rand_host_id = rand_int % num_cloud_nodes;
+	unsigned int rand_host_id = rand_int % virgocpupooling_num_cloud_nodes_client;
 
 	printk(KERN_INFO "get_host_from_cloud_PRG() - get_random_int() returned %u \n",rand_int);
-	printk(KERN_INFO "get_host_from_cloud_PRG() range mapping for %d cloud nodes(num_cloud_nodes) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",num_cloud_nodes,rand_host_id, node_ip_addrs_in_cloud[rand_host_id]);
-	return node_ip_addrs_in_cloud[rand_host_id];	
+	printk(KERN_INFO "get_host_from_cloud_PRG() range mapping for %d cloud nodes(virgocpupooling_num_cloud_nodes_client) returns random integer %d, host ip(nodes_ip_addrs_in_cloud): %s \n",virgocpupooling_num_cloud_nodes_client,rand_host_id, virgocpupooling_node_ip_addrs_in_client[rand_host_id]);
+	return virgocpupooling_node_ip_addrs_in_client[rand_host_id];	
 	
 }
 
@@ -169,7 +167,8 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	iov.iov_len=3000;	
 	strcpy(iov.iov_base, func_signature);
 	*/	
-	
+
+	virgocpupooling_read_virgo_config_client();	
 	int nr;
 	struct kvec iov;
 	/*
@@ -236,3 +235,92 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	
 	return len;
 }
+
+void virgocpupooling_read_virgo_config_client()
+{
+	/* virgo_client.conf contains a string of comma separated list of IP addresses in the virgo cloud .Read and strtok() it. */
+
+	loff_t bytesread=0;
+	loff_t pos=0;
+	mm_segment_t fs;
+
+	/*
+	 * It is redundant to use kallsyms_lookup for exported symbols for virgo cloud initialization. 
+	 * kallsyms_lookup is for non-exported symbols.
+	 * 
+	 * - Ka.Shrinivaasan 10 July 2013
+	 *
+
+	virgocpupooling_node_ip_addrs_in_client=(char**)kallsyms_lookup_name("virgocpupooling_node_ip_addrs_in_client");
+	virgocpupooling_num_cloud_nodes_client=kallsyms_lookup_name("virgocpupooling_num_cloud_nodes_client");
+
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_client.config being read... \n");
+	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgocpupooling_num_cloud_nodes_client=%d #### virgocpupooling_node_ip_addrs_in_client=%s\n", virgocpupooling_num_cloud_nodes_client,virgocpupooling_node_ip_addrs_in_client);
+	*/
+
+	fs=get_fs();
+	set_fs(get_ds());
+	struct file* f=NULL;
+	f=filp_open("/etc/virgo_client.conf", O_RDONLY, 0);
+
+	char buf[256];
+	int i=0;
+
+	int k=0;
+	for(k=0;k<256;k++)
+		buf[k]=0;
+
+	for(k=0; k < virgocpupooling_num_cloud_nodes_client; k++)	
+		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - %d: %s\n", k+1, virgocpupooling_node_ip_addrs_in_client[k]);
+
+	printk(KERN_INFO "read_virgo_config(): virgo_client.config file being read \n");
+
+
+	if(f !=NULL)
+	{
+		/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
+		bytesread=vfs_read(f, buf, 256, &pos);
+		/*strcpy(virgocpupooling_node_ip_addrs_in_client[i],buf);*/
+		printk(KERN_INFO "do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : %s \n",buf);
+		/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_client.config file line %d \n",i);*/
+		pos=pos+bytesread;
+	}
+	/*virgocpupooling_num_cloud_nodes_client=tokenize_list_of_ip_addrs(buf);*/
+	char* delim=",";
+	char* token=NULL;
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	while(bufdup != NULL)
+	{
+		token=strsep(&bufdup, delim);	
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
+		virgocpupooling_node_ip_addrs_in_client[i]=kstrdup(token,GFP_ATOMIC);
+		printk(KERN_INFO "tokenize_list_of_ip_addrs(): virgocpupooling_node_ip_addrs_in_client[%d] = %s\n",i,virgocpupooling_node_ip_addrs_in_client[i]);
+		i++;
+	}
+	virgocpupooling_num_cloud_nodes_client=i;
+	set_fs(fs);
+	filp_close(f,NULL);	
+}
+
+/* 
+Above tokenization made into a function - if needed can be used as multipurpose exported function
+int tokenize_list_of_ip_addrs(char* buf)
+{
+	char* delim=",";
+	char* token=NULL;
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO, "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	int i=0;
+	while(bufdup != NULL)
+	{
+		token=strsep(&bufdup, delim);	
+		printk(KERN_INFO, "tokenize_list_of_ip_addrs(): %s\n",token);
+		/strcpy(virgocpupooling_node_ip_addrs_in_client[i],  token);/
+		i++;
+	}
+	return i;
+}
+*/
+
+

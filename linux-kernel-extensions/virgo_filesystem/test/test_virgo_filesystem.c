@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 	char data_read[256];
 	syscall(361,vfsdesc,data_read,250,0);  /* read */
 	printf("test_virgo_filesystem.c: data_read = %s\n",data_read);
-	syscall(362,vfsdesc,"test_virgo_filesystem",50,30);/* write */
+	syscall(362,vfsdesc,"test_virgo_filesystem_17August2014",50,30);/* write */
 	syscall(360,vfsdesc); /* close */
 	return 0;
 }

@@ -1,9 +1,8 @@
 #
-# Makefile for Virgo virgo_clone() cloud client system call testcase
+# Makefile for VIRGO cpupooling syscalls testcase
 #
 
 all:
-	#g++ -g -I/home/kashrinivaasan/linux-3.7.8/include/uapi -I/home/kashrinivaasan/linux-3.7.8/arch/x86/include -I/home/kashrinivaasan/linux-3.7.8/include test_virgo_clone.c -o test_virgo_clone
-	g++ -g -I/usr/include test_virgo_clone.c -o test_virgo_clone
+	g++ -g -I/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/include -I/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-3.15.5/arch/x86/include/generated/uapi/asm test_virgo_clone.c -o test_virgo_clone
 clean:
 	rm test_virgo_clone
