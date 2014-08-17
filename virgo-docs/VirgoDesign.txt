@@ -542,6 +542,30 @@ Commits as on 29 July 2014
 ---------------------------
 All VIRGO drivers(cloudfs, queuing, cpupooling and memorypooling) have been built on 3.15.5 kernel with some Makefile changes for ccflags and paths
 
+--------------------------------------------------------------------------------------
+Commits as on 17 August 2014
+--------------------------------------------------------------------------------------
+VIRGO Kernel Modules and System Calls major rewrite for 3.15.5 kernel - 17 August 2014
+--------------------------------------------------------------------------------------
+1. VIRGO config files have been split into /etc/virgo_client.conf and /etc/virgo_cloud.conf to delink the cloud client and kernel service
+config parameters reading and to do away with oft occurring symbol lookup errors and multiple definition errors for num_cloud_nodes and
+node_ip_addrs_in_cloud - these errors are frequent in 3.15.5 kernel than 3.7.8 kernel. 
+
+2. Each VIRGO module and system call now reads the config file independent of others - there is a read_virgo_config_<module>_<client_or_service>() function variant for each driver and system call. Though at present smacks of a replicated code, in future the config reads for each component (system call or module) might vary significantly depending on necessities.
+
+3. New kernel module config has been added in drivers/virgo. This is for future prospective use as a config export driver that can
+be looked up by any other VIRGO module for config parameters.
+
+4. include/linux/virgo_config.h has the declarations for all the config variables declared within each of the VIRGO kernel modules.
+
+5. Config variables in each driver and system call have been named with prefix and suffix to differentiate the module and/or system call it serves.
+
+6. In geographically distributed cloud virgo_client.conf has to be in client nodes and virgo_cloud.conf has to be in cloud nodes. For VIRGO Queue - KingCobra REQUEST-REPLY peer-to-peer messaging system same node can have virgo_client.conf and virgo_cloud.conf.
+
+7. Above segregation largely simplifies the build process as each module and system call is independently built without need for a symbol to be exported from other module by pre-loading it.
+ 
+8. VIRGO File system driver and system calls have been tested with above changes and the virgo_open(),virgo_read() and virgo_write() calls work with much less crashes and freeze problems compared to 3.7.8 (some crashes in VIRGO FS syscalls in 3.7.8 where already reported kernel bugs which seem to have been fixed in 3.15.5). Today's kern.log test logs have been committed to repository.
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
