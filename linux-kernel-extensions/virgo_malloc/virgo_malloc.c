@@ -401,13 +401,13 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		if(sum_alloc_size + PER_NODE_MALLOC_CHUNK_SIZE <= size)
 		{
 			chunk_size=PER_NODE_MALLOC_CHUNK_SIZE;	
-			printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size=1000",size,sum_alloc_size);
+			printk(KERN_INFO "1. virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size=1000",size,sum_alloc_size);
 			strcpy(buf,"virgo_cloud_malloc(1000)");			
 		}
 		else
 		{
 			chunk_size=size-sum_alloc_size;
-			printk(KERN_INFO "virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size==%d",size,sum_alloc_size,chunk_size);
+			printk(KERN_INFO "2. virgo_malloc() syscall: size=%d, sum_alloc_size=%d, chunk_size==%d",size,sum_alloc_size,chunk_size);
 			/* This should not happen and should have broken earlier in the loop*/
 			if(chunk_size <= 0) 
 			{
@@ -418,11 +418,10 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 			char* chunk_size_str=int_to_str(chunk_size);
 			malloc_cmd=strcat(tempbuf,chunk_size_str);
 			malloc_cmd=strcat(tempbuf, ")");
-			strcpy(buf,tempbuf);
+			strcpy(buf,malloc_cmd);
 			printk(KERN_INFO "virgo_malloc() syscall: malloc_cmd=%s, buf=%s, tempbuf=%s",malloc_cmd,buf,tempbuf);
 		}
 
-		printk(KERN_INFO "virgo_malloc() syscall: buf=%s, malloc_cmd=%s\n",buf, malloc_cmd);
 
 	        iov.iov_base=buf;
 		iov.iov_len=strlen(buf);
