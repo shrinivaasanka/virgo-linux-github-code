@@ -217,7 +217,7 @@ int error;
 char buffer[BUF_SIZE];
 */
 
-static struct socket *sock;	
+struct socket *sock;	
 
 /*
 static struct sockaddr_in sin;
@@ -263,7 +263,7 @@ New boolean flag added for using VIRGO cloud mempool for KingCobra. If set to 1,
 in mempooling driver is invoked in kernelspace.
 */
 
-int use_as_kingcobra_service=1;
+int use_as_kingcobra_service=0;
 
 /*
 Following boolean flags have been added for various logical timestamp generation schemes to be prepended to the request header so that
