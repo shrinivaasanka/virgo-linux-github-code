@@ -316,7 +316,7 @@ virgocloudexec_mempool_init(void)
 
 	/*stack=kmalloc(65536, GFP_KERNEL);*/
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
-	printk(KERN_INFO "virgocloudexec_mempool_init(): sock_create() returns error code: %d\n",error);
+	printk(KERN_INFO "virgocloudexec_mempool_init(): sock_create() returns error code: %d, sock=%x\n",error,sock);
 
 	error = kernel_bind(sock, (struct sockaddr*)&sin, sizeof(struct sockaddr_in));
 	printk(KERN_INFO "virgocloudexec_mempool_init(): kernel_bind() returns error code: %d\n",error);
@@ -352,7 +352,10 @@ int virgocloudexec_mempool_create(void)
 	struct socket *clientsock;
 
 	clientsock=NULL;
+
+	printk(KERN_INFO "virgocloudexec_mempool_create(): before kernel_accept(); sock=%x ... \n", sock);	
 	error = kernel_accept(sock, &clientsock, 0);
+	printk(KERN_INFO "virgocloudexec_mempool_create(): after kernel_accept() : error = %d \n", error);
 	
 	/*
 	Blocking mode was working and kernel thread was listening and accepting connections without blocking the bootup till previous commit, 
@@ -367,9 +370,11 @@ int virgocloudexec_mempool_create(void)
 	again mysterious.
 
 	-Ka.Shrinivaasan  
-	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
 	*/
+
 	/*
+	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
+
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
 	printk(KERN_INFO "virgocloudexec_mempool_create(): kernel_accept() returns error code: %d\n",error);
