@@ -55,38 +55,23 @@ int main(int argc, char* argv[])
 
 	struct virgo_address* vaddr;
 	unsigned long virgo_unique_id;
+
 	/* virgo_malloc*/
 	syscall(355,1000,&virgo_unique_id,NULL,0,NULL);
 	vaddr=(struct virgo_address*)virgo_unique_id;
-	/*
-	printf("test_virgo_malloc: virgo_unique_id = %u \n", virgo_unique_id);
-	printf("test_virgo_malloc: VIRGO Address obtained by struct virgo_address*, vaddr = %p \n", vaddr);
-	fflush(stdout);	
-	*/
 
 	/* virgo_set */
 	char set_data[256];
-	strcpy(set_data,"test_virgo_malloc_data");
-	long set_ret=syscall(356,virgo_unique_id,set_data,NULL,0,NULL);
-	/*
-	printf("set_ret = %ld\n",set_ret);
-	fflush(stdout);	
-	*/
+	strcpy(set_data,"Happy Chennai Day");
+	long set_ret=syscall(356,virgo_unique_id,set_data);
 
 	/*virgo_get*/
 	char get_data[256];
-	long get_ret=syscall(357,virgo_unique_id,get_data,NULL,0,NULL);
-	/*
-	if(get_data)
-		printf("get_ret = %s\n",get_data);
-	fflush(stdout);	
-	*/
+	long get_ret=syscall(357,virgo_unique_id,get_data);
 
 	/*virgo_free*/
-	long free_ret=syscall(358,virgo_unique_id,NULL,0,NULL);
 	/*
-	printf("free_ret = %ld\n",free_ret);
-	fflush(stdout);	
+	long free_ret=syscall(358,virgo_unique_id);
 	*/
 	return 0;
 }
