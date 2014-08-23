@@ -566,6 +566,14 @@ be looked up by any other VIRGO module for config parameters.
  
 8. VIRGO File system driver and system calls have been tested with above changes and the virgo_open(),virgo_read() and virgo_write() calls work with much less crashes and freeze problems compared to 3.7.8 (some crashes in VIRGO FS syscalls in 3.7.8 where already reported kernel bugs which seem to have been fixed in 3.15.5). Today's kern.log test logs have been committed to repository.
 
+---------------------------------------------
+Committed as on 23 August 2014
+---------------------------------------------
+Commenting use_as_kingcobra_service if clauses temporarily as disabling also doesnot work and only commenting the block
+works for VIRGO syscall path. Quite weird as to how this relates to the problem. As this is a heisenbug further testing is
+difficult and sufficient testing has been done with logs committed to repository. Probably a runtime symbol lookup for kingcobra
+causes the freeze.
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
