@@ -27,7 +27,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 *****************************************************************************************/
 
-#include <linux/virgo_queue.h>
+/*#include <linux/virgo_queue.h>*/
 #include <linux/virgocloudexecsvc.h>
 #include <linux/virgo_config.h>
 #include <linux/string.h>
@@ -91,6 +91,7 @@ int clone_func(void* args)
 		int (*virgo_cloud_test_kernelspace)(void*);
 		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
 		*/
+		/*
 		if(use_as_kingcobra_service==1)
                 {
                         printk("clone_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",cloneFunction);
@@ -98,12 +99,13 @@ int clone_func(void* args)
 			vrq->data=kstrdup(cloneFunction,GFP_ATOMIC);	
 			vrq->next=NULL;
 			push_request(vrq);
-			/*
+			/
 			task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
 			woken_up_2=wake_up_process(task);
-			*/
+			/
                 }
 		else
+		*/
 		{
 			task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
 			woken_up_2=wake_up_process(task);
@@ -341,12 +343,10 @@ int virgocloudexec_create(void)
 	-Ka.Shrinivaasan  
 	error = kernel_accept(sock, &clientsock, O_NONBLOCK);
 	*/
-	/*
 	if(error==-EAGAIN)
 		printk(KERN_INFO "kernel_accept() returns -EAGAIN\n");
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() returns error code: %d\n",error);
 	printk(KERN_INFO "virgocloudexec_create(): kernel_accept() clientsock: %u\n",clientsock);
-	*/
 	return clientsock;
 }
 EXPORT_SYMBOL(virgocloudexec_create);
@@ -357,6 +357,7 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 	Multithreaded VIRGO Kernel Service
 	----------------------------------
 	*/
+	char* cloneFunction;
 	struct socket *clientsock=clsock;
 	struct kvec iov;
 	struct msghdr msg = { NULL, };
@@ -401,19 +402,26 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 			do kernel_sendmsg() with the results
 		*/
 		cloneFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
+		/*
 		if(use_as_kingcobra_service==1)
 		{
-			client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
-			struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
-			long ipaddr_int = ipaddr->sin_addr.s_addr;
-			/*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
-			sprintf(client_ip_str,"%x",ipaddr_int);
-			printk(KERN_INFO "virgocloudexec_recvfrom(): client_ip_str = %s\n",client_ip_str);
-			client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);	
-			printk(KERN_INFO "virgocloudexec_recvfrom(): client_ip_str with # appended = %s\n",client_ip_str);
-			cloneFunction = kstrdup(strcat(client_ip_str,cloneFunction),GFP_ATOMIC);
-			printk(KERN_INFO "virgocloudexec_recvfrom(): use_as_kingcobra_service=1, cloneFunction with prepended client ip=%s\n",cloneFunction);
+	                client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
+                        struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
+                        long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
+                        /inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);/
+                        sprintf(client_ip_str,"%x",ipaddr_int);
+                        printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): client_ip_str = %s\n",client_ip_str);
+                        client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);
+                        printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): client_ip_str with # appended = %s\n",client_ip_str);
+                        char* request_header=kmalloc(BUF_SIZE,GFP_ATOMIC);
+                        sprintf(request_header,"REQUEST#");
+                        request_header=kstrdup(strcat(request_header,client_ip_str),GFP_ATOMIC);
+                        char* logicaltimestamp=generate_logical_timestamp();
+                        request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_ATOMIC);
+                        cloneFunction = kstrdup(strcat(request_header,cloneFunction),GFP_ATOMIC);
+                        printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",cloneFunction);
 		}
+		*/
 		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
 		
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
@@ -423,13 +431,21 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 		printk(KERN_INFO "virgocloudexec_recvfrom(): cloneFunction : %s \n", cloneFunction);
 		/*cloneFunction_ptr = get_function_ptr_from_str(cloneFunction);*/
 		/*task=kthread_run(cloneFunction_ptr, (void*)args, "cloudclonethread");*/
+		args=(void*)cloneFunction;
+
+		/* 
+			Invoking clone_func() directly instead of a kernel thread as clone_func() itself
+			spawns a kernel thread 
+		*/
+		clone_func(cloneFunction);
+
+		/*
 		task=kthread_create(clone_func, (void*)args, "clone_func thread");
 		int woken_up=wake_up_process(task);
 		printk(KERN_INFO "virgocloudexec_recvfrom(): clone thread woken_up : %d\n",woken_up);
-		/*
 		task=kthread_create(clone_func, (void*)args, "cloudclonethread");
-		strcpy(buffer,"cloudclonethread executed");
 		*/
+		strcpy(buffer,"cloudclonethread executed");
 	}
 	return 0;
 }
@@ -570,6 +586,29 @@ virgocloudexec_exit(void)
 	do_exit(1);
 }
 EXPORT_SYMBOL(virgocloudexec_exit);
+
+char* generate_logical_timestamp(void)
+{
+        char* logicaltimestamp=NULL;
+        if(EventNet_timestamp==1)
+        {
+                return "notimplemented#";
+        }
+        else if(machine_timestamp==1)
+        {
+                logicaltimestamp=kmalloc(BUF_SIZE, GFP_KERNEL);
+                /* generates a hash terminated timestamp string*/
+                sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);
+                printk(KERN_INFO "generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as %s",logicaltimestamp);
+                return logicaltimestamp;
+
+        }
+        else if(other_timestamp_cloudservice==1)
+        {
+                return "notimplemented#";
+        }
+}
+
 
 
 MODULE_LICENSE("GPL");

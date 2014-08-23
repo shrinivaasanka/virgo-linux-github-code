@@ -19,8 +19,10 @@ __used
 __attribute__((section("__versions"))) = {
 	{ 0xce128e84, __VMLINUX_SYMBOL_STR(module_layout) },
 	{ 0x4febffce, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0x405c1144, __VMLINUX_SYMBOL_STR(get_seconds) },
 	{ 0x4c4fef19, __VMLINUX_SYMBOL_STR(kernel_stack) },
 	{ 0x11ff7079, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
+	{ 0x34184afe, __VMLINUX_SYMBOL_STR(current_kernel_time) },
 	{ 0xafc5ef70, __VMLINUX_SYMBOL_STR(sock_release) },
 	{ 0xd331fcb4, __VMLINUX_SYMBOL_STR(filp_close) },
 	{ 0xc799b2af, __VMLINUX_SYMBOL_STR(sock_create_kern) },
@@ -35,9 +37,6 @@ __attribute__((section("__versions"))) = {
 	{ 0xe70b5938, __VMLINUX_SYMBOL_STR(kernel_sock_shutdown) },
 	{ 0xc5fdef94, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
-	{ 0x81c90249, __VMLINUX_SYMBOL_STR(push_request) },
-	{ 0x61651be, __VMLINUX_SYMBOL_STR(strcat) },
-	{ 0xe3fe0694, __VMLINUX_SYMBOL_STR(kingcobra_servicerequest_kernelspace) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0x27d5206a, __VMLINUX_SYMBOL_STR(wake_up_process) },
 	{ 0xa4c996c2, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
@@ -54,7 +53,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_queue,kingcobra_main_kernelspace,virgo_cloud_test_kernelspace";
+"depends=virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "5F39EAADFB0542439C999AB");
+MODULE_INFO(srcversion, "D425DF04F53467A25E1C559");
