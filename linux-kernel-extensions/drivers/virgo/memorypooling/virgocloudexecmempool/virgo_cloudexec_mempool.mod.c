@@ -41,10 +41,8 @@ __attribute__((section("__versions"))) = {
 	{ 0x6c2e3320, __VMLINUX_SYMBOL_STR(strncmp) },
 	{ 0xc5fdef94, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
-	{ 0x81c90249, __VMLINUX_SYMBOL_STR(push_request) },
 	{ 0x61651be, __VMLINUX_SYMBOL_STR(strcat) },
 	{ 0x2175cb1, __VMLINUX_SYMBOL_STR(virgo_cloud_free_kernelspace) },
-	{ 0xe3fe0694, __VMLINUX_SYMBOL_STR(kingcobra_servicerequest_kernelspace) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0x27d5206a, __VMLINUX_SYMBOL_STR(wake_up_process) },
 	{ 0xa4c996c2, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
@@ -60,7 +58,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_cloud_mempool_kernelspace,virgo_queue,kingcobra_main_kernelspace";
+"depends=virgo_cloud_mempool_kernelspace";
 
 
-MODULE_INFO(srcversion, "7BCB872965DA28283DB003F");
+MODULE_INFO(srcversion, "437B1D362465F08B36A0421");

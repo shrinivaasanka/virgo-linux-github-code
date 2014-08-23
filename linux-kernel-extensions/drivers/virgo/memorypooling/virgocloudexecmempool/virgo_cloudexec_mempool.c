@@ -27,7 +27,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 *****************************************************************************************/
 
-#include <linux/virgo_queue.h>
+/*#include <linux/virgo_queue.h>*/
 #include <linux/virgo_mempool.h>
 #include <linux/virgocloudexecmempoolsvc.h>
 #include <linux/virgo_config.h>
@@ -94,6 +94,7 @@ int mempool_func(void* args)
 
 	if (parameterIsExecutable==2)
 	{
+		/*
 		if(use_as_kingcobra_service==1)
                 {
                         printk("mempool_func(): VIRGO cloudexec mempool is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",mempoolFunction);
@@ -101,12 +102,13 @@ int mempool_func(void* args)
                         vrq->data=kstrdup(mempoolFunction,GFP_ATOMIC);
                         vrq->next=NULL;
                         push_request(vrq);
-                        /*
+                        /
                         task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
                         woken_up_2=wake_up_process(task);
-                        */
+                        /
                 }
 		else
+		*/
 		{
 			struct task_struct *task;
 			int woken_up_2=0;
@@ -441,12 +443,13 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
 		*/
 		mempoolFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
 		/*mempoolFunction[strlen(mempoolFunction)-2]='\0';*/
+		/*
 		if(use_as_kingcobra_service==1)
                 {
                         client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
                         struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
                         long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
-                        /*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
+                        /inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);/
                         sprintf(client_ip_str,"%x",ipaddr_int);
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): client_ip_str = %s\n",client_ip_str);
                         client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);
@@ -459,6 +462,7 @@ void* virgocloudexec_mempool_recvfrom(struct socket* clsock)
                         mempoolFunction = kstrdup(strcat(request_header,mempoolFunction),GFP_ATOMIC);
                         printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",mempoolFunction);
                 }
+		*/
 
 		
 		printk(KERN_INFO "virgocloudexec_mempool_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=%s, buffer: %s\n", iov.iov_base, buffer);
