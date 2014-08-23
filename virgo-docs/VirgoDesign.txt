@@ -573,6 +573,7 @@ Commenting use_as_kingcobra_service if clauses temporarily as disabling also doe
 works for VIRGO syscall path. Quite weird as to how this relates to the problem. As this is a heisenbug further testing is
 difficult and sufficient testing has been done with logs committed to repository. Probably a runtime symbol lookup for kingcobra
 causes the freeze.
+For forwarding messages to KingCobra and VIRGO queues, cpupooling driver is sufficient which also has the use_as_kingcobra_service clause.
 
 
 - Ka.Shrinivaasan
