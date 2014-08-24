@@ -187,7 +187,8 @@ void virgo_workqueue_handler(struct work_struct* w)
 	char* envp[5];
 	mm_segment_t fs;
 	struct virgo_workqueue_request *vwqrq=container_of(w, struct virgo_workqueue_request, work);
-	printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p, dequeueing enqueued vwqrq->data=%s",w,vwqrq->data);
+	if(vwqrq != NULL && w != NULL )
+		printk(KERN_INFO "virgo_workqueue_handler(): invoked for work_struct w=%p, dequeueing enqueued vwqrq->data=%s",w,vwqrq->data);
 
 	/*if(strncmp(vwqrq->data,"KingCobra:",10)==0)*/
 	if(use_for_kingcobra_messaging==1)
@@ -216,7 +217,8 @@ void virgo_workqueue_handler(struct work_struct* w)
 		else
 		{
 			printk(KERN_INFO "virgo_workqueue_handler(): kingcobra_in_userspace=0, before invoking kingcobra_servicerequest_kernelspace()\n");
-			kingcobra_servicerequest_kernelspace(vwqrq->data);
+			if(vwqrq != NULL)
+				kingcobra_servicerequest_kernelspace(vwqrq->data);
 			printk(KERN_INFO "virgo_workqueue_handler(): after invoking kingcobra_servicerequest_kernelspace()\n");
 		}
 	}

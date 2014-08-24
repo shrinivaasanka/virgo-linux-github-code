@@ -38,8 +38,8 @@ int queue_func(void* args)
 {
 	int ret=0;
 	char* queueFunction=(char*)args;
-	printk("queue_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
-        printk("queue_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",queueFunction);
+	printk(KERN_INFO "queue_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
+        printk(KERN_INFO "queue_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",queueFunction);
 	struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_KERNEL);
 	vrq->data=kstrdup(queueFunction,GFP_KERNEL);	
 	vrq->next=NULL;
@@ -78,8 +78,8 @@ void virgoqueue_read_virgo_config()
 	virgoqueue_node_ip_addrs_in_cloud=(char**)kallsyms_lookup_name("virgoqueue_node_ip_addrs_in_cloud");
 	virgoqueue_num_cloud_nodes=kallsyms_lookup_name("virgoqueue_num_cloud_nodes");
 
-	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgo_cloud config being read... \n");
-	printk(KERN_INFO "virgo kernel service: read_virgo_config(): virgoqueue_num_cloud_nodes=%d #### virgoqueue_node_ip_addrs_in_cloud=%s\n", virgoqueue_num_cloud_nodes,virgoqueue_node_ip_addrs_in_cloud);
+	printk(KERN_INFO "virgo kernel service: virgoqueue_read_virgo_config(): virgo_cloud config being read... \n");
+	printk(KERN_INFO "virgo kernel service: virgoqueue_read_virgo_config(): virgoqueue_num_cloud_nodes=%d #### virgoqueue_node_ip_addrs_in_cloud=%s\n", virgoqueue_num_cloud_nodes,virgoqueue_node_ip_addrs_in_cloud);
 	*/
 
 	fs=get_fs();
@@ -95,9 +95,9 @@ void virgoqueue_read_virgo_config()
 		buf[k]=0;
 
 	for(k=0; k < virgoqueue_num_cloud_nodes; k++)	
-		printk(KERN_INFO "virgo kernel service: read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, virgoqueue_node_ip_addrs_in_cloud[k]);
+		printk(KERN_INFO "virgo kernel service: virgoqueue_read_virgo_config(): before reading virgo_cloud.conf - virgo_cloud ip address - %d: %s\n", k+1, virgoqueue_node_ip_addrs_in_cloud[k]);
 
-	printk(KERN_INFO "read_virgo_config(): virgo_cloud config file being read \n");
+	printk(KERN_INFO "virgoqueue_read_virgo_config(): virgo_cloud config file being read \n");
 
 
 	if(f !=NULL)
@@ -105,21 +105,21 @@ void virgoqueue_read_virgo_config()
 		/*f->f_op->read(f, buf, sizeof(buf), &f->f_pos);*/
 		bytesread=vfs_read(f, buf, 256, &pos);
 		/*strcpy(virgoqueue_node_ip_addrs_in_cloud[i],buf);*/
-		printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : %s \n",buf);
-		/*printk(KERN_INFO "do_virgo_cloud_init(): virgo_cloud config file line %d \n",i);*/
+		printk(KERN_INFO " virgo_cloud config file string of comma separated IPs : %s \n",buf);
+		/*printk(KERN_INFO "virgo_cloud config file line %d \n",i);*/
 		pos=pos+bytesread;
 	}
 	/*virgoqueue_num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
 	char* delim=",";
 	char* token=NULL;
 	char* bufdup=kstrdup(buf,GFP_KERNEL);
-	printk(KERN_INFO "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
+	printk(KERN_INFO "bufdup = %s\n",bufdup);
 	while(bufdup != NULL)
 	{
-		token=kstrdup(strsep(&bufdup, delim),GFP_KERNEL);	
-		printk(KERN_INFO "tokenize_list_of_ip_addrs(): %s\n",token);
+		token=strsep(&bufdup, delim);
+		/*printk(KERN_INFO " %s\n",token);*/
 		virgoqueue_node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
-		printk(KERN_INFO "tokenize_list_of_ip_addrs(): virgoqueue_node_ip_addrs_in_cloud[%d] = %s\n",i,virgoqueue_node_ip_addrs_in_cloud[i]);
+		/*printk(KERN_INFO "virgoqueue_node_ip_addrs_in_cloud[%d] = %s\n",i,virgoqueue_node_ip_addrs_in_cloud[i]);*/
 		i++;
 	}
 	virgoqueue_num_cloud_nodes=i;
@@ -195,6 +195,13 @@ virgoqueue_init(void)
 
 	error = kernel_listen(sock, 2);
 	printk(KERN_INFO "virgoqueue_init(): kernel_listen() returns error code: %d\n", error);
+
+	/*
+	char *kcobrabuf=kmalloc(256, GFP_KERNEL);
+	strcpy(kcobrabuf,"virgoqueue_init() example initial message pushed to virgo queue which is popped by KingCobra\n");
+	queue_func((void*)kcobrabuf);
+	printk(KERN_INFO "virgoqueue_init(): example message pushed to virgo queue which is popped by KingCobra\n");
+	*/
 
 	virgoqueue_cloudexec_service(NULL);
 
@@ -285,14 +292,7 @@ int virgoqueue_recvfrom(struct socket* clsock)
 		/*msg.msg_flags=0;*/
 		msg.msg_flags=MSG_NOSIGNAL;
 
-		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
-		printk(KERN_INFO "virgoqueue_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
-		/*
-			parse the message and invoke kthread_create()
-			do kernel_sendmsg() with the results
-		*/
-		queueFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
-	        client_ip_str=kmalloc(BUF_SIZE,GFP_KERNEL);
+		client_ip_str=kmalloc(BUF_SIZE,GFP_KERNEL);
                 struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
                 long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
                 /*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
@@ -305,8 +305,19 @@ int virgoqueue_recvfrom(struct socket* clsock)
                 request_header=kstrdup(strcat(request_header,client_ip_str),GFP_KERNEL);
                 char* logicaltimestamp=generate_logical_timestamp();
                 request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_KERNEL);
+		printk(KERN_INFO "virgoqueue_recvfrom(): after appending logical timestamp, request_header=%s\n",request_header);
+
+		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
+
+		printk(KERN_INFO "virgoqueue_recvfrom(): kernel_recvmsg() returns len: %d\n",len);
+		/*
+			parse the message and invoke kthread_create()
+			do kernel_sendmsg() with the results
+		*/
+		queueFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
+
                 queueFunction = kstrdup(strcat(request_header,queueFunction),GFP_KERNEL);
-                printk(KERN_INFO "virgoqueue_cpupool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",queueFunction);
+                printk(KERN_INFO "virgoqueue_cpupool_recvfrom(): use_as_kingcobra_service=1, queueFunction with prepended request header and client ip=%s\n",queueFunction);
 		
 		printk(KERN_INFO "virgoqueue_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
 		print_buffer(buffer);
