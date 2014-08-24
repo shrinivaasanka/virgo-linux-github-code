@@ -36,6 +36,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #define VIRGO_QUEUE_SZ 10000
 
+#include <linux/socket.h>
 #include <linux/ioport.h>
 #include <linux/kobject.h>
 #include <linux/klist.h>
@@ -97,6 +98,35 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <linux/kingcobra.h>
 
+int virgoqueue_create(void);
+int virgoqueue_recvfrom(struct socket*);
+int virgoqueue_sendto(struct socket*);
+
+struct virgoqueue_ops_t {
+        int (*virgo_queue_create)(void);
+        int (*virgo_queue_recvfrom)(struct socket*);
+        int (*virgo_queue_sendto)(struct socket*);
+};
+
+static struct virgoqueue_ops_t virgoqueue_ops = {
+        .virgo_queue_create = virgoqueue_create,
+        .virgo_queue_recvfrom = virgoqueue_recvfrom,
+        .virgo_queue_sendto = virgoqueue_sendto,
+};
+
+struct virgoqueue_class_t {
+        const char* m_virgo_name;
+        struct module* m_virgo_owner;
+        struct virgoqueue_ops_t* m_virgoqueue_ops;
+};
+
+static struct virgoqueue_class_t virgoqueue_class = {
+        .m_virgo_name = "virgo queue",
+        .m_virgo_owner = THIS_MODULE,
+        .m_virgoqueue_ops = &virgoqueue_ops
+};
+
+
 struct virgo_request
 {
 	char* data;
@@ -144,6 +174,11 @@ static DECLARE_WORK(virgo_work, virgo_workqueue_handler);
 static struct workqueue_struct *virgo_kernel_wq=NULL;
 
 struct file* file_stdout;
+int virgoqueue_client_thread(void* args);
+
+
+int virgoqueue_num_cloud_nodes=0;
+char virgoqueue_node_ip_addrs_in_cloud[100];
 
 void virgo_workqueue_handler(struct work_struct* w)
 {
@@ -194,9 +229,5 @@ static int __init virgo_queue_init();
 void push_request(struct virgo_request* req);
 struct virgo_request* pop_request();
 static void __exit virgo_queue_exit();
-
-
-
-/*static struct virgo_workqueue_request vwqreq;*/
                                       
 #endif 
