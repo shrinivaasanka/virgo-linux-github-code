@@ -575,6 +575,17 @@ difficult and sufficient testing has been done with logs committed to repository
 causes the freeze.
 For forwarding messages to KingCobra and VIRGO queues, cpupooling driver is sufficient which also has the use_as_kingcobra_service clause.
 
+---------------------------------------------
+Committed as on 23 August 2014 and 24 August 2014
+---------------------------------------------
+As cpupooling driver has the same crash problem with kernel_accept() when KingCobra has benn enabled, KingCobra clauses have been commented in both cpupooling and memorypooling drivers. Instead queueing driver has been updated with a kernel service infrastructure to accept connections at port 60000. With this following paths are available for KingCobra requests:
+
+	VIRGO cpupooling or memorypooling ====> VIRGO Queue =====> KingCobra
+
+					(or)
+	VIRGO Queue kernel service ===========================> KingCobra
+
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
