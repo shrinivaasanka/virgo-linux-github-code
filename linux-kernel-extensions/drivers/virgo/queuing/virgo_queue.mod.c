@@ -33,6 +33,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x2339bde6, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0x5bbc998e, __VMLINUX_SYMBOL_STR(vfs_read) },
+	{ 0x6f00fa00, __VMLINUX_SYMBOL_STR(kernel_setsockopt) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0xe70b5938, __VMLINUX_SYMBOL_STR(kernel_sock_shutdown) },
@@ -59,4 +60,4 @@ __attribute__((section(".modinfo"))) =
 "depends=kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "640CC8EF0A5B1A5E5915CF8");
+MODULE_INFO(srcversion, "C76F5E54AB07D7E91704F28");

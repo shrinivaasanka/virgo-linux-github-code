@@ -47,12 +47,12 @@ int virgoqueue_cloudexec_service(void* args)
 		----------------------------------------
 		*/
 		
-		
 		struct task_struct *task;
 		void* args=clsock;
 		int woken_up=0;
+		printk(KERN_INFO "virgoqueue_cloudexec_service(): virgoqueue_ops.virgo_queue_create() returns %u \n",clsock);
 		printk(KERN_INFO "virgoqueue_cloudexec_service(): virgo client thread per request \n");
-                task=kthread_create(virgoqueue_client_thread, (void*)args, "virgo client thread per virgo_clone request");
+		task=kthread_create(virgoqueue_client_thread, args, "virgo client thread per virgo_clone request");
 		woken_up=wake_up_process(task);
 
 	}

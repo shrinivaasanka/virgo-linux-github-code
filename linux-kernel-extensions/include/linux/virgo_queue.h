@@ -213,6 +213,7 @@ void virgo_workqueue_handler(struct work_struct* w)
                		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/kingcobra_main", argv, envp, UMH_WAIT_EXEC);
 			printk(KERN_INFO "virgo_workqueue_handler(): after invoking call_usermodehelper() for KingCobra \n");
 			filp_close(file_stdout,NULL);
+			set_fs(fs);
 		}
 		else
 		{
@@ -227,9 +228,9 @@ void virgo_workqueue_handler(struct work_struct* w)
 
 struct virgo_request* virgo_request_queue;
 
-static int __init virgo_queue_init();
+static int __init virgoqueue_init();
 void push_request(struct virgo_request* req);
 struct virgo_request* pop_request();
-static void __exit virgo_queue_exit();
+static void __exit virgoqueue_exit();
                                       
 #endif 

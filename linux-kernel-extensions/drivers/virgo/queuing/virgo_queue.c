@@ -40,8 +40,8 @@ int queue_func(void* args)
 	char* queueFunction=(char*)args;
 	printk(KERN_INFO "queue_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
         printk(KERN_INFO "queue_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",queueFunction);
-	struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_KERNEL);
-	vrq->data=kstrdup(queueFunction,GFP_KERNEL);	
+	struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_ATOMIC);
+	vrq->data=kstrdup(queueFunction,GFP_ATOMIC);	
 	vrq->next=NULL;
 	push_request(vrq);
 	return 1;
@@ -49,7 +49,7 @@ int queue_func(void* args)
 
 char* strip_control_M(char* str)
 {
-	char* dupstr=kstrdup(str, GFP_KERNEL);
+	char* dupstr=kstrdup(str, GFP_ATOMIC);
 	char* newstr=strsep(&dupstr, "\r\n ");
 	return newstr;
 }
@@ -112,13 +112,13 @@ void virgoqueue_read_virgo_config()
 	/*virgoqueue_num_cloud_nodes=tokenize_list_of_ip_addrs(buf);*/
 	char* delim=",";
 	char* token=NULL;
-	char* bufdup=kstrdup(buf,GFP_KERNEL);
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
 	printk(KERN_INFO "bufdup = %s\n",bufdup);
 	while(bufdup != NULL)
 	{
 		token=strsep(&bufdup, delim);
 		/*printk(KERN_INFO " %s\n",token);*/
-		virgoqueue_node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_KERNEL);
+		virgoqueue_node_ip_addrs_in_cloud[i]=kstrdup(token,GFP_ATOMIC);
 		/*printk(KERN_INFO "virgoqueue_node_ip_addrs_in_cloud[%d] = %s\n",i,virgoqueue_node_ip_addrs_in_cloud[i]);*/
 		i++;
 	}
@@ -134,7 +134,7 @@ int tokenize_list_of_ip_addrs(char* buf)
 {
 	char* delim=",";
 	char* token=NULL;
-	char* bufdup=kstrdup(buf,GFP_KERNEL);
+	char* bufdup=kstrdup(buf,GFP_ATOMIC);
 	printk(KERN_INFO, "tokenize_list_of_ip_addrs(): bufdup = %s\n",bufdup);
 	int i=0;
 	while(bufdup != NULL)
@@ -158,7 +158,7 @@ static int __init
 virgoqueue_init(void)
 {
 	/* native queue initialization */
-	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_KERNEL);
+	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_ATOMIC);
 
 	/* Linux workqueue has to be differently queued-in and there need not be any explicit push and pop */
 	if(use_workqueue)
@@ -186,7 +186,7 @@ virgoqueue_init(void)
 	sin.sin_addr.s_addr=htonl(INADDR_ANY);
 	sin.sin_port=htons(60000);
 
-	/*stack=kmalloc(65536, GFP_KERNEL);*/
+	/*stack=kmalloc(65536, GFP_ATOMIC);*/
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgoqueue_init(): sock_create() returns error code: %d\n",error);
 
@@ -197,7 +197,7 @@ virgoqueue_init(void)
 	printk(KERN_INFO "virgoqueue_init(): kernel_listen() returns error code: %d\n", error);
 
 	/*
-	char *kcobrabuf=kmalloc(256, GFP_KERNEL);
+	char *kcobrabuf=kmalloc(256, GFP_ATOMIC);
 	strcpy(kcobrabuf,"virgoqueue_init() example initial message pushed to virgo queue which is popped by KingCobra\n");
 	queue_func((void*)kcobrabuf);
 	printk(KERN_INFO "virgoqueue_init(): example message pushed to virgo queue which is popped by KingCobra\n");
@@ -273,6 +273,7 @@ int virgoqueue_recvfrom(struct socket* clsock)
 	char buffer[BUF_SIZE];
 	char *client_ip_str;
 	int len=0;
+	int opt=1;
 
 	/*	
 		do kernel_recvmsg() to get the function data to be executed on a thread
@@ -283,29 +284,34 @@ int virgoqueue_recvfrom(struct socket* clsock)
 		memset(buffer, 0, sizeof(buffer));
 		iov.iov_base=(void*)buffer;
 		iov.iov_len=sizeof(buffer);	
+		/*
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 		msg.msg_iov = (struct iovec *) &iov;
 		msg.msg_iovlen = 1;
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
-		/*msg.msg_flags=0;*/
+		*/
 		msg.msg_flags=MSG_NOSIGNAL;
 
-		client_ip_str=kmalloc(BUF_SIZE,GFP_KERNEL);
+		client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
                 struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
                 long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
                 /*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
                 sprintf(client_ip_str,"%x",ipaddr_int);
                 printk(KERN_INFO "virgoqueue_cpupool_recvfrom(): client_ip_str = %s\n",client_ip_str);
-                client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_KERNEL);
+                client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);
                 printk(KERN_INFO "virgoqueue_cpupool_recvfrom(): client_ip_str with # appended = %s\n",client_ip_str);
-                char* request_header=kmalloc(BUF_SIZE,GFP_KERNEL);
+                char* request_header=kmalloc(BUF_SIZE,GFP_ATOMIC);
                 sprintf(request_header,"REQUEST#");
-                request_header=kstrdup(strcat(request_header,client_ip_str),GFP_KERNEL);
+                request_header=kstrdup(strcat(request_header,client_ip_str),GFP_ATOMIC);
                 char* logicaltimestamp=generate_logical_timestamp();
-                request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_KERNEL);
+                request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_ATOMIC);
 		printk(KERN_INFO "virgoqueue_recvfrom(): after appending logical timestamp, request_header=%s\n",request_header);
+		printk(KERN_INFO "virgoqueue_recvfrom(); clientsocket state = %d\n",clientsock->state);
+
+		kernel_setsockopt(clientsock, SOL_SOCKET, SO_REUSEADDR, (char*)&opt, sizeof(opt));
+		kernel_setsockopt(clientsock, SOL_TCP, TCP_NODELAY, (char*)opt, sizeof(opt));
 
 		len  = kernel_recvmsg(clientsock, &msg, &iov, 1, buflen, msg.msg_flags);
 
@@ -314,9 +320,9 @@ int virgoqueue_recvfrom(struct socket* clsock)
 			parse the message and invoke kthread_create()
 			do kernel_sendmsg() with the results
 		*/
-		queueFunction = strip_control_M(kstrdup(buffer,GFP_KERNEL));
+		queueFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
 
-                queueFunction = kstrdup(strcat(request_header,queueFunction),GFP_KERNEL);
+                queueFunction = kstrdup(strcat(request_header,queueFunction),GFP_ATOMIC);
                 printk(KERN_INFO "virgoqueue_cpupool_recvfrom(): use_as_kingcobra_service=1, queueFunction with prepended request header and client ip=%s\n",queueFunction);
 		
 		printk(KERN_INFO "virgoqueue_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);
@@ -436,7 +442,7 @@ int virgoqueue_sendto(struct socket* clsock)
 
 	   char* cloud_clone_port=60000;
 
-	   stack=kmalloc(65536, GFP_KERNEL);
+	   stack=kmalloc(65536, GFP_ATOMIC);
 	   iov.iov_base=(void*)buf;
 	   iov.iov_len=BUF_SIZE;	
            s = getaddrinfo(NULL, cloud_clone_port, &hints, &result);
@@ -454,7 +460,7 @@ int virgoqueue_sendto(struct socket* clsock)
            for (;;) {
 		nread  = kernel_recvmsg(clientsock, &msg, buflen, &iov, nr, msg.msg_flags);
 
-		char* queueFunction = kstrdup(iov.iov_base,GFP_KERNEL);
+		char* queueFunction = kstrdup(iov.iov_base,GFP_ATOMIC);
 
 		int ((*queueFunction_ptr)(void*));
 		queueFunction_ptr = get_function_ptr_from_str(queueFunction);
@@ -489,7 +495,7 @@ char* generate_logical_timestamp(void)
         }
         else if(machine_timestamp==1)
         {
-                logicaltimestamp=kmalloc(BUF_SIZE, GFP_KERNEL);
+                logicaltimestamp=kmalloc(BUF_SIZE, GFP_ATOMIC);
                 /* generates a hash terminated timestamp string*/
                 sprintf(logicaltimestamp,"%ld:%ld#",CURRENT_TIME,CURRENT_TIME_SEC);
                 printk(KERN_INFO "generate_logical_timestamp(): machine_timestamp=1, generating timestamp for this request as %s",logicaltimestamp);
@@ -516,15 +522,15 @@ void push_request(struct virgo_request* req)
 {
 	if(use_workqueue)
 	{
-		struct virgo_workqueue_request *vwqreq=kmalloc(sizeof(struct virgo_workqueue_request),GFP_KERNEL);
-		vwqreq->data=kstrdup(req->data,GFP_KERNEL);
+		struct virgo_workqueue_request *vwqreq=kmalloc(sizeof(struct virgo_workqueue_request),GFP_ATOMIC);
+		vwqreq->data=kstrdup(req->data,GFP_ATOMIC);
 		printk(KERN_INFO "push_request(): use_workqueue=1, enqueueing req in the kernel workqueue which will invoke handler, req->data = %s, vwqreq->work=%p, vwqreq->data = %s\n",req->data, &(vwqreq->work), vwqreq->data);
 		INIT_WORK(&(vwqreq->work),virgo_workqueue_handler);
 		queue_work(virgo_kernel_wq,&(vwqreq->work));
 	}
 	else
 	{
-		virgo_request_queue[queue_end].data=kstrdup(req->data,GFP_KERNEL);
+		virgo_request_queue[queue_end].data=kstrdup(req->data,GFP_ATOMIC);
 		virgo_request_queue[queue_end].next=req->next;
 		queue_end++;
 	}
