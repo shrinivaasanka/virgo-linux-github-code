@@ -585,6 +585,18 @@ As cpupooling driver has the same crash problem with kernel_accept() when KingCo
 					(or)
 	VIRGO Queue kernel service ===========================> KingCobra
 
+-----------------------------------------------
+Committed as on 26 August 2014
+-----------------------------------------------
+- all kmallocs have been made into GFP_ATOMIC instead of GFP_KERNEL
+- moved some kingcobra related header code before kernel_recvmsg()
+- some header file changes for set_fs()
+
+This code has been tested with modified code for KingCobra and the standalone
+kernel service that accepts requests from telnet directly at port 60000, pushes to virgo_queue
+and is handled to invoke KingCobra servicerequest kernelspace function, works
+(the kernel_recvmsg() crash was most probably due to Read-Only filesystem -errno printed is -30)
+
 
 
 - Ka.Shrinivaasan
