@@ -74,13 +74,24 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 (python script in virgo-python-src/)
 
 ****************************************************************************************************
+VIRGO Linux components (as on 7 Spetember 2014)
+****************************************************************************************************
+1. VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
+2. VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
+3. VIRGO_open(), VIRGO_read(), VIRGO_write(), VIRGO_close() system calls and VIRGO cloud filesystem driverby which file IO in remote node can be done in kernelspace.(port: 50000)
+4. VIRGO config driver for configuration symbols export.
+5. VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
+
+Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary.
+
+****************************************************************************************************
 			VIRGO ToDo and NiceToHave Features (longterm with no deadline)
 ****************************************************************************************************
-1. More Sophisticated VIRGO config file and read_virgo_config() has to be invoked on syscall clients virgo_clone and virgo_malloc also. At present config is read by kernel module only which would work only on a single machine.
+(ONGOING)1. More Sophisticated VIRGO config file and read_virgo_config() has to be invoked on syscall clients virgo_clone and virgo_malloc also. At present config is read by kernel module only which would work only on a single machine. A separate config module kernel service has been added for future use while exporting kernel-wide configuration related symbols.
 
 2. Object Marshalling and Unmarshalling (Serialization) Features
 
-(DONE) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA). (There are random crashes in copy_to_user and copy_from_user in syscall path for VIRGO memory pooling commands that were investigated but turned out to be mystery)
+(DONE) 3. Virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls that virtualize the physical memory across all cloud nodes into a single logical memory behemoth (NUMA visavis UMA). (There are random crashes in copy_to_user and copy_from_user in syscall path for VIRGO memory pooling commands that were investigated but turned out to be mystery). These crashes have either been resolved or occur less in 3.15.5 kernel.
 Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-linux/code-0/210/tree/trunk/virgo-docs/VIRGO_Memory_Pooling_virgomalloc_initial_design_notes.pdf
 
 4. Integrated testing of Intermodule Kernel Space Execution with sophisticated drivers like video cards, audio cards,etc., and VIRGO cluster testing.
@@ -136,7 +147,7 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 
 28.(DONE) KERNELSPACE EXECUTION ACROSS CLOUD NODES which geographically distribute userspace and kernelspace execution creating 
 a logical abstraction for a cloudwide virtualized kernel:
-	
+
 	Remote Cloud Node Client
 	(virgo_clone(), virgo_malloc(),virgo_open() telnet and syscalls)
 		|
@@ -154,6 +165,8 @@ a logical abstraction for a cloudwide virtualized kernel:
 		|
 		|
  (Userspace)	|
+
+
 
 29. (DONE) VIRGO platform as on 5 May 2014 implements a minimum set of features and kernelsocket commands required for a cloud OS kernel: CPU virtualization(virgo_clone), Memory virtualization(virgo_malloc,virgo_get,virgo_set,virgo_free) and a distributed cloud file system(virgo_open,virgo_close,virgo_read,virgo_write) on the cloud nodes and thus gives a logical view of one unified, distributed linux kernel across all cloud nodes that splits userspace and kernelspace execution across cloud as above.
 
