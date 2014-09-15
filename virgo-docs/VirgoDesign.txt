@@ -74,13 +74,14 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 (python script in virgo-python-src/)
 
 ****************************************************************************************************
-VIRGO Linux components (as on 7 Spetember 2014)
+Implemented VIRGO Linux components (as on 15 September 2014)
 ****************************************************************************************************
 1. VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
 2. VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
 3. VIRGO_open(), VIRGO_read(), VIRGO_write(), VIRGO_close() system calls and VIRGO cloud filesystem driverby which file IO in remote node can be done in kernelspace.(port: 50000)
 4. VIRGO config driver for configuration symbols export.
 5. VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
+6. Testcases and testlogs for the above
 
 Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary.
 
@@ -114,7 +115,7 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 (DONE) 13. VIRGO memory pooling feature is also a distributed key-value store similar to other prominent key-store software like BigTable implementations, Dynamo, memory caching tools etc., but with a difference that VIRGO mempool is implemented as part of Linux Kernel itself thus circumventing userspace latencies. Due to Kernel space VIRGO mempool has an added power to store and retrieve key-value pair in hardware devices directly which otherwise is difficult in userspace implementations.
 
-14. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs.
+14. VIRGO memory pooling can be improved with disk persistence for in-memory key-value store using virgo_malloc(),virgo_set(),virgo_get() and virgo_free() calls. Probably this might be just a set of invocations of read and write ops in disk driver or using sysfs. Probably this could be redundant as the VIRGO filesystem primitives have been implemented that write to a remote host's filesystem in kernelspace. 
 
 15. Fault-tolerant features - Program Analysis and Verification features for user code that can find bugs statically.
 
