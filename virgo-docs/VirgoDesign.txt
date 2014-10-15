@@ -616,6 +616,10 @@ kernel service that accepts requests from telnet directly at port 60000, pushes 
 and is handled to invoke KingCobra servicerequest kernelspace function, works
 (the kernel_recvmsg() crash was most probably due to Read-Only filesystem -errno printed is -30)
 
+---------------------------------------------------------------
+VIRGO version 14.9.9 has been release tagged on 9 September 2014
+---------------------------------------------------------------
+
 
 
 - Ka.Shrinivaasan
