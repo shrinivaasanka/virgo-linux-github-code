@@ -1,7 +1,6 @@
 /***************************************************************************************
 VIRGO - Linux Kernel Extensions For Cloud 
 
-
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 3 of the License, or
@@ -15,15 +14,17 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
---------------------------------------------------------------------------------------------------
-Copyright (C): 
+-----------------------------------------------------------------------------------------------------------------------------------
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
 Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan, http://www.ohloh.net/accounts/ka_shrinivaasan
+Krishna iResearch Open Source Products Profiles: 
+http://sourceforge.net/users/ka_shrinivaasan, https://www.openhub.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
---------------------------------------------------------------------------------------------------
+ZODIAC DATASOFT: https://github.com/shrinivaasanka/ZodiacDatasoft
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, 
+kashrinivaasan@live.com
+-----------------------------------------------------------------------------------------------------------------------------------
+
 *****************************************************************************************/
 
 Goal of Virgo is to design a module extension with cloud capabilities with cpu and memory pooling i.e the user created threads get executed transparently across machines in the cloud(thus this in a way pools the CPU and memory resources on the cloud). Presently there seems to be no implementation with fine-grained support for thread execution on the cloud though there are coarse grained clustering and SunRPC implementations available.
@@ -76,11 +77,11 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 ****************************************************************************************************
 Implemented VIRGO Linux components (as on 15 September 2014)
 ****************************************************************************************************
-1. VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
-2. VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
-3. VIRGO_open(), VIRGO_read(), VIRGO_write(), VIRGO_close() system calls and VIRGO cloud filesystem driverby which file IO in remote node can be done in kernelspace.(port: 50000)
-4. VIRGO config driver for configuration symbols export.
-5. VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
+1. cpupooling virtualization - VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
+2. memorypooling virtualization - VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
+3. filesystem virtualization - VIRGO_open(), VIRGO_read(), VIRGO_write(), VIRGO_close() system calls and VIRGO cloud filesystem driver by which file IO in remote node can be done in kernelspace.(port: 50000)
+4. config - VIRGO config driver for configuration symbols export.
+5. queueing - VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
 6. Testcases and testlogs for the above
 
 Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary.
@@ -88,7 +89,7 @@ Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, 
 ****************************************************************************************************
 			VIRGO ToDo and NiceToHave Features (longterm with no deadline)
 ****************************************************************************************************
-(ONGOING)1. More Sophisticated VIRGO config file and read_virgo_config() has to be invoked on syscall clients virgo_clone and virgo_malloc also. At present config is read by kernel module only which would work only on a single machine. A separate config module kernel service has been added for future use while exporting kernel-wide configuration related symbols.
+(DONE-minimum config file support)1. More Sophisticated VIRGO config file and read_virgo_config() has to be invoked on syscall clients virgo_clone and virgo_malloc also. At present config is read by kernel module only which would work only on a single machine. A separate config module kernel service has been added for future use while exporting kernel-wide configuration related symbols.
 
 2. Object Marshalling and Unmarshalling (Serialization) Features
 
@@ -150,7 +151,7 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 a logical abstraction for a cloudwide virtualized kernel:
 
 	Remote Cloud Node Client
-	(virgo_clone(), virgo_malloc(),virgo_open() telnet and syscalls)
+	(cpupooling, memorypooling, cloudfs, queueing - telnet and syscalls clients)
 		|
 		|
  (Userspace)	|
