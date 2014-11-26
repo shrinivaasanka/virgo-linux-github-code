@@ -75,14 +75,15 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 (python script in virgo-python-src/)
 
 ****************************************************************************************************
-Implemented VIRGO Linux components (as on 15 September 2014)
+Implemented VIRGO Linux components (as on 26 November 2014)
 ****************************************************************************************************
 1. cpupooling virtualization - VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
 2. memorypooling virtualization - VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
 3. filesystem virtualization - VIRGO_open(), VIRGO_read(), VIRGO_write(), VIRGO_close() system calls and VIRGO cloud filesystem driver by which file IO in remote node can be done in kernelspace.(port: 50000)
 4. config - VIRGO config driver for configuration symbols export.
 5. queueing - VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
-6. Testcases and testlogs for the above
+6. cloudsync - kernel module for synchronization primitives (Bakery algorithm etc.,) with exported symbols that can be used in other VIRGO cloud modules for critical section lock() and unlock()
+7. Testcases and testlogs for the above
 
 Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary.
 
@@ -132,23 +133,25 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 20. Program Comprehension features as an add-on described in : https://sites.google.com/site/kuja27/PhDThesisProposal.pdf?attredirects=0
 
-21. (ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Bakery Algorithm, Termination Detection, Snapshots, Cache Coherency subsystem etc., Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
+21. (DONE) Bakery Algorithm implementation - cloudsync kernel module
 
-22. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
+22. (ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Termination Detection, Snapshots, Cache Coherency subsystem etc.,(as part of cloudsync driver module). Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
+
+23. Non-trivial,quite complex and time consuming, deeper implementation of virgo_malloc() is:
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
 USERSPACE: Do the above for sbrk() and brk() implementation. 
 
-23.(ONGOING) Cleanup the code and remove unnecessary comments.
+24.(ONGOING) Cleanup the code and remove unnecessary comments.
 
-24.(DONE) Documentation - This design document is also a documentation for commit notes and other build and debugging technical details. Doxygen html cross-reference documentation for AsFer, USBmd, VIRGO, KingCobra and Acadpdrafts has been created along with summed-up design document and committed to GitHub Repository at https://github.com/shrinivaasanka/Krishna_iResearch_DoxygenDocs
+25.(DONE) Documentation - This design document is also a documentation for commit notes and other build and debugging technical details. Doxygen html cross-reference documentation for AsFer, USBmd, VIRGO, KingCobra and Acadpdrafts has been created along with summed-up design document and committed to GitHub Repository at https://github.com/shrinivaasanka/Krishna_iResearch_DoxygenDocs
 
-25. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
+26. (DONE) Telnet path to virgo_cloud_malloc,virgo_cloud_set and virgo_cloud_get has been tested and working. This is similar to memcached but stores key-value in kernelspace (and hence has the ability to write to and retrieve from any device driver memory viz., cards, handheld devices).An optional todo is to write a script or userspace socket client that connects to VIRGO mempool driver for these commands.
 
-26. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
+27. Augment the Linux kernel workqueue implementation (http://lxr.free-electrons.com/source/kernel/workqueue.c) with disk persistence if feasible and doesn't break other subsystems - this might require additional persistence flags in work_struct and additional #ifdefs in most of the queue functions that write and read from the disk. Related to item 6 above.
 
-27.(DONE) VIRGO queue driver with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra and is invoked through VIRGO cpupooling and memorypooling drivers. (Schematic in http://sourceforge.net/p/kcobra/code-svn/HEAD/tree/KingCobraDesignNotes.txt and http://sourceforge.net/p/acadpdrafts/code/ci/master/tree/Krishna_iResearch_opensourceproducts_archdiagram.pdf)
+28.(DONE) VIRGO queue driver with native userspace queue and kernel workqueue-handler framework that is optionally used for KingCobra and is invoked through VIRGO cpupooling and memorypooling drivers. (Schematic in http://sourceforge.net/p/kcobra/code-svn/HEAD/tree/KingCobraDesignNotes.txt and http://sourceforge.net/p/acadpdrafts/code/ci/master/tree/Krishna_iResearch_opensourceproducts_archdiagram.pdf)
 
-28.(DONE) KERNELSPACE EXECUTION ACROSS CLOUD NODES which geographically distribute userspace and kernelspace execution creating 
+29.(DONE) KERNELSPACE EXECUTION ACROSS CLOUD NODES which geographically distribute userspace and kernelspace execution creating 
 a logical abstraction for a cloudwide virtualized kernel:
 
 	Remote Cloud Node Client
@@ -171,12 +174,13 @@ a logical abstraction for a cloudwide virtualized kernel:
 
 
 
-29. (DONE) VIRGO platform as on 5 May 2014 implements a minimum set of features and kernelsocket commands required for a cloud OS kernel: CPU virtualization(virgo_clone), Memory virtualization(virgo_malloc,virgo_get,virgo_set,virgo_free) and a distributed cloud file system(virgo_open,virgo_close,virgo_read,virgo_write) on the cloud nodes and thus gives a logical view of one unified, distributed linux kernel across all cloud nodes that splits userspace and kernelspace execution across cloud as above.
+30. (DONE) VIRGO platform as on 5 May 2014 implements a minimum set of features and kernelsocket commands required for a cloud OS kernel: CPU virtualization(virgo_clone), Memory virtualization(virgo_malloc,virgo_get,virgo_set,virgo_free) and a distributed cloud file system(virgo_open,virgo_close,virgo_read,virgo_write) on the cloud nodes and thus gives a logical view of one unified, distributed linux kernel across all cloud nodes that splits userspace and kernelspace execution across cloud as above.
 
-30. (DONE) VIRGO Queue standalone kernel service has been implemented in addition to paths in schematics above. VIRGO Queue listens on hardcoded port 60000 and enqueues the incoming requests to VIRGO queue which is serviced by KingCobra:
+31. (DONE) VIRGO Queue standalone kernel service has been implemented in addition to paths in schematics above. VIRGO Queue listens on hardcoded port 60000 and enqueues the incoming requests to VIRGO queue which is serviced by KingCobra:
 
 VIRGO Queue client(e.g telnet) ------> VIRGO Queue kernel service ---> Linux Workqueue handler ------> KingCobra
 
+32. Related to point 22 - Reuse EventNet cloudwide logical time infinite graph in AsFer in place of Logical clocks.
  
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
@@ -622,6 +626,10 @@ and is handled to invoke KingCobra servicerequest kernelspace function, works
 VIRGO version 14.9.9 has been release tagged on 9 September 2014
 ---------------------------------------------------------------
 
+--------------------------------------------------------
+Committed as on 26 November 2014
+--------------------------------------------------------
+New kernel module cloudsync has been added to repository under drivers/virgo that can be used for synchronization(lock() and unlock()) necessities in VIRGO cloud. Presently Bakery Algorithm has been implemented.
 
 
 - Ka.Shrinivaasan
