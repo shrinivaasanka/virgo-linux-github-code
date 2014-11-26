@@ -1,0 +1,10 @@
+#
+# VIRGO Kconfig file
+#
+config VIRGO_DEBUG
+	bool "VIRGO verbose debug messages"
+	help
+	  Say Y here if you want the VIRGO core & hub drivers to produce a bunch
+	  of debug messages to the system log. Select this if you are having a
+	  problem with VIRGO support and want to see more of what is going on.
+
