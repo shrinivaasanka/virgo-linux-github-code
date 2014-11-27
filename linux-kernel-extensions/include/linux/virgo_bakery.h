@@ -107,7 +107,7 @@ For cloud synchronization, above unique id can also be augmented with ip address
 
 
 /* Maximum number of concurrent threads that contend for critical section */
-#define MAX_CONCURRENT_THREADS 1000
+#define MAX_CONCURRENT_THREADS 1000 
 
 /* For each thread boolean flag array to indicate if in critical section or not */
 int in_critical_section[MAX_CONCURRENT_THREADS];
@@ -125,9 +125,11 @@ Locking has three phases of entering critical section:
 - Phase 1 : the unique token number is allotted for each thread and thread exits the Phase 1 of critical section
 - Phase 2 : Only threads with unique number enter the third phase and other threads spinwait in second phase. 
 - Phase 3 : Only thread with (thread_id, token[thread_id]) < (i, token[i]) for all threads i gets the critical section and others spinwait
+
+bakery_lock() has two parameters - thread id and flag for textbook version of one for loop (this causes a serious system freeze,not sure of the reason) or modified version in VIRGO Linux that has two for loops (which seems to work)
 */
 
-void bakery_lock(int thread_id)
+void bakery_lock(int thread_id, int oneforloop)
 {
 
 	/* Phase 1 */	
@@ -137,17 +139,35 @@ void bakery_lock(int thread_id)
 
 	/* Phase 2 */
 	int i;
-	for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
+	if(oneforloop)
 	{
-		while(in_critical_section[i] == 1)
-			;
+		/* one for loop - standard textbook version - this causes kernel freeze and panic more often */
+		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
+		{
+			while(in_critical_section[i] == 1)
+				;
+			/* Phase 3 - only thread id(s) with unique numbers */
+			while((token[thread_id] < token[i]) ||	(token[thread_id] == token[i] && thread_id > i))
+				;
+			printk(KERN_INFO "bakery_lock() - oneforloop: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
+		}
 	}
-	
-	/* Phase 3 - only thread id(s) with unique numbers */
-	for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
+	else
 	{
-		while((token[thread_id] < token[i]) ||	(token[thread_id] == token[i] && thread_id > i))
-			;
+		/* two for loops - VIRGO Linux version - this causes kernel freeze and panic sometimes */	
+		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
+		{
+			while(in_critical_section[i] == 1)
+				;
+		}
+	
+		/* Phase 3 - only thread id(s) with unique numbers */
+		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
+		{
+			while((token[thread_id] < token[i]) ||	(token[thread_id] == token[i] && thread_id > i))
+				;
+			printk(KERN_INFO "bakery_lock() - twoforloops: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
+		}
 	}
 }
 
@@ -155,6 +175,7 @@ void bakery_unlock(int thread_id)
 {
 	in_critical_section[thread_id]=0;
 	token[thread_id]=0;
+	printk(KERN_INFO "bakery_unlock(): thread %d exiting critical section, token for this thread %d", thread_id, token[thread_id]);
 }
 
 int maximum_of(int* token)
