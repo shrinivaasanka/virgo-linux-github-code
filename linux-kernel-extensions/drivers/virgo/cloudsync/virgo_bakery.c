@@ -76,7 +76,7 @@ int virgobakery_threadfunc(void* args)
 	int i;
 	for(i=0; i < 1000; i++)
 	{
-		bakery_lock(thread_id);
+		bakery_lock(thread_id, 0);
 		shared=thread_id*100;
 		printk(KERN_INFO "virgobakery_threadfunc(): shared = %d; kernel thread %d function \n", shared, thread_id);
 		bakery_unlock(thread_id);
