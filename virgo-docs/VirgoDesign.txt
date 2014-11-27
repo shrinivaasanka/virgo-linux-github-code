@@ -631,6 +631,11 @@ Committed as on 26 November 2014
 --------------------------------------------------------
 New kernel module cloudsync has been added to repository under drivers/virgo that can be used for synchronization(lock() and unlock()) necessities in VIRGO cloud. Presently Bakery Algorithm has been implemented.
 
+--------------------------------------------------------
+Committed as on 27 November 2014
+--------------------------------------------------------
+virgo_bakery.h bakery_lock() has been modified to take 2 parameters - thread_id and number of for loops (1 or 2)
+
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
