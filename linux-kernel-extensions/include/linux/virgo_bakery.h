@@ -147,7 +147,7 @@ void bakery_lock(int thread_id, int oneforloop)
 			while(in_critical_section[i] == 1)
 				;
 			/* Phase 3 - only thread id(s) with unique numbers */
-			while((token[thread_id] < token[i]) ||	(token[thread_id] == token[i] && thread_id > i))
+			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
 				;
 			printk(KERN_INFO "bakery_lock() - oneforloop: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
 		}
@@ -164,7 +164,7 @@ void bakery_lock(int thread_id, int oneforloop)
 		/* Phase 3 - only thread id(s) with unique numbers */
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
-			while((token[thread_id] < token[i]) ||	(token[thread_id] == token[i] && thread_id > i))
+			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
 				;
 			printk(KERN_INFO "bakery_lock() - twoforloops: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
 		}
