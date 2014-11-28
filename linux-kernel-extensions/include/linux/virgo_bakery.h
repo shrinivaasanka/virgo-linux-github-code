@@ -107,7 +107,7 @@ For cloud synchronization, above unique id can also be augmented with ip address
 
 
 /* Maximum number of concurrent threads that contend for critical section */
-#define MAX_CONCURRENT_THREADS 1000 
+#define MAX_CONCURRENT_THREADS 2 
 
 /* For each thread boolean flag array to indicate if in critical section or not */
 int in_critical_section[MAX_CONCURRENT_THREADS];
@@ -152,7 +152,7 @@ void bakery_lock(int thread_id, int oneforloop)
 			they are chronologically more prioritizable to this thread. As other threads finish, their tokens are set to zero
 			and eventually this thread is in front of the queue and its token is smallest thus having biggest priority.
 			*/
-			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
+			while((token[i] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
 				;
 			printk(KERN_INFO "bakery_lock() - oneforloop: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
 		}
@@ -174,7 +174,7 @@ void bakery_lock(int thread_id, int oneforloop)
 		*/
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
-			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
+			while((token[i] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
 				;
 			printk(KERN_INFO "bakery_lock() - twoforloops: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
 		}

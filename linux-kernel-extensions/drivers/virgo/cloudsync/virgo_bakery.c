@@ -45,11 +45,18 @@ For cloud synchronization, above unique id can also be augmented with ip address
 static int __init
 virgobakery_init(void)
 {
-        printk(KERN_INFO "virgobakery_init(): initializing virgo config kernel module \n");
+        printk(KERN_INFO "virgobakery_init(): initializing virgo bakery kernel module datastructures \n");
         /*
         printk(KERN_INFO "virgobakery_init(): invoking read_virgo_config()\n");
         read_virgo_config();
         */
+
+	int i;
+	for(i=0; i < MAX_CONCURRENT_THREADS; i++)
+	{
+		in_critical_section[i]=0;
+		token[i]=0;
+	}
 
 	int* thread_id1=kmalloc(sizeof(int),GFP_ATOMIC);
 	int* thread_id2=kmalloc(sizeof(int),GFP_ATOMIC);
@@ -84,16 +91,14 @@ int virgobakery_threadfunc(void* args)
 		bakery_unlock(thread_id);
 	}
 
-	/*
 	for(i=0; i < 1000; i++)
 	{
-		/ one for loop in lock /
+		/* one for loop in lock */
 		bakery_lock(thread_id, 1);
 		shared=thread_id*100;
 		printk(KERN_INFO "virgobakery_threadfunc(): bakery_lock_oneforloop: shared = %d; kernel thread %d function \n", shared, thread_id);
 		bakery_unlock(thread_id);
 	}
-	*/
 
 	return 0;
 }
