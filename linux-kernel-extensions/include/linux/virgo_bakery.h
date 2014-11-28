@@ -141,12 +141,17 @@ void bakery_lock(int thread_id, int oneforloop)
 	int i;
 	if(oneforloop)
 	{
-		/* one for loop - standard textbook version - this causes kernel freeze and panic more often */
+		/* one for loop - standard textbook version - this causes kernel freeze - soft lockup errors - and panic more often */
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
 			while(in_critical_section[i] == 1)
 				;
 			/* Phase 3 - only thread id(s) with unique numbers */
+			/* 
+			All threads are queued and this thread spinwaits till all the other threads have smaller token numbers implying
+			they are chronologically more prioritizable to this thread. As other threads finish, their tokens are set to zero
+			and eventually this thread is in front of the queue and its token is smallest thus having biggest priority.
+			*/
 			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
 				;
 			printk(KERN_INFO "bakery_lock() - oneforloop: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
@@ -154,7 +159,7 @@ void bakery_lock(int thread_id, int oneforloop)
 	}
 	else
 	{
-		/* two for loops - VIRGO Linux version - this causes kernel freeze and panic sometimes */	
+		/* two for loops - VIRGO Linux version - this causes kernel freeze - soft lockup errors - and panic sometimes */	
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
 			while(in_critical_section[i] == 1)
@@ -162,6 +167,11 @@ void bakery_lock(int thread_id, int oneforloop)
 		}
 	
 		/* Phase 3 - only thread id(s) with unique numbers */
+		/* 
+		All threads are queued and this thread spinwaits till all the other threads have smaller token numbers implying
+		they are chronologically more prioritizable to this thread. As other threads finish, their tokens are set to zero
+		and eventually this thread is in front of the queue and its token is smallest thus having biggest priority.
+		*/
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
 			while((token[thread_id] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
