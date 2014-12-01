@@ -139,8 +139,8 @@ void bakery_lock(int thread_id, int oneforloop)
 	token=kzalloc(sizeof(int)*MAX_CONCURRENT_THREADS, GFP_ATOMIC);
 	in_critical_section[thread_id]=1;
 	token[thread_id] = 1 + maximum_of(token);
+	printk(KERN_INFO "bakery_lock(): phase 1, token[thread_id] = %d \n", token[thread_id]);
 	in_critical_section[thread_id]=0;
-	printk(KERN_INFO "bakery_lock(): phase 1 \n");
 
 	/* Phase 2 */
 	int i;
@@ -199,16 +199,16 @@ void bakery_unlock(int thread_id)
 	printk(KERN_INFO "bakery_unlock(): thread %d exiting critical section, token for this thread %d", thread_id, token[thread_id]);
 }
 
-int maximum_of(int* token)
+int maximum_of(int* t)
 {
 	int max=-1;
 	int i;
 	for(i=0; i < MAX_CONCURRENT_THREADS; i++)
 	{
-		if(token[i] > max)
+		if(t[i] > max)
 		{
-			printk(KERN_INFO "maximum_of(): token[i] = %d \n", token[i]);
-			max=token[i];	
+			printk(KERN_INFO "maximum_of(): token[i] = %d \n", t[i]);
+			max=t[i];	
 		}
 	}
 	printk(KERN_INFO "maximum_of(): token[i] = %d \n", max);
