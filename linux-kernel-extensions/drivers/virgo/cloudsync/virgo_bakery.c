@@ -55,7 +55,7 @@ virgobakery_init(void)
 	for(i=0; i < MAX_CONCURRENT_THREADS; i++)
 	{
 		in_critical_section[i]=0;
-		token[i]=0;
+		/*token[i]=0;*/
 	}
 
 	int* thread_id1=kmalloc(sizeof(int),GFP_ATOMIC);
@@ -66,40 +66,44 @@ virgobakery_init(void)
         int woken_up=0;
        
 	printk(KERN_INFO "virgobakery_init(): creating kernel thread 1\n");
-        task1=kthread_create(virgobakery_threadfunc, (void*)thread_id1, "virgo_bakery thread 1");
+        task1=kthread_create(virgobakery_threadfunc1, NULL, "virgo_bakery thread 1");
         woken_up=wake_up_process(task1);
        
 	*thread_id2=2;
 	printk(KERN_INFO "virgobakery_init(): creating kernel thread 2\n");
-        task2=kthread_create(virgobakery_threadfunc, (void*)thread_id2, "virgo_bakery thread 2");
+        task2=kthread_create(virgobakery_threadfunc2, NULL, "virgo_bakery thread 2");
         woken_up=wake_up_process(task2);
         return 0;
 }
 EXPORT_SYMBOL(virgobakery_init);
 
-int virgobakery_threadfunc(void* args)
+int virgobakery_threadfunc1(void* args)
 {
-	int thread_id=*((int*)args);
 	int i;
 	
 	for(i=0; i < 1000; i++)
 	{
-		/* two for loops in lock */
-		bakery_lock(thread_id, 0);
-		shared=thread_id*100;
-		printk(KERN_INFO "virgobakery_threadfunc(): bakery_lock_twoforloops: shared = %d; kernel thread %d function \n", shared, thread_id);
-		bakery_unlock(thread_id);
+		/* one for loop in lock */
+		bakery_lock(0, 1);
+		shared=100;
+		printk(KERN_INFO "virgobakery_threadfunc1(): bakery_lock_oneforloop: shared = %d; kernel thread %d function \n", shared, 0);
+		bakery_unlock(0);
 	}
+	return 0;
+}
+
+int virgobakery_threadfunc2(void* args)
+{
+	int i;
 
 	for(i=0; i < 1000; i++)
 	{
 		/* one for loop in lock */
-		bakery_lock(thread_id, 1);
-		shared=thread_id*100;
-		printk(KERN_INFO "virgobakery_threadfunc(): bakery_lock_oneforloop: shared = %d; kernel thread %d function \n", shared, thread_id);
-		bakery_unlock(thread_id);
+		bakery_lock(1, 1);
+		shared=200;
+		printk(KERN_INFO "virgobakery_threadfunc2(): bakery_lock_oneforloop: shared = %d; kernel thread %d function \n", shared, 1);
+		bakery_unlock(1);
 	}
-
 	return 0;
 }
 
