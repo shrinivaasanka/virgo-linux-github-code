@@ -113,11 +113,14 @@ For cloud synchronization, above unique id can also be augmented with ip address
 int in_critical_section[MAX_CONCURRENT_THREADS];
 
 /* Token Number assigned by the cloud node service for each client threads */
-int token[MAX_CONCURRENT_THREADS];
+int *token;
 
-int virgobakery_threadfunc(void* args);
+int virgobakery_threadfunc1(void* args);
+int virgobakery_threadfunc2(void* args);
 
 int shared=0;
+
+int maximum_of(int*);
 
 /* 
 Lock and Unlock - 0 <= thread_id < MAX_CONCURRENT_THREADS
@@ -133,9 +136,11 @@ void bakery_lock(int thread_id, int oneforloop)
 {
 
 	/* Phase 1 */	
+	token=kzalloc(sizeof(int)*MAX_CONCURRENT_THREADS, GFP_ATOMIC);
 	in_critical_section[thread_id]=1;
 	token[thread_id] = 1 + maximum_of(token);
 	in_critical_section[thread_id]=0;
+	printk(KERN_INFO "bakery_lock(): phase 1 \n");
 
 	/* Phase 2 */
 	int i;
@@ -144,6 +149,7 @@ void bakery_lock(int thread_id, int oneforloop)
 		/* one for loop - standard textbook version - this causes kernel freeze - soft lockup errors - and panic more often */
 		for(i=0 ; i < MAX_CONCURRENT_THREADS; i++)
 		{
+			printk(KERN_INFO "bakery_lock(): phase 2 \n");
 			while(in_critical_section[i] == 1)
 				;
 			/* Phase 3 - only thread id(s) with unique numbers */
@@ -152,8 +158,11 @@ void bakery_lock(int thread_id, int oneforloop)
 			they are chronologically more prioritizable to this thread. As other threads finish, their tokens are set to zero
 			and eventually this thread is in front of the queue and its token is smallest thus having biggest priority.
 			*/
-			while((token[i] != 0) && (token[thread_id] > token[i]) || (token[thread_id] == token[i] && thread_id > i))
-				;
+			printk(KERN_INFO "bakery_lock(): phase 3 \n");
+			while(token[i] != 0 && ((token[thread_id] > token[i]) || ((token[thread_id] == token[i]) && (thread_id > i))))
+			{
+				printk(KERN_INFO "bakery_lock(): Phase 3: spinwait ...... token[i] = %d, token[thread_id] = %d, i = %d, thread_id=%d\n", token[i], token[thread_id], i, thread_id);
+			}
 			printk(KERN_INFO "bakery_lock() - oneforloop: thread %d entering critical section, token for this thread %d \n", thread_id, token[thread_id]);
 		}
 	}
@@ -183,7 +192,9 @@ void bakery_lock(int thread_id, int oneforloop)
 
 void bakery_unlock(int thread_id)
 {
+	/*
 	in_critical_section[thread_id]=0;
+	*/
 	token[thread_id]=0;
 	printk(KERN_INFO "bakery_unlock(): thread %d exiting critical section, token for this thread %d", thread_id, token[thread_id]);
 }
@@ -195,8 +206,12 @@ int maximum_of(int* token)
 	for(i=0; i < MAX_CONCURRENT_THREADS; i++)
 	{
 		if(token[i] > max)
+		{
+			printk(KERN_INFO "maximum_of(): token[i] = %d \n", token[i]);
 			max=token[i];	
+		}
 	}
+	printk(KERN_INFO "maximum_of(): token[i] = %d \n", max);
 	return max;
 }
 
