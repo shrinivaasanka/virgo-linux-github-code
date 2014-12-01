@@ -81,7 +81,7 @@ int virgobakery_threadfunc1(void* args)
 {
 	int i;
 	
-	for(i=0; i < 1000; i++)
+	for(i=0; i < 10; i++)
 	{
 		/* one for loop in lock */
 		bakery_lock(0, 1);
@@ -96,7 +96,7 @@ int virgobakery_threadfunc2(void* args)
 {
 	int i;
 
-	for(i=0; i < 1000; i++)
+	for(i=0; i < 10; i++)
 	{
 		/* one for loop in lock */
 		bakery_lock(1, 1);
