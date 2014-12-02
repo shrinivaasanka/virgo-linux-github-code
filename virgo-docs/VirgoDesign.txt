@@ -636,6 +636,10 @@ Committed as on 27 November 2014
 --------------------------------------------------------
 virgo_bakery.h bakery_lock() has been modified to take 2 parameters - thread_id and number of for loops (1 or 2)
 
+--------------------------------------------------------
+Committed as on 2 December 2014
+--------------------------------------------------------
+VIRGO bakery algorithm implementation has been rewritten with some bugfixes. Sometimes there are soft lockup errors due to looping in kernel time durations for which are kernel build configurable.
 
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
