@@ -71,4 +71,7 @@ char* virgomemorypooling_node_ip_addrs_in_cloud[3000];
 int virgofs_num_cloud_nodes;
 char* virgofs_node_ip_addrs_in_cloud[3000];
 
+char* virgoeventnet_node_ip_addrs_in_cloud[3000];
+int virgoeventnet_num_cloud_nodes;
+
 #endif
