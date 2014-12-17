@@ -1,5 +1,7 @@
 VIRGO cpupooling driver --------     10000
 
+VIRGO EventNet driver ----------     20000
+
 VIRGO memorypooling driver -----     30000
 
 VIRGO filesystems driver -------     50000

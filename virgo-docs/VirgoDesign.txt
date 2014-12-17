@@ -641,6 +641,44 @@ Committed as on 2 December 2014
 --------------------------------------------------------
 VIRGO bakery algorithm implementation has been rewritten with some bugfixes. Sometimes there are soft lockup errors due to looping in kernel time durations for which are kernel build configurable.
 
+--------------------------------------------------------------------
+Committed as on 17 December 2014
+--------------------------------------------------------------------
+Initial code commits for VIRGO EventNet kernel module service:
+--------------------------------------------------------------
+1.EventNet Kernel Service listens on port 20000
+
+2.It receives eventnet log messages from VIRGO cloud nodes and writes the log messages 
+after parsing into two text files /var/log/eventnet/EventNetEdges.txt and 
+/var/log/eventnet/EventNetVertices.txt by VFS calls
+
+3.These text files can then be processed by the EventNet implementations in AsFer (python pygraph and 
+C++ boost::graph based)
+
+4.Two new directories virgo/utils and virgo/eventnet have been added.    
+
+5.virgo/eventnet has the new VIRGO EventNet kernel module service implementation that listens on 
+port 20000.
+
+6.virgo/utils is the new generic utilities driver that has a virgo_eventnet_log() 
+exported function which connects to EventNet kernel service and sends the vertex and edge eventnet
+log messages which are parsed by kernel service and written to the two text files above.
+
+7.EventNet log messages have two formats:
+   - Edge message - "eventnet_edgemsg#<id>#<from_event>#<to_event>"
+   - Vertex message - "eventnet_vertextmsg#<id>#<partakers csv>#<partaker conversations csv>"
+
+8.The utilities driver Module.symvers have to be copied to any driver which are 
+then merged with the symbol files of the corresponding driver. Target clean has to be commented while
+building the unified Module.symvers because it erases symvers carried over earlier.
+
+9.virgo/utils driver can be populated with all necessary utility exported functions that might be needed
+in other VIRGO drivers.
+
+10.Calls to virgo_eventnet_log() have to be #ifdef guarded as this is quite network intensive.
+
+
+
 - Ka.Shrinivaasan
 http://sites.google.com/site/kuja27
 
