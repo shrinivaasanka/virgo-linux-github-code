@@ -666,7 +666,7 @@ log messages which are parsed by kernel service and written to the two text file
 
 7.EventNet log messages have two formats:
    - Edge message - "eventnet_edgemsg#<id>#<from_event>#<to_event>"
-   - Vertex message - "eventnet_vertextmsg#<id>#<partakers csv>#<partaker conversations csv>"
+   - Vertex message - "eventnet_vertextmsg#<id>-<partakers csv>-<partaker conversations csv>"
 
 8.The utilities driver Module.symvers have to be copied to any driver which are 
 then merged with the symbol files of the corresponding driver. Target clean has to be commented while
@@ -676,6 +676,18 @@ building the unified Module.symvers because it erases symvers carried over earli
 in other VIRGO drivers.
 
 10.Calls to virgo_eventnet_log() have to be #ifdef guarded as this is quite network intensive.
+
+------------------------------------------------------------------
+Commits as on 18 December 2014
+------------------------------------------------------------------
+Miscellaneous bugfixes,logs and screenshot
+
+- virgo_cloudexec_eventnet.c - eventnet messages parser errors and eventnet_func bugs fixed
+- virgo_cloud_eventnet_kernelspace.c - filp_open() args updated due to vfs_write() kernel panics. The vertexmessage vfs_write is done after looping through the vertice textfile and appending the conversation to the existing vertex.Some more code has to be added.
+- VIRGO EventNet build script updated for copying Module.symvers from utils driver for merging with eventnet Module.symvers during Kbuild
+- Other build generated sources and kernel objects
+- new testlogs directory with screenshot for edgemsg sent to EventNet kernel service and kern.log with previous history for vfs_write() panics due to permissions and the logs for working filp_open() fixed version
+- vertex message update 
 
 
 
