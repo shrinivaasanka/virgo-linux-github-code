@@ -29,6 +29,7 @@
 
 #/bin/bash
 
-#make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+cp ../utils/Module.symvers .
 make -C /lib/modules/`uname -r`/build/ M=`pwd` 
 make -C /lib/modules/`uname -r`/build/ M=`pwd` modules_install

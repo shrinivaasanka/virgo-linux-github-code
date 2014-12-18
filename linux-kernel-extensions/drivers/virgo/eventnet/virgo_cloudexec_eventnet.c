@@ -42,7 +42,7 @@ extern void virgo_eventnet_log(char*);
 */
 
 
-int eventnet_func(void* args)
+char* eventnet_func(void* args)
 {
 	char buffer[BUF_SIZE];
 	int ret=0;
@@ -50,7 +50,6 @@ int eventnet_func(void* args)
 	char *envp[3];
 	char* eventnetFunction = (char*)args;
 	struct virgo_eventnet_args* vmargs=parse_virgoeventnet_command(kstrdup(eventnetFunction,GFP_KERNEL));
-	int virgo_eventnet_ret=1;
 
 	if (parameterIsExecutable==2)
 	{
@@ -59,9 +58,8 @@ int eventnet_func(void* args)
 		printk(KERN_INFO "eventnet_func(): creating kernel thread and waking up, parameterIsExecutable=%d\n", parameterIsExecutable);
 		printk(KERN_INFO "Creating Kernel Thread for %s in virgo_cloud_eventnet_kernelspace eventnet driver module ",vmargs->event_message_type);
 
-		virgo_eventnet_ret=toFuncPtr(kstrdup(strcat(kstrdup(vmargs->event_message_type,GFP_KERNEL),"_kernelspace"),GFP_KERNEL))(vmargs);
+		toFuncPtr(kstrdup(strcat(kstrdup(vmargs->event_message_type,GFP_KERNEL),"_kernelspace"),GFP_KERNEL))(vmargs);
 
-		printk(KERN_INFO "eventnet_func(): virgo eventnet kernelspace module returns value virgo_eventnet_ret=%p\n", (char*)virgo_eventnet_ret);
 		/*
 		woken_up_2=wake_up_process(task);
 		*/
@@ -112,7 +110,7 @@ int eventnet_func(void* args)
 		strcpy(buffer,"fs_func(): cloudclonethread executed for fs_func(), sending message to virgo_malloc() remote syscall client");
 		filp_close(file_stdout,NULL);
 	}
-	return virgo_eventnet_ret;
+	return "EventNet updated";
 }
 
 char* strip_control_M(char* str)
@@ -293,7 +291,7 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 	void* virgo_eventnet_func_ret;
 
 	/* example virgo eventnet_log */
-	virgo_eventnet_log("eventnet_edgemsg#1#2");
+	/*virgo_eventnet_log("eventnet_edgemsg#1#2#");*/
 
 	/*
 	Multithreaded VIRGO Kernel Service
@@ -436,8 +434,8 @@ EXPORT_SYMBOL(virgocloudexec_eventnet_exit);
 
 /*
 Arguments Parser for VIRGO EventNet logging messages from remote client:
-Edge message - "eventnet_edgemsg#<id>#<from_event>#<to_event>"
-Vertex message - "eventnet_vertextmsg#<id>#<partakers csv>#<partaker conversations csv>"
+Edge message - "eventnet_edgemsg#<eventid>#<from_event>#<to_event>"
+Vertex message - "eventnet_vertextmsg#<eventid>#<partakers csv>#<partaker conversations csv>"
 */
 
 struct virgo_eventnet_args* parse_virgoeventnet_command(char* eventnetFunction)
@@ -445,12 +443,12 @@ struct virgo_eventnet_args* parse_virgoeventnet_command(char* eventnetFunction)
 	struct virgo_eventnet_args* vmargs=kmalloc(sizeof(struct virgo_eventnet_args),GFP_KERNEL);
 	vmargs->event_message_type=kstrdup(strsep(&eventnetFunction, "#"),GFP_KERNEL);
         printk(KERN_INFO "parse_virgoeventnet_command: vmargs->event_message_type: %s\n", vmargs->event_message_type);
-	vmargs->event_id=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
-	printk(KERN_INFO "parse_virgoeventnet_command: vmargs->event_id: %s\n", vmargs->event_id);
 
 	if(strcmp(vmargs->event_message_type,"eventnet_vertexmsg")==0)
 	{
 		/* vertexmsg */
+		vmargs->event_id=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
+		printk(KERN_INFO "parse_virgoeventnet_command: vmargs->event_id: %s\n", vmargs->event_id);
 		vmargs->eventid_args[0]=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
         	printk(KERN_INFO "parse_virgoeventnet_command: vmargs->eventid_args[0]: %s\n", vmargs->eventid_args[0]);
 		vmargs->eventid_args[1]=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
@@ -463,8 +461,6 @@ struct virgo_eventnet_args* parse_virgoeventnet_command(char* eventnetFunction)
         	printk(KERN_INFO "parse_virgoeventnet_command: vmargs->eventid_args[0]: %s\n", vmargs->eventid_args[0]);
 		vmargs->eventid_args[1]=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
         	printk(KERN_INFO "parse_virgoeventnet_command: vmargs->eventid_args[1]: %s\n", vmargs->eventid_args[1]);
-		vmargs->eventid_args[2]=kstrdup(strsep(&eventnetFunction,"#"),GFP_KERNEL);
-        	printk(KERN_INFO "parse_virgoeventnet_command: vmargs->eventid_args[2]: %s\n", vmargs->eventid_args[2]);
 	}	
 	return vmargs;
 }

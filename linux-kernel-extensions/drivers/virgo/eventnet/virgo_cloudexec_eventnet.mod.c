@@ -27,7 +27,6 @@ __attribute__((section("__versions"))) = {
 	{ 0xc799b2af, __VMLINUX_SYMBOL_STR(sock_create_kern) },
 	{ 0x85df9b6c, __VMLINUX_SYMBOL_STR(strsep) },
 	{ 0x345e1ef, __VMLINUX_SYMBOL_STR(kernel_listen) },
-	{ 0x1ced2f04, __VMLINUX_SYMBOL_STR(virgo_eventnet_log) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x2339bde6, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0xe2d5255a, __VMLINUX_SYMBOL_STR(strcmp) },
@@ -53,7 +52,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_cloud_eventnet_kernelspace,virgo_generic_kernelsock_client";
+"depends=virgo_cloud_eventnet_kernelspace";
 
 
-MODULE_INFO(srcversion, "9FEBBD4F03A6FEFD1B0B94D");
+MODULE_INFO(srcversion, "C99A91C4B7FFDDB659394CD");

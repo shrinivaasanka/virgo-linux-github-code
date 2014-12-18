@@ -49,8 +49,8 @@ virgo_cloud_eventnet_kernelspace_init(void)
 	printk(KERN_INFO "virgo_cloud_eventnet_kernelspace_init(): doing init() of virgo cloud kernel space test module and opening EventNet vertices and edges files in kernelspace\n");
         fs=get_fs();
         set_fs(get_ds());
-        edgesf=filp_open("/var/log/eventnet/EventNetEdges.txt", O_RDWR|O_APPEND, 0);
-        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR|O_APPEND, 0);
+        edgesf=filp_open("/var/log/eventnet/EventNetEdges.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
+        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
 	if(IS_ERR(verticesf) || IS_ERR(edgesf))
 		printk(KERN_INFO "virgo_cloud_eventnet_kernelspace_init(): filp_open return value is error code : %p and %p", verticesf,edgesf);
 	set_fs(fs);
@@ -72,18 +72,25 @@ EXPORT_SYMBOL(virgo_cloud_eventnet_kernelspace_exit);
 
 void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args)
 {
+	loff_t readpos=0;
 	struct virgo_eventnet_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
-	sprintf(buf, "%s - %s - %s \n", vmargs->eventid_args[0],vmargs->eventid_args[1],vmargs->eventid_args[2]);
+	char *readbuf=kmalloc(sizeof(char)*100,GFP_KERNEL);
+	while(1)
+	{
+		vfs_read(verticesf, readbuf, 500, readpos); 
+		char* readbuf_dup=kstrdup(readbuf,GFP_KERNEL);
+		if(strcmp(kstrdup(strsep(readbuf_dup,"-"),GFP_KERNEL),vmargs->event_id)==0)
+			break;
+		readpos+=strlen(readbuf);
+	}
+	sprintf(buf, "%s#(%s,%s)\n", readbuf,vmargs->eventid_args[0],vmargs->eventid_args[1]);
         fs=get_fs();
         set_fs(get_ds());
-        vfs_write(verticesf, buf, sizeof(buf), &pos);
+        vfs_write(verticesf, buf, strlen(buf)+1, &readpos);
 	set_fs(fs);
-	pos+=sizeof(buf);
-	return buf;
 }
 EXPORT_SYMBOL(virgo_cloud_eventnet_vertexmsg_kernelspace);
-
 
 
 void virgo_cloud_eventnet_edgemsg_kernelspace(struct virgo_eventnet_args* args)
@@ -93,10 +100,9 @@ void virgo_cloud_eventnet_edgemsg_kernelspace(struct virgo_eventnet_args* args)
 	sprintf(buf, "%s,%s\n",vmargs->eventid_args[0],vmargs->eventid_args[1]);
         fs=get_fs();
         set_fs(get_ds());
-        vfs_write(edgesf, buf, sizeof(buf), &pos);
+        vfs_write(edgesf, buf, strlen(buf)+1, &pos);
 	set_fs(fs);
-	pos+=sizeof(buf);
-	return NULL;
+	pos+=strlen(buf);
 }
 EXPORT_SYMBOL(virgo_cloud_eventnet_edgemsg_kernelspace);
 
