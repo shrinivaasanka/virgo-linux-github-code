@@ -18,11 +18,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 --------------------------------------------------------------------------------------------------
 Copyright (C):
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
 Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Krishna iResearch Open Source Products Profiles: 
+http://sourceforge.net/users/ka_shrinivaasan, https://www.openhub.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
+ZODIAC DATASOFT: https://github.com/shrinivaasanka/ZodiacDatasoft
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, 
+kashrinivaasan@live.com
 --------------------------------------------------------------------------------------------------
 
 *****************************************************************************************/
@@ -73,6 +75,7 @@ EXPORT_SYMBOL(virgo_cloud_eventnet_kernelspace_exit);
 void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args)
 {
 	loff_t readpos=0;
+	int vertexexists=0;
 	struct virgo_eventnet_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
 	char *readbuf=kmalloc(sizeof(char)*100,GFP_KERNEL);
@@ -81,10 +84,25 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 		vfs_read(verticesf, readbuf, 500, readpos); 
 		char* readbuf_dup=kstrdup(readbuf,GFP_KERNEL);
 		if(strcmp(kstrdup(strsep(readbuf_dup,"-"),GFP_KERNEL),vmargs->event_id)==0)
+		{
+			vertexexists=1;
 			break;
+		}
 		readpos+=strlen(readbuf);
 	}
-	sprintf(buf, "%s#(%s,%s)\n", readbuf,vmargs->eventid_args[0],vmargs->eventid_args[1]);
+	char* event_id=kstrdup(strsep(readbuf,"#"),GFP_KERNEL);
+	char* partakers=kstrdup(strsep(readbuf,"#"),GFP_KERNEL);
+	char* conversations=kstrdup(readbuf,GFP_KERNEL); 
+
+	if(vertexexists)
+	{
+		sprintf(buf, "%s - %s,%s,%s - %s#(%s,%s)\n", event_id, partakers, vmargs->eventid_args[0],vmargs->eventid_args[1], conversations, vmargs->eventid_args[0], vmargs->eventid_args[1]);
+	}
+	else
+	{
+		sprintf(buf, "%s - %s,%s - (%s,%s)\n", readbuf,vmargs->eventid_args[0],vmargs->eventid_args[1]);
+	}
+		
         fs=get_fs();
         set_fs(get_ds());
         vfs_write(verticesf, buf, strlen(buf)+1, &readpos);
