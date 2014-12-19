@@ -78,10 +78,10 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 	int vertexexists=0;
 	struct virgo_eventnet_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
-	char *readbuf=kmalloc(sizeof(char)*100,GFP_KERNEL);
+	char *readbuf=kmalloc(sizeof(char)*500,GFP_KERNEL);
 	while(1)
 	{
-		vfs_read(verticesf, readbuf, 500, readpos); 
+		vfs_read(verticesf, readbuf, 500, &readpos); 
 		char* readbuf_dup=kstrdup(readbuf,GFP_KERNEL);
 		if(strcmp(kstrdup(strsep(readbuf_dup,"-"),GFP_KERNEL),vmargs->event_id)==0)
 		{
