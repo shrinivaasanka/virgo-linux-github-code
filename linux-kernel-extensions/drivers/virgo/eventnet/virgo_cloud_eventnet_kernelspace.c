@@ -51,8 +51,8 @@ virgo_cloud_eventnet_kernelspace_init(void)
 	printk(KERN_INFO "virgo_cloud_eventnet_kernelspace_init(): doing init() of virgo cloud kernel space test module and opening EventNet vertices and edges files in kernelspace\n");
         fs=get_fs();
         set_fs(get_ds());
-        edgesf=filp_open("/var/log/eventnet/EventNetEdges.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
-        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
+        edgesf=filp_open("/var/log/eventnet/EventNetEdges.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0777);
+        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0777);
 	if(IS_ERR(verticesf) || IS_ERR(edgesf))
 		printk(KERN_INFO "virgo_cloud_eventnet_kernelspace_init(): filp_open return value is error code : %p and %p", verticesf,edgesf);
 	set_fs(fs);
@@ -79,33 +79,53 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 	struct virgo_eventnet_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
 	char *readbuf=kmalloc(sizeof(char)*500,GFP_KERNEL);
+	int prevreadpos;
 	while(1)
 	{
+		prevreadpos=readpos;
 		vfs_read(verticesf, readbuf, 500, &readpos); 
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): readbuf = %s\n", readbuf);
 		char* readbuf_dup=kstrdup(readbuf,GFP_KERNEL);
-		if(strcmp(kstrdup(strsep(readbuf_dup,"-"),GFP_KERNEL),vmargs->event_id)==0)
+		char* strsep_eventid=kstrdup(strsep(&readbuf_dup,"-"), GFP_KERNEL);
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): vmargs->event_id = %s, strsep_eventid = %s\n", vmargs->event_id, strsep_eventid);
+		/*if((strsep_eventid != NULL) && (strcmp(strsep_eventid,vmargs->event_id)==0))*/
+		unsigned long long x1;
+		unsigned long long x2;
+
+		/*
+			strcmp() is sufficient but mysteriously fails, hence using virgo_parse_integer() with
+			bugfix done for VIRGO Linux Kernel.
+		*/
+		virgo_parse_integer(vmargs->event_id,10,&x1);
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): x1=%ld\n",x1);
+		virgo_parse_integer(strsep_eventid,10,&x2);
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): x2=%ld\n",x2);
+		if(x1==x2)
 		{
 			vertexexists=1;
 			break;
 		}
 		readpos+=strlen(readbuf);
 	}
-	char* event_id=kstrdup(strsep(readbuf,"#"),GFP_KERNEL);
-	char* partakers=kstrdup(strsep(readbuf,"#"),GFP_KERNEL);
+	char* event_id=kstrdup(strsep(&readbuf,"-"),GFP_KERNEL);
+	char* partakers=kstrdup(strsep(&readbuf,"-"),GFP_KERNEL);
 	char* conversations=kstrdup(readbuf,GFP_KERNEL); 
 
 	if(vertexexists)
 	{
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): vertex exists in kernel storage");
 		sprintf(buf, "%s - %s,%s,%s - %s#(%s,%s)\n", event_id, partakers, vmargs->eventid_args[0],vmargs->eventid_args[1], conversations, vmargs->eventid_args[0], vmargs->eventid_args[1]);
 	}
 	else
 	{
+		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): new vertex in kernel storage");
 		sprintf(buf, "%s - %s,%s - (%s,%s)\n", readbuf,vmargs->eventid_args[0],vmargs->eventid_args[1]);
 	}
 		
         fs=get_fs();
         set_fs(get_ds());
-        vfs_write(verticesf, buf, strlen(buf)+1, &readpos);
+	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): prevreadpos=%d, readpos=%d without subtraction for readbuf\n",prevreadpos, readpos);
+        vfs_write(verticesf, buf, strlen(buf)+1, &prevreadpos);
 	set_fs(fs);
 }
 EXPORT_SYMBOL(virgo_cloud_eventnet_vertexmsg_kernelspace);
