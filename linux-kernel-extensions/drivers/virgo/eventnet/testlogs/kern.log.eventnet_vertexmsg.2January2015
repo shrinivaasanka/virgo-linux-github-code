@@ -1,0 +1,29 @@
+ newline strsep
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611141] virgocloudexec_eventnet_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=, buffer: eventnet_vertexmsg#1#15#16#
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611141] 
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611146] parse_virgoeventnet_command: vmargs->event_message_type: eventnet_vertexmsg
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611149] parse_virgoeventnet_command: vmargs->event_id: 1
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611152] parse_virgoeventnet_command: vmargs->eventid_args[0]: 15
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611155] parse_virgoeventnet_command: vmargs->eventid_args[1]: 16
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611158] eventnet_func(): creating kernel thread and waking up, parameterIsExecutable=2
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.611161] Creating Kernel Thread for eventnet_vertexmsg in virgo_cloud_eventnet_kernelspace eventnet driver module 
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625284] virgo_cloud_eventnet_vertexmsg_kernelspace(): readbuf = 1 - 11,12 - (11,12)
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625284] ^Ab
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625294] virgo_cloud_eventnet_vertexmsg_kernelspace(): vmargs->event_id = 1, strsep_eventid = 1 
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625298] virgo_parse_integer(): *s=1, res=0
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625301] virgo_cloud_eventnet_vertexmsg_kernelspace(): x1=1
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625303] virgo_parse_integer(): *s=1, res=0
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625306] virgo_parse_integer(): *s= , res=1
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625308] virgo_cloud_eventnet_vertexmsg_kernelspace(): x2=1
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625315] virgo_cloud_eventnet_vertexmsg_kernelspace(): vertex exists in kernel storage
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625320] virgo_cloud_eventnet_vertexmsg_kernelspace(): prevreadpos=0, readpos=0 without subtraction for readbuf
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625361] virgo_cloud_eventnet_vertexmsg_kernelspace(): vfs_write() ret value = 41
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625365] virgo_eventnet_client_thread(): virgo_eventnet_ops.virgo_eventnet_sendto()
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625368] virgocloudexec_eventnet_sendto(): virgo_eventnet_ret=EventNet updated
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625371] virgocloudexec_eventnet_sendto(): data sent=EventNet updated
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625374] virgocloudexec_eventnet_sendto(): before kernel_sendmsg() for send buffer: EventNet updated
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625437] virgocloudexec_eventnet_sendto(): kernel_sendmsg() returns ret: 500
+Jan  2 14:43:15 shrinivaasanka-Inspiron-1545 kernel: [  113.625461] virgocloudexec_eventnet_sendto(): sock_release invoked on client socket 
+Jan  2 14:44:55 shrinivaasanka-Inspiron-1545 kernel: [  213.306631] EXT4-fs (sda5): mounting ext3 file system using the ext4 subsystem
+Jan  2 14:44:55 shrinivaasanka-Inspiron-1545 kernel: [  213.353138] EXT4-fs (sda5): warning: mounting fs with errors, running e2fsck is recommended
+
