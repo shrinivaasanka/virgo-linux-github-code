@@ -52,7 +52,7 @@ virgo_cloud_eventnet_kernelspace_init(void)
         fs=get_fs();
         set_fs(get_ds());
         edgesf=filp_open("/var/log/eventnet/EventNetEdges.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0777);
-        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0777);
+        verticesf=filp_open("/var/log/eventnet/EventNetVertices.txt", O_RDWR | O_CREAT | O_LARGEFILE , 0777);
 	if(IS_ERR(verticesf) || IS_ERR(edgesf))
 		printk(KERN_INFO "virgo_cloud_eventnet_kernelspace_init(): filp_open return value is error code : %p and %p", verticesf,edgesf);
 	set_fs(fs);
@@ -76,6 +76,8 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 {
 	loff_t readpos=0;
 	int vertexexists=0;
+        fs=get_fs();
+        set_fs(get_ds());
 	struct virgo_eventnet_args* vmargs=args;
 	char *buf=kmalloc(sizeof(char)*500,GFP_ATOMIC);
 	char *readbuf=kmalloc(sizeof(char)*500,GFP_ATOMIC);
@@ -122,11 +124,9 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 		sprintf(buf, "%s - %s,%s - (%s,%s)\n", readbuf,vmargs->eventid_args[0],vmargs->eventid_args[1]);
 	}
 		
-        fs=get_fs();
-        set_fs(get_ds());
 	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): prevreadpos=%d, readpos=%d without subtraction for readbuf\n",prevreadpos, readpos);
-        int ret = vfs_write(verticesf, buf, strlen(buf), &prevreadpos);
-	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): vfs_write() ret value = %d\n",ret);
+        int ret = vfs_write(verticesf, buf, strlen(buf)+1, &prevreadpos);
+	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): prevreadpos=%d, readpos=%d, vfs_write() ret value = %d\n",prevreadpos, readpos, ret);
 	set_fs(fs);
 }
 EXPORT_SYMBOL(virgo_cloud_eventnet_vertexmsg_kernelspace);
