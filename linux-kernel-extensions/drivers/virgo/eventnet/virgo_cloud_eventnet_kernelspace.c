@@ -77,16 +77,16 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 	loff_t readpos=0;
 	int vertexexists=0;
 	struct virgo_eventnet_args* vmargs=args;
-	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
-	char *readbuf=kmalloc(sizeof(char)*500,GFP_KERNEL);
-	int prevreadpos;
+	char *buf=kmalloc(sizeof(char)*500,GFP_ATOMIC);
+	char *readbuf=kmalloc(sizeof(char)*500,GFP_ATOMIC);
+	loff_t prevreadpos=0;
 	while(1)
 	{
 		prevreadpos=readpos;
 		vfs_read(verticesf, readbuf, 500, &readpos); 
 		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): readbuf = %s\n", readbuf);
-		char* readbuf_dup=kstrdup(readbuf,GFP_KERNEL);
-		char* strsep_eventid=kstrdup(strsep(&readbuf_dup,"-"), GFP_KERNEL);
+		char* readbuf_dup=kstrdup(readbuf,GFP_ATOMIC);
+		char* strsep_eventid=kstrdup(strsep(&readbuf_dup,"-"), GFP_ATOMIC);
 		printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): vmargs->event_id = %s, strsep_eventid = %s\n", vmargs->event_id, strsep_eventid);
 		/*if((strsep_eventid != NULL) && (strcmp(strsep_eventid,vmargs->event_id)==0))*/
 		unsigned long long x1;
@@ -107,9 +107,9 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
 		}
 		readpos+=strlen(readbuf);
 	}
-	char* event_id=kstrdup(strsep(&readbuf,"-"),GFP_KERNEL);
-	char* partakers=kstrdup(strsep(&readbuf,"-"),GFP_KERNEL);
-	char* conversations=kstrdup(readbuf,GFP_KERNEL); 
+	char* event_id=kstrdup(strsep(&readbuf,"-"),GFP_ATOMIC);
+	char* partakers=kstrdup(strsep(&readbuf,"-"),GFP_ATOMIC);
+	char* conversations=kstrdup(readbuf,GFP_ATOMIC); 
 
 	if(vertexexists)
 	{
@@ -125,7 +125,8 @@ void virgo_cloud_eventnet_vertexmsg_kernelspace(struct virgo_eventnet_args* args
         fs=get_fs();
         set_fs(get_ds());
 	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): prevreadpos=%d, readpos=%d without subtraction for readbuf\n",prevreadpos, readpos);
-        vfs_write(verticesf, buf, strlen(buf)+1, &prevreadpos);
+        int ret = vfs_write(verticesf, buf, strlen(buf), &prevreadpos);
+	printk(KERN_INFO "virgo_cloud_eventnet_vertexmsg_kernelspace(): vfs_write() ret value = %d\n",ret);
 	set_fs(fs);
 }
 EXPORT_SYMBOL(virgo_cloud_eventnet_vertexmsg_kernelspace);
@@ -134,7 +135,7 @@ EXPORT_SYMBOL(virgo_cloud_eventnet_vertexmsg_kernelspace);
 void virgo_cloud_eventnet_edgemsg_kernelspace(struct virgo_eventnet_args* args)
 {
 	struct virgo_eventnet_args* vmargs=args;
-	char *buf=kmalloc(sizeof(char)*500,GFP_KERNEL);
+	char *buf=kmalloc(sizeof(char)*500,GFP_ATOMIC);
 	sprintf(buf, "%s,%s\n",vmargs->eventid_args[0],vmargs->eventid_args[1]);
         fs=get_fs();
         set_fs(get_ds());
@@ -207,7 +208,7 @@ unsigned int virgo_parse_integer(const char *s, unsigned int base, unsigned long
 
 char* toVFSString(int* data)
 {
-        char* VFSString=kmalloc(BUF_SIZE, GFP_KERNEL);
+        char* VFSString=kmalloc(BUF_SIZE, GFP_ATOMIC);
         sprintf(VFSString,"%d",*data);
         printk(KERN_INFO "toVFSString(): VFSString=%s\n", VFSString);
         return VFSString;
