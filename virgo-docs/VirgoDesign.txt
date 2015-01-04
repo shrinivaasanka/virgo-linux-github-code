@@ -83,7 +83,9 @@ Implemented VIRGO Linux components (as on 26 November 2014)
 4. config - VIRGO config driver for configuration symbols export.
 5. queueing - VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
 6. cloudsync - kernel module for synchronization primitives (Bakery algorithm etc.,) with exported symbols that can be used in other VIRGO cloud modules for critical section lock() and unlock()
-7. Testcases and testlogs for the above
+7. utils - utility driver that exports miscellaneous kernel functions that can be used across VIRGO Linux kernel
+8. EventNet - eventnet kernel driver to vfs_read()/vfs_write() text files for vertex and edge messages (port: 20000)
+9. Testcases and kern.log testlogs for the above
 
 Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary.
 
@@ -180,7 +182,10 @@ a logical abstraction for a cloudwide virtualized kernel:
 
 VIRGO Queue client(e.g telnet) ------> VIRGO Queue kernel service ---> Linux Workqueue handler ------> KingCobra
 
-32. Related to point 22 - Reuse EventNet cloudwide logical time infinite graph in AsFer in place of Logical clocks.
+32. (DONE) EventNet kernel module service:
+VIRGO eventnet client (telnet) -------> VIRGO EventNet kernel service -----> EventNet graph text files
+
+33. (DONE) Related to point 22 - Reuse EventNet cloudwide logical time infinite graph in AsFer in place of Logical clocks. At present the eventnet driver listens on port 20000 and writes the edges and vertices files in kernel using vfs_read()/vfs_write(). These text files can then be read by the AsFer code to generate DOT files and visualize the graph with graphviz.
  
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
@@ -689,6 +694,11 @@ Miscellaneous bugfixes,logs and screenshot
 - new testlogs directory with screenshot for edgemsg sent to EventNet kernel service and kern.log with previous history for vfs_write() panics due to permissions and the logs for working filp_open() fixed version
 - vertex message update 
 
+------------------------------------------------------------------
+Commits as on 2,3,4 January 2015
+------------------------------------------------------------------
+- fixes for virgo eventnet vertex and edge message text file vfs_write() errors
+- kern.logs and screenshots
 
 
 - Ka.Shrinivaasan
