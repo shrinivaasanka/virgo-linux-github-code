@@ -75,7 +75,7 @@ would distribute requests evenly. This obviates the need for loadtracking and co
 (python script in virgo-python-src/)
 
 ****************************************************************************************************
-Implemented VIRGO Linux components (as on 26 November 2014)
+Implemented VIRGO Linux components (as on 4 January 2015)
 ****************************************************************************************************
 1. cpupooling virtualization - VIRGO_clone() system call and VIRGO cpupooling driver by which a remote procedure can be invoked in kernelspace.(port: 10000)
 2. memorypooling virtualization - VIRGO_malloc(), VIRGO_get(), VIRGO_set(), VIRGO_free() system calls and VIRGO memorypooling driver by which kernel memory can be allocated in remote node, written to, read and freed - A kernelspace memcache-ing.(port: 30000)
@@ -157,7 +157,7 @@ USERSPACE: Do the above for sbrk() and brk() implementation.
 a logical abstraction for a cloudwide virtualized kernel:
 
 	Remote Cloud Node Client
-	(cpupooling, memorypooling, cloudfs, queueing - telnet and syscalls clients)
+	(cpupooling, eventnet, memorypooling, cloudfs, queueing - telnet and syscalls clients)
 		|
 		|
  (Userspace)	|
@@ -701,7 +701,7 @@ Commits as on 2,3,4 January 2015
 - kern.logs and screenshots
 
 
-- Ka.Shrinivaasan
+Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
 
 
