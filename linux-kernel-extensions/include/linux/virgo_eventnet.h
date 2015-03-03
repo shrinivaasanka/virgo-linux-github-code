@@ -202,5 +202,5 @@ struct file* open_VFS_files[256];
 char* toVFSString(int* data);
 
 
-#endif 
+#endif /* _VIRGO_EVENTNET_H_ */
 
