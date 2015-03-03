@@ -1,3 +1,4 @@
+kernel_analytics
 config
 utils
 virgo_queueing
