@@ -4,6 +4,7 @@
 # at boot time, one per line. Lines beginning with "#" are ignored.
 
 lp
+virgo_kernel_analytics
 virgo_cloud_fs_kernelspace
 virgo_cloudexec_fs
 virgo_cloud_mempool_kernelspace
@@ -11,5 +12,5 @@ virgo_cloudexec_mempool
 umb
 kingcobra_main_kernelspace
 virgo_queue
-#virgo_cloudexec
-#virgo_cloud_test_kernelspace
+virgo_cloudexec
+virgo_cloud_test_kernelspace
