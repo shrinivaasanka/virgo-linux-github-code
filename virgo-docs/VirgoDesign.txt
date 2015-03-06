@@ -710,6 +710,12 @@ uploaded as a diagram at http://sourceforge.net/p/virgo-linux/code-0/HEAD/tree/t
 - virgo_kernel_analytics.conf having csv(s) of key-value pairs of analytics variables is set by AsFer or any other Machine Learning code.  With this VIRGO Linux Kernel is endowed with abilities to dynamically evolve than being just a platform for user code. Implications are huge - for example, a config variable "MaxNetworkBandwidth=255" set by the ML miner in userspace based on a Perceptron or Logistic Regression executed on network logs can be read by a kernel module that limits the network traffic to 255Mbps. Thus kernel dynamically changes behaviour. 
 - kernel_analytics Driver build script has been added
 
+--------------------------------------------------------------------------
+Commits as on 6 March 2015
+--------------------------------------------------------------------------
+- code has been added in VIRGO config module to import EXPORTed kernel_analytics config key-pair array
+set by Apache Spark (mined from Uncomplicated Fire Wall logs) and manually and write to kern.log.
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
