@@ -31,6 +31,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/string.h>
 #include <linux/kallsyms.h>
 
+
 /*
 Commented as of now so that each VIRGO module reads the config independently
 - Ka.Shrinivaasan 17August2014
@@ -135,6 +136,11 @@ virgoconfig_init(void)
 	printk(KERN_INFO "virgoconfig_init(): invoking read_virgo_config()\n");
 	read_virgo_config();
 	*/
+	int i=0;
+	for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgo_config_init() exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+        }
 
 	return 0;
 }
