@@ -74,4 +74,14 @@ char* virgofs_node_ip_addrs_in_cloud[3000];
 char* virgoeventnet_node_ip_addrs_in_cloud[3000];
 int virgoeventnet_num_cloud_nodes;
 
+#define MAX_ANALYTICS_CONF 500
+
+struct virgo_kernel_analytics_config
+{
+        char* key;
+        char* value;
+};
+
+extern struct virgo_kernel_analytics_config virgo_kernel_analytics_conf[MAX_ANALYTICS_CONF];
+
 #endif
