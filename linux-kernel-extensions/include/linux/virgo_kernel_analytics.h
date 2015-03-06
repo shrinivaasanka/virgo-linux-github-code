@@ -102,4 +102,6 @@ struct virgo_kernel_analytics_config
 struct virgo_kernel_analytics_config virgo_kernel_analytics_conf[MAX_ANALYTICS_CONF];
 void read_virgo_kernel_analytics_config();
 
+EXPORT_SYMBOL(virgo_kernel_analytics_conf);
+
 #endif /* _VIRGO_KERNEL_ANALYTICS_H_ */
