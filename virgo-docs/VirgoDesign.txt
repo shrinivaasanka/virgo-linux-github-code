@@ -27,7 +27,7 @@ kashrinivaasan@live.com
 
 *****************************************************************************************/
 
-Goal of Virgo is to design a module extension with cloud capabilities with cpu and memory pooling i.e the user created threads get executed transparently across machines in the cloud(thus this in a way pools the CPU and memory resources on the cloud). Presently there seems to be no implementation with fine-grained support for thread execution on the cloud though there are coarse grained clustering and SunRPC implementations available.
+VIRGO is an operating system kernel forked off from Linux kernel mainline to add cloud functionalities (system calls, modules etc.,) within kernel itself with machine learning, analytics, debugging, queueing support in the deepest layer of OSI stack i.e AsFer, USBmd, KingCobra together with VIRGO constitute the previous functionalities. Presently there seems to be no cloud implementation with fine-grained cloud primitives (system calls, modules etc.,) included in kernel itself though there are coarse grained clustering and SunRPC implementations available. VIRGO complements other Clustering and application layer cloud OSes like cloudstack, openstack etc., in these aspects - CloudStack and OpenStack can be deployed on a VIRGO Linux Kernel Cloud.
 
 Memory pooling:
 ---------------
@@ -84,7 +84,7 @@ Implemented VIRGO Linux components (as on 10 March 2015)
 5. queueing - VIRGO Queuing driver kernel service for queuing incoming requests, handle them with workqueue and invoke KingCobra service routines in kernelspace. (port: 60000)
 6. cloudsync - kernel module for synchronization primitives (Bakery algorithm etc.,) with exported symbols that can be used in other VIRGO cloud modules for critical section lock() and unlock()
 7. utils - utility driver that exports miscellaneous kernel functions that can be used across VIRGO Linux kernel
-8. EventNet - eventnet kernel driver to vfs_read()/vfs_write() text files for vertex and edge messages (port: 20000)
+8. EventNet - eventnet kernel driver to vfs_read()/vfs_write() text files for EventNet vertex and edge messages (port: 20000)
 9. Kernel_Analytics - kernel module that reads machine-learnt config key-value pairs set in /etc/virgo_kernel_analytics.conf. Any machine learning software can be used to get the key-value pairs for the config. This merges three facets - Machine Learning, Cloud Modules in VIRGO Linux-KingCobra-USBmd , Mainline Linux Kernel 
 10. Testcases and kern.log testlogs for the above
 
