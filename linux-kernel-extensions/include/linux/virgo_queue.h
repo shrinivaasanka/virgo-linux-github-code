@@ -98,6 +98,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <linux/kingcobra.h>
 
+#define LINUX_KERNEL_4_x_x
+
 int virgoqueue_create(void);
 int virgoqueue_recvfrom(struct socket*);
 int virgoqueue_sendto(struct socket*);

@@ -29,6 +29,8 @@
 
 #/bin/bash
 
-#make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
+make -C /lib/modules/`uname -r`/build/ M=`pwd` clean
 make -C /lib/modules/`uname -r`/build/ M=`pwd` 
 make -C /lib/modules/`uname -r`/build/ M=`pwd` modules_install
+#cp *.ko /lib/modules/`uname -r`/extra/
+

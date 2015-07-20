@@ -17,17 +17,17 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0xce128e84, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0x11ff7079, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
+	{ 0x5ac9bae1, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x94768c77, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0xd0d8621b, __VMLINUX_SYMBOL_STR(strlen) },
-	{ 0xc799b2af, __VMLINUX_SYMBOL_STR(sock_create_kern) },
-	{ 0x3ad3b25d, __VMLINUX_SYMBOL_STR(kernel_connect) },
+	{ 0x2b701874, __VMLINUX_SYMBOL_STR(sock_create_kern) },
+	{ 0x146bcf26, __VMLINUX_SYMBOL_STR(kernel_connect) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0xaccabc6a, __VMLINUX_SYMBOL_STR(in4_pton) },
-	{ 0x162062c, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
+	{ 0x42f8b31d, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
 };
 
@@ -37,4 +37,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "AE054CFE8AAA5A2F6748D80");
+MODULE_INFO(srcversion, "DC8E9D4674FE94334FF7E1B");

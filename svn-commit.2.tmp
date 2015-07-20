@@ -1,0 +1,19 @@
+VIRGO Queueing Kernel Module Linux Kernel 4.0.5 port:
+-----------------------------------------------------
+- msg_iter is used instead of user_msghdr
+- kvec changed to iovec
+- Miscellaneous BUF_SIZE related changes
+- kern.logs for these have been added to testlogs
+- Module.symvers has been recreated with KingCobra Module.symvers from 4.0.5 KingCobra build
+- clean target commented in build script as it wipes out Module.symvers
+- updated .ko and .mod.c
+
+--This line, and those below, will be ignored--
+
+M    linux-kernel-extensions/drivers/virgo/queuing/Module.symvers
+AM   linux-kernel-extensions/drivers/virgo/queuing/test_logs/kern.log.VIRGOQueuePlusKingCobra.17July2015
+A    linux-kernel-extensions/drivers/virgo/queuing/test_logs/kern.log.VIRGOQueuePlusKingCobra.18July2015
+M    linux-kernel-extensions/drivers/virgo/queuing/virgo_queue.c
+M    linux-kernel-extensions/drivers/virgo/queuing/virgo_queue.ko
+M    linux-kernel-extensions/drivers/virgo/queuing/virgo_queue.mod.c
+M    linux-kernel-extensions/drivers/virgo/queuing/virgoqueuing_driver_build.sh

@@ -359,7 +359,7 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 	*/
 	char* cloneFunction;
 	struct socket *clientsock=clsock;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -385,8 +385,12 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 		iov.iov_len=sizeof(buffer);	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		/*msg.msg_flags=0;*/
@@ -468,7 +472,7 @@ int virgocloudexec_sendto(struct socket* clsock)
 	*/
 
 	struct socket *clientsock=clsock;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -492,8 +496,12 @@ int virgocloudexec_sendto(struct socket* clsock)
 		iov.iov_len=sizeof(buffer);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=0;

@@ -33,6 +33,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #ifndef _VIRGO_MEMPOOL_H_
 #define _VIRGO_MEMPOOL_H_
 
+#define LINUX_KERNEL_4_x_x
+
 #include <linux/ioport.h>
 #include <linux/kobject.h>
 #include <linux/klist.h>

@@ -91,6 +91,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #define BUF_SIZE 500
 
+#define LINUX_KERNEL_4_x_x
+
 struct hostport
 {
         char* hostip;

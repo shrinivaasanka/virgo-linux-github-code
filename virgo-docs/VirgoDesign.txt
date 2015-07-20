@@ -88,7 +88,7 @@ Implemented VIRGO Linux components (as on 10 March 2015)
 9. Kernel_Analytics - kernel module that reads machine-learnt config key-value pairs set in /etc/virgo_kernel_analytics.conf. Any machine learning software can be used to get the key-value pairs for the config. This merges three facets - Machine Learning, Cloud Modules in VIRGO Linux-KingCobra-USBmd , Mainline Linux Kernel 
 10. Testcases and kern.log testlogs for the above
 
-Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with machine learning and analytics abilities that is absent in application layer cloud implementations. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary (or) by kernel_analytics module which reads the userland machine-learnt config.
+Thus VIRGO Linux at present implements a minimum cloud OS (with cloud-wide cpu, memory and file system management) over Linux and potentially fills in a gap to integrate both software and hardware into cloud with machine learning and analytics abilities that is absent in application layer cloud implementations. Thus VIRGO cloud is an IoT operating system kernel too that enables any hardware to be remote controlled. Data analytics using AsFer can be done by just invoking requisite code from a kernelspace driver above and creating an updated driver binary (or) by kernel_analytics module which reads the userland machine-learnt config. 
 
 ****************************************************************************************************
 			VIRGO ToDo and NiceToHave Features (longterm with no deadline)
@@ -107,8 +107,20 @@ Initial Design Handwritten notes committed at: http://sourceforge.net/p/virgo-li
 
 (ONGOING) 6. Sophisticated queuing and persistence of CPU and Memory pooling requests in Kernel Side (by possibly improving already existing kernel workqueues). Either open source implementations like ActiveMQ can be used or Queuing implementation has to be written from scratch or both. ActiveMQ supports REST APIs and is JMS implementation.
 
-(DONE-Minimum Functionality) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.  Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config have been done. This config file virgo_kernel_analytics.conf having csv(s) of key-value pairs of analytics variables is set by AsFer or any other Machine Learning code.  With this VIRGO Linux Kernel is endowed with abilities to dynamically evolve than being just a platform for user code. Implications are huge - for example, a config variable "MaxNetworkBandwidth=255" set by the ML miner in userspace based on a Perceptron or Logistic Regression executed on network logs can be read by a kernel module that limits the network traffic to 255Mbps. Thus kernel is no longer a static predictable blob behemoth. 
-
+(DONE-Minimum Functionality) 7. Integration of Asfer(AstroInfer) algorithm codes into VIRGO which would add machine learning capabilities into VIRGO - That is, VIRGO cloud subsystem which is part of a linux kernel installation "learns" and "adapts" to the processes that are executed on VIRGO. This catapults the power of the Kernel and Operating System into an artificially (rather approximately naturally) intelligent computing platform (a software "brain"). For example VIRGO can "learn" about "execution times" of processes and suitably act for future processes. PAC Learning of functions could be theoretical basis for this.  Initial commits for Kernel Analytics Module which reads the /etc/virgo_kernel_analytics.conf config have been done. This config file virgo_kernel_analytics.conf having csv(s) of key-value pairs of analytics variables is set by AsFer or any other Machine Learning code.  With this VIRGO Linux Kernel is endowed with abilities to dynamically evolve than being just a platform for user code. Implications are huge - for example, a config variable "MaxNetworkBandwidth=255" set by the ML miner in userspace based on a Perceptron or Logistic Regression executed on network logs can be read by a kernel module that limits the network traffic to 255Mbps. Thus kernel is no longer a static predictable blob behemoth. With this, VIRGO is an Internet-of-Things kernel that does analytics and based on analytics variable values integrated hardware can be controlled across the cloud through remote kernel module function invocation.
+-----------------------------------------
+Example scenario 1 without implementation: 
+-----------------------------------------
+- Philips Hue IoT mobile app controlled bulb - http://www2.meethue.com/en-xx/
+- kernel_analytics module learns key-value pairs from the AsFer code and exports it VIRGO kernel wide
+- A driver function with in bulb embedded device driver can be invoked through VIRGO cpupooling (invoked from remote virgo_clone() system_call)
+based on if-else clause of the kernel_analytics variable i.e remote_client invokes virgo_clone() with function argument "lights on" which is routed to another cloud node. The recipient cloud node "learns" from AsFer kernel_analytics that Voltage is low or Battery is low from logs and decides to switch in high beam or low beam.
+-----------------------------------------
+Example scenario 2 without implementation: 
+-----------------------------------------
+- A swivel security camera driver is remotely invoked via virgo_clone() in the VIRGO cloud.
+- The camera driver uses a machine learnt variable exported by kernel_analytics-and-AsFer to pan the camera by how much degrees.
+ 
 8. A Symmetric Multi Processing subsystem Scheduler that virtualizes all nodes in cloud (probably this would involve improving the loadbalancer into a scheduler with priority queues)
 
 (ONGOING) 9. Virgo is an effort to virtualize the cloud as a single machine - Here cloud is not limited to servers and desktops but also mobile devices that run linux variants like Android, and other Mobile OSes. In the longterm, Virgo may have to be ported or optimized for handheld devices.
@@ -722,6 +734,42 @@ Commits as on 6 March 2015
 --------------------------------------------------------------------------
 - code has been added in VIRGO config module to import EXPORTed kernel_analytics config key-pair array
 set by Apache Spark (mined from Uncomplicated Fire Wall logs) and manually and write to kern.log.
+
+--------------------------------------------------------------------------
+NeuronRain version 15.6.15 release tagged
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+Portability to linux kernel 4.0.5
+--------------------------------------------------------------------------
+The VIRGO kernel module drivers are based on kernel 3.15.5. With kernel 4.0.5 kernel which is the latest following 
+compilation and LD errors occur - this is on cloudfs VIRGO File System driver :
+- msghdr has to be user_msghdr for iov and iov_len as there is a segregation of msghdr
+- modules_install throws an error in scripts/Makefile.modinst while overwriting already installed module
+
+-------------------------------------------------------------------------
+Commits as on 9 July 2015
+-------------------------------------------------------------------------
+VIRGO cpupooling driver has been ported to linux kernel 4.0.5 with msghdr changes as mentioned previously
+with kern.log for VIRGO cpupooling driver invoked in parameterIsExecutable=2 (kernel module invocation)
+added in testlogs
+
+-------------------------------------------------------------------------
+Commits as on 10,11 July 2015
+-------------------------------------------------------------------------
+VIRGO Kernel Modules:
+- memorypooling
+- cloudfs
+- utils
+- config
+- kernel_analytics
+- cloudsync
+- eventnet
+- queuing 
+along with cpupooling have been ported to Linux Kernel 4.0.5 - Makefile and header files have been
+updated wherever required.
+
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan

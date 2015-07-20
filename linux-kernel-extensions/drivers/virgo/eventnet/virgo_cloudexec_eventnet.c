@@ -299,7 +299,11 @@ void* virgocloudexec_eventnet_recvfrom(struct socket* clsock)
 	*/
 	struct socket *clientsock=clsock;
 	struct kvec iov;
+#ifdef LINUX_KERNEL_4_x_x
+	struct user_msghdr msg = { NULL, };
+#else
 	struct msghdr msg = { NULL, };
+#endif
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;
@@ -383,7 +387,11 @@ int virgocloudexec_eventnet_sendto(struct socket* clsock, void* virgo_eventnet_r
 	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
 	struct kvec iov;
+#ifdef LINUX_KERNEL_4_x_x
+	struct user_msghdr msg = { NULL, };
+#else
 	struct msghdr msg = { NULL, };
+#endif
 	int buflen=BUF_SIZE;
 	void *args=NULL;
 	int nr=1;

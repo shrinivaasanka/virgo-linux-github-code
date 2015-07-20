@@ -1,0 +1,30 @@
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696404] virgoqueue_client_thread(): virgoqueue_ops.virgo_sendto()
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696407] virgoqueue_sendto(): before kernel_sendmsg() for send buffer:
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696426] virgoqueue_sendto(): kernel_sendmsg() returns ret: 500
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696428] virgoqueue_sendto(): Shut down Kernel Side Client Socket with SOCK_WAKE_URG after sendmsg
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696446] virgoqueue_sendto(): sock_release invoked on client socket
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696476] virgo_workqueue_handler(): invoked for work_struct w=f0a56a44, dequeueing enqueued vwqrq->data=REQUEST#100f7c7#1437149396:840932954#KingCobra
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696478] virgo_workqueue_handler(): kingcobra_in_userspace=0, before invoking kingcobra_servicerequest_kernelspace()
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696481] kingcobra_servicerequest_kernelspace(): KingCobra service request received from kernel KingCobra workqueue: REQUEST#100f7c7#1437149396:840932954#KingCobra
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696483] kingcobra_servicerequest_kernelspace(): disk persistence enabled, writing incoming request to KingCobra disk file:REQUEST#100f7c7#1437149396:840932954#KingCobra $$
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696483]
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696487] parse_ip_address(): request_dup = REQUEST#100f7c7#1437149396:840932954#KingCobra
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696488] parse_ip_address(): request_header= REQUEST
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696490] parse_ip_address(): token = 100f7c7
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696492] parse_ip_address(): ll2=16840647
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696495] parse_timestamp(): request = REQUEST#100f7c7#1437149396:840932954#KingCobra $$
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696495]
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696497] parse_timestamp(): requestheader parsed = REQUEST
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696499] parse_timestamp(): ipaddr parsed  = 100f7c7
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696500] parse_timestamp(): timestamp parsed  = 1437149396:840932954
+Jul 17 21:40:00 shrinivaasanka-Inspiron-1545 kernel: [   88.696509] reply_to_publisher() : created client kernel socket
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028165] reply_to_publisher() : connected kernel client to virgo cloudexec kernel service
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028165]
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028178] reply_to_publisher() : sent message: REPLY#100f7c7#1437149396:840932954 :--- from kingcobra_servicerequest_kernelspace() to client
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028184] reply_to_publisher() : received message: REPLY#100f7c7#1437149396:840932954 :--- from kingcobra_servicerequest_kernelspace() to client
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028188] reply_to_publisher() : le32_to_cpus(buf): REPLY#100f7c7#1437149396:840932954 :--- from kingcobra_servicerequest_kernelspace() to client
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028201] reply_to_publisher() : reply_to_publisher() client socket_release() invoked
+Jul 17 21:42:08 shrinivaasanka-Inspiron-1545 kernel: [  216.028205] virgo_workqueue_handler(): after invoking kingcobra_servicerequest_kernelspace()
+Jul 18 07:39:45 shrinivaasanka-Inspiron-1545 kernel: [    0.000000] Initializing cgroup subsys cpuset
+                                                                                                                              5888512,1     99%
+

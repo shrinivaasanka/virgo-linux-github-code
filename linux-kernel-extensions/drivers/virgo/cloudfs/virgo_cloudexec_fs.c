@@ -348,7 +348,7 @@ void* virgocloudexec_fs_recvfrom(struct socket* clsock)
 	----------------------------------
 	*/
 	struct socket *clientsock=clsock;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -372,8 +372,12 @@ void* virgocloudexec_fs_recvfrom(struct socket* clsock)
 		iov.iov_len=BUF_SIZE;	
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = (struct iovec *) &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=MSG_NOSIGNAL;
@@ -430,7 +434,7 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 
 	struct sockaddr_in sin;
 	struct socket *clientsock=clsock;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg = { NULL, };
 	int buflen=BUF_SIZE;
 	void *args=NULL;
@@ -459,8 +463,12 @@ int virgocloudexec_fs_sendto(struct socket* clsock, void* virgo_fs_ret)
 		iov.iov_len=BUF_SIZE;
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = (struct iovec *) &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags=0;

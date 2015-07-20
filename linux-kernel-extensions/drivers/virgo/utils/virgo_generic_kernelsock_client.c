@@ -52,7 +52,11 @@ void virgo_eventnet_log(char* logmsg)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
+#ifdef LINUX_KERNEL_4_x_x
+	struct user_msghdr msg;
+#else
 	struct msghdr msg;
+#endif
 	int error;
 	int nr;
 	struct kvec iov;
