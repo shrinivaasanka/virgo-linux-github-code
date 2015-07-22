@@ -769,7 +769,51 @@ VIRGO Kernel Modules:
 along with cpupooling have been ported to Linux Kernel 4.0.5 - Makefile and header files have been
 updated wherever required.
 
+-------------------------------------------------------------------------
+Commits as on 20,21,22 July 2015
+-------------------------------------------------------------------------
+Due to SourceForge Storage Disaster(http://sourceforge.net/blog/sourceforge-infrastructure-and-service-restoration/),
+the github replica of VIRGO is urgently updated with some important changes for msg_iter,iovec
+etc., in 4.0.5 kernel port specifically for KingCobra and VIRGO Queueing. These have to be committed to SourceForge Krishna_iResearch
+repository at http://sourceforge.net/users/ka_shrinivaasan once SourceForge repos are restored.
+Time to move on to the manufacturing hub? GitHub ;-)
+-------------------------------
+VIRGO Queueing Kernel Module Linux Kernel 4.0.5 port:
+-----------------------------------------------------
+- msg_iter is used instead of user_msghdr
+- kvec changed to iovec
+- Miscellaneous BUF_SIZE related changes
+- kern.logs for these have been added to testlogs
+- Module.symvers has been recreated with KingCobra Module.symvers from 4.0.5 KingCobra build
+- clean target commented in build script as it wipes out Module.symvers
+- updated .ko and .mod.c
+-------------------------------
+KingCobra Module Linux Kernel 4.0.5 port
+-----------------------------------------------------
+- vfs_write() has a problem in 4.0.5
+- the filp_open() args and flags which were working in 3.15.5 cause a
+kernel panic implicitly and nothing was written to logs
+- It took a very long time to figure out the reason to be vfs_write and filp_open
+- O_CREAT, O_RDWR and O_LARGEFILE cause the panic and only O_APPEND is working, but
+does not do vfs_write(). All other VIRGO Queue + KingCobra functionalities work viz.,
+enqueueing, workqueue handler invocation, dequeueing, invoking kingcobra kernelspace service
+request function from VIRGO queue handler, timestamp, timestamp and IP parser, reply_to_publisher etc.,
+- As mentioned in Greg Kroah Hartman's "Driving me nuts", persistence in Kernel space is
+a bad idea but still seems to be a necessary stuff - yet only vfs calls are used which have to be safe
+- Thus KingCobra has to be in-memory only in 4.0.5 if vfs_write() doesn't work
+- Intriguingly cloudfs filesystems primitives - virgo_cloud_open, virgo_cloud_read, virgo_cloud_write etc.,
+work perfectly and append to a file.
+- kern.logs for these have been added to testlogs
+- Module.symvers has been recreated for 4.0.5
+- updated .ko and .mod.c
 
+----------------------------------------------------------------
+Due to SourceForge outage and for a future code diversification
+NeuronRain codebases (AsFer, USBmd, VIRGO, KingCobra) 
+in http://sourceforge.net/u/userid-769929/profile/ have been
+replicated in GitHub also - https://github.com/shrinivaasanka
+excluding some huge logs due to Large File Errors in GitHub.
+----------------------------------------------------------------
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
