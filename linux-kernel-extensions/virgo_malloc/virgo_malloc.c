@@ -64,6 +64,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/random.h>
 
 #include <linux/virgo_mempool.h>
+#include <linux/socket.h>
 
 #define BUF_SIZE 3000
 
@@ -144,7 +145,7 @@ char* get_host_from_cloud_PRG_mempool()
 asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 {
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -185,8 +186,12 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
-	msg.msg_iov = (struct iovec *) &iov;
-	msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
@@ -273,8 +278,12 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
-	msg.msg_iov = (struct iovec *) &iov;
-	msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
@@ -427,8 +436,12 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		iov.iov_len=strlen(buf);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
-		msg.msg_iov = (struct iovec *) &iov;
-		msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 		msg.msg_control = NULL;
 		msg.msg_controllen = 0;
 		msg.msg_flags = 0;
@@ -540,8 +553,12 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 	iov.iov_len=strlen(buf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
-	msg.msg_iov = (struct iovec *) &iov;
-	msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;

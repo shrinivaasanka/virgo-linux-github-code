@@ -54,6 +54,7 @@ mail to: ka.shrinivaasan@gmail.com
 #include <linux/init.h>
 
 #include <linux/random.h>
+#include <linux/socket.h>
 
 /*
 #include "netns.h"
@@ -170,7 +171,7 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 
 	virgocpupooling_read_virgo_config_client();	
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	/*
 	struct msghdr msg = {
 		.msg_flags = MSG_EOF,
@@ -211,8 +212,12 @@ asmlinkage long sys_virgo_clone(char* func_signature, void *child_stack, int fla
 	iov.iov_len=sizeof(buf);	
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
-	msg.msg_iov = (struct iovec *) &iov;
-	msg.msg_iovlen = 1;
+#ifdef LINUX_KERNEL_4_x_x
+                msg.msg_iter.iov = &iov;
+#else
+                msg.msg_iov = &iov;
+                msg.msg_iovlen = 1;
+#endif
 	msg.msg_control = NULL;
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
