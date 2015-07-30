@@ -200,7 +200,7 @@ VIRGO eventnet client (telnet) -------> VIRGO EventNet kernel service -----> Eve
 
 33. (DONE) Related to point 22 - Reuse EventNet cloudwide logical time infinite graph in AsFer in place of Logical clocks. At present the eventnet driver listens on port 20000 and writes the edges and vertices files in kernel using vfs_read()/vfs_write(). These text files can then be read by the AsFer code to generate DOT files and visualize the graph with graphviz.
 
-34. (OPTIONAL) The kernel modules services listening on ports could return a JSON response when connected instead of plaintext, conforming to REST protocol.
+34. (OPTIONAL) The kernel modules services listening on ports could return a JSON response when connected instead of plaintext, conforming to REST protocol. Additional options for protocol buffers which are becoming a standard data interchange format.
  
 ******************************************************************************************************
 					CODE COMMIT RELATED NOTES
@@ -814,6 +814,12 @@ in http://sourceforge.net/u/userid-769929/profile/ have been
 replicated in GitHub also - https://github.com/shrinivaasanka
 excluding some huge logs due to Large File Errors in GitHub.
 ----------------------------------------------------------------
+
+---------------------------------------------------------------------
+Commits as on 30 July 2015
+---------------------------------------------------------------------
+VIRGO system calls have been ported to Linux Kernel 4.0.5 with msghdr and iovec changes similar to
+drivers mentioned in previous commit notes above. But Kernel 4.1.3 has some Makefile and build issues.
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
