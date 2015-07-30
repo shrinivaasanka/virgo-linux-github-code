@@ -221,7 +221,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, int pos)
 {
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -300,7 +300,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 {
 	/*
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	*/
 	/*
 	struct msghdr msg = {
@@ -364,7 +364,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 	struct msghdr msg;
 	int error;
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_fs();
 	struct socket *sock;
 	struct sockaddr_in sin;
@@ -447,7 +447,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 asmlinkage long sys_virgo_close(long vfsdesc)
 {
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;

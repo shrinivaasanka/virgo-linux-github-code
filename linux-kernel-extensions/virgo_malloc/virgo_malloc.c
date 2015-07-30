@@ -221,7 +221,7 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 {
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
@@ -316,7 +316,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 	int no_of_chunks=1;	
 	/*
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	*/
 	/*
 	struct msghdr msg = {
@@ -385,7 +385,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		struct msghdr msg;
 		int error;
 		int nr;
-		struct kvec iov;
+		struct iovec iov;
 		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
 		struct socket *sock;
 		struct sockaddr_in sin;
@@ -521,7 +521,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 asmlinkage long sys_virgo_free(unsigned long vuid)
 {
 	int nr;
-	struct kvec iov;
+	struct iovec iov;
 	struct msghdr msg;
 	int error;
 	struct socket *sock;
