@@ -818,8 +818,9 @@ excluding some huge logs due to Large File Errors in GitHub.
 ---------------------------------------------------------------------
 Commits as on 30 July 2015
 ---------------------------------------------------------------------
-VIRGO system calls have been ported to Linux Kernel 4.0.5 with msghdr and iovec changes similar to
-drivers mentioned in previous commit notes above. But Kernel 4.1.3 has some Makefile and build issues.
+VIRGO system calls have been ported to Linux Kernel 4.0.5 with commented gcc option -Wimplicit-function-declaration, 
+msghdr and iovec changes similar to drivers mentioned in previous commit notes above. But Kernel 4.1.3 has some Makefile and build issues.
+The NeuronRain codebases in SourceForge and GitHub would henceforth be mostly and always out-of-sync and not guaranteed to be replicas - might get diversified into different research and development directions (e.g one codebase might be more focussed on IoT while the other towards enterprise bigdata analytics integration with kernel and training which is yet to be designed- depend on lot of constraints)
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
@@ -827,5 +828,4 @@ http://sites.google.com/site/kuja27
 
 
 
-"VirgoDesign.txt" 213L, 16302C written                    
 
