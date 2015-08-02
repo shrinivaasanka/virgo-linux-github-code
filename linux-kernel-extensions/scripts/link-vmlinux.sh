@@ -28,7 +28,6 @@
 # Error out on error
 set -e
 
-
 # Nice output in kbuild format
 # Will be supressed by "make -s"
 info()
@@ -42,7 +41,6 @@ info()
 # ${1} output file
 modpost_link()
 {
-echo "link_vmlinux: modpost_link()"
 	${LD} ${LDFLAGS} -r -o ${1} ${KBUILD_VMLINUX_INIT}                   \
 		--start-group ${KBUILD_VMLINUX_MAIN} --end-group
 }
@@ -52,26 +50,12 @@ echo "link_vmlinux: modpost_link()"
 # ${2} - output file
 vmlinux_link()
 {
-	echo "link_vmlinux: vmlinux_link()"
-	#export KBUILD_EXTRA_SYMBOLS := /home/kashrinivaasan/linux-3.7.8-build/drivers/virgo/cpupooling/virgocloudexec/Module.symvers
-	#export KBUILD_EXTRA_SYMBOLS := $(KBUILD_EXTRA_SYMBOLS) 
 	local lds="${objtree}/${KBUILD_LDS}"
 
 	if [ "${SRCARCH}" != "um" ]; then
-		echo "link_vmlinux: vmlinux_link(), in if clause"
-
-	        echo "${LD} ${LDFLAGS} ${LDFLAGS_vmlinux} -o ${2}                  \
-                        -T ${lds} ${KBUILD_VMLINUX_INIT}                     \
-                        --start-group ${KBUILD_VMLINUX_MAIN} --end-group ${1}"
-
-
-	        ${LD} ${LDFLAGS} ${LDFLAGS_vmlinux} -o ${2}                  \
-                        -T ${lds} ${KBUILD_VMLINUX_INIT}                     \
-                        --start-group ${KBUILD_VMLINUX_MAIN} --end-group ${1}
-
-		#${LD} ${LDFLAGS} ${LDFLAGS_vmlinux} -o ${2}                  \
-		#	-T ${lds} ${KBUILD_EXTRA_SYMBOLS} ${KBUILD_VMLINUX_INIT}                     \
-		#	--start-group ${KBUILD_VMLINUX_MAIN} --end-group ${1}
+		${LD} ${LDFLAGS} ${LDFLAGS_vmlinux} -o ${2}                  \
+			-T ${lds} ${KBUILD_VMLINUX_INIT}                     \
+			--start-group ${KBUILD_VMLINUX_MAIN} --end-group ${1}
 	else
 		${CC} ${CFLAGS_vmlinux} -o ${2}                              \
 			-Wl,-T,${lds} ${KBUILD_VMLINUX_INIT}                 \
@@ -81,7 +65,6 @@ vmlinux_link()
 			-lutil ${1}
 		rm -f linux
 	fi
-        echo "link_vmlinux: vmlinux_link(), exiting"
 }
 
 
@@ -91,13 +74,20 @@ kallsyms()
 	info KSYM ${2}
 	local kallsymopt;
 
-	if [ -n "${CONFIG_SYMBOL_PREFIX}" ]; then
-		kallsymopt="${kallsymopt} \
-			    --symbol-prefix=${CONFIG_SYMBOL_PREFIX}"
+	if [ -n "${CONFIG_HAVE_UNDERSCORE_SYMBOL_PREFIX}" ]; then
+		kallsymopt="${kallsymopt} --symbol-prefix=_"
 	fi
 
 	if [ -n "${CONFIG_KALLSYMS_ALL}" ]; then
 		kallsymopt="${kallsymopt} --all-symbols"
+	fi
+
+	if [ -n "${CONFIG_ARM}" ] && [ -n "${CONFIG_PAGE_OFFSET}" ]; then
+		kallsymopt="${kallsymopt} --page-offset=$CONFIG_PAGE_OFFSET"
+	fi
+
+	if [ -n "${CONFIG_X86_64}" ]; then
+		kallsymopt="${kallsymopt} --absolute-percpu"
 	fi
 
 	local aflags="${KBUILD_AFLAGS} ${KBUILD_AFLAGS_KERNEL}               \
@@ -134,10 +124,6 @@ cleanup()
 	rm -f vmlinux.o
 }
 
-
-#export KBUILD_EXTRA_SYMBOLS = /home/kashrinivaasan/linux-3.7.8-build/drivers/virgo/cpupooling/virgocloudexec/Module.symvers
-#export KBUILD_EXTRA_SYMBOLS := $(KBUILD_EXTRA_SYMBOLS) 
-
 #
 #
 # Use "make V=1" to debug this script
@@ -153,12 +139,18 @@ if [ "$1" = "clean" ]; then
 fi
 
 # We need access to CONFIG_ symbols
-. ./.config
+case "${KCONFIG_CONFIG}" in
+*/*)
+	. "${KCONFIG_CONFIG}"
+	;;
+*)
+	# Force using a file from the current directory
+	. "./${KCONFIG_CONFIG}"
+esac
 
 #link vmlinux.o
 info LD vmlinux.o
 modpost_link vmlinux.o
-
 
 # modpost vmlinux.o to check for section mismatches
 ${MAKE} -f "${srctree}/scripts/Makefile.modpost" vmlinux.o
