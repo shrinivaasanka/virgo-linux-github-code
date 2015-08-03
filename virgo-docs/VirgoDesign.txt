@@ -825,7 +825,10 @@ The NeuronRain codebases in SourceForge and GitHub would henceforth be mostly an
 ---------------------------------------------------------------------
 Commits as on 2,3 August 2015
 ---------------------------------------------------------------------
+- new .config file added which is created from menuconfig
+- drivers/Kconfig has been updated with 4.0.5 drivers/Kconfig for trace event linker errors
 Linux Kernel 4.0.5 - KConfig is drivers/ has been updated to resolve RAS driver trace event linker error. RAS was not included in KConfig earlier.
+- link-vmlinux.sh has been replaced with 4.0.5 kernel version
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
