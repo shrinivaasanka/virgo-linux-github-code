@@ -830,6 +830,34 @@ Commits as on 2,3 August 2015
 Linux Kernel 4.0.5 - KConfig is drivers/ has been updated to resolve RAS driver trace event linker error. RAS was not included in KConfig earlier.
 - link-vmlinux.sh has been replaced with 4.0.5 kernel version
 
+---------------------------------------------------------------------
+Commits as on 12 August 2015
+---------------------------------------------------------------------
+VIRGO Linux Kernel 4.1.5 port - related code changes - some important notes:
+---------------------------------------------------------------------
+- Linux Kernel 4.0.5 build suddenly had a serious root shell drop error in initramfs which was not resolved by:
+	- adding rootdelay in grub
+	- disabling uuid for block devices in grub config
+        - mounting in read/write mode in recovery mode
+        - no /dev/mapper related errors
+        - repeated exits in root shell
+	- delay before mount of root device in initrd scripts
+- mysteriously there were some firmware microcode bundle executions in ieucodetool
+- Above showed a serious grub corruption or /boot MBR bug or 4.0.5 VIRGO kernel build problem
+- Linux 4.0.x kernels are EOL-ed
+- Hence VIRGO is ported to 4.1.5 kernel released few days ago
+- Only minimum files have been changed as in commit log for Makefiles and syscall table and headers and a build script has been added
+for 4.1.5:
+    Changed paths:
+    A buildscript_4.1.5.sh
+    M linux-kernel-extensions/Makefile
+    M linux-kernel-extensions/arch/x86/syscalls/Makefile
+    M linux-kernel-extensions/arch/x86/syscalls/syscall_32.tbl
+    M linux-kernel-extensions/drivers/Makefile
+    M linux-kernel-extensions/include/linux/syscalls.h
+
+- Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO codebase
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
