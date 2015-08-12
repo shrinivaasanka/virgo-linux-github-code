@@ -883,6 +883,7 @@ asmlinkage long sys_bpf(int cmd, union bpf_attr *attr, unsigned int size);
 asmlinkage long sys_execveat(int dfd, const char __user *filename,
 			const char __user *const __user *argv,
 			const char __user *const __user *envp, int flags);
+
 asmlinkage long sys_virgo_clone(char* func, void *child_stack, int flags, void *arg);
 asmlinkage long sys_virgo_malloc(int size,unsigned long __user *vuid);
 asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in);
@@ -892,6 +893,7 @@ asmlinkage long sys_virgo_open(char* filepath);
 asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, int pos);
 asmlinkage long sys_virgo_write(long vfsdesc, const char __user *data_in, int size, int pos);
 asmlinkage long sys_virgo_close(long vfsdesc);
+
 
 
 #endif
