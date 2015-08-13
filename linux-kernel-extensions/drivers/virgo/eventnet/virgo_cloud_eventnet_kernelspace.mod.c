@@ -17,22 +17,22 @@ __attribute__((section(".gnu.linkonce.this_module"))) = {
 static const struct modversion_info ____versions[]
 __used
 __attribute__((section("__versions"))) = {
-	{ 0x5ac9bae1, __VMLINUX_SYMBOL_STR(module_layout) },
-	{ 0x649c402a, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
-	{ 0x4c4fef19, __VMLINUX_SYMBOL_STR(kernel_stack) },
+	{ 0x86983313, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0xf23db2b3, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0x139b504, __VMLINUX_SYMBOL_STR(cpu_current_top_of_stack) },
 	{ 0xd0d8621b, __VMLINUX_SYMBOL_STR(strlen) },
-	{ 0x20bbf85b, __VMLINUX_SYMBOL_STR(filp_close) },
+	{ 0xcd998398, __VMLINUX_SYMBOL_STR(filp_close) },
 	{ 0x85df9b6c, __VMLINUX_SYMBOL_STR(strsep) },
 	{ 0x91715312, __VMLINUX_SYMBOL_STR(sprintf) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
-	{ 0xf32ddb91, __VMLINUX_SYMBOL_STR(vfs_read) },
+	{ 0xcd4572ea, __VMLINUX_SYMBOL_STR(vfs_read) },
 	{ 0x11089ac7, __VMLINUX_SYMBOL_STR(_ctype) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
-	{ 0x702984bb, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
-	{ 0xef334dae, __VMLINUX_SYMBOL_STR(vfs_write) },
-	{ 0xd5b3be9f, __VMLINUX_SYMBOL_STR(filp_open) },
+	{ 0x86c90730, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0xe3dce9d9, __VMLINUX_SYMBOL_STR(vfs_write) },
+	{ 0x1085e609, __VMLINUX_SYMBOL_STR(filp_open) },
 };
 
 static const char __module_depends[]
