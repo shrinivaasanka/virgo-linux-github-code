@@ -858,6 +858,16 @@ for 4.1.5:
 
 - Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO codebase
 
+---------------------------------------------------------------------
+Commits as on 14,15,16 August 2015
+---------------------------------------------------------------------
+Executed the minimum end-end telnet path primitives in Linux kernel 4.1.5 VIRGO code:
+- cpu virtualization
+- memory virtualization
+- filesystem virtualization (updated filp_open flags)
+and committed logs and screenshots for the above.
+
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
