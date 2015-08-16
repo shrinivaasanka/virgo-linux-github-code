@@ -71,7 +71,8 @@ void* virgo_cloud_open_kernelspace(struct virgo_fs_args* args)
         fs=get_fs();
         set_fs(get_ds());
         struct file* f=NULL;
-        f=filp_open(vmargs->fs_args[0], O_RDWR|O_APPEND, 0);
+        f=filp_open(vmargs->fs_args[0], O_RDWR | O_CREAT | O_APPEND | O_LARGEFILE , 0755);
+        /*f=filp_open(vmargs->fs_args[0], O_RDWR|O_APPEND, 0);*/
         /*f=filp_open("/var/log/virgo_fs/virgofstest.txt", O_RDWR|O_APPEND, 0);*/
 	if(IS_ERR(f))
 		printk(KERN_INFO "virgo_cloud_open_kernelspace(): filp_open return value is error code : %p", f);
