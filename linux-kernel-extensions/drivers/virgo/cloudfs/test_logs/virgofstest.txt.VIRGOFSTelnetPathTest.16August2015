@@ -1,0 +1,685 @@
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:106:23: error: sys/types.h: No such file or directory
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:107:22: error: sys/stat.h: No such file or directory
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:108:22: error: sys/mman.h: No such file or directory
+In file included from /usr/include/unistd.h:26,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/features.h:324:26: error: bits/predefs.h: No such file or directory
+/usr/include/features.h:357:25: error: sys/cdefs.h: No such file or directory
+/usr/include/features.h:389:23: error: gnu/stubs.h: No such file or directory
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/unistd.h:203:28: error: bits/posix_opt.h: No such file or directory
+/usr/include/unistd.h:207:32: error: bits/environments.h: No such file or directory
+/usr/include/unistd.h:218:24: error: bits/types.h: No such file or directory
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/unistd.h:221: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘typedef’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/unistd.h:233: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘gid_t’
+/usr/include/unistd.h:238: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘uid_t’
+/usr/include/unistd.h:244: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘off_t’
+/usr/include/unistd.h:256: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘useconds_t’
+/usr/include/unistd.h:261: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘pid_t’
+/usr/include/unistd.h:268: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘intptr_t’
+/usr/include/unistd.h:275: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘socklen_t’
+/usr/include/unistd.h: In function ‘access’:
+/usr/include/unistd.h:288: error: expected declaration specifiers before ‘__THROW’
+/usr/include/unistd.h:306: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:335: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘lseek’
+/usr/include/unistd.h:354: error: storage class specified for parameter ‘close’
+/usr/include/unistd.h:361: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘read’
+/usr/include/unistd.h:367: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘write’
+/usr/include/unistd.h:377: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘pread’
+/usr/include/unistd.h:385: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘pwrite’
+/usr/include/unistd.h:418: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:433: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:445: error: storage class specified for parameter ‘sleep’
+/usr/include/unistd.h:453: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ualarm’
+/usr/include/unistd.h:461: error: expected ‘)’ before ‘__useconds’
+/usr/include/unistd.h:470: error: storage class specified for parameter ‘pause’
+/usr/include/unistd.h:474: error: expected declaration specifiers or ‘...’ before ‘__uid_t’
+/usr/include/unistd.h:474: error: expected declaration specifiers or ‘...’ before ‘__gid_t’
+/usr/include/unistd.h:475: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:479: error: expected declaration specifiers or ‘...’ before ‘__uid_t’
+/usr/include/unistd.h:479: error: expected declaration specifiers or ‘...’ before ‘__gid_t’
+/usr/include/unistd.h:479: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:484: error: expected declaration specifiers or ‘...’ before ‘__uid_t’
+/usr/include/unistd.h:484: error: expected declaration specifiers or ‘...’ before ‘__gid_t’
+/usr/include/unistd.h:485: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:492: error: expected declaration specifiers or ‘...’ before ‘__uid_t’
+/usr/include/unistd.h:493: error: expected declaration specifiers or ‘...’ before ‘__gid_t’
+/usr/include/unistd.h:494: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:498: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:502: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:512: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:527: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:532: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:535: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:544: error: storage class specified for parameter ‘__environ’
+/usr/include/unistd.h:553: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:559: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:565: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:570: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:575: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:580: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:586: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:599: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:604: error: storage class specified for parameter ‘_exit’
+/usr/include/unistd.h:610:27: error: bits/confname.h: No such file or directory
+/usr/include/unistd.h:614: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:617: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:620: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:624: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:629: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getpid’
+/usr/include/unistd.h:632: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getppid’
+/usr/include/unistd.h:637: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getpgrp’
+/usr/include/unistd.h:647: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__getpgid’
+/usr/include/unistd.h:649: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getpgid’
+/usr/include/unistd.h:656: error: expected ‘)’ before ‘__pid’
+/usr/include/unistd.h:673: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:690: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘setsid’
+/usr/include/unistd.h:694: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getsid’
+/usr/include/unistd.h:698: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getuid’
+/usr/include/unistd.h:701: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘geteuid’
+/usr/include/unistd.h:704: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getgid’
+/usr/include/unistd.h:707: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getegid’
+/usr/include/unistd.h:712: error: expected declaration specifiers or ‘...’ before ‘__gid_t’
+/usr/include/unistd.h:712: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:723: error: expected ‘)’ before ‘__uid’
+/usr/include/unistd.h:728: error: expected ‘)’ before ‘__ruid’
+/usr/include/unistd.h:733: error: expected ‘)’ before ‘__uid’
+/usr/include/unistd.h:740: error: expected ‘)’ before ‘__gid’
+/usr/include/unistd.h:745: error: expected ‘)’ before ‘__rgid’
+/usr/include/unistd.h:750: error: expected ‘)’ before ‘__gid’
+/usr/include/unistd.h:779: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘fork’
+/usr/include/unistd.h:787: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘vfork’
+/usr/include/unistd.h:793: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:798: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:802: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:808: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:814: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:821: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:827: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:832: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘readlink’
+/usr/include/unistd.h:840: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:843: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘readlinkat’
+/usr/include/unistd.h:849: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:854: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:858: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:862: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘tcgetpgrp’
+/usr/include/unistd.h:865: error: expected declaration specifiers or ‘...’ before ‘__pid_t’
+/usr/include/unistd.h:865: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+/usr/include/unistd.h:872: error: storage class specified for parameter ‘getlogin’
+/usr/include/unistd.h:880: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:885: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROW’
+In file included from /usr/include/unistd.h:894,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/getopt.h:59: error: storage class specified for parameter ‘optarg’
+/usr/include/getopt.h:73: error: storage class specified for parameter ‘optind’
+/usr/include/getopt.h:78: error: storage class specified for parameter ‘opterr’
+/usr/include/getopt.h:82: error: storage class specified for parameter ‘optopt’
+/usr/include/getopt.h:153: error: storage class specified for parameter ‘getopt’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:109:
+/usr/include/unistd.h:902: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:910: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:914: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/unistd.h:921: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:923: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:929: error: storage class specified for parameter ‘vhangup’
+/usr/include/unistd.h:932: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:942: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:948: error: storage class specified for parameter ‘acct’
+/usr/include/unistd.h:952: error: storage class specified for parameter ‘getusershell’
+/usr/include/unistd.h:953: error: storage class specified for parameter ‘endusershell’
+/usr/include/unistd.h:954: error: storage class specified for parameter ‘setusershell’
+/usr/include/unistd.h:960: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/unistd.h:967: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:971: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:980: error: storage class specified for parameter ‘fsync’
+/usr/include/unistd.h:994: error: storage class specified for parameter ‘gethostid’
+/usr/include/unistd.h:997: error: storage class specified for parameter ‘sync’
+/usr/include/unistd.h:1003: error: storage class specified for parameter ‘getpagesize’
+/usr/include/unistd.h:1008: error: storage class specified for parameter ‘getdtablesize’
+/usr/include/unistd.h:1018: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/unistd.h:1019: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/unistd.h:1040: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/unistd.h:1040: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/unistd.h:1061: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/unistd.h:1067: error: expected ‘)’ before ‘__delta’
+/usr/include/unistd.h:1082: error: storage class specified for parameter ‘syscall’
+/usr/include/unistd.h:1105: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/unistd.h:1105: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/unistd.h:1136: error: storage class specified for parameter ‘fdatasync’
+/usr/include/unistd.h:1165: error: storage class specified for parameter ‘ctermid’
+/usr/include/unistd.h:1174: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:110:
+/usr/include/fcntl.h:34:24: error: bits/fcntl.h: No such file or directory
+In file included from /usr/include/fcntl.h:40,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:110:
+/usr/include/time.h:124: error: expected declaration specifiers before ‘;’ token
+/usr/include/fcntl.h:41:24: error: bits/stat.h: No such file or directory
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:110:
+/usr/include/fcntl.h:110: error: storage class specified for parameter ‘fcntl’
+/usr/include/fcntl.h:119: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/fcntl.h:144: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/fcntl.h:165: error: expected declaration specifiers or ‘...’ before ‘__mode_t’
+/usr/include/fcntl.h:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/fcntl.h:211: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/fcntl.h:211: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/fcntl.h:212: error: storage class specified for parameter ‘posix_fadvise’
+/usr/include/fcntl.h:233: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/fcntl.h:233: error: expected declaration specifiers or ‘...’ before ‘__off_t’
+/usr/include/fcntl.h:233: error: storage class specified for parameter ‘posix_fallocate’
+/usr/include/fcntl.h:255: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:111:
+/usr/include/string.h:50: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:51: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:63: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/string.h:69: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:96: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:98: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:133: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:137: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:140: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:144: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:147: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:151: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:155: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:156: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+In file included from /usr/include/string.h:162,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:111:
+/usr/include/xlocale.h:40: error: expected declaration specifiers before ‘*’ token
+/usr/include/xlocale.h:43: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘locale_t’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:111:
+/usr/include/string.h:165: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/string.h:166: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:169: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/string.h:169: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:176: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_malloc__’
+/usr/include/string.h:184: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_malloc__’
+/usr/include/string.h:210: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/string.h:263: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:265: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:289: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:315: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:343: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:349: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:350: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:361: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:397: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/string.h:401: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:411: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/string.h:414: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/string.h:445: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/string.h:445: error: storage class specified for parameter ‘strerror_l’
+/usr/include/string.h:451: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:456: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:459: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:463: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:490: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:518: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:523: error: storage class specified for parameter ‘ffs’
+/usr/include/string.h:537: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:541: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/string.h:561: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:566: error: storage class specified for parameter ‘strsignal’
+/usr/include/string.h:570: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:572: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:578: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/string.h:581: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:111:
+/usr/include/string.h:634:27: error: bits/string.h: No such file or directory
+/usr/include/string.h:637:28: error: bits/string2.h: No such file or directory
+/usr/include/string.h:646: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:112:
+/usr/include/stdlib.h:35: error: expected declaration specifiers before ‘__BEGIN_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:112:
+/usr/include/stdlib.h:42:29: error: bits/waitflags.h: No such file or directory
+/usr/include/stdlib.h:43:30: error: bits/waitstatus.h: No such file or directory
+/usr/include/stdlib.h:72: error: expected declaration specifiers before ‘__WAIT_STATUS’
+/usr/include/stdlib.h:96: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:102: error: expected declaration specifiers before ‘div_t’
+/usr/include/stdlib.h:110: error: storage class specified for parameter ‘ldiv_t’
+/usr/include/stdlib.h:113: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:122: error: expected declaration specifiers before ‘lldiv_t’
+/usr/include/stdlib.h:124: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:143: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:149: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/stdlib.h:152: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/stdlib.h:153: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:160: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:168: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:178: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:179: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:190: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:191: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:200: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdlib.h:207: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_C99’
+/usr/include/stdlib.h:214: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdlib.h:218: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:315: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_pure__’
+/usr/include/stdlib.h:327: error: storage class specified for parameter ‘random’
+/usr/include/stdlib.h:330: error: storage class specified for parameter ‘srandom’
+/usr/include/stdlib.h:337: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:341: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:351: error: expected specifier-qualifier-list before ‘int32_t’
+/usr/include/stdlib.h:361: error: expected declaration specifiers or ‘...’ before ‘int32_t’
+/usr/include/stdlib.h:361: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:364: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:369: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:373: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:378: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:382: error: storage class specified for parameter ‘srand’
+/usr/include/stdlib.h:383: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:395: error: storage class specified for parameter ‘drand48’
+/usr/include/stdlib.h:396: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:399: error: storage class specified for parameter ‘lrand48’
+/usr/include/stdlib.h:401: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:404: error: storage class specified for parameter ‘mrand48’
+/usr/include/stdlib.h:406: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:409: error: storage class specified for parameter ‘srand48’
+/usr/include/stdlib.h:411: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:412: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:429: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:432: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:437: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:441: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:446: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:450: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:454: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:457: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:461: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:469: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:474: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_malloc__’
+/usr/include/stdlib.h:475: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:488: error: storage class specified for parameter ‘free’
+/usr/include/stdlib.h:489: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+In file included from /usr/include/stdlib.h:497,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:112:
+/usr/include/alloca.h:27: error: expected declaration specifiers before ‘__BEGIN_DECLS’
+/usr/include/alloca.h:39: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:112:
+/usr/include/stdlib.h:509: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:512: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:518: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:531: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:540: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:554: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:561: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:568: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:579: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:586: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:589: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:596: error: storage class specified for parameter ‘clearenv’
+/usr/include/stdlib.h:606: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:620: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:642: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:663: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:712: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:718: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:742: error: storage class specified for parameter ‘__compar_fn_t’
+/usr/include/stdlib.h:752: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:762: error: expected declaration specifiers or ‘...’ before ‘__compar_fn_t’
+/usr/include/stdlib.h:762: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:771: error: storage class specified for parameter ‘abs’
+/usr/include/stdlib.h:771: error: expected ‘,’ or ‘;’ before ‘__wur’
+/usr/include/stdlib.h:772: error: storage class specified for parameter ‘labs’
+/usr/include/stdlib.h:772: error: expected ‘,’ or ‘;’ before ‘__wur’
+/usr/include/stdlib.h:773: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:781: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:787: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ldiv’
+/usr/include/stdlib.h:789: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:796: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdlib.h:815: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:821: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:828: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:831: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:833: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:840: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:843: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:848: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:852: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:857: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdlib.h:863: error: expected ‘)’ before ‘*’ token
+/usr/include/stdlib.h:867: error: expected declaration specifiers or ‘...’ before ‘wchar_t’
+/usr/include/stdlib.h:867: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdlib.h:871: error: expected ‘)’ before ‘*’ token
+/usr/include/stdlib.h:875: error: expected ‘;’, ‘,’ or ‘)’ before ‘*’ token
+/usr/include/stdlib.h:877: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdlib.h:899: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:949: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__nonnull’
+/usr/include/stdlib.h:964: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/stdio.h:47: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:50: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+In file included from /usr/include/_G_config.h:20,
+                 from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/wchar.h:95: error: storage class specified for parameter ‘__mbstate_t’
+In file included from /usr/include/libio.h:32,
+                 from /usr/include/stdio.h:75,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/_G_config.h:24: error: expected specifier-qualifier-list before ‘__off_t’
+/usr/include/_G_config.h:26: error: storage class specified for parameter ‘_G_fpos_t’
+/usr/include/_G_config.h:29: error: expected specifier-qualifier-list before ‘__off64_t’
+/usr/include/_G_config.h:31: error: storage class specified for parameter ‘_G_fpos64_t’
+/usr/include/_G_config.h:53: error: storage class specified for parameter ‘_G_int16_t’
+/usr/include/_G_config.h:54: error: storage class specified for parameter ‘_G_int32_t’
+/usr/include/_G_config.h:55: error: storage class specified for parameter ‘_G_uint16_t’
+/usr/include/_G_config.h:56: error: storage class specified for parameter ‘_G_uint32_t’
+In file included from /usr/include/libio.h:53,
+                 from /usr/include/stdio.h:75,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include/stdarg.h:40: error: storage class specified for parameter ‘__gnuc_va_list’
+In file included from /usr/include/stdio.h:75,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/libio.h:182: error: storage class specified for parameter ‘_IO_lock_t’
+/usr/include/libio.h:302: error: expected specifier-qualifier-list before ‘__off_t’
+/usr/include/libio.h:343: error: storage class specified for parameter ‘_IO_FILE’
+/usr/include/libio.h:348: error: storage class specified for parameter ‘_IO_2_1_stdin_’
+/usr/include/libio.h:349: error: storage class specified for parameter ‘_IO_2_1_stdout_’
+/usr/include/libio.h:350: error: storage class specified for parameter ‘_IO_2_1_stderr_’
+/usr/include/libio.h:366: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__io_read_fn’
+/usr/include/libio.h:374: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__io_write_fn’
+/usr/include/libio.h:383: error: expected declaration specifiers or ‘...’ before ‘__off64_t’
+/usr/include/libio.h:383: error: storage class specified for parameter ‘__io_seek_fn’
+/usr/include/libio.h:386: error: storage class specified for parameter ‘__io_close_fn’
+/usr/include/libio.h:418: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:419: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:420: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:462: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:463: error: expected declaration specifiers or ‘...’ before ‘_IO_FILE’
+/usr/include/libio.h:463: error: storage class specified for parameter ‘_IO_putc’
+/usr/include/libio.h:464: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:465: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:467: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:473: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:474: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:475: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:492: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:494: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:496: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘_IO_padn’
+/usr/include/libio.h:497: error: expected ‘)’ before ‘*’ token
+/usr/include/libio.h:499: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘_IO_seekoff’
+/usr/include/libio.h:500: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘_IO_seekpos’
+/usr/include/libio.h:502: error: expected ‘)’ before ‘*’ token
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/stdio.h:80: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘va_list’
+/usr/include/stdio.h:109: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:115: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:113:
+/usr/include/stdio.h:165:28: error: bits/stdio_lim.h: No such file or directory
+/usr/include/stdio.h:170: error: storage class specified for parameter ‘stdout’
+/usr/include/stdio.h:171: error: storage class specified for parameter ‘stderr’
+/usr/include/stdio.h:177: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:181: error: storage class specified for parameter ‘rename’
+/usr/include/stdio.h:182: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:190: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:210: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:211: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:229: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__attribute_malloc__’
+/usr/include/stdio.h:233: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:243: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:244: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:267: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:279: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/stdio.h:296: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:320: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/stdio.h:326: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/stdio.h:330: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:337: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:339: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:348: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:352: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:363: error: storage class specified for parameter ‘printf’
+/usr/include/stdio.h:366: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROWNL’
+/usr/include/stdio.h:372: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:378: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:378: error: storage class specified for parameter ‘vprintf’
+/usr/include/stdio.h:381: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:381: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROWNL’
+/usr/include/stdio.h:382: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:392: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:393: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__THROWNL’
+/usr/include/stdio.h:394: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdio.h:422: error: storage class specified for parameter ‘dprintf’
+/usr/include/stdio.h:426: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:437: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:440: error: storage class specified for parameter ‘sscanf’
+/usr/include/stdio.h:458: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:460: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:462: error: storage class specified for parameter ‘__isoc99_sscanf’
+/usr/include/stdio.h:469: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:485: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:486: error: storage class specified for parameter ‘vscanf’
+/usr/include/stdio.h:486: error: expected ‘,’ or ‘;’ before ‘__wur’
+/usr/include/stdio.h:490: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:491: error: storage class specified for parameter ‘vsscanf’
+/usr/include/stdio.h:514: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:518: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:518: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:521: error: expected declaration specifiers or ‘...’ before ‘__gnuc_va_list’
+/usr/include/stdio.h:521: error: storage class specified for parameter ‘__isoc99_vsscanf’
+/usr/include/stdio.h:528: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/stdio.h:538: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:544: error: storage class specified for parameter ‘getchar’
+/usr/include/stdio.h:545: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:557: error: storage class specified for parameter ‘getchar_unlocked’
+/usr/include/stdio.h:567: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:571: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:580: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:580: error: storage class specified for parameter ‘putc’
+/usr/include/stdio.h:586: error: storage class specified for parameter ‘putchar’
+/usr/include/stdio.h:587: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:608: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:608: error: storage class specified for parameter ‘putc_unlocked’
+/usr/include/stdio.h:609: error: storage class specified for parameter ‘putchar_unlocked’
+/usr/include/stdio.h:616: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:619: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:619: error: storage class specified for parameter ‘putw’
+/usr/include/stdio.h:623: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:636: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:637: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:665: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getdelim’
+/usr/include/stdio.h:675: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘getline’
+/usr/include/stdio.h:681: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:692: error: storage class specified for parameter ‘puts’
+/usr/include/stdio.h:699: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:699: error: storage class specified for parameter ‘ungetc’
+/usr/include/stdio.h:707: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:707: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘__wur’
+/usr/include/stdio.h:713: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:713: error: storage class specified for parameter ‘fwrite’
+/usr/include/stdio.h:714: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:737: error: expected declaration specifiers or ‘...’ before ‘FILE’
+/usr/include/stdio.h:737: error: storage class specified for parameter ‘fwrite_unlocked’
+/usr/include/stdio.h:741: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:751: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:756: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:757: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:775: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ftello’
+/usr/include/stdio.h:789: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:800: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:812: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:825: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:827: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:828: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:833: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:834: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:838: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/stdio.h:844: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/stdio.h:850:30: error: bits/sys_errlist.h: No such file or directory
+/usr/include/stdio.h:860: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:870: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/stdio.h:876: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:882: error: storage class specified for parameter ‘ctermid’
+/usr/include/stdio.h:882: error: redefinition of parameter ‘ctermid’
+/usr/include/unistd.h:1165: note: previous definition of ‘ctermid’ was here
+/usr/include/stdio.h:910: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:914: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:917: error: expected ‘)’ before ‘*’ token
+/usr/include/stdio.h:940: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include-fixed/limits.h:122,
+                 from /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include-fixed/syslimits.h:7,
+                 from /usr/local/lib/gcc/i686-pc-linux-gnu/4.4.1/include-fixed/limits.h:11,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:114:
+/usr/include/limits.h:145:30: error: bits/posix1_lim.h: No such file or directory
+/usr/include/limits.h:149:30: error: bits/posix2_lim.h: No such file or directory
+In file included from /usr/include/ctype.h:41,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:115:
+/usr/include/endian.h:37:25: error: bits/endian.h: No such file or directory
+/usr/include/endian.h:61:28: error: bits/byteswap.h: No such file or directory
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:115:
+/usr/include/ctype.h:62: error: expected declaration specifiers before ‘;’ token
+/usr/include/ctype.h:82: error: storage class specified for parameter ‘__ctype_b_loc’
+/usr/include/ctype.h:83: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/ctype.h:85: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘*’ token
+/usr/include/ctype.h:106: error: expected declaration specifiers before ‘__BEGIN_NAMESPACE_STD’
+/usr/include/ctype.h:113: error: storage class specified for parameter ‘isalpha’
+/usr/include/ctype.h:114: error: storage class specified for parameter ‘iscntrl’
+/usr/include/ctype.h:115: error: storage class specified for parameter ‘isdigit’
+/usr/include/ctype.h:116: error: storage class specified for parameter ‘islower’
+/usr/include/ctype.h:117: error: storage class specified for parameter ‘isgraph’
+/usr/include/ctype.h:118: error: storage class specified for parameter ‘isprint’
+/usr/include/ctype.h:119: error: storage class specified for parameter ‘ispunct’
+/usr/include/ctype.h:120: error: storage class specified for parameter ‘isspace’
+/usr/include/ctype.h:121: error: storage class specified for parameter ‘isupper’
+/usr/include/ctype.h:122: error: storage class specified for parameter ‘isxdigit’
+/usr/include/ctype.h:126: error: storage class specified for parameter ‘tolower’
+/usr/include/ctype.h:129: error: storage class specified for parameter ‘toupper’
+/usr/include/ctype.h:131: error: expected declaration specifiers before ‘__END_NAMESPACE_STD’
+/usr/include/ctype.h:140: error: expected declaration specifiers before ‘__END_NAMESPACE_C99’
+/usr/include/ctype.h:156: error: storage class specified for parameter ‘toascii’
+/usr/include/ctype.h:160: error: storage class specified for parameter ‘_toupper’
+/usr/include/ctype.h:161: error: storage class specified for parameter ‘_tolower’
+/usr/include/ctype.h:273: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:273: error: storage class specified for parameter ‘isalnum_l’
+/usr/include/ctype.h:274: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:274: error: storage class specified for parameter ‘isalpha_l’
+/usr/include/ctype.h:275: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:275: error: storage class specified for parameter ‘iscntrl_l’
+/usr/include/ctype.h:276: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:276: error: storage class specified for parameter ‘isdigit_l’
+/usr/include/ctype.h:277: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:277: error: storage class specified for parameter ‘islower_l’
+/usr/include/ctype.h:278: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:278: error: storage class specified for parameter ‘isgraph_l’
+/usr/include/ctype.h:279: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:279: error: storage class specified for parameter ‘isprint_l’
+/usr/include/ctype.h:280: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:280: error: storage class specified for parameter ‘ispunct_l’
+/usr/include/ctype.h:281: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:281: error: storage class specified for parameter ‘isspace_l’
+/usr/include/ctype.h:282: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:282: error: storage class specified for parameter ‘isupper_l’
+/usr/include/ctype.h:283: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:283: error: storage class specified for parameter ‘isxdigit_l’
+/usr/include/ctype.h:285: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:285: error: storage class specified for parameter ‘isblank_l’
+/usr/include/ctype.h:289: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:289: error: storage class specified for parameter ‘__tolower_l’
+/usr/include/ctype.h:290: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:290: error: storage class specified for parameter ‘tolower_l’
+/usr/include/ctype.h:293: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:293: error: storage class specified for parameter ‘__toupper_l’
+/usr/include/ctype.h:294: error: expected declaration specifiers or ‘...’ before ‘__locale_t’
+/usr/include/ctype.h:294: error: storage class specified for parameter ‘toupper_l’
+/usr/include/ctype.h:349: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /usr/include/netinet/in.h:24,
+                 from /usr/include/arpa/inet.h:23,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:116:
+/usr/include/stdint.h:27:24: error: bits/wchar.h: No such file or directory
+/usr/include/stdint.h:28:27: error: bits/wordsize.h: No such file or directory
+In file included from /usr/include/netinet/in.h:24,
+                 from /usr/include/arpa/inet.h:23,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:116:
+/usr/include/stdint.h:38: error: storage class specified for parameter ‘int16_t’
+/usr/include/stdint.h:39: error: storage class specified for parameter ‘int32_t’
+/usr/include/stdint.h:43: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:49: error: storage class specified for parameter ‘uint8_t’
+/usr/include/stdint.h:50: error: storage class specified for parameter ‘uint16_t’
+/usr/include/stdint.h:52: error: storage class specified for parameter ‘uint32_t’
+/usr/include/stdint.h:58: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:66: error: storage class specified for parameter ‘int_least8_t’
+/usr/include/stdint.h:67: error: storage class specified for parameter ‘int_least16_t’
+/usr/include/stdint.h:68: error: storage class specified for parameter ‘int_least32_t’
+/usr/include/stdint.h:72: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:77: error: storage class specified for parameter ‘uint_least8_t’
+/usr/include/stdint.h:78: error: storage class specified for parameter ‘uint_least16_t’
+/usr/include/stdint.h:79: error: storage class specified for parameter ‘uint_least32_t’
+/usr/include/stdint.h:83: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:91: error: storage class specified for parameter ‘int_fast8_t’
+/usr/include/stdint.h:97: error: storage class specified for parameter ‘int_fast16_t’
+/usr/include/stdint.h:98: error: storage class specified for parameter ‘int_fast32_t’
+/usr/include/stdint.h:99: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:104: error: storage class specified for parameter ‘uint_fast8_t’
+/usr/include/stdint.h:110: error: storage class specified for parameter ‘uint_fast16_t’
+/usr/include/stdint.h:111: error: storage class specified for parameter ‘uint_fast32_t’
+/usr/include/stdint.h:112: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:129: error: storage class specified for parameter ‘uintptr_t’
+/usr/include/stdint.h:138: error: expected declaration specifiers before ‘__extension__’
+/usr/include/stdint.h:140: error: expected declaration specifiers before ‘__extension__’
+In file included from /usr/include/arpa/inet.h:23,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:116:
+/usr/include/netinet/in.h:25:24: error: sys/socket.h: No such file or directory
+In file included from /usr/include/arpa/inet.h:23,
+                 from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:116:
+/usr/include/netinet/in.h:29: error: expected declaration specifiers before ‘__BEGIN_DECLS’
+/usr/include/netinet/in.h:93: error: expected declaration specifiers before ‘;’ token
+/usr/include/netinet/in.h:97: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘in_port_t’
+/usr/include/netinet/in.h:141: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘in_addr_t’
+/usr/include/netinet/in.h:144: error: expected specifier-qualifier-list before ‘in_addr_t’
+/usr/include/netinet/in.h:202: error: expected specifier-qualifier-list before ‘uint8_t’
+/usr/include/netinet/in.h:215: error: storage class specified for parameter ‘in6addr_any’
+/usr/include/netinet/in.h:216: error: storage class specified for parameter ‘in6addr_loopback’
+/usr/include/netinet/in.h:227: error: expected specifier-qualifier-list before ‘__SOCKADDR_COMMON’
+/usr/include/netinet/in.h:241: error: expected specifier-qualifier-list before ‘__SOCKADDR_COMMON’
+/usr/include/netinet/in.h:290: error: expected specifier-qualifier-list before ‘uint32_t’
+/usr/include/netinet/in.h:299: error: expected specifier-qualifier-list before ‘uint32_t’
+/usr/include/netinet/in.h:319: error: expected specifier-qualifier-list before ‘uint32_t’
+/usr/include/netinet/in.h:334: error: expected specifier-qualifier-list before ‘uint32_t’
+/usr/include/netinet/in.h:356:21: error: bits/in.h: No such file or directory
+/usr/include/netinet/in.h:365: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ntohl’
+/usr/include/netinet/in.h:366: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘ntohs’
+/usr/include/netinet/in.h:368: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘htonl’
+/usr/include/netinet/in.h:370: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘htons’
+/usr/include/netinet/in.h:492: error: storage class specified for parameter ‘bindresvport’
+/usr/include/netinet/in.h:496: error: storage class specified for parameter ‘bindresvport6’
+/usr/include/netinet/in.h:617: error: expected declaration specifiers before ‘__END_DECLS’
+In file included from /home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:116:
+/usr/include/arpa/inet.h:38: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘inet_lnaof’
+/usr/include/arpa/inet.h:42: error: expected ‘)’ before ‘__net’
+/usr/include/arpa/inet.h:46: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘inet_netof’
+/usr/include/arpa/inet.h:50: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘inet_network’
+/usr/include/arpa/inet.h:54: error: storage class specified for parameter ‘inet_ntoa’
+/usr/include/arpa/inet.h:60: error: storage class specified for parameter ‘inet_pton’
+/usr/include/arpa/inet.h:66: error: expected declaration specifiers or ‘...’ before ‘socklen_t’
+/usr/include/arpa/inet.h:67: error: storage class specified for parameter ‘inet_ntop’
+/usr/include/arpa/inet.h:74: error: storage class specified for parameter ‘inet_aton’
+/usr/include/arpa/inet.h:78: error: expected ‘)’ before ‘__net’
+/usr/include/arpa/inet.h:84: error: storage class specified for parameter ‘inet_net_ntop’
+/usr/include/arpa/inet.h:90: error: storage class specified for parameter ‘inet_net_pton’
+/usr/include/arpa/inet.h:96: error: storage class specified for parameter ‘inet_nsap_addr’
+/usr/include/arpa/inet.h:101: error: storage class specified for parameter ‘inet_nsap_ntoa’
+/usr/include/arpa/inet.h:104: error: expected declaration specifiers before ‘__END_DECLS’
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:128: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:137: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:141: warning: empty declaration
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:149: error: storage class specified for parameter ‘hashtab’
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:152: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:165: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:180: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:198: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:215: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:237: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:271: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:282: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:318: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:371: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:407: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:419: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+/usr/include/unistd.h:288: error: old-style parameter declarations in prototyped function definition
+/home/kashrinivaasan/linux-3.2.0/scripts/basic/fixdep.c:433: error: expected ‘{’ at end of input
+make[2]: *** [scripts/basic/fixdep] Error 1
+make[1]: *** [scripts_basic] Error 2
+make: *** [sub-make] Error 2
+Appended_16August2015           `��                            virgo_cloud_write_kernelspace    ���@�@�0:�        3   �1�����1��1�       �K�   `��������������;�           �Ǫ�        ��=�                         ��=�   �B�
