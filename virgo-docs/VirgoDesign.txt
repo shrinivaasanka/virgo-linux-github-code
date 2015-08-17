@@ -867,6 +867,14 @@ Executed the minimum end-end telnet path primitives in Linux kernel 4.1.5 VIRGO 
 - filesystem virtualization (updated filp_open flags)
 and committed logs and screenshots for the above.
 
+---------------------------------------------------------------------
+Commits as on 17 August 2015
+---------------------------------------------------------------------
+VIRGO queue driver:
+- Rebuilt Module.symvers
+- kern.log for telnet request to VIRGO Queue + KingCobra queueing system in kernelspace
+
+
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
