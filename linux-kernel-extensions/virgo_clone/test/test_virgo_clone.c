@@ -29,7 +29,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 
 #include <stdio.h>
 /*#include <linux/kernel.h>*/
-#include <sys/syscall.h>
+#include <syscall.h>
 #include <unistd.h>
 
 int main(int argc, char* argv[])
@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	*/
 
 
-	long int ret=syscall(354,"virgo_cloud_test_kernelspace ");
+	long int ret=syscall(359,"virgo_cloud_test_kernelspace ");
 	/*long int ret=syscall(350,"_Z16virgo_cloud_testPv ",NULL,0,NULL);*/
 	/*long int ret=syscall(350,"/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloud_test_main ",NULL,0,NULL);*/
 	/*long int ret=syscall(350,argv[1],NULL,0,NULL);*/
