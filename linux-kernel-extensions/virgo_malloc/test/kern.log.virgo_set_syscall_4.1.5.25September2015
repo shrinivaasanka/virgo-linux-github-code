@@ -1,0 +1,30 @@
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949018] virgo_set() system call: before virgo_unique_id_to_addr()
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949023] virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=b77d1b18
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949025] virgo_set() system call: vuid=-1216537832, virgo address to set is vaddr=b77d1b18
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949026] virgo_set() system_call: before memcpy()
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949029] virgo_set() system_call: after memcpy()
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949031] virgo_set() system call: vuid=-1216537832, data to set=Belated Happy Chennai Day 2015
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949055] IP: [<c1003afc>] sys_virgo_set+0xcc/0x320
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949136] EIP is at sys_virgo_set+0xcc/0x320
+Sep 24 17:56:19 shrinivaasanka-Inspiron-1545 kernel: [ 2139.949212] EIP: [<c1003afc>] sys_virgo_set+0xcc/0x320 SS:ESP 0068:f1a73c18
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939140] virgo_set() system call: before virgo_unique_id_to_addr()
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939147] virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=c1bd4ea8
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939151] virgo_set() system call: vuid=-1044558168, virgo address to set is vaddr=c1bd4ea8
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939153] virgo_set() system_call: before memcpy()
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939160] virgo_set() system_call: after memcpy()
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939163] virgo_set() system call: vuid=-1044558168, data to set=Belated Happy Chennai Day 2015
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939174] virgo_set() system call: vaddr_addr_str=[  (null)]
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939178] virgo_set() system call: 1. virgo_set_cmd=virgo_cloud_set(  (null)virgo_set() system call: 2. virgo_set_cmd=virgo_cloud_set(  (null),,data=Belated Happy Chennai Day 2015
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939184] virgo_set() system call: 3. virgo_set_cmd=virgo_cloud_set(  (null),Belated Happy Chennai Day 2015virgo_set() system call: 4. virgo_set_cmd=virgo_cloud_set(  (null),Belated Happy Chennai Day 2015)
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939191] virgo_set() system call: tempbuf=virgo_cloud_set(  (null),Belated Happy Chennai Day 2015), buf=virgo_cloud_set(  (null),Belated Happy Chennai Day 2015), virgo_set_cmd = virgo_cloud_set(  (null),Belated Happy Chennai Day 2015)
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939204] virgo_set() syscall: created client kernel socket
+Sep 24 18:03:28 shrinivaasanka-Inspiron-1545 kernel: [ 2568.939303] virgo_set() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888415] virgo_set() system call: before virgo_unique_id_to_addr()
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888419] virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=b7782b18
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888421] virgo_set() system call: vuid=-1216861416, virgo address to set is vaddr=b7782b18
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888423] virgo_set() system_call: before memcpy()
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888447] virgo_set() system_call: after memcpy()
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888449] virgo_set() system call: vuid=-1216861416, data to set=Belated Happy Chennai Day 2015
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888470] IP: [<c1003b2c>] sys_virgo_set+0xcc/0x340
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888550] EIP is at sys_virgo_set+0xcc/0x340
+Sep 25 20:38:04 shrinivaasanka-Inspiron-1545 kernel: [ 1212.888629] EIP: [<c1003b2c>] sys_virgo_set+0xcc/0x340 SS:ESP 0068:df58bc18

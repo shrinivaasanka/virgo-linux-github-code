@@ -27,7 +27,7 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 *****************************************************************************************/
 
 #include <stdio.h>
-#include <sys/syscall.h>
+#include <syscall.h>
 #include <unistd.h>
 #include <string.h>
 
@@ -56,22 +56,20 @@ int main(int argc, char* argv[])
 	struct virgo_address* vaddr;
 	unsigned long virgo_unique_id;
 
-	/* virgo_malloc*/
-	syscall(355,1000,&virgo_unique_id,NULL,0,NULL);
-	vaddr=(struct virgo_address*)virgo_unique_id;
+	/* virgo_malloc */
+	syscall(360,1000,&virgo_unique_id); 
+	/* vaddr=(struct virgo_address*)virgo_unique_id;*/
 
 	/* virgo_set */
 	char set_data[256];
-	strcpy(set_data,"Happy Chennai Day");
-	long set_ret=syscall(356,virgo_unique_id,set_data);
+	strcpy(set_data,"Belated Happy Chennai Day 2015");
+	long set_ret=syscall(361,virgo_unique_id,set_data);
 
 	/*virgo_get*/
 	char get_data[256];
-	long get_ret=syscall(357,virgo_unique_id,get_data);
+	long get_ret=syscall(362,virgo_unique_id,get_data);
 
 	/*virgo_free*/
-	/*
-	long free_ret=syscall(358,virgo_unique_id);
-	*/
+	long free_ret=syscall(363,virgo_unique_id);
 	return 0;
 }

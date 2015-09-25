@@ -1,0 +1,10 @@
+Sep 25 20:40:15 shrinivaasanka-Inspiron-1545 kernel: [ 1343.607028] virgo_get() system call: before virgo_unique_id_to_addr()
+Sep 25 20:40:15 shrinivaasanka-Inspiron-1545 kernel: [ 1343.607033] virgo_get() system call: vuid=-1217474051, virgo address to retrieve data from is vaddr=b76ed1fd
+Sep 25 20:40:15 shrinivaasanka-Inspiron-1545 kernel: [ 1343.607053] IP: [<c1003827>] sys_virgo_get+0x77/0x2b0
+Sep 25 20:40:15 shrinivaasanka-Inspiron-1545 kernel: [ 1343.607134] EIP is at sys_virgo_get+0x77/0x2b0
+Sep 25 20:40:15 shrinivaasanka-Inspiron-1545 kernel: [ 1343.607338] EIP: [<c1003827>] sys_virgo_get+0x77/0x2b0 SS:ESP 0068:f46b87cc
+Sep 25 20:42:37 shrinivaasanka-Inspiron-1545 kernel: [ 1486.037328] virgo_get() system call: before virgo_unique_id_to_addr()
+Sep 25 20:42:37 shrinivaasanka-Inspiron-1545 kernel: [ 1486.037333] virgo_get() system call: vuid=-1216671235, virgo address to retrieve data from is vaddr=b77b11fd
+Sep 25 20:42:37 shrinivaasanka-Inspiron-1545 kernel: [ 1486.037357] IP: [<c1003827>] sys_virgo_get+0x77/0x2b0
+Sep 25 20:42:37 shrinivaasanka-Inspiron-1545 kernel: [ 1486.037440] EIP is at sys_virgo_get+0x77/0x2b0
+Sep 25 20:42:37 shrinivaasanka-Inspiron-1545 kernel: [ 1486.037637] EIP: [<c1003827>] sys_virgo_get+0x77/0x2b0 SS:ESP 0068:ede947cc
