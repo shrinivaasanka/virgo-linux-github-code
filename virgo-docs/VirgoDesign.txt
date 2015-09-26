@@ -874,6 +874,31 @@ VIRGO queue driver:
 - Rebuilt Module.symvers
 - kern.log for telnet request to VIRGO Queue + KingCobra queueing system in kernelspace
 
+---------------------------------------------------------------------
+Commits as on 25,26 September 2015
+---------------------------------------------------------------------
+VIRGO Linux Kernel 4.1.5 - memory system calls:
+----------------------------------------------
+- updated testcases and added logs for syscalls invoked separately(malloc,set,get,free)
+- The often observed unpredictable heisen kernel panics occur with 4.1.5 kernel too. The logs are 2.3G and
+only grepped output is committed to repository.
+- virgo_malloc.c has been updated with kstrdup() to copy the buf to iov.iov_base which was earlier
+crashing in copy_from_iter() within tcp code. This problem did not happen in 3.15.5 kernel.
+- But virgo_clone syscall code works without any changes to iov_base as above which does a strcpy()
+ which is an internal memcpy() though. So what causes this crash in memory system calls alone
+is a mystery.
+- new insmod script has been added to load the VIRGO memory modules as necessary instead of at boot time.
+- test_virgo_malloc.c and its Makefile has been updated.
+
+VIRGO Linux Kernel 4.1.5 - filesystem calls- testcases and logs:
+---------------------------------------------------------------
+  - added insmod script for VIRGO filesystem drivers
+  - test_virgo_filesystem.c has been updated for syscall numbers in 4.1.5 VIRGO kernel
+  - virgo_fs.c syscalls code has been updated for iov.iov_base kstrdup() - without this there are kernel panics in copy_from_iter(). kern.log
+testlogs have been added, but there are heisen kernel panics. The virgo syscalls are executed but not written to kern.log due to these crashes.
+Thus execution logs are missing for VIRGO filesystem syscalls.
+
+
 
 
 
