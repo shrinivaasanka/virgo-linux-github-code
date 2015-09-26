@@ -178,13 +178,9 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	strcpy(buf,tempbuf);			
 
 	printk(KERN_INFO "virgo_read() system call: tempbuf=%s, buf=%s, virgo_read_cmd=%s\n",tempbuf,buf,virgo_read_cmd);
-
-	/*iov.iov_base=buf;*/
-	iov.iov_base=buf;
-	/*iov.iov_base=buf;*/
-	/*iov.iov_len=sizeof(buf);*/
-	/*iov.iov_len=BUF_SIZE;*/
-	iov.iov_len=strlen(buf);
+	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO "virgo_read() system call: iov.iov_base=%s\n",iov.iov_base);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -259,8 +255,9 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 
 	printk(KERN_INFO "virgo_write() system call: tempbuf=%s, buf=%s, virgo_write_cmd = %s\n",tempbuf, buf, virgo_write_cmd);
 
-	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	printk(KERN_INFO "virgo_write() system call: iov.iov_base=%s\n",iov.iov_base);
+	iov.iov_len=BUF_SIZE;
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -393,8 +390,9 @@ asmlinkage long sys_virgo_open(char* filepath)
 
 	printk(KERN_INFO "virgo_open() syscall: buf=%s, open_cmd=%s\n",buf, open_cmd);
 
-	iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_len=BUF_SIZE;
+	printk(KERN_INFO "virgo_open() syscall: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -473,8 +471,9 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 
 	printk(KERN_INFO "virgo_close() system call: tempbuf=%d, buf=%s, close_cmd=%s \n",tempbuf, buf, close_cmd);
 
-        iov.iov_base=buf;
-	iov.iov_len=strlen(buf);
+        iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_len=BUF_SIZE;
+	printk(KERN_INFO "virgo_close() system call: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
