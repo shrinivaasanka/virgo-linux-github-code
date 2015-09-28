@@ -153,6 +153,7 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
+	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 
@@ -176,10 +177,9 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	strcpy(buf,tempbuf);			
 
 	printk(KERN_INFO "virgo_get() system call: tempbuf=%s, buf=%s, virgo_get_cmd=%s\n",tempbuf,buf,virgo_get_cmd);
-        iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+        iov.iov_base=iovbuf;
 	printk(KERN_INFO "virgo_get() system call: iov.iov_base=%s\n",iov.iov_base);
-        iov.iov_base=kstrdup(buf,GFP_ATOMIC);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_len=sizeof(iovbuf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -192,15 +192,16 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 	nr=1;
-	
+
+	strcpy(iov.iov_base,buf);	
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_get() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_get() syscall: connected kernel client to virgo cloudexec kernel service; iov.iov_base=%s\n ",iov.iov_base);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_get() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_get() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_get() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_get() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_get() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -225,6 +226,7 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
+	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 
@@ -269,9 +271,9 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	strcpy(buf,tempbuf);
 
 	printk(KERN_INFO "virgo_set() system call: tempbuf=%s, buf=%s, virgo_set_cmd = %s\n",tempbuf, buf, virgo_set_cmd);
-	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_base=iovbuf;
 	printk(KERN_INFO "virgo_set() system call: iov.iov_base=%s\n",iov.iov_base);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_len=sizeof(iovbuf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -284,15 +286,16 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 	nr=1;
-	
+
+	strcpy(iov.iov_base,buf);	
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_set() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_set() syscall: connected kernel client to virgo cloudexec kernel service; iov.iov_base = %s\n ",iov.iov_base);
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_set() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_set() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_set() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_set() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_set() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -308,59 +311,24 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 /*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
 asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 {
-	int no_of_chunks=1;	
-	/*
-	int nr;
-	struct iovec iov;
-	*/
-	/*
-	struct msghdr msg = {
-		.msg_flags = MSG_EOF,
-	};
-	*/
-	/*
-	struct msghdr msg;
-	int error;
-	*/
-
-	/*
-	struct socket *sock;
-	struct sockaddr_in sin;
-	*/
-
-	/*
-        struct addrinfo hints;
-        struct addrinfo *result, *rp;
-	*/
-	/*
+	char iovbuf[BUF_SIZE];
+        char buf[BUF_SIZE];
+	char tempbuf[BUF_SIZE];
+	char *malloc_cmd;
         int sfd, s, j;
         size_t len;
         ssize_t nread;
-	*/
-        /*char buf[BUF_SIZE];*/
-	/*
-	char *buf;
-	char *malloc_cmd;
-	*/
-
-	/*
-        memset(&hints, 0, sizeof(struct addrinfo));
-        hints.ai_family = AF_UNSPEC;    / Allow IPv4 or IPv6 /
-        hints.ai_socktype = SOCK_STREAM; / Datagram socket /
-        hints.ai_flags = 0;
-        hints.ai_protocol = 0;          / Any protocol /
-	*/
-
-	/*
-	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud();
-        s = getaddrinfo(leastloadedhostport->host, leastloadedhostport->port, &hints, &result);
-	*/
-
-	virgomemorypooling_read_virgo_config_client();
+	struct msghdr msg;
+	int error;
+	int nr;
+	struct iovec iov;
+	int no_of_chunks=1;	
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	int i=0;
 	int this_allocation_start_entry=next_vtable_entry;
+	
+	virgomemorypooling_read_virgo_config_client();
 
 	/*
 	Mutex lock and unlock also causes a kernel panic, hence commented as of now
@@ -371,16 +339,6 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 	while(true)	
 	{
 		/*char *buf;*/
-        	char buf[BUF_SIZE];
-		char tempbuf[BUF_SIZE];
-		char *malloc_cmd;
-        	int sfd, s, j;
-        	size_t len;
-        	ssize_t nread;
-		struct msghdr msg;
-		int error;
-		int nr;
-		struct iovec iov;
 		struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud_mempool();
 		struct socket *sock;
 		struct sockaddr_in sin;
@@ -397,6 +355,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->port=%d",leastloadedhostport->port);
 		printk(KERN_INFO "virgo_malloc() syscall: leastloadedhostport->hostip=%s",leastloadedhostport->hostip);
 		in4_pton(leastloadedhostport->hostip, strlen(leastloadedhostport->hostip), &sin.sin_addr.s_addr, '\0',NULL);
+
 		sin.sin_family=AF_INET;
        		sin.sin_port=htons(leastloadedhostport->port);
 		printk(KERN_INFO "virgo_malloc() syscall: after in4_pton and htons, leastloadedhostport->hostip=%s, leastloadedhostport->port=%d, sin.sin_addr.s_addr=%x, sin.sin_port=%x\n",leastloadedhostport->hostip,leastloadedhostport->port, sin.sin_addr.s_addr, sin.sin_port);
@@ -426,9 +385,8 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 			printk(KERN_INFO "virgo_malloc() syscall: malloc_cmd=%s, buf=%s, tempbuf=%s",malloc_cmd,buf,tempbuf);
 		}
 
-		iov.iov_base=kstrdup(buf,GFP_ATOMIC);
-		printk(KERN_INFO "virgo_malloc() system call: iov.iov_base=%s\n",iov.iov_base);
-		iov.iov_len=BUF_SIZE;
+		iov.iov_base=iovbuf;
+		iov.iov_len=sizeof(iovbuf);
 		msg.msg_name = (struct sockaddr *) &sin;
 		msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -441,15 +399,15 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		msg.msg_controllen = 0;
 		msg.msg_flags = 0;
 		nr=1;
-	
+
+		strcpy(iov.iov_base, buf); 	
 		error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 		printk(KERN_INFO "virgo_malloc() syscall: created client kernel socket\n");
 		kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
-		printk(KERN_INFO "virgo_malloc() syscall: connected kernel client to virgo cloudexec kernel service; iov.iov_base = %s \n ", iov.iov_base);
 		len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+		printk(KERN_INFO "virgo_malloc() syscall: sent len=%d; iov.iov_base=%s, sent message: %s, iovbuf=%s \n", len, iov.iov_base, buf, iovbuf);
        		len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
+		printk(KERN_INFO "virgo_malloc() syscall: recv len=%d; received message iovbuf: [%s] \n", len, iovbuf);
 		printk(KERN_INFO "virgo_malloc() syscall: received iov.iov_base: %s \n", iov.iov_base);
 
 		/*
@@ -523,6 +481,7 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
         int sfd, s, j;
         size_t len;
         ssize_t nread;
+	char iovbuf[BUF_SIZE];
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	/*char* buf;*/
@@ -542,9 +501,9 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 	strcpy(buf,tempbuf);
 
 	printk(KERN_INFO "virgo_free() system call: tempbuf=%d, buf=%s, free_cmd=%s \n",tempbuf, buf, free_cmd);
-	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_base=iovbuf;
 	printk(KERN_INFO "virgo_free() system call: iov.iov_base=%s\n",iov.iov_base);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_len=sizeof(iovbuf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -557,15 +516,16 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 	nr=1;
-	
+
+	strcpy(iov.iov_base,buf);	
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_free() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_free() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_free() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_free() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_free() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_free() syscall: received message: %s \n", iovbuf);
 	
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_free() syscall: le32_to_cpus(buf): %s \n", buf);

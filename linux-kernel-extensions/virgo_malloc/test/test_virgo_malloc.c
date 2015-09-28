@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
 	unsigned long virgo_unique_id;
 
 	/* virgo_malloc */
-	syscall(360,1000,&virgo_unique_id); 
+	syscall(360,100,&virgo_unique_id); 
 	/* vaddr=(struct virgo_address*)virgo_unique_id;*/
 
 	/* virgo_set */
