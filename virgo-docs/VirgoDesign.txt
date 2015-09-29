@@ -898,6 +898,28 @@ VIRGO Linux Kernel 4.1.5 - filesystem calls- testcases and logs:
 testlogs have been added, but there are heisen kernel panics. The virgo syscalls are executed but not written to kern.log due to these crashes.
 Thus execution logs are missing for VIRGO filesystem syscalls.
 
+----------------------------------------------------------------------
+Commits as on 28,29 September 2015
+----------------------------------------------------------------------
+
+VIRGO Linux Kernel 4.1.5 filesystem syscalls:
+--------------------------------------------
+- Rewrote iov_base code with a separate iovbuf set to iov_base and strcpy()-ing the syscall command to iov_base similar to VIRGO
+memory syscalls
+- Pleasantly the same iovbuf code that crashes in memory syscalls works for VIRGO FS without crash.Thus both virgo_clone and virgo_filesystem
+syscalls work without issues in 4.1.5 and virgo_malloc() works erratically in 4.1.5 which remains as issue.
+- kern.log for VIRGO FS syscalls and virgofstest text file written by virgo_write() have been added to repository
+
+
+VIRGO Linux 4.1.5 kernel memory syscalls:
+-----------------------------------
+- rewrote the iov_base buffer code for all VIRGO memory syscalls by allocating separate iovbuf and copying the message to it - this just replicates the virgo_clone syscall behaviour which works without any crashes mysteriously.
+- did extensive repetitive tests that were frequented by numerous kernel panics and crashes
+- The stability of syscalls code with 3.15.5 kernel appears to be completely absent in 4.1.5
+- The telnet path works relatively better though
+- Difference between virgo_clone and virgo_malloc syscalls despite having same kernel sockets code looks like a non-trivial bug and a kernel stability issue.
+- kernel OOPS traces are quite erratic.
+- Makefile path in testcase has been updated
 
 
 
