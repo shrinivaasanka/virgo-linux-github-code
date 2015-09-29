@@ -1,0 +1,1001 @@
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100796] evm: security.selinux
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100800] evm: security.SMACK64
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100802] evm: security.SMACK64EXEC
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100805] evm: security.SMACK64TRANSMUTE
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100807] evm: security.SMACK64MMAP
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100810] evm: security.ima
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.100812] evm: security.capability
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101026] PM: Registering ACPI NVS region [mem 0xbd8bf400-0xbdac13ff] (2105344 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101246] clocksource jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101246] pinctrl core: initialized pinctrl subsystem
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101246] RTC time:  4:05:05, date: 09/29/15
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101246] NET: Registered protocol family 16
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.101246] EISA bus registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.112011] cpuidle: using governor ladder
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124005] cpuidle: using governor menu
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124218] ACPI: bus type PCI registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124222] acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124386] PCI: MMCONFIG for domain 0000 [bus 00-3f] at [mem 0xf8000000-0xfbffffff] (base 0xf8000000)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124391] PCI: MMCONFIG at [mem 0xf8000000-0xfbffffff] reserved in E820
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124394] PCI: Using MMCONFIG for extended config space
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124397] PCI: Using configuration type 1 for base access
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.124417] dmi type 0xB1 record - unknown flag
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.136227] ACPI: Added _OSI(Module Device)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.136232] ACPI: Added _OSI(Processor Device)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.136235] ACPI: Added _OSI(3.0 _SCP Extensions)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.136238] ACPI: Added _OSI(Processor Aggregator Device)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.152196] [Firmware Bug]: ACPI: BIOS _OSI(Linux) query ignored
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.156615] ACPI: Dynamic OEM Table Load:
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.156630] ACPI: SSDT 0x00000000F5812800 0005C6 (v01 PmRef  BspCst   00003001 INTL 20050624)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.157887] ACPI: Dynamic OEM Table Load:
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.157898] ACPI: SSDT 0x00000000F5939240 00008D (v01 PmRef  ApCst    00003000 INTL 20050624)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158717] ACPI: Interpreter enabled
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158738] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S1_] (20150410/hwxface-580)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158747] ACPI Exception: AE_NOT_FOUND, While evaluating Sleep State [\_S2_] (20150410/hwxface-580)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158774] ACPI: (supports S0 S3 S4 S5)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158777] ACPI: Using IOAPIC for interrupt routing
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.158832] PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.274494] ACPI: PCI Root Bridge [PCI0] (domain 0000 [bus 00-ff])
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.274506] acpi PNP0A03:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.274517] acpi PNP0A03:00: _OSC failed (AE_NOT_FOUND); disabling ASPM
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.298996] acpi PNP0A03:00: [Firmware Info]: MMCONFIG for domain 0000 [bus 00-3f] only partially covers this bridge
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299427] PCI host bridge to bus 0000:00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299434] pci_bus 0000:00: root bus resource [bus 00-ff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299440] pci_bus 0000:00: root bus resource [io  0x0000-0x0cf7 window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299445] pci_bus 0000:00: root bus resource [io  0x0d00-0xffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299449] pci_bus 0000:00: root bus resource [mem 0x000a0000-0x000bffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299454] pci_bus 0000:00: root bus resource [mem 0x000d0000-0x000dffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299459] pci_bus 0000:00: root bus resource [mem 0xc0000000-0xf7ffffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299463] pci_bus 0000:00: root bus resource [mem 0xfc000000-0xfebfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299468] pci_bus 0000:00: root bus resource [mem 0xfec10000-0xfecfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299472] pci_bus 0000:00: root bus resource [mem 0xfed1c000-0xfed1ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299477] pci_bus 0000:00: root bus resource [mem 0xfed90000-0xfed9ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299481] pci_bus 0000:00: root bus resource [mem 0xfeda7000-0xfedfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299486] pci_bus 0000:00: root bus resource [mem 0xfee10000-0xff9fffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299490] pci_bus 0000:00: root bus resource [mem 0xffc00000-0xffdfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299507] pci 0000:00:00.0: [8086:2a40] type 00 class 0x060000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299550] DMAR: Forcing write-buffer flush capability
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299553] DMAR: Disabling IOMMU for graphics on this chipset
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299737] pci 0000:00:02.0: [8086:2a42] type 00 class 0x030000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299760] pci 0000:00:02.0: reg 0x10: [mem 0xf6c00000-0xf6ffffff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299775] pci 0000:00:02.0: reg 0x18: [mem 0xe0000000-0xefffffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.299786] pci 0000:00:02.0: reg 0x20: [io  0xefe8-0xefef]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.300009] pci 0000:00:02.1: [8086:2a43] type 00 class 0x038000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.300029] pci 0000:00:02.1: reg 0x10: [mem 0xf6b00000-0xf6bfffff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.300316] pci 0000:00:1a.0: [8086:2937] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.300392] pci 0000:00:1a.0: reg 0x20: [io  0x6f60-0x6f7f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.304727] pci 0000:00:1a.0: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.304843] pci 0000:00:1a.1: [8086:2938] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.304919] pci 0000:00:1a.1: reg 0x20: [io  0x6f80-0x6f9f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.310114] pci 0000:00:1a.1: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.310226] pci 0000:00:1a.2: [8086:2939] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.310303] pci 0000:00:1a.2: reg 0x20: [io  0x6fa0-0x6fbf]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.315389] pci 0000:00:1a.2: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.315511] pci 0000:00:1a.7: [8086:293c] type 00 class 0x0c0320
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.315543] pci 0000:00:1a.7: reg 0x10: [mem 0xfed1c400-0xfed1c7ff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.315676] pci 0000:00:1a.7: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320135] pci 0000:00:1a.7: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320256] pci 0000:00:1b.0: [8086:293e] type 00 class 0x040300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320290] pci 0000:00:1b.0: reg 0x10: [mem 0xf6afc000-0xf6afffff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320426] pci 0000:00:1b.0: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320536] pci 0000:00:1b.0: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320648] pci 0000:00:1c.0: [8086:2940] type 01 class 0x060400
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320781] pci 0000:00:1c.0: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.320892] pci 0000:00:1c.0: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321003] pci 0000:00:1c.1: [8086:2942] type 01 class 0x060400
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321135] pci 0000:00:1c.1: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321245] pci 0000:00:1c.1: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321361] pci 0000:00:1c.2: [8086:2944] type 01 class 0x060400
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321494] pci 0000:00:1c.2: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321603] pci 0000:00:1c.2: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321715] pci 0000:00:1c.4: [8086:2948] type 01 class 0x060400
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321848] pci 0000:00:1c.4: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.321957] pci 0000:00:1c.4: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.322071] pci 0000:00:1d.0: [8086:2934] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.322147] pci 0000:00:1d.0: reg 0x20: [io  0x6f00-0x6f1f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.327844] pci 0000:00:1d.0: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.327960] pci 0000:00:1d.1: [8086:2935] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.328044] pci 0000:00:1d.1: reg 0x20: [io  0x6f20-0x6f3f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.332676] pci 0000:00:1d.1: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.332789] pci 0000:00:1d.2: [8086:2936] type 00 class 0x0c0300
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.332866] pci 0000:00:1d.2: reg 0x20: [io  0x6f40-0x6f5f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.337511] pci 0000:00:1d.2: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.337634] pci 0000:00:1d.7: [8086:293a] type 00 class 0x0c0320
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.337666] pci 0000:00:1d.7: reg 0x10: [mem 0xfed1c000-0xfed1c3ff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.337799] pci 0000:00:1d.7: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.342231] pci 0000:00:1d.7: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.342343] pci 0000:00:1e.0: [8086:2448] type 01 class 0x060401
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.342532] pci 0000:00:1e.0: System wakeup disabled by ACPI
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.342644] pci 0000:00:1f.0: [8086:2919] type 00 class 0x060100
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.342996] pci 0000:00:1f.2: [8086:2929] type 00 class 0x010601
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343029] pci 0000:00:1f.2: reg 0x10: [io  0x6e70-0x6e77]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343046] pci 0000:00:1f.2: reg 0x14: [io  0x6e78-0x6e7b]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343062] pci 0000:00:1f.2: reg 0x18: [io  0x6e80-0x6e87]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343079] pci 0000:00:1f.2: reg 0x1c: [io  0x6e88-0x6e8b]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343095] pci 0000:00:1f.2: reg 0x20: [io  0x6ea0-0x6ebf]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343112] pci 0000:00:1f.2: reg 0x24: [mem 0xfed1c800-0xfed1cfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343190] pci 0000:00:1f.2: PME# supported from D3hot
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343392] pci 0000:00:1f.3: [8086:2930] type 00 class 0x0c0500
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343423] pci 0000:00:1f.3: reg 0x10: [mem 0xf6afbf00-0xf6afbfff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.343464] pci 0000:00:1f.3: reg 0x20: [io  0x1100-0x111f]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.344113] pci 0000:00:1c.0: PCI bridge to [bus 0b]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.344503] pci 0000:0c:00.0: [14e4:4315] type 00 class 0x028000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.344592] pci 0000:0c:00.0: reg 0x10: [mem 0xf69fc000-0xf69fffff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345011] pci 0000:0c:00.0: supports D1 D2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345016] pci 0000:0c:00.0: PME# supported from D0 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345475] pci 0000:00:1c.1: PCI bridge to [bus 0c]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345487] pci 0000:00:1c.1:   bridge window [mem 0xf6900000-0xf69fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345641] pci 0000:09:00.0: [11ab:4354] type 00 class 0x020000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345689] pci 0000:09:00.0: reg 0x10: [mem 0xf68fc000-0xf68fffff 64bit]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345712] pci 0000:09:00.0: reg 0x18: [io  0xde00-0xdeff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345885] pci 0000:09:00.0: supports D1 D2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.345889] pci 0000:09:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352033] pci 0000:00:1c.2: PCI bridge to [bus 09]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352042] pci 0000:00:1c.2:   bridge window [io  0xd000-0xdfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352050] pci 0000:00:1c.2:   bridge window [mem 0xf6800000-0xf68fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352213] acpiphp: Slot [1] registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352225] pci 0000:00:1c.4: PCI bridge to [bus 0d-0e]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352233] pci 0000:00:1c.4:   bridge window [io  0xc000-0xcfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352241] pci 0000:00:1c.4:   bridge window [mem 0xf6600000-0xf67fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352253] pci 0000:00:1c.4:   bridge window [mem 0xf0000000-0xf01fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352432] pci 0000:00:1e.0: PCI bridge to [bus 03] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352452] pci 0000:00:1e.0:   bridge window [io  0x0000-0x0cf7 window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352457] pci 0000:00:1e.0:   bridge window [io  0x0d00-0xffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352462] pci 0000:00:1e.0:   bridge window [mem 0x000a0000-0x000bffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352466] pci 0000:00:1e.0:   bridge window [mem 0x000d0000-0x000dffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352471] pci 0000:00:1e.0:   bridge window [mem 0xc0000000-0xf7ffffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352476] pci 0000:00:1e.0:   bridge window [mem 0xfc000000-0xfebfffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352481] pci 0000:00:1e.0:   bridge window [mem 0xfec10000-0xfecfffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352485] pci 0000:00:1e.0:   bridge window [mem 0xfed1c000-0xfed1ffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352490] pci 0000:00:1e.0:   bridge window [mem 0xfed90000-0xfed9ffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352495] pci 0000:00:1e.0:   bridge window [mem 0xfeda7000-0xfedfffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352500] pci 0000:00:1e.0:   bridge window [mem 0xfee10000-0xff9fffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352504] pci 0000:00:1e.0:   bridge window [mem 0xffc00000-0xffdfffff window] (subtractive decode)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.352755] pci_bus 0000:00: on NUMA node 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.353558] ACPI: PCI Interrupt Link [LNKA] (IRQs *10 11)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.353725] ACPI: PCI Interrupt Link [LNKB] (IRQs 5 7) *4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.353889] ACPI: PCI Interrupt Link [LNKC] (IRQs *10 11)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.354029] ACPI: PCI Interrupt Link [LNKD] (IRQs 5 7 10 11) *0, disabled.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.354195] ACPI: PCI Interrupt Link [LNKE] (IRQs 3 4 5 6 7 10 *11 12 14 15)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.354364] ACPI: PCI Interrupt Link [LNKF] (IRQs 3 4 5 6 *7 10 11 12 14 15)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.354533] ACPI: PCI Interrupt Link [LNKG] (IRQs 3 4 *5 6 7 10 11 12 14 15)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.354678] ACPI: PCI Interrupt Link [LNKH] (IRQs 3 4 5 6 7 10 11 12 14 15) *0, disabled.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.355211] ACPI: Enabled 4 GPEs in block 00 to 3F
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.355423] vgaarb: setting as boot device: PCI:0000:00:02.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.355423] vgaarb: device added: PCI:0000:00:02.0,decodes=io+mem,owns=io+mem,locks=none
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.355423] vgaarb: loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.355423] vgaarb: bridge control possible 0000:00:02.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356119] SCSI subsystem initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356198] libata version 3.00 loaded.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356269] ACPI: bus type USB registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356318] usbcore: registered new interface driver usbfs
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356344] usbcore: registered new interface driver hub
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356375] usbcore: registered new device driver usb
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.356502] PCI: Using ACPI for IRQ routing
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.359045] PCI: pci_cache_line_size set to 64 bytes
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360031] e820: reserve RAM buffer [mem 0x0009f000-0x0009ffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360035] e820: reserve RAM buffer [mem 0xbd8bf400-0xbfffffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360300] NetLabel: Initializing
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360303] NetLabel:  domain hash size = 128
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360305] NetLabel:  protocols = UNLABELED CIPSOv4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360327] NetLabel:  unlabeled traffic allowed by default
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360383] HPET: 4 timers in total, 0 timers will be used for per-cpu timer
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360383] hpet0: at MMIO 0xfed00000, IRQs 2, 8, 0, 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.360383] hpet0: 4 comparators, 64-bit 14.318180 MHz counter
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.362243] Switched to clocksource hpet
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.378732] AppArmor: AppArmor Filesystem Enabled
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.378891] pnp: PnP ACPI init
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379082] system 00:00: [mem 0xff800000-0xff8fffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379088] system 00:00: [mem 0xffc00000-0xffcfffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379096] system 00:00: Plug and Play ACPI device, IDs PNP0c02 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379205] pnp 00:01: Plug and Play ACPI device, IDs PNP0f13 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379296] pnp 00:02: Plug and Play ACPI device, IDs PNP0303 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379389] pnp 00:03: Plug and Play ACPI device, IDs PNP0b00 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379496] system 00:04: Plug and Play ACPI device, IDs PNP0c01 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379656] system 00:05: [mem 0xfed00000-0xfed003ff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.379664] system 00:05: Plug and Play ACPI device, IDs PNP0103 PNP0c01 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380022] system 00:06: [io  0x0900-0x097f] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380028] system 00:06: [io  0x04d0-0x04d1] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380034] system 00:06: [io  0x1000-0x1005] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380039] system 00:06: [io  0x1008-0x100f] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380046] system 00:06: Plug and Play ACPI device, IDs PNP0c01 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380161] system 00:07: [io  0xf400-0xf4fe] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380167] system 00:07: [io  0x1006-0x1007] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380172] system 00:07: [io  0x100a-0x1059] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380177] system 00:07: [io  0x1060-0x107f] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380182] system 00:07: [io  0x1080-0x10bf] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380188] system 00:07: [io  0x1100-0x111f] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380193] system 00:07: [io  0x1010-0x102f] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380198] system 00:07: [io  0x0809] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.380204] system 00:07: Plug and Play ACPI device, IDs PNP0c01 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407140] system 00:08: [mem 0x00000000-0x0009efff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407147] system 00:08: [mem 0x0009f000-0x0009ffff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407153] system 00:08: [mem 0x000c0000-0x000cffff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407158] system 00:08: [mem 0x000e0000-0x000fffff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407164] system 00:08: [mem 0x00100000-0xbd8bf3ff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407169] system 00:08: [mem 0xbd8bf400-0xbdafffff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407174] system 00:08: [mem 0xbdb00000-0xbdbfffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407180] system 00:08: [mem 0xffe00000-0xffffffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407185] system 00:08: [mem 0xffa00000-0xffbfffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407191] system 00:08: [mem 0xfec00000-0xfec0ffff] could not be reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407196] system 00:08: [mem 0xfee00000-0xfee0ffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407201] system 00:08: [mem 0xfed20000-0xfed8ffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407206] system 00:08: [mem 0xfeda0000-0xfeda3fff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407212] system 00:08: [mem 0xfeda4000-0xfeda4fff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407217] system 00:08: [mem 0xfeda5000-0xfeda5fff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407222] system 00:08: [mem 0xfeda6000-0xfeda6fff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407228] system 00:08: [mem 0xfed1c800-0xfed1cfff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407233] system 00:08: [mem 0xfed18000-0xfed1bfff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407238] system 00:08: [mem 0xf8000000-0xfbffffff] has been reserved
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407245] system 00:08: Plug and Play ACPI device, IDs PNP0c01 (active)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407311] pnp: PnP ACPI: found 9 devices
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.407321] PnPBIOS: Disabled by ACPI PNP
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.446931] clocksource acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.446963] pci 0000:00:1c.0: bridge window [io  0x1000-0x0fff] to [bus 0b] add_size 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.446972] pci 0000:00:1c.0: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 0b] add_size 200000 add_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.446978] pci 0000:00:1c.0: bridge window [mem 0x00100000-0x000fffff] to [bus 0b] add_size 200000 add_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.446994] pci 0000:00:1c.1: bridge window [io  0x1000-0x0fff] to [bus 0c] add_size 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447001] pci 0000:00:1c.1: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 0c] add_size 200000 add_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447018] pci 0000:00:1c.2: bridge window [mem 0x00100000-0x000fffff 64bit pref] to [bus 09] add_size 200000 add_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447054] pci 0000:00:1c.0: res[14]=[mem 0x00100000-0x000fffff] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447059] pci 0000:00:1c.0: res[14]=[mem 0x00100000-0x002fffff] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447065] pci 0000:00:1c.0: res[15]=[mem 0x00100000-0x000fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447070] pci 0000:00:1c.0: res[15]=[mem 0x00100000-0x002fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447076] pci 0000:00:1c.1: res[15]=[mem 0x00100000-0x000fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447081] pci 0000:00:1c.1: res[15]=[mem 0x00100000-0x002fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447086] pci 0000:00:1c.2: res[15]=[mem 0x00100000-0x000fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447092] pci 0000:00:1c.2: res[15]=[mem 0x00100000-0x002fffff 64bit pref] res_to_dev_res add_size 200000 min_align 100000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447098] pci 0000:00:1c.0: res[13]=[io  0x1000-0x0fff] res_to_dev_res add_size 1000 min_align 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447103] pci 0000:00:1c.0: res[13]=[io  0x1000-0x1fff] res_to_dev_res add_size 1000 min_align 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447108] pci 0000:00:1c.1: res[13]=[io  0x1000-0x0fff] res_to_dev_res add_size 1000 min_align 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447113] pci 0000:00:1c.1: res[13]=[io  0x1000-0x1fff] res_to_dev_res add_size 1000 min_align 1000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447124] pci 0000:00:1c.0: BAR 14: assigned [mem 0xc0000000-0xc01fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447142] pci 0000:00:1c.0: BAR 15: assigned [mem 0xc0200000-0xc03fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447160] pci 0000:00:1c.1: BAR 15: assigned [mem 0xc0400000-0xc05fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447177] pci 0000:00:1c.2: BAR 15: assigned [mem 0xc0600000-0xc07fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447184] pci 0000:00:1c.0: BAR 13: assigned [io  0x2000-0x2fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447191] pci 0000:00:1c.1: BAR 13: assigned [io  0x3000-0x3fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447197] pci 0000:00:1c.0: PCI bridge to [bus 0b]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447203] pci 0000:00:1c.0:   bridge window [io  0x2000-0x2fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447213] pci 0000:00:1c.0:   bridge window [mem 0xc0000000-0xc01fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447221] pci 0000:00:1c.0:   bridge window [mem 0xc0200000-0xc03fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447232] pci 0000:00:1c.1: PCI bridge to [bus 0c]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447238] pci 0000:00:1c.1:   bridge window [io  0x3000-0x3fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447248] pci 0000:00:1c.1:   bridge window [mem 0xf6900000-0xf69fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447256] pci 0000:00:1c.1:   bridge window [mem 0xc0400000-0xc05fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447267] pci 0000:00:1c.2: PCI bridge to [bus 09]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447273] pci 0000:00:1c.2:   bridge window [io  0xd000-0xdfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447282] pci 0000:00:1c.2:   bridge window [mem 0xf6800000-0xf68fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447290] pci 0000:00:1c.2:   bridge window [mem 0xc0600000-0xc07fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447301] pci 0000:00:1c.4: PCI bridge to [bus 0d-0e]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447307] pci 0000:00:1c.4:   bridge window [io  0xc000-0xcfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447317] pci 0000:00:1c.4:   bridge window [mem 0xf6600000-0xf67fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447325] pci 0000:00:1c.4:   bridge window [mem 0xf0000000-0xf01fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447336] pci 0000:00:1e.0: PCI bridge to [bus 03]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447357] pci_bus 0000:00: resource 4 [io  0x0000-0x0cf7 window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447362] pci_bus 0000:00: resource 5 [io  0x0d00-0xffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447366] pci_bus 0000:00: resource 6 [mem 0x000a0000-0x000bffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447371] pci_bus 0000:00: resource 7 [mem 0x000d0000-0x000dffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447375] pci_bus 0000:00: resource 8 [mem 0xc0000000-0xf7ffffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447380] pci_bus 0000:00: resource 9 [mem 0xfc000000-0xfebfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447384] pci_bus 0000:00: resource 10 [mem 0xfec10000-0xfecfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447389] pci_bus 0000:00: resource 11 [mem 0xfed1c000-0xfed1ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447393] pci_bus 0000:00: resource 12 [mem 0xfed90000-0xfed9ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447397] pci_bus 0000:00: resource 13 [mem 0xfeda7000-0xfedfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447402] pci_bus 0000:00: resource 14 [mem 0xfee10000-0xff9fffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447406] pci_bus 0000:00: resource 15 [mem 0xffc00000-0xffdfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447411] pci_bus 0000:0b: resource 0 [io  0x2000-0x2fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447416] pci_bus 0000:0b: resource 1 [mem 0xc0000000-0xc01fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447420] pci_bus 0000:0b: resource 2 [mem 0xc0200000-0xc03fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447424] pci_bus 0000:0c: resource 0 [io  0x3000-0x3fff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447428] pci_bus 0000:0c: resource 1 [mem 0xf6900000-0xf69fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447433] pci_bus 0000:0c: resource 2 [mem 0xc0400000-0xc05fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447438] pci_bus 0000:09: resource 0 [io  0xd000-0xdfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447442] pci_bus 0000:09: resource 1 [mem 0xf6800000-0xf68fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447447] pci_bus 0000:09: resource 2 [mem 0xc0600000-0xc07fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447451] pci_bus 0000:0d: resource 0 [io  0xc000-0xcfff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447455] pci_bus 0000:0d: resource 1 [mem 0xf6600000-0xf67fffff]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447460] pci_bus 0000:0d: resource 2 [mem 0xf0000000-0xf01fffff 64bit pref]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447465] pci_bus 0000:03: resource 4 [io  0x0000-0x0cf7 window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447469] pci_bus 0000:03: resource 5 [io  0x0d00-0xffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447474] pci_bus 0000:03: resource 6 [mem 0x000a0000-0x000bffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447478] pci_bus 0000:03: resource 7 [mem 0x000d0000-0x000dffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447483] pci_bus 0000:03: resource 8 [mem 0xc0000000-0xf7ffffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447487] pci_bus 0000:03: resource 9 [mem 0xfc000000-0xfebfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447492] pci_bus 0000:03: resource 10 [mem 0xfec10000-0xfecfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447496] pci_bus 0000:03: resource 11 [mem 0xfed1c000-0xfed1ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447501] pci_bus 0000:03: resource 12 [mem 0xfed90000-0xfed9ffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447505] pci_bus 0000:03: resource 13 [mem 0xfeda7000-0xfedfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447509] pci_bus 0000:03: resource 14 [mem 0xfee10000-0xff9fffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447514] pci_bus 0000:03: resource 15 [mem 0xffc00000-0xffdfffff window]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447575] NET: Registered protocol family 2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447942] TCP established hash table entries: 8192 (order: 3, 32768 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.447969] TCP bind hash table entries: 8192 (order: 4, 65536 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.448023] TCP: Hash tables configured (established 8192 bind 8192)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.448070] UDP hash table entries: 512 (order: 2, 16384 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.448083] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.448159] NET: Registered protocol family 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.448189] pci 0000:00:02.0: Video device with shadowed ROM
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.453460] PCI: CLS 64 bytes, default 64
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    0.453557] Trying to unpack rootfs image as initramfs...
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.707755] Freeing initrd memory: 159692K (e480a000 - ee3fd000)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.708221] microcode: CPU0 sig=0x1067a, pf=0x80, revision=0xa0b
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.708237] microcode: CPU1 sig=0x1067a, pf=0x80, revision=0xa0b
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.708362] microcode: Microcode Update Driver: v2.00 <tigran@aivazian.fsnet.co.uk>, Peter Oruba
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.708431] Scanning for low memory corruption every 60 seconds
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.709061] futex hash table entries: 512 (order: 3, 32768 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.709094] Initialise system trusted keyring
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.709139] audit: initializing netlink subsys (disabled)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.709171] audit: type=2000 audit(1443499511.704:1): initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.709824] HugeTLB registered 2 MB page size, pre-allocated 0 pages
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.714788] zpool: loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.714795] zbud: loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.714941] VFS: Disk quotas dquot_6.6.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.715038] VFS: Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.716199] fuse init (API version 7.23)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.716583] Key type big_key registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717261] Key type asymmetric registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717267] Asymmetric key parser 'x509' registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717301] bounce: pool size: 64 pages
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717391] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717453] io scheduler noop registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717458] io scheduler deadline registered (default)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.717542] io scheduler cfq registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719690] pci_hotplug: PCI Hot Plug PCI Core version: 0.5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719733] pciehp: PCI Express Hot Plug Controller Driver version: 0.4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719819] vesafb: mode is 1024x768x32, linelength=4096, pages=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719822] vesafb: scrolling: redraw
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719826] vesafb: Truecolor: size=8:8:8:8, shift=24:16:8:0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.719865] vesafb: framebuffer at 0xe0000000, mapped to 0xf8600000, using 3072k, total 3072k
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.764036] Console: switching to colour frame buffer device 128x48
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.807899] fb0: VESA VGA frame buffer device
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.807942] intel_idle: does not run on family 6 model 23
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.808132] ACPI: AC Adapter [AC] (on-line)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.808306] input: Lid Switch as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0D:00/input/input0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.809924] ACPI: Lid Switch [LID]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810036] input: Power Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810043] ACPI: Power Button [PBTN]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810147] input: Sleep Button as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0E:00/input/input2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810153] ACPI: Sleep Button [SBTN]
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810397] Monitor-Mwait will be used to enter C-1 state
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810408] Monitor-Mwait will be used to enter C-2 state
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810415] Monitor-Mwait will be used to enter C-3 state
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810422] tsc: Marking TSC unstable due to TSC halts in idle
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.810436] ACPI: acpi_idle registered with cpuidle
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.831417] thermal LNXTHERM:00: registered as thermal_zone0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.831423] ACPI: Thermal Zone [THM] (62 C)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.831501] GHES: HEST is not enabled!
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.831538] isapnp: Scanning for PnP cards...
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    6.898121] ACPI: Battery Slot [BAT0] (battery present)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.176043] isapnp: No Plug & Play device found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.176281] Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.181164] Linux agpgart interface v0.103
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.181381] agpgart-intel 0000:00:00.0: Intel GM45 Chipset
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.181415] agpgart-intel 0000:00:00.0: detected gtt size: 2097152K total, 262144K mappable
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.182375] agpgart-intel 0000:00:00.0: detected 32768K stolen memory
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.182606] agpgart-intel 0000:00:00.0: AGP aperture is 256M @ 0xe0000000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.188836] brd: module loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.191411] loop: module loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.191977] libphy: Fixed MDIO Bus: probed
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.191983] tun: Universal TUN/TAP device driver, 1.6
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.191986] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192124] PPP generic driver version 2.4.2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192318] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192328] ehci-pci: EHCI PCI platform driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192756] ehci-pci 0000:00:1a.7: EHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192769] ehci-pci 0000:00:1a.7: new USB bus registered, assigned bus number 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.192789] ehci-pci 0000:00:1a.7: debug port 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.196712] ehci-pci 0000:00:1a.7: cache line size of 64 is not supported
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.196740] ehci-pci 0000:00:1a.7: irq 22, io mem 0xfed1c400
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208073] ehci-pci 0000:00:1a.7: USB 2.0 started, EHCI 1.00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208178] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208184] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208188] usb usb1: Product: EHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208193] usb usb1: Manufacturer: Linux 4.1.5 ehci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208197] usb usb1: SerialNumber: 0000:00:1a.7
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208507] hub 1-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.208523] hub 1-0:1.0: 6 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.209418] ehci-pci 0000:00:1d.7: EHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.209430] ehci-pci 0000:00:1d.7: new USB bus registered, assigned bus number 2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.209448] ehci-pci 0000:00:1d.7: debug port 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.213374] ehci-pci 0000:00:1d.7: cache line size of 64 is not supported
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.213401] ehci-pci 0000:00:1d.7: irq 20, io mem 0xfed1c000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224252] ehci-pci 0000:00:1d.7: USB 2.0 started, EHCI 1.00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224331] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224336] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224340] usb usb2: Product: EHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224344] usb usb2: Manufacturer: Linux 4.1.5 ehci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224348] usb usb2: SerialNumber: 0000:00:1d.7
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224636] hub 2-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.224651] hub 2-0:1.0: 6 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225170] ehci-platform: EHCI generic platform driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225195] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225204] ohci-pci: OHCI PCI platform driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225234] ohci-platform: OHCI generic platform driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225256] uhci_hcd: USB Universal Host Controller Interface driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225598] uhci_hcd 0000:00:1a.0: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225610] uhci_hcd 0000:00:1a.0: new USB bus registered, assigned bus number 3
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225621] uhci_hcd 0000:00:1a.0: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225649] uhci_hcd 0000:00:1a.0: irq 20, io base 0x00006f60
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225739] usb usb3: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225744] usb usb3: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225748] usb usb3: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225752] usb usb3: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.225756] usb usb3: SerialNumber: 0000:00:1a.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226044] hub 3-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226059] hub 3-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226638] uhci_hcd 0000:00:1a.1: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226649] uhci_hcd 0000:00:1a.1: new USB bus registered, assigned bus number 4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226662] uhci_hcd 0000:00:1a.1: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226704] uhci_hcd 0000:00:1a.1: irq 21, io base 0x00006f80
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226792] usb usb4: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226797] usb usb4: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226801] usb usb4: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226805] usb usb4: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.226809] usb usb4: SerialNumber: 0000:00:1a.1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227088] hub 4-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227102] hub 4-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227668] uhci_hcd 0000:00:1a.2: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227679] uhci_hcd 0000:00:1a.2: new USB bus registered, assigned bus number 5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227691] uhci_hcd 0000:00:1a.2: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227719] uhci_hcd 0000:00:1a.2: irq 22, io base 0x00006fa0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227806] usb usb5: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227811] usb usb5: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227815] usb usb5: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227819] usb usb5: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.227823] usb usb5: SerialNumber: 0000:00:1a.2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228115] hub 5-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228129] hub 5-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228697] uhci_hcd 0000:00:1d.0: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228709] uhci_hcd 0000:00:1d.0: new USB bus registered, assigned bus number 6
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228720] uhci_hcd 0000:00:1d.0: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228748] uhci_hcd 0000:00:1d.0: irq 20, io base 0x00006f00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228844] usb usb6: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228849] usb usb6: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228853] usb usb6: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228857] usb usb6: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.228861] usb usb6: SerialNumber: 0000:00:1d.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229149] hub 6-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229163] hub 6-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229722] uhci_hcd 0000:00:1d.1: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229733] uhci_hcd 0000:00:1d.1: new USB bus registered, assigned bus number 7
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229745] uhci_hcd 0000:00:1d.1: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229772] uhci_hcd 0000:00:1d.1: irq 21, io base 0x00006f20
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229861] usb usb7: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229866] usb usb7: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229870] usb usb7: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229874] usb usb7: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.229878] usb usb7: SerialNumber: 0000:00:1d.1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230161] hub 7-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230175] hub 7-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230734] uhci_hcd 0000:00:1d.2: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230745] uhci_hcd 0000:00:1d.2: new USB bus registered, assigned bus number 8
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230756] uhci_hcd 0000:00:1d.2: detected 2 ports
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230784] uhci_hcd 0000:00:1d.2: irq 22, io base 0x00006f40
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230874] usb usb8: New USB device found, idVendor=1d6b, idProduct=0001
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230878] usb usb8: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230883] usb usb8: Product: UHCI Host Controller
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230887] usb usb8: Manufacturer: Linux 4.1.5 uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.230891] usb usb8: SerialNumber: 0000:00:1d.2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.231164] hub 8-0:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.231178] hub 8-0:1.0: 2 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.231550] i8042: PNP: PS/2 Controller [PNP0303:KBC,PNP0f13:PS2M] at 0x60,0x64 irq 1,12
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.251859] i8042: Detected active multiplexing controller, rev 1.1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.264886] serio: i8042 KBD port at 0x60,0x64 irq 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.264895] serio: i8042 AUX0 port at 0x60,0x64 irq 12
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.264985] serio: i8042 AUX1 port at 0x60,0x64 irq 12
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.265069] serio: i8042 AUX2 port at 0x60,0x64 irq 12
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.265151] serio: i8042 AUX3 port at 0x60,0x64 irq 12
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.265512] mousedev: PS/2 mouse device common for all mice
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.265955] rtc_cmos 00:03: RTC can wake from S4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266198] rtc_cmos 00:03: rtc core: registered rtc_cmos as rtc0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266239] rtc_cmos 00:03: alarms up to one month, y3k, 114 bytes nvram, hpet irqs
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266261] i2c /dev entries driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266396] device-mapper: uevent: version 1.0.3
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266581] device-mapper: ioctl: 4.31.0-ioctl (2015-3-12) initialised: dm-devel@redhat.com
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266641] platform eisa.0: Probing EISA bus 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266647] platform eisa.0: EISA: Cannot allocate resource for mainboard
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266652] platform eisa.0: Cannot allocate resource for EISA slot 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266656] platform eisa.0: Cannot allocate resource for EISA slot 2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266661] platform eisa.0: Cannot allocate resource for EISA slot 3
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266665] platform eisa.0: Cannot allocate resource for EISA slot 4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266669] platform eisa.0: Cannot allocate resource for EISA slot 5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266673] platform eisa.0: Cannot allocate resource for EISA slot 6
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266678] platform eisa.0: Cannot allocate resource for EISA slot 7
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266682] platform eisa.0: Cannot allocate resource for EISA slot 8
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266686] platform eisa.0: EISA: Detected 0 cards
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266720] cpufreq-nforce2: No nForce2 chipset.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266735] ledtrig-cpu: registered to indicate activity on CPUs
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.266752] PCCT header not found.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.267286] NET: Registered protocol family 10
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.267752] NET: Registered protocol family 17
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.267773] Key type dns_resolver registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.268255] Using IPI No-Shortcut mode
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.268636] Loading compiled-in X.509 certificates
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.276088] Loaded X.509 cert 'Build time autogenerated kernel key: 80a76916d331ffc71e97d2c58055a777f47ccfac'
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.276119] registered taskstats version 1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.281024] Key type trusted registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.289851] Key type encrypted registered
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.289866] AppArmor: AppArmor sha1 policy hashing enabled
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.289874] ima: No TPM chip found, activating TPM-bypass!
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.289915] evm: HMAC attrs: 0x1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.290753]   Magic number: 15:133:61
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.290898] rtc_cmos 00:03: setting system clock to 2015-09-29 04:05:12 UTC (1443499512)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291046] BIOS EDD facility v0.16 2004-Jun-25, 0 devices found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291049] EDD information not available.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291200] PM: Hibernation image not present or could not be loaded.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291747] Freeing unused kernel memory: 904K (c1add000 - c1bbf000)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291867] Write protecting the kernel text: 7216k
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291944] Write protecting the kernel read-only data: 3120k
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.291946] NX-protecting the kernel data: 5072k
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.297222] input: AT Translated Set 2 keyboard as /devices/platform/i8042/serio0/input/input3
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.318251] random: systemd-udevd urandom read with 1 bits of entropy available
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.535973] ahci 0000:00:1f.2: version 3.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.542844] ahci 0000:00:1f.2: SSS flag set, parallel bus scan disabled
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.542895] ahci 0000:00:1f.2: AHCI 0001.0200 32 slots 4 ports 3 Gbps 0x33 impl SATA mode
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.542902] ahci 0000:00:1f.2: flags: 64bit ncq sntf stag pm led clo pio slum part ccc ems 
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.550477] sky2: driver version 1.30
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.550683] sky2 0000:09:00.0: Yukon-2 FE+ chip revision 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.551242] sky2 0000:09:00.0 eth0: addr 00:23:ae:20:78:38
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.616045] scsi host0: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.621339] scsi host1: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.621635] scsi host2: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.622384] scsi host3: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.622602] scsi host4: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626659] scsi host5: ahci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626833] ata1: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1c900 irq 28
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626840] ata2: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1c980 irq 28
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626843] ata3: DUMMY
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626846] ata4: DUMMY
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626851] ata5: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1cb00 irq 28
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.626856] ata6: SATA max UDMA/133 abar m2048@0xfed1c800 port 0xfed1cb80 irq 28
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.708070] clocksource tsc: mask: 0xffffffffffffffff max_cycles: 0x3983ba1bbfb, max_idle_ns: 881590574039 ns
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.780068] usb 3-1: new full-speed USB device number 2 using uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.856066] usb 1-5: new high-speed USB device number 3 using ehci-pci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.944148] ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.957206] usb 3-1: New USB device found, idVendor=0a5c, idProduct=4500
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.957212] usb 3-1: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.957217] usb 3-1: Product: BCM2046B1
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.957221] usb 3-1: Manufacturer: Broadcom
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.959221] hub 3-1:1.0: USB hub found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.961202] hub 3-1:1.0: 3 ports detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.999676] ata1.00: ATA-8: WDC WD3200BEVT-75ZCT2, 11.01A11, max UDMA/133
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    7.999683] ata1.00: 625142448 sectors, multi 8: LBA48 NCQ (depth 31/32), AA
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.002628] ata1.00: configured for UDMA/133
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.002906] scsi 0:0:0:0: Direct-Access     ATA      WDC WD3200BEVT-7 1A11 PQ: 0 ANSI: 5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.003533] sd 0:0:0:0: [sda] 625142448 512-byte logical blocks: (320 GB/298 GiB)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.003580] sd 0:0:0:0: Attached scsi generic sg0 type 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.003685] sd 0:0:0:0: [sda] Write Protect is off
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.003692] sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.003761] sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.007284] usb 1-5: New USB device found, idVendor=0bda, idProduct=0158
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.007292] usb 1-5: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.007296] usb 1-5: Product: USB2.0-CRW
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.007300] usb 1-5: Manufacturer: Generic
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.007304] usb 1-5: SerialNumber: 20071114173400000
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.062830]  sda: sda1 sda2 sda3 sda4 < sda5 sda6 sda7 sda8 >
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.064221] sd 0:0:0:0: [sda] Attached SCSI disk
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.124071] usb 1-6: new high-speed USB device number 4 using ehci-pci
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.240139] usb 3-1.1: new full-speed USB device number 3 using uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.320192] ata2: SATA link up 1.5 Gbps (SStatus 113 SControl 300)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.321971] ata2.00: ATAPI: PLDS DVD+/-RW DS-8A3S, HD14, max UDMA/100
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.325118] ata2.00: configured for UDMA/100
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.330070] scsi 1:0:0:0: CD-ROM            PLDS     DVD+-RW DS-8A3S  HD14 PQ: 0 ANSI: 5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.331916] usb 1-6: New USB device found, idVendor=0c45, idProduct=63ee
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.331922] usb 1-6: New USB device strings: Mfr=2, Product=1, SerialNumber=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.331927] usb 1-6: Product: Integrated_Webcam_1.3M
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.331931] usb 1-6: Manufacturer: 
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.349216] sr 1:0:0:0: [sr0] scsi3-mmc drive: 24x/8x writer dvd-ram cd/rw xa/form2 cdda pop-up
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.349223] cdrom: Uniform CD-ROM driver Revision: 3.20
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.349572] sr 1:0:0:0: Attached scsi CD-ROM sr0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.349761] sr 1:0:0:0: Attached scsi generic sg1 type 5
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.362203] usb 3-1.1: New USB device found, idVendor=413c, idProduct=8161
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.362210] usb 3-1.1: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.407247] hidraw: raw HID events driver (C) Jiri Kosina
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.446966] usbcore: registered new interface driver usbhid
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.446971] usbhid: USB HID core driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.462623] input: HID 413c:8161 as /devices/pci0000:00/0000:00:1a.0/usb3/3-1/3-1.1/3-1.1:1.0/0003:413C:8161.0001/input/input10
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.496145] usb 3-1.2: new full-speed USB device number 4 using uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.516263] hid-generic 0003:413C:8161.0001: input,hidraw0: USB HID v1.11 Keyboard [HID 413c:8161] on usb-0000:00:1a.0-1.1/input0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.568191] usbcore: registered new interface driver usb-storage
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.587795] usbcore: registered new interface driver uas
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.608180] ums-realtek 1-5:1.0: USB Mass Storage device detected
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.610993] scsi host6: usb-storage 1-5:1.0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.611216] usbcore: registered new interface driver ums-realtek
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.621131] usb 3-1.2: New USB device found, idVendor=413c, idProduct=8162
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.621138] usb 3-1.2: New USB device strings: Mfr=0, Product=0, SerialNumber=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.629855] input: HID 413c:8162 as /devices/pci0000:00/0000:00:1a.0/usb3/3-1/3-1.2/3-1.2:1.0/0003:413C:8162.0002/input/input11
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.631110] hid-generic 0003:413C:8162.0002: input,hidraw1: USB HID v1.11 Mouse [HID 413c:8162] on usb-0000:00:1a.0-1.2/input0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.668110] ata5: SATA link down (SStatus 0 SControl 300)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.865876] input: AlpsPS/2 ALPS GlidePoint as /devices/platform/i8042/serio2/input/input9
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    8.988150] ata6: SATA link down (SStatus 0 SControl 300)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    9.610361] scsi 6:0:0:0: Direct-Access     Generic- Multi-Card       1.00 PQ: 0 ANSI: 0 CCS
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    9.610877] sd 6:0:0:0: Attached scsi generic sg2 type 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    9.614819] sd 6:0:0:0: [sdb] Attached SCSI removable disk
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    9.784833] EXT4-fs (sda3): INFO: recovery required on readonly filesystem
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [    9.784840] EXT4-fs (sda3): write access will be enabled during recovery
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   10.210622] random: nonblocking pool is initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   10.747021] EXT4-fs (sda3): orphan cleanup on readonly fs
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   10.747788] EXT4-fs (sda3): 26 orphan inodes deleted
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   10.747792] EXT4-fs (sda3): recovery complete
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   10.901454] EXT4-fs (sda3): mounted filesystem with ordered data mode. Opts: (null)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   13.817309] lp: driver loaded but no devices found
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   13.867373] ppdev: user-space parallel port driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   16.079748] wmi: Mapper loaded
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   16.213111] shpchp: Standard Hot Plug PCI Controller Driver version: 0.4
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.061955] [drm] Initialized drm 1.1.0 20060810
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.085282] media: Linux media interface: v0.10
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.306193] Linux video capture interface: v2.00
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.408864] dcdbas dcdbas: Dell Systems Management Base Driver (version 5.6.0-3.2)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.708522] gpio_ich: GPIO from 451 to 511 on gpio_ich
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.772075] usb 3-1.3: new full-speed USB device number 5 using uhci_hcd
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.843544] input: Dell WMI hotkeys as /devices/virtual/input/input14
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.905099] usb 3-1.3: New USB device found, idVendor=413c, idProduct=8160
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.905107] usb 3-1.3: New USB device strings: Mfr=1, Product=2, SerialNumber=0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.905112] usb 3-1.3: Product: Dell Wireless 365 Bluetooth Module
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   17.905116] usb 3-1.3: Manufacturer: Dell Computer Corp
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.410929] Bluetooth: Core ver 2.20
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.410963] NET: Registered protocol family 31
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.410966] Bluetooth: HCI device and connection manager initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.411065] Bluetooth: HCI socket layer initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.411072] Bluetooth: L2CAP socket layer initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.411086] Bluetooth: SCO socket layer initialized
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.802891] uvcvideo: Found UVC 1.00 device Integrated_Webcam_1.3M (0c45:63ee)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.811329] input: Integrated_Webcam_1.3M as /devices/pci0000:00/0000:00:1a.7/usb1/1-6/1-6:1.0/input/input15
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.811612] usbcore: registered new interface driver uvcvideo
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.811616] USB Video Class driver (1.1.1)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   18.926307] usbcore: registered new interface driver btusb
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222324] snd_hda_codec_idt hdaudioC0D0: autoconfig for 92HD71B7X: line_outs=1 (0xd/0x0/0x0/0x0/0x0) type:speaker
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222333] snd_hda_codec_idt hdaudioC0D0:    speaker_outs=0 (0x0/0x0/0x0/0x0/0x0)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222338] snd_hda_codec_idt hdaudioC0D0:    hp_outs=1 (0xa/0x0/0x0/0x0/0x0)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222342] snd_hda_codec_idt hdaudioC0D0:    mono: mono_out=0x0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222346] snd_hda_codec_idt hdaudioC0D0:    dig-out=0x1e/0x1f
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222350] snd_hda_codec_idt hdaudioC0D0:    inputs:
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222356] snd_hda_codec_idt hdaudioC0D0:      Internal Mic=0xc
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222361] snd_hda_codec_idt hdaudioC0D0:      Internal Mic=0x18
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.222365] snd_hda_codec_idt hdaudioC0D0:      Mic=0xb
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.242135] input: HDA Intel Mic as /devices/pci0000:00/0000:00:1b.0/sound/card0/input16
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   19.242314] input: HDA Intel Headphone as /devices/pci0000:00/0000:00:1b.0/sound/card0/input17
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.350256] Adding 3103740k swap on /dev/sda8.  Priority:-1 extents:1 across:3103740k FS
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.526285] [drm] Memory usable by graphics device = 2048M
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.526294] checking generic (e0000000 300000) vs hw (e0000000 10000000)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.526297] fb: switching to inteldrmfb from VESA VGA
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.526362] Console: switching to colour dummy device 80x25
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.526542] [drm] Replacing VGA console driver
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.535087] [drm] Supports vblank timestamp caching Rev 2 (21.10.2013).
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.535092] [drm] Driver supports precise vblank timestamp query.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.535202] vgaarb: device changed decodes: PCI:0000:00:02.0,olddecodes=io+mem,decodes=io+mem:owns=io+mem
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.614585] ACPI: Video Device [VID1] (multi-head: yes  rom: no  post: no)
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.633676] acpi device:3b: registered as cooling_device2
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.634444] input: Video Bus as /devices/LNXSYSTM:00/LNXSYBUS:00/PNP0A03:00/LNXVIDEO:01/input/input18
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.635440] fbcon: inteldrmfb (fb0) is primary device
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.636475] [Firmware Bug]: Duplicate ACPI video bus devices for the same VGA controller, please try module parameter "video.allow_duplicates=1"if the current driver doesn't work.
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   22.636511] [drm] Initialized i915 1.6.0 20150327 for 0000:00:02.0 on minor 0
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   23.528596] Console: switching to colour frame buffer device 170x48
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   23.537323] i915 0000:00:02.0: fb0: inteldrmfb frame buffer device
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   23.537328] i915 0000:00:02.0: registered panic notifier
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.189934] EXT4-fs (sda3): re-mounted. Opts: errors=remount-ro
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.380673] audit: type=1400 audit(1443499531.588:2): apparmor="STATUS" operation="profile_load" name="/usr/lib/lightdm/lightdm-guest-session" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.380687] audit: type=1400 audit(1443499531.588:3): apparmor="STATUS" operation="profile_load" name="chromium" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.386004] audit: type=1400 audit(1443499531.592:4): apparmor="STATUS" operation="profile_load" name="/sbin/dhclient" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.386020] audit: type=1400 audit(1443499531.592:5): apparmor="STATUS" operation="profile_load" name="/usr/lib/NetworkManager/nm-dhcp-client.action" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.386031] audit: type=1400 audit(1443499531.592:6): apparmor="STATUS" operation="profile_load" name="/usr/lib/NetworkManager/nm-dhcp-helper" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.386040] audit: type=1400 audit(1443499531.592:7): apparmor="STATUS" operation="profile_load" name="/usr/lib/connman/scripts/dhclient-script" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.411309] audit: type=1400 audit(1443499531.616:8): apparmor="STATUS" operation="profile_load" name="/usr/bin/evince" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.411324] audit: type=1400 audit(1443499531.616:9): apparmor="STATUS" operation="profile_load" name="sanitized_helper" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.411335] audit: type=1400 audit(1443499531.616:10): apparmor="STATUS" operation="profile_load" name="/usr/bin/evince-previewer" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   26.411345] audit: type=1400 audit(1443499531.616:11): apparmor="STATUS" operation="profile_load" name="sanitized_helper" pid=414 comm="apparmor_parser"
+Sep 29 09:35:32 shrinivaasanka-Inspiron-1545 kernel: [   27.303149] cgroup: new mount options do not match the existing superblock, will be ignored
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.194117] Bluetooth: BNEP (Ethernet Emulation) ver 1.3
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.194124] Bluetooth: BNEP filters: protocol multicast
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.194133] Bluetooth: BNEP socket layer initialized
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.451626] Bluetooth: RFCOMM TTY layer initialized
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.451640] Bluetooth: RFCOMM socket layer initialized
+Sep 29 09:35:33 shrinivaasanka-Inspiron-1545 kernel: [   28.451650] Bluetooth: RFCOMM ver 1.11
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.718397] cfg80211: Calling CRDA to update world regulatory domain
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724927] cfg80211: World regulatory domain updated:
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724936] cfg80211:  DFS Master region: unset
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724939] cfg80211:   (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp), (dfs_cac_time)
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724946] cfg80211:   (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm), (N/A)
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724951] cfg80211:   (2457000 KHz - 2482000 KHz @ 40000 KHz), (300 mBi, 2000 mBm), (N/A)
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724955] cfg80211:   (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm), (N/A)
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724959] cfg80211:   (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm), (N/A)
+Sep 29 09:35:34 shrinivaasanka-Inspiron-1545 kernel: [   29.724963] cfg80211:   (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm), (N/A)
+Sep 29 09:35:35 shrinivaasanka-Inspiron-1545 kernel: [   30.623946] sky2 0000:09:00.0 eth0: enabling interface
+Sep 29 09:36:20 shrinivaasanka-Inspiron-1545 gnome-session[1313]: Entering running state
+Sep 29 09:36:54 shrinivaasanka-Inspiron-1545 kernel: [  109.448963] EXT4-fs (sda5): mounting ext3 file system using the ext4 subsystem
+Sep 29 09:36:54 shrinivaasanka-Inspiron-1545 kernel: [  109.729788] EXT4-fs (sda5): warning: mounting fs with errors, running e2fsck is recommended
+Sep 29 09:36:54 shrinivaasanka-Inspiron-1545 kernel: [  109.731419] EXT4-fs (sda5): recovery complete
+Sep 29 09:36:54 shrinivaasanka-Inspiron-1545 kernel: [  109.760569] EXT4-fs (sda5): mounted filesystem with ordered data mode. Opts: (null)
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.711693] virgo_cloud_fs_kernelspace: module verification failed: signature and/or required key missing - tainting kernel
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.712396] virgo_cloud_fs_kernelspace_init(): doing init() of virgo cloud kernel space test module
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.767920] virgocloudexec_fs_init(): doing init() of virgocloudexec_fs kernel module
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.767926] virgocloudexec_fs_init(): starting virgo cloudexec service kernel thread
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.767929] virgocloudexec_fs_init(): invoking read_virgo_config()
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.767978] read_virgo_config(): virgo_cloud config file being read 
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783535] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783535]  
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783544] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783544] 
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783548] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783552] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud[0] = 127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783555] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783555] 
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783559] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud[1] = 127.0.0.1
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783559] 
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783580] virgocloudexec_fs_init(): sock_create() returns error code: 0
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783586] virgocloudexec_fs_init(): kernel_bind() returns error code: 0
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783597] virgocloudexec_fs_init(): kernel_listen() returns error code: 0
+Sep 29 09:38:56 shrinivaasanka-Inspiron-1545 kernel: [  231.783599] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.161502] read_virgo_config(): virgo_client.config file being read 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189034] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189034]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189044] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189044] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189048] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189052] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189055] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189055] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189059] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[1] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189059] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189066] get_host_from_cloud_PRG_fs() - get_random_int() returned 2228101786 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189069] get_host_from_cloud_PRG_fs() range mapping for 2 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189073] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189076] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189079] virgo_open() syscall: leastloadedhostport->port=50000
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189082] virgo_open() syscall: leastloadedhostport->hostip=127.0.0.1<6>[  238.189087] virgo_open() syscall: after in4_pton and htons, leastloadedhostport->hostip=127.0.0.1, leastloadedhostport->port=50000, sin.sin_addr.s_addr=100007f, sin.sin_port=50c3
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189092] virgo_open() syscall: open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), tempbuf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189095] virgo_open() syscall: buf=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), open_cmd=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189099] virgo_open() syscall: iov.iov_base=
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189111] virgo_open() syscall: created client kernel socket
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189213] virgo_open() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189213]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189241] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189247] virgo_open() syscall: sent len=3000; iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), sent message: virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189326] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189335] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189338] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189343] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189347] strip_control_M(): str=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) before strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189351] strip_control_M(): newstr=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) after carriage return newline strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189355] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt), buffer: virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189358] virgo_cloudexec_fs: print_buffer(): 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189360] vi
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189364] rg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189368] o_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189371] cl
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189390] ou
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189393] d_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189397] op
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189400] en
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189403] (/
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189407] va
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189410] r/
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189413] lo
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189417] g/
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189420] vi
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189423] rg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189427] o_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189430] fs
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189434] /v
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189437] ir
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189441] go
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189444] fs
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189447] te
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189451] st
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189454] .t
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189457] xt
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.189461] )<6>[  238.190166] <6>[  238.205099] virgo_cloud_fs_kernelspace.c:virgo_cloud_open_kernelspace(): f=e1c533c0, no_of_openfiles=0, file struct=e1c533c0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205105] toVFSString(): VFSString=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205108] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=f3fa1c00
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205111] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205114] virgocloudexec_fs_sendto(): virgo_fs_ret=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205117] virgocloudexec_fs_sendto(): data sent=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205120] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: 0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205159] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205187] virgo_open() syscall: recv len=500; received message buf: [0] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205192] virgo_open() syscall: received iov.iov_base: 0 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205194] virgo_open() syscall: le32_to_cpus(buf): virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205198] virgo_parse_integer(): *s=v, res=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205310] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205327] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 2: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205327] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205332] read_virgo_config(): virgo_client.config file being read 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205351] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205351]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205358] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205358] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205362] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205365] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205368] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205368] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205372] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[1] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205372] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205378] get_host_from_cloud_PRG_fs() - get_random_int() returned 1565576063 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205381] get_host_from_cloud_PRG_fs() range mapping for 2 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 1, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205381]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205385] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205385]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205389] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205389]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205395] long_to_str(): n=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205397] long_to_str(): ret=[0]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205400] int_to_str_vfs(): n=250
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205403] int_to_str_vfs(): ret=[250]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205406] int_to_str_vfs(): n=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205409] int_to_str_vfs(): ret=[0]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205414] virgo_read() system call: tempbuf=virgo_cloud_read(0,"none",250,0), buf=virgo_cloud_read(0,"none",250,0), virgo_read_cmd=virgo_cloud_read(0,"none",250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205417] virgo_read() system call: iov.iov_base=virgo_cloud_open(/var/log/virgo_fs/virgofstest.txt)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205426] virgo_read() syscall: created client kernel socket
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205502] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205515] virgo_read() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205515]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205541] virgo_read() syscall: sent message: virgo_cloud_read(0,"none",250,0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205584] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205636] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205645] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205648] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205653] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205656] strip_control_M(): str=virgo_cloud_read(0,"none",250,0) before strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205660] strip_control_M(): newstr=virgo_cloud_read(0,"none",250,0) after carriage return newline strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205663] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_read(0,"none",250,0), buffer: virgo_cloud_read(0,"none",250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205666] virgo_cloudexec_fs: print_buffer(): 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205668] vi
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205672] rg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205676] o_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205679] cl
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205682] ou
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205686] d_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205689] re
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205693] ad
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205696] (0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205699] ,"
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205703] no
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205706] ne
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205710] ",
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205713] 25
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205716] 0,
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205720] 0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.205723] <6>[  238.206332] <6>[  238.219972] virgo_cloud_read_kernelspace(): after vfs_read(): bytesread=250, buf=(null)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.219980] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=f3fa0e00
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.219984] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.219988] virgocloudexec_fs_sendto(): virgo_fs_ret=Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.219993] virgocloudexec_fs_sendto(): data sent=Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.219998] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220400] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220424] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220531] virgo_read() syscall: received message: Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for vir 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220536] virgo_read() syscall: le32_to_cpus(buf): virgo_cloud_read(0,"none",250,0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220540] virgo_read() syscall: copy_to_user() returns ret=0, data_out=virgo_cloud_read(0,"none",250,0)�2y�
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220623] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220627] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 2: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220627] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220633] read_virgo_config(): virgo_client.config file being read 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220640] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220640]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220644] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220644] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220648] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220651] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220654] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220654] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220658] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[1] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220658] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220663] virgo_write() system_call: before memcpy()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220667] virgo_write() system_call: after memcpy()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220669] virgo_write() system call: data to set=test_virgo_filesystem_29September2015
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220674] get_host_from_cloud_PRG_fs() - get_random_int() returned 1303333620 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220677] get_host_from_cloud_PRG_fs() range mapping for 2 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220680] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220683] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220688] long_to_str(): n=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220691] long_to_str(): ret=[0]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220694] int_to_str_vfs(): n=250
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220697] int_to_str_vfs(): ret=[250]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220700] int_to_str_vfs(): n=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220702] int_to_str_vfs(): ret=[0]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220707] virgo_write() system call: tempbuf=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0), buf=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0), virgo_write_cmd = virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220712] virgo_write() system call: iov.iov_base=Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virgo filesystem syscall.  Example for virg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220722] virgo_write() syscall: created client kernel socket
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220798] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220812] virgo_write() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220812]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.220839] virgo_write() syscall: sent message: virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224749] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224765] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224768] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224776] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224780] strip_control_M(): str=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0) before strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224785] strip_control_M(): newstr=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0) after carriage return newline strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224789] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0), buffer: virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224792] virgo_cloudexec_fs: print_buffer(): 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224795] vi
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224799] rg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224802] o_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224805] cl
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224809] ou
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224812] d_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224816] wr
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224821] it
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224824] e(
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224827] 0,
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224831] te
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224834] st
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224837] _v
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224841] ir
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224844] go
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224847] _f
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224851] il
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224854] es
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224857] ys
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224861] te
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224864] m_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224867] 29
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224871] Se
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224876] pt
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224879] em
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224883] be
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224886] r2
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224889] 01
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224893] 5,
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224896] 25
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224899] 0,
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224903] 0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.224906] <6>[  238.225789] fs_func(): virgo fs kernelspace module returns value virgo_fs_ret=  (null)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225792] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_sendto()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225795] virgocloudexec_fs_sendto(): virgo_fs_ret=(null)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225797] virgocloudexec_fs_sendto(): before kernel_sendmsg() for send buffer: virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225838] virgocloudexec_fs_sendto(): kernel_sendmsg() returns ret: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225866] virgo_write() syscall: received message: virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225870] virgo_write() syscall: le32_to_cpus(buf): virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225894] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 1: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225897] virgo kernel service: read_virgo_config(): before reading virgo_client.conf - virgo_cloud ip address - 2: 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225897] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225901] read_virgo_config(): virgo_client.config file being read 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225908] do_virgo_cloud_init(): virgo_client.config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225908]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225912] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225912] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225916] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225919] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[0] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225922] tokenize_list_of_ip_addrs(): 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225922] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225926] tokenize_list_of_ip_addrs(): virgofs_node_ip_addrs_in_cloud_client[1] = 127.0.0.1
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225926] 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225933] get_host_from_cloud_PRG_fs() - get_random_int() returned 3611798662 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225936] get_host_from_cloud_PRG_fs() range mapping for 2 cloud nodes(virgofs_num_cloud_nodes_client) returns random integer 0, host ip(nodes_ip_addrs_in_cloud): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225940] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() - cloud_host(before kstrdup): 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225943] get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_fs() returns host ip: 127.0.0.1 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225949] long_to_str(): n=0
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225952] long_to_str(): ret=[0]
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225955] virgo_close() system call: tempbuf=-247691220, buf=virgo_cloud_close(0), close_cmd=virgo_cloud_close(0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225958] virgo_close() system call: iov.iov_base=virgo_cloud_write(0,test_virgo_filesystem_29September2015,250,0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.225968] virgo_close() syscall: created client kernel socket
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226043] virgo_cloudexec_fs_service(): virgo fs client thread per request 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226057] virgo_close() syscall: connected kernel client to virgo cloudexec kernel service
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226057]  
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226084] virgo_close() syscall: sent message: virgo_cloud_close(0) 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226111] virgocloudexec_fs_sendto(): sock_release invoked on client socket 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226163] virgo_cloudexec_fs_service(): virgo_fs_ops.virgo_create() 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226172] virgo_fs_client_thread(): virgo_fs_ops.virgo_fs_recvfrom()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226175] virgocloudexec_fs_recvfrom(): before kernel_recvmsg()
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226180] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns len: 500
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226183] strip_control_M(): str=virgo_cloud_close(0) before strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226187] strip_control_M(): newstr=virgo_cloud_close(0) after carriage return newline strsep
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226190] virgocloudexec_fs_recvfrom(): kernel_recvmsg() returns in recv: iov.iov_base=virgo_cloud_close(0), buffer: virgo_cloud_close(0)
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226192] virgo_cloudexec_fs: print_buffer(): 
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226195] vi
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226198] rg
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226202] o_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226205] cl
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226209] ou
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226213] d_
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226217] cl
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226220] os
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226223] e(
+Sep 29 09:39:03 shrinivaasanka-Inspiron-1545 kernel: [  238.226227] 0)
+Sep 29 09:41:55 shrinivaasanka-Inspiron-1545 kernel: [  238.226230] <6>[  238.226910] <5>[  410.592155] EXT4-fs (sda5): error count since last fsck: 497
+Sep 29 09:41:55 shrinivaasanka-Inspiron-1545 kernel: [  410.592184] EXT4-fs (sda5): initial error at time 1441548150: __ext4_get_inode_loc:3769: inode 304305: block 1212493
+Sep 29 09:41:55 shrinivaasanka-Inspiron-1545 kernel: [  410.592194] EXT4-fs (sda5): last error at time 1443498566: __ext4_get_inode_loc:3946: inode 304316: block 1212493
+Sep 29 10:11:26 shrinivaasanka-Inspiron-1545 kernel: [ 2181.433465] perf interrupt took too long (2501 > 2500), lowering kernel.perf_event_max_sample_rate to 50000
+

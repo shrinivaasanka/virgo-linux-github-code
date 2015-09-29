@@ -158,6 +158,7 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
         ssize_t nread;
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
+	char iovbuf[BUF_SIZE];
 	/*char *buf;*/
 
 	virgofs_read_virgo_config_client();
@@ -178,9 +179,9 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	strcpy(buf,tempbuf);			
 
 	printk(KERN_INFO "virgo_read() system call: tempbuf=%s, buf=%s, virgo_read_cmd=%s\n",tempbuf,buf,virgo_read_cmd);
-	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_base=iovbuf;
 	printk(KERN_INFO "virgo_read() system call: iov.iov_base=%s\n",iov.iov_base);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_len=sizeof(iovbuf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -193,15 +194,16 @@ asmlinkage long sys_virgo_read(long vfsdesc, char __user *data_out, int size, in
 	msg.msg_controllen = 0;
 	msg.msg_flags = 0;
 	nr=1;
-	
+
+	strcpy(iov.iov_base,buf);	
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_read() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_read() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_read() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_read() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_read() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_read() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_read() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -229,6 +231,7 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	char tempbuf[BUF_SIZE];
 	/*char* buf;*/
 	char data[BUF_SIZE];
+	char iovbuf[BUF_SIZE];
 
 	virgofs_read_virgo_config_client();
 	printk(KERN_INFO "virgo_write() system_call: before memcpy()\n");
@@ -255,9 +258,9 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 
 	printk(KERN_INFO "virgo_write() system call: tempbuf=%s, buf=%s, virgo_write_cmd = %s\n",tempbuf, buf, virgo_write_cmd);
 
-	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
+	iov.iov_base=iovbuf;
 	printk(KERN_INFO "virgo_write() system call: iov.iov_base=%s\n",iov.iov_base);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_len=sizeof(iovbuf);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
 #ifdef LINUX_KERNEL_4_x_x
@@ -271,15 +274,15 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 	msg.msg_flags = 0;
 	nr=1;
 	
-	/*strcpy(iov.iov_base, buf);*/
+	strcpy(iov.iov_base, buf);
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_write() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_write() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_write() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_write() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_write() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_write() syscall: received message: %s \n", iovbuf);
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_write() syscall: le32_to_cpus(buf): %s \n", buf);
@@ -295,53 +298,6 @@ asmlinkage long sys_virgo_write(long vfsdesc, char __user *data_in, int size, in
 /*asmlinkage struct virgo_address* sys_virgo_malloc(int size)*/
 asmlinkage long sys_virgo_open(char* filepath)
 {
-	/*
-	int nr;
-	struct iovec iov;
-	*/
-	/*
-	struct msghdr msg = {
-		.msg_flags = MSG_EOF,
-	};
-	*/
-	/*
-	struct msghdr msg;
-	int error;
-	*/
-
-	/*
-	struct socket *sock;
-	struct sockaddr_in sin;
-	*/
-
-	/*
-        struct addrinfo hints;
-        struct addrinfo *result, *rp;
-	*/
-	/*
-        int sfd, s, j;
-        size_t len;
-        ssize_t nread;
-	*/
-        /*char buf[BUF_SIZE];*/
-	/*
-	char *buf;
-	char *open_cmd;
-	*/
-
-	/*
-        memset(&hints, 0, sizeof(struct addrinfo));
-        hints.ai_family = AF_UNSPEC;    / Allow IPv4 or IPv6 /
-        hints.ai_socktype = SOCK_STREAM; / Datagram socket /
-        hints.ai_flags = 0;
-        hints.ai_protocol = 0;          / Any protocol /
-	*/
-
-	/*
-	struct hostport* leastloadedhostport = get_least_loaded_hostport_from_cloud();
-        s = getaddrinfo(leastloadedhostport->host, leastloadedhostport->port, &hints, &result);
-	*/
-
 	virgofs_read_virgo_config_client();
 	int i=0;
 
@@ -353,6 +309,7 @@ asmlinkage long sys_virgo_open(char* filepath)
 	/*mutex_lock(&vtranstable.vtable_fragment_mutex);*/
 	/*char *buf;*/
         char buf[BUF_SIZE];
+	char iovbuf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
 	char *open_cmd;
         int sfd, s, j;
@@ -390,8 +347,8 @@ asmlinkage long sys_virgo_open(char* filepath)
 
 	printk(KERN_INFO "virgo_open() syscall: buf=%s, open_cmd=%s\n",buf, open_cmd);
 
-	iov.iov_base=kstrdup(buf,GFP_ATOMIC);
-	iov.iov_len=BUF_SIZE;
+	iov.iov_base=iovbuf;
+	iov.iov_len=sizeof(iovbuf);
 	printk(KERN_INFO "virgo_open() syscall: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
@@ -406,15 +363,15 @@ asmlinkage long sys_virgo_open(char* filepath)
 	msg.msg_flags = 0;
 	nr=1;
 	
-	/*strcpy(iov.iov_base, buf);*/
+	strcpy(iov.iov_base, buf);
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_open() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_open() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	len = kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_open() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, buf);
+	printk(KERN_INFO "virgo_open() syscall: sent len=%d; iov.iov_base=%s, sent message: %s \n", len, iov.iov_base, iovbuf);
        	len = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_open() syscall: recv len=%d; received message buf: [%s] \n", len, buf);
+	printk(KERN_INFO "virgo_open() syscall: recv len=%d; received message buf: [%s] \n", len, iovbuf);
 	printk(KERN_INFO "virgo_open() syscall: received iov.iov_base: %s \n", iov.iov_base);
 
 	le32_to_cpus(buf);
@@ -455,6 +412,7 @@ asmlinkage long sys_virgo_close(long vfsdesc)
         ssize_t nread;
         char buf[BUF_SIZE];
 	char tempbuf[BUF_SIZE];
+	char iovbuf[BUF_SIZE];
 	/*char* buf;*/
 	char* close_cmd;
 
@@ -471,8 +429,8 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 
 	printk(KERN_INFO "virgo_close() system call: tempbuf=%d, buf=%s, close_cmd=%s \n",tempbuf, buf, close_cmd);
 
-        iov.iov_base=kstrdup(buf,GFP_ATOMIC);
-	iov.iov_len=BUF_SIZE;
+        iov.iov_base=iovbuf;
+	iov.iov_len=sizeof(iovbuf);
 	printk(KERN_INFO "virgo_close() system call: iov.iov_base=%s\n",iov.iov_base);
 	msg.msg_name = (struct sockaddr *) &sin;
 	msg.msg_namelen = sizeof(struct sockaddr);
@@ -487,15 +445,15 @@ asmlinkage long sys_virgo_close(long vfsdesc)
 	msg.msg_flags = 0;
 	nr=1;
 	
-	/*strcpy(iov.iov_base, buf);*/
+	strcpy(iov.iov_base, buf);
 	error = sock_create_kern(AF_INET, SOCK_STREAM, IPPROTO_TCP, &sock);
 	printk(KERN_INFO "virgo_close() syscall: created client kernel socket\n");
 	kernel_connect(sock, (struct sockaddr*)&sin, sizeof(sin) , 0);
 	printk(KERN_INFO "virgo_close() syscall: connected kernel client to virgo cloudexec kernel service\n ");
 	kernel_sendmsg(sock, &msg, &iov, nr, BUF_SIZE);
-	printk(KERN_INFO "virgo_close() syscall: sent message: %s \n", buf);
+	printk(KERN_INFO "virgo_close() syscall: sent message: %s \n", iovbuf);
        	len  = kernel_recvmsg(sock, &msg, &iov, nr, BUF_SIZE, msg.msg_flags);
-	printk(KERN_INFO "virgo_close() syscall: received message: %s \n", buf);
+	printk(KERN_INFO "virgo_close() syscall: received message: %s \n", iovbuf);
 	
 	le32_to_cpus(buf);
 	printk(KERN_INFO "virgo_close() syscall: le32_to_cpus(buf): %s \n", buf);
