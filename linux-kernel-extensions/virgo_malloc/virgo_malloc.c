@@ -214,10 +214,10 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	*/
 	/*long ret=copy_to_user(data_out,buf,strlen(buf));*/
 	printk(KERN_INFO "virgo_get() system_call: before data_out memcpy()\n");
-	memcpy(data_out,buf,strlen(buf));
+	memcpy(data_out,iov.iov_base,strlen(iov.iov_base));
 	printk(KERN_INFO "virgo_get() system_call: after data_out memcpy()\n");
 	printk(KERN_INFO "virgo_get() syscall:  data_out=%s\n",data_out);
-	return 1;
+	return 0;
 }
 
 
@@ -478,7 +478,7 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 	printk(KERN_INFO "virgo_malloc() system_call: before vuid memcpy()\n");
 	memcpy(vuid,&virgo_unique_id,sizeof(unsigned long));
 	printk(KERN_INFO "virgo_malloc() system_call: after vuid memcpy()\n");
-	return 1;
+	return 0;
 }
 
 /*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
