@@ -14,15 +14,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
---------------------------------------------------------------------------------------------------
 Copyright(C):
+-----------------------------------------------------------------------------------------------------------------------------------
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
-Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Ph: 9791499106, 9003082186
+Krishna iResearch Open Source Products Profiles: 
+http://sourceforge.net/users/ka_shrinivaasan,
+https://github.com/shrinivaasanka,
+https://www.openhub.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
---------------------------------------------------------------------------------------------------
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, 
+kashrinivaasan@live.com
+-----------------------------------------------------------------------------------------------------------------------------------
 
 *****************************************************************************************/
 
@@ -47,22 +50,22 @@ struct hostport
 
 int main(int argc, char* argv[])
 {
-
 	/*
 	virgo_malloc(), virgo_set(), virgo_get() and virgo_free() syscalls called by syscall numbers
 	- Ka.Shrinivaasan
 	*/
 
 	struct virgo_address* vaddr;
-	unsigned long virgo_unique_id;
+	unsigned long virgo_unique_id=3250409088u;
 
 	/* virgo_malloc */
-	syscall(360,100,&virgo_unique_id); 
+	syscall(360,100,&virgo_unique_id);
+	printf("vuid malloc-ed : %lu \n",virgo_unique_id);
 	/* vaddr=(struct virgo_address*)virgo_unique_id;*/
 
 	/* virgo_set */
 	char set_data[256];
-	strcpy(set_data,"Belated Happy Chennai Day 2015");
+	strcpy(set_data,"DataSet");
 	long set_ret=syscall(361,virgo_unique_id,set_data);
 
 	/*virgo_get*/
@@ -70,6 +73,6 @@ int main(int argc, char* argv[])
 	long get_ret=syscall(362,virgo_unique_id,get_data);
 
 	/*virgo_free*/
-	long free_ret=syscall(363,virgo_unique_id);
+	/*long free_ret=syscall(363,virgo_unique_id);*/
 	return 0;
 }

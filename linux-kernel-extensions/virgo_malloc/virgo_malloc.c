@@ -15,15 +15,18 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
---------------------------------------------------------------------------------------------------
 Copyright (C):
+-----------------------------------------------------------------------------------------------------------------------------------
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
-Ph: 9789346927, 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
+Ph: 9791499106, 9003082186
+Krishna iResearch Open Source Products Profiles: 
+http://sourceforge.net/users/ka_shrinivaasan,
+https://github.com/shrinivaasanka,
+https://www.openhub.net/accounts/ka_shrinivaasan
 Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
---------------------------------------------------------------------------------------------------
+emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, 
+kashrinivaasan@live.com
+-----------------------------------------------------------------------------------------------------------------------------------
 
 *****************************************************************************************/
 
@@ -86,11 +89,11 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 
 	/*char *LBAlgorithm = "Loadtrack";*/
 	char *LBAlgorithm = "PRG";
-	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_KERNEL);
+	struct hostport* hopo = kmalloc(sizeof(struct hostport),GFP_ATOMIC);
 	if(strcmp(LBAlgorithm, "Loadtrack")==0)
 	{
 		char* cloud_host = get_host_from_cloud_Loadtrack_mempool();
-		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_ATOMIC);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_Loadtrack_mempool() returns host ip: %s \n",hopo->hostip);
 		hopo->port=30000;
 	}
@@ -98,7 +101,7 @@ struct hostport* get_least_loaded_hostport_from_cloud_mempool()
 	{
 		char* cloud_host = get_host_from_cloud_PRG_mempool();
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() - cloud_host(before kstrdup): %s \n",cloud_host);
-		hopo->hostip=kstrdup(cloud_host, GFP_KERNEL);
+		hopo->hostip=kstrdup(cloud_host, GFP_ATOMIC);
 		printk(KERN_INFO "get_least_loaded_hostport_from_cloud(): get_host_from_cloud_PRG_mempool() returns host ip: %s \n",hopo->hostip);
 		hopo->port=30000;
 	}
@@ -209,9 +212,12 @@ asmlinkage long sys_virgo_get(unsigned long vuid, char __user *data_out)
 	sock_release(sock);
 	printk(KERN_INFO "virgo_get() syscall: virgo_get() client socket_release() invoked\n");
 	*/
-	long ret=copy_to_user(data_out,buf,strlen(buf));
-	printk(KERN_INFO "virgo_get() syscall: copy_to_user() returns ret=%u, data_out=%s\n",ret,data_out);
-	return ret;
+	/*long ret=copy_to_user(data_out,buf,strlen(buf));*/
+	printk(KERN_INFO "virgo_get() system_call: before data_out memcpy()\n");
+	memcpy(data_out,buf,strlen(buf));
+	printk(KERN_INFO "virgo_get() system_call: after data_out memcpy()\n");
+	printk(KERN_INFO "virgo_get() syscall:  data_out=%s\n",data_out);
+	return 1;
 }
 
 
@@ -236,16 +242,19 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	struct virgo_address* vaddr=virgo_unique_id_to_addr(vuid);
 	printk(KERN_INFO "virgo_set() system call: after virgo_unique_id_to_addr(), vaddr=%p\n", vaddr);
 	char data[BUF_SIZE];
-	/*printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);
+
+	/*
+        printk(KERN_INFO "virgo_set() system call: before copy_from_user, data_in=%s\n",data_in);
 	printk(KERN_INFO "virgo_set() system call: __builtin_constant_p(BUF_SIZE-1)=%d\n",__builtin_constant_p(BUF_SIZE-1));
 	long copyret=copy_from_user((void*)data,(const void __user *)data_in,BUF_SIZE-1);
-	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %ld\n",copyret);*/
+	printk(KERN_INFO "virgo_set() system call: copy_from_user returned copyret = %ld\n",copyret);
+        */
 
-	printk(KERN_INFO "virgo_set() system call: vuid=%ld, virgo address to set is vaddr=%p\n",vuid, vaddr);
+	printk(KERN_INFO "virgo_set() system call: vuid=%u, virgo address to set is vaddr=%p\n",vuid, vaddr);
 	printk(KERN_INFO "virgo_set() system_call: before memcpy()\n");
-	memcpy(data,data_in,sizeof(data)-1);
+	memcpy(data,data_in,sizeof(data));
 	printk(KERN_INFO "virgo_set() system_call: after memcpy()\n");
-	printk(KERN_INFO "virgo_set() system call: vuid=%ld, data to set=%s\n", vuid, data);
+	printk(KERN_INFO "virgo_set() system call: vuid=%u, data to set=%s\n", vuid, data);
 	int chunk_size=0;
 	int sum_alloc_size=0;
 	sin.sin_family=AF_INET;
@@ -255,17 +264,17 @@ asmlinkage long sys_virgo_set(unsigned long vuid, const char __user *data_in)
 	char* virgo_set_cmd;
 	char* vaddr_addr_str=addr_to_str(vaddr->addr);
 	printk(KERN_INFO "virgo_set() system call: vaddr_addr_str=[%s]",vaddr_addr_str);
-	/*virgo_set_cmd=kstrdup(strcat("virgo_cloud_set(",vaddr_addr_str),GFP_KERNEL);*/
+	/*virgo_set_cmd=kstrdup(strcat("virgo_cloud_set(",vaddr_addr_str),GFP_ATOMIC);*/
 	strcpy(tempbuf,"virgo_cloud_set(");
 	virgo_set_cmd=strcat(tempbuf,vaddr_addr_str);
 	printk(KERN_INFO "virgo_set() system call: 1. virgo_set_cmd=%s",virgo_set_cmd);
-	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_KERNEL);*/
+	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd,","),GFP_ATOMIC);*/
 	virgo_set_cmd=strcat(tempbuf,",");
 	printk(KERN_INFO "virgo_set() system call: 2. virgo_set_cmd=%s,data=%s",virgo_set_cmd, data);
-	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, data),GFP_KERNEL);*/
+	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, data),GFP_ATOMIC);*/
 	virgo_set_cmd=strcat(tempbuf, data);
 	printk(KERN_INFO "virgo_set() system call: 3. virgo_set_cmd=%s",virgo_set_cmd);
-	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_KERNEL);*/
+	/*virgo_set_cmd=kstrdup(strcat(virgo_set_cmd, ")"),GFP_ATOMIC);*/
 	virgo_set_cmd=strcat(tempbuf, ")");
 	printk(KERN_INFO "virgo_set() system call: 4. virgo_set_cmd=%s",virgo_set_cmd);
 	strcpy(buf,tempbuf);
@@ -416,8 +425,8 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 		both for printing debug info to kern.log
 		- Ka.Shrinivaasan 22October2013
 		*/	
-		/*vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(buf);*/
-		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(buf);
+		/*vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr(iov.iov_base);*/
+		vtranstable.vtable[next_vtable_entry].addr=(void*)str_to_addr2(iov.iov_base);
 		
 		printk(KERN_INFO "virgo_malloc() syscall: vtranstable.vtable[%d].addr=%p \n", next_vtable_entry, (char*)vtranstable.vtable[next_vtable_entry].addr);
 		vtranstable.vtable[next_vtable_entry].node_id=next_vtable_entry;
@@ -465,8 +474,11 @@ asmlinkage long sys_virgo_malloc(int size, unsigned long __user *vuid)
 
 	printk(KERN_INFO "virgo_malloc() syscall: returning &(vtranstable.vtable[this_allocation_start_entry]) == %p\n",&(vtranstable.vtable[this_allocation_start_entry]));
 	unsigned long virgo_unique_id=addr_to_virgo_unique_id(&(vtranstable.vtable[this_allocation_start_entry]));
-	long copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(unsigned long));
-	return copy_ret;
+	/*long copy_ret=copy_to_user(vuid,&virgo_unique_id,sizeof(unsigned long));*/
+	printk(KERN_INFO "virgo_malloc() system_call: before vuid memcpy()\n");
+	memcpy(vuid,&virgo_unique_id,sizeof(unsigned long));
+	printk(KERN_INFO "virgo_malloc() system_call: after vuid memcpy()\n");
+	return 1;
 }
 
 /*asmlinkage char* sys_virgo_free(struct virgo_address* vaddr)*/
@@ -539,7 +551,7 @@ asmlinkage long sys_virgo_free(unsigned long vuid)
 
 char* int_to_str(int n)
 {
-	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
 	sprintf(ret,"%d",n);
 	printk(KERN_INFO "int_to_str(): n=%d\n",n);
 	printk(KERN_INFO "int_to_str(): ret=[%s]\n",ret);
@@ -548,7 +560,7 @@ char* int_to_str(int n)
 
 char* addr_to_str(char* addr)
 {
-	char* ret=(char*)kmalloc(50,GFP_KERNEL);
+	char* ret=(char*)kmalloc(50,GFP_ATOMIC);
 	sprintf(ret,"%p",addr);
 	printk(KERN_INFO "addr_to_str(): addr=%p\n",addr);
 	printk(KERN_INFO "addr_to_str(): ret=[%s]\n",ret);
