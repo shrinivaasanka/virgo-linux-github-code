@@ -931,6 +931,9 @@ VIRGO Linux Kernel 4.1.5 - Memory System Calls:
 - str_to_addr2() is done on iov_base instead of buf which was causing NULL parsing
 - kern.log with above resolutions and multiple VIRGO memory syscalls tests - malloc,get,set
 - With above VIRGO malloc and set syscalls work relatively causing less number of random kernel panics
+- return values of memory calls set to 0
+- in virgo_get() syscall, memcpy() of iov_base is done to data_out userspace pointer
+- kern.log with working logs for syscalls - virgo_malloc(), virgo_set(), virgo_get() but still there are random kernel panics
 
 
 
