@@ -921,6 +921,17 @@ VIRGO Linux 4.1.5 kernel memory syscalls:
 - kernel OOPS traces are quite erratic.
 - Makefile path in testcase has been updated
 
+----------------------------------------------------------------------
+Commits as on 4 October 2015
+----------------------------------------------------------------------
+VIRGO Linux Kernel 4.1.5 - Memory System Calls:
+-----------------------------------------------
+- replaced copy_to_user() with a memcpy()
+- updated the testcase with an example VUID hardcoded.
+- str_to_addr2() is done on iov_base instead of buf which was causing NULL parsing
+- kern.log with above resolutions and multiple VIRGO memory syscalls tests - malloc,get,set
+- With above VIRGO malloc and set syscalls work relatively causing less number of random kernel panics
+
 
 
 
