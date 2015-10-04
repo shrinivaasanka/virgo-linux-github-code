@@ -934,6 +934,9 @@ VIRGO Linux Kernel 4.1.5 - Memory System Calls:
 - return values of memory calls set to 0
 - in virgo_get() syscall, memcpy() of iov_base is done to data_out userspace pointer
 - kern.log with working logs for syscalls - virgo_malloc(), virgo_set(), virgo_get() but still there are random kernel panics
+- Abridged kern.log for VIRGO Memory System Calls with 4.1.5 Kernel - shows example logs for virgo_malloc(), virgo_set() and virgo_get()
+
+
 
 
 
