@@ -936,7 +936,10 @@ VIRGO Linux Kernel 4.1.5 - Memory System Calls:
 - kern.log with working logs for syscalls - virgo_malloc(), virgo_set(), virgo_get() but still there are random kernel panics
 - Abridged kern.log for VIRGO Memory System Calls with 4.1.5 Kernel - shows example logs for virgo_malloc(), virgo_set() and virgo_get()
 
-
+----------------------------------------------------------------
+Commits as on 14 October 2015
+----------------------------------------------------------------
+VIRGO Queue Workqueue handler usermode clause has been updated with 4.1.5 kernel paths and kingcobra in user mode is enabled for invoking KingCobra Cloud Perfect Forwarding.
 
 
 
