@@ -27,6 +27,9 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 *****************************************************************************************/
 
 
+#ifndef _KINGCOBRA_H
+#define _KINGCOBRA_H
+ 
 #include <linux/string.h>
 #include <linux/module.h>
 #include <linux/virgo_queue.h>
@@ -47,3 +50,4 @@ char* parse_timestamp(char* request);
 
 void reply_to_publisher(long client_ip_l, char *response);
 
+#endif

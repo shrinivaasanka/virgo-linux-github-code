@@ -159,7 +159,7 @@ int use_for_kingcobra_messaging=1;
 This is boolean flag that enables KingCobra in userspace through upcall from kernel using call_usermodehelper().
 Obviously circuitous but might have necessity in some userspace applications. By default, KingCobra is in kernel space.
 */
-int kingcobra_in_userspace=0;
+int kingcobra_in_userspace=1;
 
 /*
 Persist KingCobra queue contents to disk - Guaranteed queue vs in-memory queue
@@ -197,10 +197,12 @@ void virgo_workqueue_handler(struct work_struct* w)
 	{
 		if(kingcobra_in_userspace==1)
 		{
+			/*
         		fs=get_fs();
         		set_fs(get_ds());
+			*/
 
-			file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/kingcobra_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
+			file_stdout=filp_open("/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-4.1.5/drivers/kcobra/kingcobra_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
 			/*
         		fd_install(1,file_stdout);
         		fd_install(2,file_stdout);
@@ -208,14 +210,16 @@ void virgo_workqueue_handler(struct work_struct* w)
 
 			argv[1]=kstrdup("_Z24KingCobra_ServiceRequestPv",GFP_ATOMIC);
 			argv[2]=kstrdup(vwqrq->data,GFP_ATOMIC);
-			envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/";
-               		envp[1]="HOME=/home/kashrinivaasan";
+			envp[0]="PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games::/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-4.1.5/drivers/kcobra";
+               		envp[1]="HOME=/home/shrinivaasanka";
                		envp[2]=NULL;
 			printk(KERN_INFO "virgo_workqueue_handler(): kingcobra_in_userspace=1, before invoking call_usermodehelper() for KingCobra \n");
-               		ret=call_usermodehelper("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/queuing/kingcobra_main", argv, envp, UMH_WAIT_EXEC);
-			printk(KERN_INFO "virgo_workqueue_handler(): after invoking call_usermodehelper() for KingCobra \n");
+               		ret=call_usermodehelper("/media/shrinivaasanka/0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2/home/kashrinivaasan/linux-4.1.5/drivers/kcobra/kingcobra_main", argv, envp, UMH_WAIT_EXEC);
+			printk(KERN_INFO "virgo_workqueue_handler(): after invoking call_usermodehelper() for KingCobra, usermode helper ret=%d \n",ret);
 			filp_close(file_stdout,NULL);
+			/*
 			set_fs(fs);
+			*/
 		}
 		else
 		{
