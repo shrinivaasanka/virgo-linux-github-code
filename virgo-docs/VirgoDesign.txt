@@ -941,6 +941,13 @@ Commits as on 14 October 2015
 ----------------------------------------------------------------
 VIRGO Queue Workqueue handler usermode clause has been updated with 4.1.5 kernel paths and kingcobra in user mode is enabled for invoking KingCobra Cloud Perfect Forwarding.
 
+---------------------------------------------------------------
+Commits as on 15 October 2015
+---------------------------------------------------------------
+- Updated VIRGO Queue kernel binaries and build generated sources
+- virgo_queue.h has been modified for call_usermodehelper() - set_ds() and fd_install() have been uncommented for output redirection. Output redirection works but there are "alloc_fd: slot 1 not NULL!" errors at random (kern.log in kingcobra testlogs) which seems to be a new feature in 4.1.5 kernel. This did not happen in 3.7.8-3.15.5 kernels
+
+
 
 
 
