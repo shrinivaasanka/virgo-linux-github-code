@@ -46,6 +46,7 @@ __attribute__((section("__versions"))) = {
 	{ 0x86c90730, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
 	{ 0x2fa31741, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
 	{ 0x74210458, __VMLINUX_SYMBOL_STR(kernel_accept) },
+	{ 0x8e123c5c, __VMLINUX_SYMBOL_STR(fd_install) },
 	{ 0x97b50f7b, __VMLINUX_SYMBOL_STR(kernel_bind) },
 	{ 0xb2d48a2e, __VMLINUX_SYMBOL_STR(queue_work_on) },
 	{ 0x8a85c29e, __VMLINUX_SYMBOL_STR(try_module_get) },
