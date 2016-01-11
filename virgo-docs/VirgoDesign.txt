@@ -961,6 +961,11 @@ Commits as on 3 November 2015
 -----------------------------------------------------------------
 - kern.log for VIRGO kernel_analytics+config drivers which export the analytics variables from /etc/virgo_kernel_analytics.conf kernel-wide and print them in config driver has been added to config/testlogs
 
+-----------------------------------------------------------------
+Commits as on 10 January 2016
+-----------------------------------------------------------------
+NeuronRain VIRGO enterprise version 2016.1.10 released.
+
 
 
 
