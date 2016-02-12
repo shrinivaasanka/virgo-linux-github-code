@@ -1,30 +1,28 @@
 /***************************************************************************************
-VIRGO - Linux Kernel Extensions For Cloud 
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
------------------------------------------------------------------------------------------------------------------------------------
-Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Ph: 9789346927, 9003082186, 9791165980
-Krishna iResearch Open Source Products Profiles: 
-http://sourceforge.net/users/ka_shrinivaasan, https://www.openhub.net/accounts/ka_shrinivaasan
-Personal website(research): https://sites.google.com/site/kuja27/
-ZODIAC DATASOFT: https://github.com/shrinivaasanka/ZodiacDatasoft
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, 
-kashrinivaasan@live.com
------------------------------------------------------------------------------------------------------------------------------------
-
+#-------------------------------------------------------------------------------------------------------
+#NEURONRAIN VIRGO - Cloud, Machine Learning and Queue augmented Linux Kernel Fork-off
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#--------------------------------------------------------------------------------------------------------
+#Copyleft (Copyright+):
+#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+#Ph: 9791499106, 9003082186
+#Krishna iResearch Open Source Products Profiles:
+#http://sourceforge.net/users/ka_shrinivaasan,
+#https://github.com/shrinivaasanka,
+#https://www.openhub.net/accounts/ka_shrinivaasan
+#Personal website(research): https://sites.google.com/site/kuja27/
+#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com,
+#kashrinivaasan@live.com
+#--------------------------------------------------------------------------------------------------------
 *****************************************************************************************/
 
 VIRGO is an operating system kernel forked off from Linux kernel mainline to add cloud functionalities (system calls, modules etc.,) within kernel itself with machine learning, analytics, debugging, queueing support in the deepest layer of OSI stack i.e AsFer, USBmd, KingCobra together with VIRGO constitute the previous functionalities. Presently there seems to be no cloud implementation with fine-grained cloud primitives (system calls, modules etc.,) included in kernel itself though there are coarse grained clustering and SunRPC implementations available. VIRGO complements other Clustering and application layer cloud OSes like cloudstack, openstack etc., in these aspects - CloudStack and OpenStack can be deployed on a VIRGO Linux Kernel Cloud - OpenStack nova compute, neutron network, cinder/swift storage subsystems can be augmented to have additional drivers that invoke lowlevel VIRGO syscall and kernel module primitives (assuming there are no coincidental replications of functionalities) thereby acting as a foundation to application layer cloud.
@@ -1004,7 +1002,33 @@ code and rock-bottom C linux kernel - bull tamed ;-).
 in build lib and temp directories.
 - main implementations for C++ and C are in cpp_boost_python_extensions/asferpythonextensions.cpp and cpython_extensions/asferpythonextensions.c
 
+-----------------------------------------------------------------------------------------
+Commits as on 12 February 2016
+-----------------------------------------------------------------------------------------
+Commits for Telnet/System Call Interface to VIRGO CPUPooling -> VIRGO Queue -> KingCobra
+-----------------------------------------------------------------------------------------
+*) This was commented earlier for the past few years due to a serious kernel panic in previous kernel versions - <= 3.15.5
+*) In 4.1.5 a deadlock between VIRGO CPUPooling and VIRGO queue driver init was causing following error in "use_as_kingcobra_service" clause :
+        - "gave up waiting for virgo_queue init, unknown symbol push_request()"
+*) To address this a new boolean flag to selectively enable and disable VIRGO Queue kernel service mode "virgo_queue_reactor_service_mode" has been added.
+*) With this flag VIRGO Queue is both a kernel service driver and a standalone exporter of function symbols - push_request/pop_request
+*) Incoming request data from telnet/virgo_clone() system call into cpupooling kernel service reactor pattern (virgo cpupooling listener loop) is treated as generic string and handed over to VIRGO queue and KingCobra which publishes it.
+*) This resolves a long standing deadlock above between VIRGO cpupooling "use_as_kingcobra_service" clause and VIRGO queue init.
+*) This makes virgo_clone() systemcall/telnet both synchronous and asynchronous - requests from telnet client/virgo_clone() system call can be either synchronous RPC functions executed on a remote cloud node in kernelspace (or) an asynchronous invocation through "use_as_kingcobra_service" clause path to VIRGO Queue driver which enqueues the data in kernel workqueue and subsequently popped by KingCobra.
+*) Above saves an additional code implementation for virgo_queue syscall paths - virgo_clone() handles, based on config selected, incoming data passed to it either as a remote procedure call or as a data that is pushed to VIRGO Queue/KingCobra pub-sub kernelspace.
+-----------------------------------------------------------------------------------------
+Prerequisites:
+--------------
+- insmod kingcobra_main_kernelspace.ko
+- insmod virgo_queue.ko compiled with flag virgo_queue_reactor_service_mode=1
+	(when virgo_queue_reactor_service_mode=0, listens on port 60000 for direct telnet requests)
+- insmod virgo_cloud_test_kernelspace.ko
+- insmod virgo_cloudexec.ko (listens on port 10000)
 
+-----------------------------------------------------------------------------------------
+Schematic Diagram
+-----------------------------------------------------------------------------------------
+VIRGO clone system call/telnet client ---> VIRGO cpupooling(compiled with use_as_kingcobra_service=1) ------> VIRGO Queue kernel service (compiled with virgo_queue_reactor_service_mode=1) ---> Linux Workqueue handler ------> KingCobra
 
 
 
