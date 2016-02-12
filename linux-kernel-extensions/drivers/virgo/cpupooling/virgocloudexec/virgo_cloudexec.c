@@ -1,37 +1,41 @@
 /***************************************************************************************
-VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
-
-Copyright (C) 2009-2013  Ka.Shrinivaasan
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
---------------------------------------------------------------------------------------------------
-Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Independent Open Source Developer, Researcher and Consultant
-Ph: 9003082186, 9791165980
-Open Source Products Profile(Krishna iResearch): http://sourceforge.net/users/ka_shrinivaasan
-Personal website(research): https://sites.google.com/site/kuja27/
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
---------------------------------------------------------------------------------------------------
-
++#-------------------------------------------------------------------------------------------------------
++#NEURONRAIN VIRGO - Cloud, Machine Learning and Queue augmented Linux Kernel Fork-off
++#This program is free software: you can redistribute it and/or modify
++#it under the terms of the GNU General Public License as published by
++#the Free Software Foundation, either version 3 of the License, or
++#(at your option) any later version.
++#This program is distributed in the hope that it will be useful,
++#but WITHOUT ANY WARRANTY; without even the implied warranty of
++#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++#GNU General Public License for more details.
++#You should have received a copy of the GNU General Public License
++#along with this program.  If not, see <http://www.gnu.org/licenses/>.
++#--------------------------------------------------------------------------------------------------------
++#Copyleft (Copyright+):
++#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
++#Ph: 9791499106, 9003082186
++#Krishna iResearch Open Source Products Profiles:
++#http://sourceforge.net/users/ka_shrinivaasan,
++#https://github.com/shrinivaasanka,
++#https://www.openhub.net/accounts/ka_shrinivaasan
++#Personal website(research): https://sites.google.com/site/kuja27/
++#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com,
++#kashrinivaasan@live.com
++#--------------------------------------------------------------------------------------------------------
 *****************************************************************************************/
 
-/*#include <linux/virgo_queue.h>*/
+#include <linux/virgo.h>
 #include <linux/virgocloudexecsvc.h>
 #include <linux/virgo_config.h>
 #include <linux/string.h>
 #include <linux/kallsyms.h>
+
+struct virgo_request
+{
+        char* data;
+        struct virgo_request* next;
+};
 
 
 /*
@@ -91,21 +95,23 @@ int clone_func(void* args)
 		int (*virgo_cloud_test_kernelspace)(void*);
 		virgo_cloud_test_kernelspace=kallsyms_lookup_name(cloneFunction);
 		*/
-		/*
 		if(use_as_kingcobra_service==1)
                 {
-                        printk("clone_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",cloneFunction);
+			/*
+				Incoming request data from telnet/virgo_clone() system call into cpupooling kernel service reactor pattern
+				is treated as generic string and handed over to VIRGO queue and KingCobra which publishes it
+			*/
+                        printk("clone_func(): VIRGO cloudexec is used as KingCobra service, invoking push_request() in kernelspace for data: %s\n",args);
 			struct virgo_request *vrq=kmalloc(sizeof(struct virgo_request),GFP_ATOMIC);
-			vrq->data=kstrdup(cloneFunction,GFP_ATOMIC);	
+			vrq->data=kstrdup(args,GFP_ATOMIC);
 			vrq->next=NULL;
 			push_request(vrq);
-			/
+			/*
 			task=kthread_create(push_request, (void*)args, "KingCobra push_request() thread");
 			woken_up_2=wake_up_process(task);
-			/
+			*/
                 }
 		else
-		*/
 		{
 			task=kthread_create(virgo_cloud_test_kernelspace, (void*)args, "cloneFunction thread");
 			woken_up_2=wake_up_process(task);
@@ -406,13 +412,12 @@ int virgocloudexec_recvfrom(struct socket* clsock)
 			do kernel_sendmsg() with the results
 		*/
 		cloneFunction = strip_control_M(kstrdup(buffer,GFP_ATOMIC));
-		/*
 		if(use_as_kingcobra_service==1)
 		{
 	                client_ip_str=kmalloc(BUF_SIZE,GFP_ATOMIC);
                         struct sockaddr_in* ipaddr=(struct sockaddr_in*)clientsock;
                         long ipaddr_int = ntohl(ipaddr->sin_addr.s_addr);
-                        /inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);/
+                        /*inet_ntop(AF_INET, &ipaddr_int, client_ip_str, BUF_SIZE);*/
                         sprintf(client_ip_str,"%x",ipaddr_int);
                         printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): client_ip_str = %s\n",client_ip_str);
                         client_ip_str=kstrdup(strcat(client_ip_str,"#"),GFP_ATOMIC);
@@ -425,7 +430,6 @@ int virgocloudexec_recvfrom(struct socket* clsock)
                         cloneFunction = kstrdup(strcat(request_header,cloneFunction),GFP_ATOMIC);
                         printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",cloneFunction);
 		}
-		*/
 		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
 		
 		printk(KERN_INFO "virgocloudexec_recvfrom(): kernel_recvmsg() returns in recv buffer: %s\n", buffer);

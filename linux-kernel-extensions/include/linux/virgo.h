@@ -132,8 +132,6 @@ int EventNet_timestamp=0;
 int machine_timestamp=1;
 int other_timestamp_cloudservice=0;
 
-
-
 /*
 static struct svc_xprt_ops virgo_ops = {
 	.xpo_create = virgocloudexec_create,

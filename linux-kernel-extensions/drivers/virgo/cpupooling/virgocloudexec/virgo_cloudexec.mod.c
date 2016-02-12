@@ -37,6 +37,8 @@ __attribute__((section("__versions"))) = {
 	{ 0x72717731, __VMLINUX_SYMBOL_STR(kernel_sock_shutdown) },
 	{ 0xc5fdef94, __VMLINUX_SYMBOL_STR(call_usermodehelper) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
+	{ 0x81c90249, __VMLINUX_SYMBOL_STR(push_request) },
+	{ 0x61651be, __VMLINUX_SYMBOL_STR(strcat) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0x13f168f2, __VMLINUX_SYMBOL_STR(wake_up_process) },
 	{ 0x86c90730, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
@@ -53,7 +55,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_cloud_test_kernelspace";
+"depends=virgo_queue,virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "A0150F3E58F60B5547F60B6");
+MODULE_INFO(srcversion, "47539D82A08EDFCB1FA52D9");

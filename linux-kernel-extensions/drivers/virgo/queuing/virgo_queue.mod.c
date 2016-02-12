@@ -60,4 +60,4 @@ __attribute__((section(".modinfo"))) =
 "depends=kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "1CCC416D777181E3734C3BC");
+MODULE_INFO(srcversion, "BA1924EFD063474C5580AD6");

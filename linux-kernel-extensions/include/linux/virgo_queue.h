@@ -159,7 +159,7 @@ int use_for_kingcobra_messaging=1;
 This is boolean flag that enables KingCobra in userspace through upcall from kernel using call_usermodehelper().
 Obviously circuitous but might have necessity in some userspace applications. By default, KingCobra is in kernel space.
 */
-int kingcobra_in_userspace=1;
+int kingcobra_in_userspace=0;
 
 /*
 Persist KingCobra queue contents to disk - Guaranteed queue vs in-memory queue
@@ -178,6 +178,15 @@ static struct workqueue_struct *virgo_kernel_wq=NULL;
 struct file* file_stdout;
 int virgoqueue_client_thread(void* args);
 
+/*
+This boolean flag determines if VIRGO queue module should be a kernel service or just
+exports push/pop functions for VIRGO cpupooling service which receives requests from
+virgo_clone() system call or telnet client. It is required due to a deadlock that occurs
+when the VIRGO cpupooling service does a push_request() but VIRGO queue waits in the
+reactor pattern loop waiting for incoming requests and eventually there is a symbol lookup error.
+If set to 1, it waits for requests as kernel service.
+*/
+int virgo_queue_reactor_service_mode=0;
 
 int virgoqueue_num_cloud_nodes=0;
 char virgoqueue_node_ip_addrs_in_cloud[100];

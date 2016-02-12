@@ -203,7 +203,8 @@ virgoqueue_init(void)
 	printk(KERN_INFO "virgoqueue_init(): example message pushed to virgo queue which is popped by KingCobra\n");
 	*/
 
-	virgoqueue_cloudexec_service(NULL);
+	if (virgo_queue_reactor_service_mode==1)
+		virgoqueue_cloudexec_service(NULL);
 
 	/*
 	file_stdout=filp_open("/home/kashrinivaasan/linux-3.7.8/drivers/virgo/cpupooling/virgocloudexec/virgo_cloudexec_upcall_usermode_log.txt", O_RDWR|O_APPEND|O_CREAT, S_IRUSR|S_IWUSR);
