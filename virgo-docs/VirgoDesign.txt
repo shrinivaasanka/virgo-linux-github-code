@@ -1039,6 +1039,13 @@ Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide impor
 - Makefile updated with correct fs path
 - Copyleft notices updated
 
+-----------------------------------------------------------------------------------------
+Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide imports
+-----------------------------------------------------------------------------------------
+- Kernel Analytics driver exported variables have been imported in CPU virtualization driver
+- Module.symvers from kernel_analytics has been merged with Module.symvers in cpupooling
+- kern.log for this import added to cpupooling/virgocloudexec/test_logs/
+
 
 
 
