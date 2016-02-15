@@ -1030,6 +1030,16 @@ Schematic Diagram
 -----------------------------------------------------------------------------------------
 VIRGO clone system call/telnet client ---> VIRGO cpupooling(compiled with use_as_kingcobra_service=1) ------> VIRGO Queue kernel service (compiled with virgo_queue_reactor_service_mode=1) ---> Linux Workqueue handler ------> KingCobra
 
+-----------------------------------------------------------------------------------------
+Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide imports
+-----------------------------------------------------------------------------------------
+- Imported Kernel Analytics variables into CloudFS kernel module - printed in driver init()
+- Module.symvers from kernel_analytics has been merged with CloudFS Module.symvers
+- Logs for above has been added in cloudfs/test_logs/
+- Makefile updated with correct fs path
+- Copyleft notices updated
+
+
 
 
 
