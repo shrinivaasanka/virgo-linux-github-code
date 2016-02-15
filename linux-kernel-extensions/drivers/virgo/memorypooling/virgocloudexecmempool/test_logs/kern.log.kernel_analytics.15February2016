@@ -1,0 +1,26 @@
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.097937] print_buffer() byte: 0
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.097939] print_buffer() byte: 0
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.097941] print_buffer() byte: 0
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.097944] print_buffer() byte: 0
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.097946] end print_buffer():
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.573999] virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574005] virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574009] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics1 = v1
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574012] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics2 = v2
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574016] virgocloudexec_mempool_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574016]
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574020] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574023] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574026] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574029] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574031] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574034] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574037] virgocloudexec_mempool_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574040] virgocloudexec_mempool_init(): invoking read_virgo_config()
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.574874] read_virgo_config(): virgo_cloud config file being read
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596653] do_virgo_cloud_init(): virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596653] 
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596664] tokenize_list_of_ip_addrs(): bufdup = 127.0.0.1,127.0.0.1
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596664]
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596668] tokenize_list_of_ip_addrs(): 127.0.0.1
+Feb 15 17:08:43 shrinivaasanka-Inspiron-1545 kernel: [ 4464.596672] tokenize_list_of_ip_addrs(): virgomemorypooling_node_ip_addrs_in_cloud[0] = 127.0.0.1

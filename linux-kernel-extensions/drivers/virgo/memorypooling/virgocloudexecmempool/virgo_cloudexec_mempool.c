@@ -307,6 +307,13 @@ virgocloudexec_mempool_init(void)
 
 	printk(KERN_INFO "virgocloudexec_mempool_init(): doing init() of virgocloudexec_mempool kernel module\n");
 	printk(KERN_INFO "virgocloudexec_mempool_init(): starting virgo cloudexec service kernel thread\n");
+
+	int i=0;
+        for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgocloudexec_mempool_init(): exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+        }
+
 	
 	printk(KERN_INFO "virgocloudexec_mempool_init(): invoking read_virgo_config()\n");
 	virgomemorypooling_read_virgo_config();
