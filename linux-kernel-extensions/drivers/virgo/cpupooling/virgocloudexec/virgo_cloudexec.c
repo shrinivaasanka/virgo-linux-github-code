@@ -287,6 +287,12 @@ virgocloudexec_init(void)
 {
 	printk(KERN_INFO "virgocloudexec_init(): doing init() of virgocloudexec kernel module\n");
 	printk(KERN_INFO "virgocloudexec_init(): starting virgo cloudexec service kernel thread\n");
+
+	int i=0;
+        for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgocloudexec_init(): exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+        }
 	
 	printk(KERN_INFO "virgocloudexec_init(): invoking read_virgo_config()\n");
 	virgocpupooling_read_virgo_config();
@@ -428,7 +434,7 @@ int virgocloudexec_recvfrom(struct socket* clsock)
                         char* logicaltimestamp=generate_logical_timestamp();
                         request_header=kstrdup(strcat(request_header,logicaltimestamp),GFP_ATOMIC);
                         cloneFunction = kstrdup(strcat(request_header,cloneFunction),GFP_ATOMIC);
-                        printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): use_as_kingcobra_service=1, mempoolFunction with prepended request header and client ip=%s\n",cloneFunction);
+                        printk(KERN_INFO "virgocloudexec_cpupool_recvfrom(): use_as_kingcobra_service=1, cloneFunction with prepended request header and client ip=%s\n",cloneFunction);
 		}
 		/*cloneFunction[strlen(cloneFunction)-2]='\0';*/
 		

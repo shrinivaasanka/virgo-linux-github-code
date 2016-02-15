@@ -30,6 +30,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xde40fc2b, __VMLINUX_SYMBOL_STR(kernel_listen) },
 	{ 0x91715312, __VMLINUX_SYMBOL_STR(sprintf) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
+	{ 0x69e59c53, __VMLINUX_SYMBOL_STR(virgo_kernel_analytics_conf) },
 	{ 0x9aab63c, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0xcd4572ea, __VMLINUX_SYMBOL_STR(vfs_read) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
@@ -55,7 +56,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=virgo_queue,virgo_cloud_test_kernelspace";
+"depends=virgo_kernel_analytics,virgo_queue,virgo_cloud_test_kernelspace";
 
 
-MODULE_INFO(srcversion, "47539D82A08EDFCB1FA52D9");
+MODULE_INFO(srcversion, "E0DD1247990E4076FC5DE91");
