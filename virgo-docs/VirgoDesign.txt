@@ -1055,6 +1055,15 @@ Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide impor
 - Module.symvers from kernel_analytics has been merged with memory driver Module.symvers
 - Makefile updated
 
+-----------------------------------------------------------------------------------------
+Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide imports
+-----------------------------------------------------------------------------------------
+- Imported kernel analytics variables into VIRGO Queueing Driver
+- logs for this added in test_logs/
+- Makefile updated
+- Module.symvers from kernel_analytics has been merged with Queueing driver's Module.symvers
+- .ko, .o and build generated sources
+
 
 
 
