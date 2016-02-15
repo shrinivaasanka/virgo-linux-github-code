@@ -31,6 +31,7 @@ __attribute__((section("__versions"))) = {
 	{ 0xde40fc2b, __VMLINUX_SYMBOL_STR(kernel_listen) },
 	{ 0x91715312, __VMLINUX_SYMBOL_STR(sprintf) },
 	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
+	{ 0x69e59c53, __VMLINUX_SYMBOL_STR(virgo_kernel_analytics_conf) },
 	{ 0x9aab63c, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
 	{ 0xcd4572ea, __VMLINUX_SYMBOL_STR(vfs_read) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
@@ -57,7 +58,7 @@ __attribute__((section("__versions"))) = {
 static const char __module_depends[]
 __used
 __attribute__((section(".modinfo"))) =
-"depends=kingcobra_main_kernelspace";
+"depends=virgo_kernel_analytics,kingcobra_main_kernelspace";
 
 
-MODULE_INFO(srcversion, "BA1924EFD063474C5580AD6");
+MODULE_INFO(srcversion, "B59B7877CCCBA6E08C54A47");

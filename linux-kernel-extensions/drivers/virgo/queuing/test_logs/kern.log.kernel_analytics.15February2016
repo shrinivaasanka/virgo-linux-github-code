@@ -1,0 +1,36 @@
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  213.986051] print_buffer() byte: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  213.986054] print_buffer() byte: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  213.986056] print_buffer() byte: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  213.986058] print_buffer() byte: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  213.986060] end print_buffer():
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198806] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics1 = v1
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198813] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics2 = v2
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198816] virgoqueue_init(): exported kernel_analytics variable: kernel_analytics3 = v3
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198816]
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198824] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198827] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198830] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198832] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198835] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198838] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198841] virgoqueue_init(): exported kernel_analytics variable: (null) = (null)
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198845] virgo_queue_init(): use_workqueue=1
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198848] virgo_queue_init(): use_workqueue=1, virgo_kernel_wq=NULL, creating a kernel workqueue
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198946] virgoqueue_init(): doing init() of virgocloudexec kernel module
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198950] virgoqueue_init(): starting virgo cloudexec service kernel thread
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198952] virgoqueue_init(): invoking read_virgo_config()
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198962] virgoqueue_read_virgo_config(): virgo_cloud config file being read
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198969]  virgo_cloud config file string of comma separated IPs : 127.0.0.1,127.0.0.1
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198969]
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198973] bufdup = 127.0.0.1,127.0.0.1
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198973]
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198988] virgoqueue_init(): sock_create() returns error code: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.198995] virgoqueue_init(): kernel_bind() returns error code: 0
+Feb 15 17:59:29 shrinivaasanka-Inspiron-1545 kernel: [  214.199006] virgoqueue_init(): kernel_listen() returns error code: 0
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116458] usb_fill_bulk_urb(): urb->transfer_buffer = USBCN^A
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116464] begin print_buffer():
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116468] print_buffer() byte: 55
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116471] print_buffer() byte: 53
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116473] print_buffer() byte: 42
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116476] print_buffer() byte: 43
+Feb 15 17:59:31 shrinivaasanka-Inspiron-1545 kernel: [  216.116478] print_buffer() byte: 4e

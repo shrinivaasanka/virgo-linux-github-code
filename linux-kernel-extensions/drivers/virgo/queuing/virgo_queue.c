@@ -155,6 +155,13 @@ FPTR get_function_ptr_from_str(char* queueFunction)
 static int __init
 virgoqueue_init(void)
 {
+	int i=0;
+        for(i=0; i < 10; i++)
+        {
+                printk(KERN_INFO "virgoqueue_init(): exported kernel_analytics variable: %s = %s \n",virgo_kernel_analytics_conf[i].key,virgo_kernel_analytics_conf[i].value);
+        }
+
+
 	/* native queue initialization */
 	virgo_request_queue=kmalloc(VIRGO_QUEUE_SZ, GFP_KERNEL);
 
