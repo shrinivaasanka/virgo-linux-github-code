@@ -1046,6 +1046,15 @@ Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide impor
 - Module.symvers from kernel_analytics has been merged with Module.symvers in cpupooling
 - kern.log for this import added to cpupooling/virgocloudexec/test_logs/
 
+-----------------------------------------------------------------------------------------
+Commits as on 15 February 2016 - Kernel Analytics - VIRGO Linux Kernelwide imports
+-----------------------------------------------------------------------------------------
+- Imported kernel analytics variables into memory virtualization driver init() , exported from kernel_analytics driver
+- build shell script updated
+- logs added to test_logs/
+- Module.symvers from kernel_analytics has been merged with memory driver Module.symvers
+- Makefile updated
+
 
 
 
