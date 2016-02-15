@@ -179,7 +179,7 @@ struct file* file_stdout;
 int virgoqueue_client_thread(void* args);
 
 /*
-This boolean flag determines if VIRGO queue module should be a kernel service or just
+This boolean flag determines if VIRGO queue module should be a kernel service or just 
 exports push/pop functions for VIRGO cpupooling service which receives requests from
 virgo_clone() system call or telnet client. It is required due to a deadlock that occurs
 when the VIRGO cpupooling service does a push_request() but VIRGO queue waits in the
