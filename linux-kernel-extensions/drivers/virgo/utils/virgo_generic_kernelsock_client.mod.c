@@ -21,13 +21,16 @@ __attribute__((section("__versions"))) = {
 	{ 0xb855372e, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
 	{ 0xd0d8621b, __VMLINUX_SYMBOL_STR(strlen) },
 	{ 0x187aff44, __VMLINUX_SYMBOL_STR(sock_create_kern) },
+	{ 0xc499ae1e, __VMLINUX_SYMBOL_STR(kstrdup) },
 	{ 0x3031a6be, __VMLINUX_SYMBOL_STR(kernel_connect) },
 	{ 0x50eedeb8, __VMLINUX_SYMBOL_STR(printk) },
 	{ 0xb4390f9a, __VMLINUX_SYMBOL_STR(mcount) },
 	{ 0x952664c5, __VMLINUX_SYMBOL_STR(do_exit) },
+	{ 0xd05373d, __VMLINUX_SYMBOL_STR(__alloc_skb) },
 	{ 0xdb7305a1, __VMLINUX_SYMBOL_STR(__stack_chk_fail) },
 	{ 0xaccabc6a, __VMLINUX_SYMBOL_STR(in4_pton) },
 	{ 0x2fa31741, __VMLINUX_SYMBOL_STR(kernel_recvmsg) },
+	{ 0xfddf63c5, __VMLINUX_SYMBOL_STR(skb_put) },
 	{ 0xe914e41e, __VMLINUX_SYMBOL_STR(strcpy) },
 };
 
@@ -37,4 +40,4 @@ __attribute__((section(".modinfo"))) =
 "depends=";
 
 
-MODULE_INFO(srcversion, "DC8E9D4674FE94334FF7E1B");
+MODULE_INFO(srcversion, "8B993278390D3114A012006");

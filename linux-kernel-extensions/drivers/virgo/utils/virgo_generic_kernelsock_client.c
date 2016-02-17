@@ -1,30 +1,28 @@
 /***************************************************************************************
-VIRGO - a linux module extension with CPU and Memory pooling with cloud capabilities
-
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
----------------------------------------------------------------------------------------------------------
-Copyright (C):
-Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
-Ph: 9789346927, 9003082186, 9791165980
-Krishna iResearch Open Source Products Profiles:
-http://sourceforge.net/users/ka_shrinivaasan, https://www.openhub.net/accounts/ka_shrinivaasan
-Personal website(research): https://sites.google.com/site/kuja27/
-ZODIAC DATASOFT: https://github.com/shrinivaasanka/ZodiacDatasoft
-emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@live.com
----------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------
+#NEURONRAIN VIRGO - Cloud, Machine Learning and Queue augmented Linux Kernel Fork-off
+#This program is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License as published by
+#the Free Software Foundation, either version 3 of the License, or
+#(at your option) any later version.
+#This program is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#GNU General Public License for more details.
+#You should have received a copy of the GNU General Public License
+#along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#--------------------------------------------------------------------------------------------------------
+#Copyleft (Copyright+):
+#Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
+#Ph: 9791499106, 9003082186
+#Krishna iResearch Open Source Products Profiles:
+#http://sourceforge.net/users/ka_shrinivaasan,
+#https://github.com/shrinivaasanka,
+#https://www.openhub.net/accounts/ka_shrinivaasan
+#Personal website(research): https://sites.google.com/site/kuja27/
+#emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com,
+#kashrinivaasan@live.com
+#--------------------------------------------------------------------------------------------------------
 *****************************************************************************************/
 
 
@@ -34,6 +32,8 @@ emails: ka.shrinivaasan@gmail.com, shrinivas.kannan@gmail.com, kashrinivaasan@li
 #include <linux/string.h>
 #include <kstrtox.h>
 #include <linux/ctype.h>
+#include <linux/skbuff.h>
+#include <linux/netdevice.h>
 
 char *eventnet_kernel_service_host="127.0.0.1";
 
@@ -41,9 +41,32 @@ static int __init
 virgo_generic_kernelsock_client_init(void)
 {
 	printk(KERN_INFO "virgo_generic_kernelsock_client_init(): initialising virgo cloud test kernel space module \n");
+	virgo_eventnet_log("virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log() \n");
 	return 0;
 }
 EXPORT_SYMBOL(virgo_generic_kernelsock_client_init);
+
+void skbuff_kernel_socket_debug(struct socket* sock)
+{
+	int len=1000;
+	int header_len=300;
+	int user_data_len=500;
+	printk(KERN_INFO "in skbuff_kernel_socket_debug() \n");
+	sock->sk->sk_send_head=alloc_skb(len,GFP_KERNEL);
+	struct sk_buff *skb=sock->sk->sk_send_head;
+	skb_reserve(skb,header_len);
+	char *user_data=skb_put(skb,user_data_len);
+	memcpy(user_data,"skbuff_data_17February2016",user_data_len);
+	printk(KERN_INFO "iterating through the sk buffer queue \n");
+	while(skb)
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head : %x \n", skb);
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->head : %s \n", kstrdup(skb->head,GFP_KERNEL));
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head->data : %s \n", kstrdup(skb->data,GFP_KERNEL));
+		skb=skb->next;
+	}
+}
+EXPORT_SYMBOL(skbuff_kernel_socket_debug);
 
 void virgo_eventnet_log(char* logmsg)
 {
@@ -94,6 +117,8 @@ void virgo_eventnet_log(char* logmsg)
 
 	le32_to_cpus(buf);
 	printk(KERN_INFO "eventnet_log() : le32_to_cpus(buf): %s \n", buf);
+	printk(KERN_INFO "eventnet_log() : invoking skbuff utility debug function ... \n");
+	skbuff_kernel_socket_debug(sock);
 
 	/*
 	Mysteriously sock_release() causes kernel panic repeatedly. Hence commenting this

@@ -1,0 +1,32 @@
+Feb 17 11:07:28 shrinivaasanka-Inspiron-1545 kernel: [  346.593888] print_buffer() byte: 0
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  346.593890] end print_buffer():
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.919584] virgo_generic_kernelsock_client: module verification failed: signature and/or required key missing - tainting kernel
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920237] virgo_generic_kernelsock_client_init(): initialising virgo cloud test kernel space module
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920245] eventnet_log() : after in4_pton and htons, hostip=127.0.0.1, port=20000, sin.sin_addr.s_addr=100007f, sin.sin_port=204e
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920259] eventnet_log() : created client kernel socket
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920363] eventnet_log() : connected kernel client to virgo cloudexec EventNet kernel service
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920363]
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920374] eventnet_log() : sent len=-32; iov.iov_base=virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920374] , sent message: virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920374]
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920382] eventnet_log() : recv len=-22; received message buf: [virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920382] ]
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920390] eventnet_log() : received iov.iov_base: virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920390]
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920394] eventnet_log() : le32_to_cpus(buf): virgo_generic_kernelsock_client_init(): sample log message for virgo_eventnet_log()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920394]
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920398] eventnet_log() : invoking skbuff utility debug function ...
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920401] in skbuff_kernel_socket_debug()
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920404] iterating through the sk buffer queue
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920407] skbuff_kernel_socket_debug(): sock->sk->sk_send_head : f53b9480
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  347.920410] skbuff_kernel_socket_debug(): sock->sk->sk_send_head->head :
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640091] usb_fill_bulk_urb(): urb->transfer_buffer = USBC.^B
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640098] begin print_buffer():
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640101] print_buffer() byte: 55
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640104] print_buffer() byte: 53
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640107] print_buffer() byte: 42
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640109] print_buffer() byte: 43
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640111] print_buffer() byte: 2e
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640114] print_buffer() byte: 2
+Feb 17 11:07:30 shrinivaasanka-Inspiron-1545 kernel: [  348.640116] print_buffer() byte: 0
+
