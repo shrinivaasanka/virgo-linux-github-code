@@ -52,11 +52,15 @@ void skbuff_kernel_socket_debug(struct socket* sock)
 	int header_len=300;
 	int user_data_len=500;
 	printk(KERN_INFO "in skbuff_kernel_socket_debug() \n");
-	sock->sk->sk_send_head=alloc_skb(len,GFP_KERNEL);
+	if(!sock->sk->sk_send_head)
+	{
+		printk(KERN_INFO "skbuff_kernel_socket_debug(): sock->sk->sk_send_head is NULL, allocating new skb with alloc_skb() to it \n");
+		sock->sk->sk_send_head=alloc_skb(len,GFP_KERNEL);
+	}
 	struct sk_buff *skb=sock->sk->sk_send_head;
 	skb_reserve(skb,header_len);
 	char *user_data=skb_put(skb,user_data_len);
-	memcpy(user_data,"skbuff_data_17February2016",user_data_len);
+	memcpy(user_data,"skbuff_data_24February2016",user_data_len);
 	printk(KERN_INFO "iterating through the sk buffer queue \n");
 	while(skb)
 	{
