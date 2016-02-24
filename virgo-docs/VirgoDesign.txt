@@ -172,9 +172,9 @@ References for Machine Learning + Linux Kernel
 
 22. (FEATURE - ONGOING) Implementation of Distributed Systems primitives for VIRGO cloud viz., Logical Clocks, Termination Detection, Snapshots, Cache Coherency subsystem etc.,(as part of cloudsync driver module). Already a simple timestamp generation feature has been implemented for KingCobra requests with <ipaddress>:<localmachinetimestamp> format
 
-23. Alternative implementation of virgo_malloc() is:
+23. Alternative implementation of virgo_malloc() is (if it makes sense, because it is better to rely on virgo_malloc() for per machine memory management and wrap it around with a cloudwide VIRGO Unique ID based address lookup implementation of which is already in place):
 KERNELSPACE: to extend the implementation of SLAB allocator for kmalloc() which creates a kmem_cache(s) of similar sized objects and kmem_cache_alloc() allocates from these caches. Kmem_cache_create() function might have to be extended with a flag for cloud allocation (SLAB_CLOUD_ALLOC) and based on this flag kernel socket invocations to remote machines have to be made to allocate and obtain remote address and return.
-USERSPACE: Do the above for sbrk() and brk() implementation. 
+USERSPACE: sbrk() and brk() are no longer used internally in malloc() library routines. Instead mmap() has replaced it (http://web.eecs.utk.edu/courses/spring2012/cs360/360/notes/Malloc1/lecture.html, http://web.eecs.utk.edu/courses/spring2012/cs360/360/notes/Malloc1/diff.html).
 
 24.(FEATURE - ONGOING) Cleanup the code and remove unnecessary comments.
 
