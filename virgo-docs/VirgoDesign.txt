@@ -1101,6 +1101,22 @@ skbuff debug function in utils/ driver:
 (*) kern.log for this commit has been added testlogs/
 (*) Rebuilt kernel objects and sources
 
+--------------------------------------------------------------------------------
+Commits as on 29 February 2016
+--------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------
+Software Analytics - SATURN Program Analysis added to VIRGO Linux kernel drivers
+-------------------------------------------------------------------------------------
+- SATURN (saturn.stanford.edu) Program Analysis and Verification software has been
+integrated into VIRGO Kernel as a Verification+SoftwareAnalytics subsystem
+- A sample driver that can invoke an exported function has been added in drivers - saturn_program_analysis
+- Detailed document for an example null pointer analysis usecase has been created in virgo-docs/VIRGO_SATURN_Program_Analysis_Integration.txt
+- linux-kernel-extensions/drivers/virgo/saturn_program_analysis/saturn_program_analysis_trees/error.txt is the error report from SATURN
+- SATURN generated preproc and trees are in linux-kernel-extensions/drivers/virgo/saturn_program_analysis/preproc and
+linux-kernel-extensions/drivers/virgo/saturn_program_analysis/saturn_program_analysis_trees/
+
+
+
 
 
 
