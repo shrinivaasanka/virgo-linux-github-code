@@ -65,8 +65,9 @@ Following commandlines do memory, locking analysis and create Graphviz renderabl
  /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/smemory/paths.clp
  /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/locking/locking.clp
 
-Following does memory analysis and plots a DOT graph for dataflow:
+Following does CFG and memory analysis and plots a DOT graph for dataflow:
  /home/shrinivaasanka/clpa/bin/clpa /home/shrinivaasanka/clpa/analysis/virgosaturnmemory.clp
+ /home/shrinivaasanka/clpa/bin/clpa /home/shrinivaasanka/clpa/analysis/virgosaturncfg.clp
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------
