@@ -1,0 +1,10 @@
+digraph "cleanup_module_cfg" {
+  node [color="green",style="filled"];
+  "dg_lab_node{p_so{\"s#1\"},nexit}" [shape="box",color="cyan",label="nexit"];
+  "dg_lab_node{p_bi{\"#1\"},nentry}" [shape="box",color="cyan",label="nentry"];
+  "dg_cfg_node{p_bi{\"#1\"}}" [label="p_bi{\"#1\"}"];
+  "dg_cfg_node{p_so{\"s#1\"}}" [label="p_so{\"s#1\"}"];
+  "dg_cfg_node{p_bi{\"#1\"}}" -> "dg_cfg_node{p_so{\"s#1\"}}" [label="[ecall{\"#2\"}]"];
+  "dg_lab_node{p_bi{\"#1\"},nentry}" -> "dg_cfg_node{p_bi{\"#1\"}}";
+  "dg_lab_node{p_so{\"s#1\"},nexit}" -> "dg_cfg_node{p_so{\"s#1\"}}";
+}

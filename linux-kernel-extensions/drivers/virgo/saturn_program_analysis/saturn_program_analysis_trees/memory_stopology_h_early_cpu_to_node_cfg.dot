@@ -1,0 +1,10 @@
+digraph "_smedia_sshrinivaasanka_s0fc4d8a2-1c74-42b8-8099-9ef78d8c8ea2_shome_skashrinivaasan_slinux-4.1.5_sarch_sx86_sinclude_sasm_stopology.h:early_cpu_to_node_cfg" {
+  node [color="green",style="filled"];
+  "dg_memory_node{p_so{\"s#0\"}}" [label="p_so{\"s#0\"}"];
+  "dg_lab_node{p_so{\"s#0\"},nexit}" [shape="box",color="cyan",label="nexit"];
+  "dg_lab_node{p_bi{\"#1\"},nentry}" [shape="box",color="cyan",label="nentry"];
+  "dg_memory_node{p_bi{\"#1\"}}" [label="p_bi{\"#1\"}"];
+  "dg_lab_node{p_bi{\"#1\"},nentry}" -> "dg_memory_node{p_bi{\"#1\"}}";
+  "dg_lab_node{p_so{\"s#0\"},nexit}" -> "dg_memory_node{p_so{\"s#0\"}}";
+  "dg_memory_node{p_bi{\"#1\"}}" -> "dg_memory_node{p_so{\"s#0\"}}" [label="[eset{c_instr{\"s#0\",\"retset\"}}]"];
+}
