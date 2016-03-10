@@ -1116,6 +1116,13 @@ integrated into VIRGO Kernel as a Verification+SoftwareAnalytics subsystem
 - SATURN generated preproc and trees are in linux-kernel-extensions/drivers/virgo/saturn_program_analysis/preproc and
 linux-kernel-extensions/drivers/virgo/saturn_program_analysis/saturn_program_analysis_trees/
 
+--------------------------------------------------------------------------------
+Commits as on 10 March 2016
+--------------------------------------------------------------------------------
+- SATURN analysis databases (.db) for locking, memory and CFG analysis.
+- DOT and PNG files for locking, memory and CFG analysis.
+- new folder saturn_calypso_files/ has been added in saturn_program_analysis/ with new .clp files virgosaturncfg.clp and virgosaturnmemory.clp
+- SATURN alias analysis .db files
 
 
 
