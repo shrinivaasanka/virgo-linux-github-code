@@ -54,6 +54,21 @@ SATURN intercepts the linux kernel driver build and creates analysis tree direct
   $/home/shrinivaasanka/clpa/bin/clpa-extract ../saturn_program_analysis_trees/ virgo_saturn_program_analysis.ko 
   $/home/shrinivaasanka/clpa/bin/clpa --no-fixpoint --timeout 60 /home/shrinivaasanka/clpa/analysis/null/null.clp 
 
+Following commandlines do memory, locking analysis and create Graphviz renderable DOT files:
+ /home/shrinivaasanka/clpa/bin/clpa --no-fixpoint --timeout 60 /home/shrinivaasanka/clpa/analysis/memory/base01/run.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --timeout 60 /home/shrinivaasanka/clpa/analysis/memory/base02/run.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --list-stats
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/memory/base02/run.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --list-debug
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/memory/ptdot.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/smemory/memory.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/smemory/paths.clp
+ /home/shrinivaasanka/clpa/bin/clpa  --stats memory_deltas --stats sat_counts --timeout 60 /home/shrinivaasanka/clpa/analysis/locking/locking.clp
+
+Following does memory analysis and plots a DOT graph for dataflow:
+ /home/shrinivaasanka/clpa/bin/clpa /home/shrinivaasanka/clpa/analysis/virgosaturnmemory.clp
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------
 8. NULL pointer Error report from SATURN - from
 $VIRGO_LINUX_ROOT/linux-kernel-extensions/drivers/virgo/saturn_program_analysis/saturn_program_analysis_trees/error.txt
