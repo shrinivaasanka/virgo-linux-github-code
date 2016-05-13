@@ -132,6 +132,10 @@ Example scenario 2 without implementation:
 -----------------------------------------
 - A swivel security camera driver is remotely invoked via virgo_clone() in the VIRGO cloud.
 - The camera driver uses a machine learnt variable exported by kernel_analytics-and-AsFer to pan the camera by how much degrees.
+-----------------------------------------
+Example scenario 3 without implementation:
+-----------------------------------------
+- Automatic Driverless Automobiles - a VIRGO driver for a vehicle which learns kernel analytics variables (driving directions) set by kernel_analytics driver and AsFer Machine Learning
 
 ----------------------------------------------
 References for Machine Learning + Linux Kernel
