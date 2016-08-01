@@ -1159,6 +1159,23 @@ commits done for Boost::Python C++ interface. Switch clause has been added to se
 Initial Documentation for Smatch and Coccinelle kernel static analyzers executed on VIRGO Linux kernel - to be updated
 periodically with further analysis.
 
+-----------------------------------------------------------------------------------------------------------------------------
+(BUG - STABILITY ISSUES) Commits - 1 August 2016 - VIRGO Linux Stability Issues - Ongoing Random oops and panics investigation
+-----------------------------------------------------------------------------------------------------------------------------
+1. GFP_KERNEL has been replaced with GFP_ATOMIC flags in kmem allocations.
+2. NULL checks have been introduced in lot of places involving strcpy, strcat, strcmp etc., to circumvent
+buffer overflows.
+3. Though this has stabilized the driver to some extent, still there are OOPS in unrelated places deep
+with in kernel where paging datastructures are accessed - kmalloc somehow corrupts paging
+4. OOPS are debugged via gdb as:
+        4.1 gdb ./vmlinux /proc/kcore
+        or
+        4.2 gdb <loadable_kernel_module>.o
+   followed by
+        4.3 l *(address+offset in OOPS dump)
+5. kern.log(s) for the above have been committed in tar.gz format and have numerous OOPS occurred during repetitive telnet and syscall
+invocation(boost::python C++) invocations of virgo memory system calls.
+6. Paging related OOPS look like an offshoot of set_fs() encompassing the filp_open VFS calls.
 
 
 
