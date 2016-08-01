@@ -540,7 +540,7 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 	/*
 	printk(KERN_INFO "virgocloudexec_mempool_sendto(): clientsock: %u\n",clientsock);
 	*/
-	if(clientsock != NULL)
+	if(clientsock != NULL && virgo_mempool_ret != NULL)
 	{
 		/*strcpy(buffer,"virgo_cloudexec_mempool_sendto(): cloudclonethread executed for mempool_func(), sending message to virgo_malloc() remote syscall client\n");*/
 		/*iov.iov_base=(void*)buffer;*/	
@@ -591,6 +591,17 @@ int virgocloudexec_mempool_sendto(struct socket* clsock, void* virgo_mempool_ret
 		*/
 		sock_release(clientsock);
 		printk(KERN_INFO "virgocloudexec_mempool_sendto(): sock_release invoked on client socket \n");
+	}
+	else
+	{
+		if(clientsock == NULL)
+		{
+			printk(KERN_INFO "virgocloudexec_mempool_sendto(): clientsock is NULL \n");
+		}
+		else
+		{
+			printk(KERN_INFO "virgocloudexec_mempool_sendto(): virgo_mempool_ret is NULL \n");
+		}
 	}
 	return 0;
 

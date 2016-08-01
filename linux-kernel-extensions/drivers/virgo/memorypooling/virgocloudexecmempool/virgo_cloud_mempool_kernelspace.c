@@ -76,7 +76,7 @@ void* virgo_cloud_malloc_kernelspace(struct virgo_mempool_args* args)
 
 	int size=toInteger(vmargs->mempool_args[0]);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): size=%d\n",size);
-	void* ptr=kmalloc(size,GFP_KERNEL);
+	void* ptr=kmalloc(size,GFP_ATOMIC);
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): ptr=%p\n",ptr);
 	vmargs->ptr=(char*)ptr;
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:virgo_cloud_malloc_kernelspace(): setting ptr=%p in vmargs as an out arg\n",ptr);
@@ -92,8 +92,16 @@ void* virgo_cloud_get_kernelspace(struct virgo_mempool_args* args)
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): data at ptr parsed by toKernelAddress() = [%s]\n",ptr);
 	char virgodata_prefix[500];
 	strcpy(virgodata_prefix,"virgodata:");
-	char* data=kstrdup(strcat(virgodata_prefix,ptr),GFP_KERNEL);
-	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): address=%p, data=%s, data with added prefix=%s\n",ptr,ptr,data);
+	char* data;
+	if(ptr)
+	{
+		data=kstrdup(strcat(virgodata_prefix,ptr),GFP_ATOMIC);
+		printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c: virgo_cloud_get_kernelspace(): address=%p, data=%s, data with added prefix=%s\n",ptr,ptr,data);
+	}
+	else
+	{
+		printk(KERN_INFO "virgo_cloud_get_kernelspace(): toKernelAddress() returned NULL\n");
+	}
 	return data;
 }
 EXPORT_SYMBOL(virgo_cloud_get_kernelspace);
@@ -103,16 +111,16 @@ void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args)
 	printk(KERN_INFO "virgo_cloud_mempool_kernelspace.c:Executing virgo_cloud_mempool on cloud node, Invoking virgo_cloud_set_kernelspace(), Writing to file opened by Kernel, Kernel Space to User space communication works\n");
 	struct virgo_mempool_args* vmargs=args;
 	printk(KERN_INFO "virgo_cloud_set_kernelspace(): vmargs->mempool_cmd=%s, vmargs->mempool_args[0] = %s\n, vmargs->mempool_args[1]=%s \n",vmargs->mempool_cmd, vmargs->mempool_args[0],vmargs->mempool_args[1]);
-	char* ptr=toKernelAddress(vmargs->mempool_args[0]);
+	char* address=toKernelAddress(vmargs->mempool_args[0]);
 	/***********************toKernelAddress()******************************************
 	unsigned long ull;
-	char* mempool_args_dup=kstrdup(vmargs->mempool_args[0],GFP_KERNEL);
-	mempool_args_dup=kstrdup(strcat(mempool_args_dup,"\n\0"),GFP_KERNEL);
+	char* mempool_args_dup=kstrdup(vmargs->mempool_args[0],GFP_ATOMIC);
+	mempool_args_dup=kstrdup(strcat(mempool_args_dup,"\n\0"),GFP_ATOMIC);
         kstrtoul(mempool_args_dup,0,&ull);
         void* voidptr_ull=(void*)ull;
         printk(KERN_INFO "virgo_cloud_set_kernelspace(): kstrtoull: ull=%u, (void*)ull=%p,vmargs->mempool_args[0]=[%s],mempool_args_dup=[%s]", ull, voidptr_ull, vmargs->mempool_args[0],mempool_args_dup);
 	*********************************************************************************/
-	printk(KERN_INFO "virgo_cloud_set_kernelspace(): ptr set by toKernelAddress=%p\n",ptr);
+	printk(KERN_INFO "virgo_cloud_set_kernelspace(): address set by toKernelAddress=%p\n",address);
 	
 	/*
 	To differentiate address from data a special prefix virgodata: is prepended to data retrieved
@@ -121,8 +129,23 @@ void* virgo_cloud_set_kernelspace(struct virgo_mempool_args* args)
 	distinguish address and data.
 	- Ka.Shrinivaasan 7November2013
 	*/
-	strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_KERNEL));
-	printk(KERN_INFO "virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data after set=%s\n",ptr,vmargs->mempool_args[1], ptr);
+	char* ptr=address;
+	if(ptr && vmargs)
+	{
+		strcpy(ptr,kstrdup(vmargs->mempool_args[1],GFP_ATOMIC));
+		printk(KERN_INFO "virgo_cloud_set_kernelspace(): address=%p, data to be set=%s, data pointed to after set=%s\n",address,vmargs->mempool_args[1], ptr);
+	}
+	else
+	{
+		if(!ptr)
+		{
+			printk(KERN_INFO "virgo_cloud_set_kernelspace(): toKernelAddress() returned NULL\n");
+		}
+		else
+		{
+			printk(KERN_INFO "virgo_cloud_set_kernelspace(): vmargs is NULL\n");
+		}
+	}
 	return ptr;
 }
 EXPORT_SYMBOL(virgo_cloud_set_kernelspace);
@@ -149,8 +172,8 @@ inline char* toKernelAddress(const char* strAddress)
 	char *ptr=NULL;
 
 	/*
-	char* strAddress1=kmalloc(50,GFP_KERNEL);
-	char* strAddress2=kmalloc(50,GFP_KERNEL);
+	char* strAddress1=kmalloc(50,GFP_ATOMIC);
+	char* strAddress2=kmalloc(50,GFP_ATOMIC);
 	memcpy(strAddress1,strAddress,50);
 	memcpy(strAddress2,strAddress,50);
 	sscanf(strAddress1,"%p",(void**)&ptr);	

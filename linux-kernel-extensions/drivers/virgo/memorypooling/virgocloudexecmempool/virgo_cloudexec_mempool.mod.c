@@ -62,4 +62,4 @@ __attribute__((section(".modinfo"))) =
 "depends=virgo_cloud_mempool_kernelspace,virgo_kernel_analytics";
 
 
-MODULE_INFO(srcversion, "2CD655873C9D37CA90E4AD8");
+MODULE_INFO(srcversion, "3706C4EA3607E4205018381");
