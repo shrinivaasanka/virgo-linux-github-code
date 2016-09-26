@@ -1180,6 +1180,11 @@ with in kernel where paging datastructures are accessed - kmalloc somehow corrup
 invocation(boost::python C++) invocations of virgo memory system calls.
 6. Paging related OOPS look like an offshoot of set_fs() encompassing the filp_open VFS calls.
 
+------------------------------------------------------------------------------------------------
+(BUG-STABILITY ISSUES) Commits - 26 September 2016 - Ongoing Random Panic investigation
+------------------------------------------------------------------------------------------------
+Further analysis on direct VIRGO memory cache primitives telnet invocation - problems are similar
+to Boost::Python AsFer VIRGO system calls invocations.
 
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
