@@ -1186,6 +1186,11 @@ invocation(boost::python C++) invocations of virgo memory system calls.
 Further analysis on direct VIRGO memory cache primitives telnet invocation - problems are similar
 to Boost::Python AsFer VIRGO system calls invocations.
 
+------------------------------------------------------------------------------------------------
+(BUG-STABILITY ISSUES) Commits - 27 September 2016 - Ongoing Random Panic investigation
+------------------------------------------------------------------------------------------------
+Analysis of VIRGO memory cache primitives reveal more inconsistencies in cacheline flushes between CPU and GPU.
+
 
 Srinivasan Kannan (alias) Ka.Shrinivaasan (alias) Shrinivas Kannan
 http://sites.google.com/site/kuja27
