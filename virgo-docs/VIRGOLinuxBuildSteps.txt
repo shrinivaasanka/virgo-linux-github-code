@@ -1,7 +1,20 @@
 VIRGO Linux Build Steps
 ------------------------
-1. Download and build 3.15.5 kernel from www.kernel.org mainline (build commandlines as in buildscript.sh)
+1. Download and build 4.1.5 kernel from www.kernel.org mainline (build commandlines as in buildscript.sh)
 2. Overlay the virgo-linux source tree (from linux-kernel-extensions subtree) on linux kernel src root.
 3. Invoke the driver build scripts in each driver folder to build with path updates.
 4. For USBmd and KingCobra drivers also above steps are sufficient.
 5. Test cases in virgo_clone, virgo_malloc and virgo_filesystem can be invoked for syscall paths and for telnet path the ports listed in ModuleListenPorts.txt can be used.
+------------------------------------------------------------------------------------------------------------------------
+6. Overlays required for 4.1.5 linux kernel - documented in github commit diffs of 12 August 2015 :
+	https://github.com/shrinivaasanka/virgo-linux-github-code/commit/6916585c04e4df51ca75384aacee18fa9c13de10
+	https://github.com/shrinivaasanka/virgo-linux-github-code/commit/6916585c04e4df51ca75384aacee18fa9c13de10
+
+*) buildscript_4.1.5.sh (build script for 4.1.5)
+*) linux-kernel-extensions/Makefile
+*) linux-kernel-extensions/arch/x86/syscalls/Makefile
+*) linux-kernel-extensions/arch/x86/syscalls/syscall_32.tbl
+*) linux-kernel-extensions/drivers/Makefile
+*) linux-kernel-extensions/include/linux/syscalls.h
+
+Above minimum changes were enough to build an overlay-ed Linux Kernel with VIRGO codebase
